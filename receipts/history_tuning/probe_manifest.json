@@ -1,0 +1,108 @@
+{
+  "schema": "fusion.drive/1",
+  "data_origin": "software_rendered_command",
+  "physical_readiness": false,
+  "hardware_execution_enabled": false,
+  "hardware_commands_issued": 0,
+  "output_wav": "results/history_probe.wav",
+  "sha256": "7f04471f478cda4c5fe7325056fdcb4501d5a05d7480563b09f84414b7535465",
+  "source_score_sha256": "324d3a9298de3f7380be3aa92402c9eba2c865893ecedc619dcc517f218dfc82",
+  "source_event_count": 4,
+  "sample_rate_Hz": 48000,
+  "channels": 1,
+  "pcm_bits": 16,
+  "sample_frames": 96000,
+  "duration_s": 2.0,
+  "declared_peak_full_scale": 0.05,
+  "actual_peak_full_scale": 0.0499893185216834,
+  "normalization_gain": 0.012585576696198532,
+  "normalization_gain_convention": "gain against the unscaled source-amplitude sum",
+  "mixing_amplitude_divisor": 1.0,
+  "scaled_mix_peak_before_normalization": 3.972801660737762,
+  "clipping_count": 0,
+  "command_units": "normalized digital amplitude; not force, displacement or pressure",
+  "rendering": "sinusoidal source events, raised-cosine fades, one global normalization, one shared mono exciter input",
+  "phase_convention": "zero oscillator phase at each declared event start",
+  "source_audio_effects_rendered": false,
+  "source_pan_applied": false,
+  "source_score_metadata": {
+    "schema": "fusion.score/1",
+    "engine_id": "dyletsky-gen2-43",
+    "strategy": "hex_nat",
+    "experiment_id": "clay-history-tuning-v1"
+  },
+  "events": [
+    {
+      "event_id": "probe-1",
+      "spelling": "C",
+      "octave": 4,
+      "voice": 1,
+      "target_Hz": 261.626,
+      "start_s": 0,
+      "duration_s": 2.0,
+      "source_amplitude": 1
+    },
+    {
+      "event_id": "probe-2",
+      "spelling": "D",
+      "octave": 4,
+      "voice": 2,
+      "target_Hz": 292.39573306577114,
+      "start_s": 0,
+      "duration_s": 2.0,
+      "source_amplitude": 1
+    },
+    {
+      "event_id": "probe-3",
+      "spelling": "E",
+      "octave": 4,
+      "voice": 3,
+      "target_Hz": 326.759563456652,
+      "start_s": 0,
+      "duration_s": 2.0,
+      "source_amplitude": 1
+    },
+    {
+      "event_id": "probe-4",
+      "spelling": "G",
+      "octave": 4,
+      "voice": 4,
+      "target_Hz": 391.1253463782126,
+      "start_s": 0,
+      "duration_s": 2.0,
+      "source_amplitude": 1
+    }
+  ],
+  "event_rendering": [
+    {
+      "source_event_index": 0,
+      "first_sample_frame": 0,
+      "end_sample_frame_exclusive": 96000,
+      "relative_source_amplitude": 1.0,
+      "fade_duration_s": 0.005
+    },
+    {
+      "source_event_index": 1,
+      "first_sample_frame": 0,
+      "end_sample_frame_exclusive": 96000,
+      "relative_source_amplitude": 1.0,
+      "fade_duration_s": 0.005
+    },
+    {
+      "source_event_index": 2,
+      "first_sample_frame": 0,
+      "end_sample_frame_exclusive": 96000,
+      "relative_source_amplitude": 1.0,
+      "fade_duration_s": 0.005
+    },
+    {
+      "source_event_index": 3,
+      "first_sample_frame": 0,
+      "end_sample_frame_exclusive": 96000,
+      "relative_source_amplitude": 1.0,
+      "fade_duration_s": 0.005
+    }
+  ],
+  "experiment_core_sha256": "e456923ee60b77130b9e7affba6cf75ed11b3c21911dfa4c924a472df9edd288",
+  "intended_start_s_relative_to_write_end": "2"
+}

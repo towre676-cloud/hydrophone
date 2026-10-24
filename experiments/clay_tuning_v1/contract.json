@@ -1,0 +1,232 @@
+{
+  "schema": "fusion.experiment/1",
+  "experiment_id": "clay-history-tuning-v1",
+  "status": "CORE_SPECIFICATION_REQUIRES_HARDWARE_BINDING_AND_REGISTRATION",
+  "task": {
+    "string": "E4",
+    "target_Hz": "326.759563456652",
+    "engine": "dyletsky-gen2-43",
+    "strategy": "hex_nat",
+    "target_source": "design/fusion_design/Fusion_Physical_Integration_Handoff_20261024.json",
+    "actions": {
+      "hold": "0",
+      "raise5": "5"
+    },
+    "success_abs_cents": "2",
+    "maximum_qualified_pitch_error_bound_cents": "1",
+    "action_achievement_tolerance_cents": "0.5",
+    "missing_outcome_policy": "OPERATIONAL_FAILURE_NOT_EXCLUDED",
+    "primary_endpoint": "failure to remain within the pitch tolerance in an independent post-action window",
+    "secondary_endpoint": "clipped squared error divided by 400"
+  },
+  "action_ids": [
+    "hold",
+    "raise5"
+  ],
+  "histories": {
+    "H0": {
+      "cycles": 1,
+      "stroke_fraction": "1/2",
+      "ramp_up_s": "1",
+      "hold_s": "1",
+      "ramp_down_s": "1",
+      "rest_after_cycle_s": "1",
+      "end_rest_s": "1",
+      "pad_before_s": "16"
+    },
+    "H1": {
+      "cycles": 5,
+      "stroke_fraction": "1",
+      "ramp_up_s": "1",
+      "hold_s": "1",
+      "ramp_down_s": "1",
+      "rest_after_cycle_s": "1",
+      "end_rest_s": "1",
+      "pad_before_s": "0"
+    }
+  },
+  "history_boundary": "Stroke and force limits come from independent mechanical qualification within M03 provisional ceilings of 0.25 mm and 5 N. Equal 21 second schedules end at time 0; each trial uses a freshly prepared replicate. A reset must not erase or substitute the target history.",
+  "conditions": [
+    "connected_clay",
+    "rod_disconnected_clay",
+    "reference_cartridge"
+  ],
+  "conditions_boundary": "Rod removal changes mechanical loading; the dry condition is a pathway diagnostic. The reference cartridge requires separately declared mass/stiffness matching. Neither control alone proves causality.",
+  "timing_s_relative_to_write_end": {
+    "slow_feature_start": "1",
+    "slow_feature_end": "2",
+    "dyletsky_probe_start": "2",
+    "dyletsky_probe_end": "4",
+    "decision_deadline": "5",
+    "action_start": "5",
+    "action_end": "17",
+    "outcome_start": "18",
+    "outcome_end": "20",
+    "pitch_check_start": "0",
+    "pitch_check_end": "1"
+  },
+  "excitation": {
+    "sample_rate_Hz": 48000,
+    "duration_s": "2",
+    "normalized_pcm_peak": "0.05",
+    "frequencies_Hz": [
+      "261.626",
+      "292.39573306577114",
+      "326.759563456652",
+      "391.1253463782126"
+    ],
+    "phase_rad": [
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "attack_release_s": "0.005",
+    "qualification": "PCM amplitude is not calibrated mechanical force. Bind renderer, waveform hash, drive transfer and qualified amplitude before physical registration.",
+    "reduced_command": "Separate hash-bound no-Dyletsky-probe command, qualified for the reduced acquisition protocol. Observed drive is retained to check actual omission; the full probe command must not be substituted."
+  },
+  "policy_arms": [
+    "constant",
+    "memoryless",
+    "digital_log",
+    "digital_full",
+    "fusion_full",
+    "fusion_reduced"
+  ],
+  "feature_sets": {
+    "memoryless": [
+      "pre_pitch_cents",
+      "temperature_C",
+      "displacement_m",
+      "condition_code"
+    ],
+    "digital_log": [
+      "pre_pitch_cents",
+      "temperature_C",
+      "displacement_m",
+      "condition_code",
+      "write_code"
+    ],
+    "digital_full": [
+      "pre_pitch_cents",
+      "temperature_C",
+      "displacement_m",
+      "condition_code",
+      "write_code",
+      "slow_force_N",
+      "relaxation_N",
+      "bridge_feature",
+      "water_feature"
+    ]
+  },
+  "fusion_reduced_features": [
+    "pre_pitch_cents",
+    "temperature_C",
+    "displacement_m",
+    "condition_code",
+    "write_code",
+    "slow_force_N",
+    "relaxation_N"
+  ],
+  "policy_domain": {
+    "max_abs_scaled_feature": "12"
+  },
+  "policy_definition": "Development-only fixed-ridge action-wise quadratic regressions. Fusion_full deliberately shares the same predictor as digital_full; it claims no superior computation. Fusion_reduced is an empirical prospective protocol-subset comparator, not an automatically valid physical certificate.",
+  "protocols": {
+    "pitch_check": [
+      "pre_pitch_cents"
+    ],
+    "slow_hold": [
+      "temperature_C",
+      "displacement_m",
+      "slow_force_N",
+      "relaxation_N"
+    ],
+    "dyletsky_probe": [
+      "bridge_feature",
+      "water_feature"
+    ]
+  },
+  "full_protocols": [
+    "pitch_check",
+    "slow_hold",
+    "dyletsky_probe"
+  ],
+  "reduced_protocols": [
+    "pitch_check",
+    "slow_hold"
+  ],
+  "cost_components_s": [
+    "preparation_s",
+    "reset_s",
+    "calibration_share_s",
+    "acquisition_s",
+    "waiting_s",
+    "compute_s",
+    "retune_s",
+    "verification_s"
+  ],
+  "cost_accounting": "Disjoint elapsed-time components. Preparation is 21 s and postwrite components total 20 s. Reset and calibration shares are matched within each condition/history/block. This fixed-epoch v1 cannot demonstrate wall-clock savings merely by omitting a probe and waiting.",
+  "confirmation": {
+    "planned_blocks": 64,
+    "randomization_seed": 20261024,
+    "unit": "connected components of blocks sharing a cartridge or acquisition day",
+    "fixed_horizon": true,
+    "optional_stopping": false,
+    "development_confirmation_disjoint_cartridges_and_days": true,
+    "sampling_assumption": "Independent confirmation units sampled from a common target population; exact binomial guards additionally require a common event probability. Neither fresh labels nor distinct days authenticate these assumptions.",
+    "required_cells_per_block": "one freshly prepared episode per condition, write history and policy arm; 36 episodes",
+    "note": "Repeated windows are not independent samples. A pilot with fewer units is descriptive and cannot pass confirmation."
+  },
+  "statistics": {
+    "family_alpha": "0.05",
+    "comparisons": 6,
+    "history_action_gate": "In a fixed representative block per independent unit, constant-policy H0/H1 outcomes must be definitely discordant, Fusion-full must apply different actions, and both Fusion outcomes must pass. Under no history effect and conditionally independent fresh preparations, event probability is at most1/2; use exact binomial upper tail.",
+    "minimum_connected_improvement": "0.10",
+    "maximum_reference_gain_probability": "0.10",
+    "reduced_noninferiority_margin": "0.10",
+    "minimum_normalized_total_cost_saving": "0.10",
+    "method": "conservative independent-block bounded-difference Hoeffding tests; exact binomial bound for any-worsening block noninferiority"
+  },
+  "hardware_binding_required": [
+    "calibration_id",
+    "pitch_bound_validation_id",
+    "synchronization_validation_id",
+    "write_stroke_m",
+    "force_limit_N",
+    "drive_transfer_validation_id",
+    "raw_feature_extractor_revision",
+    "rod_reference_matching_id",
+    "action_qualification_id",
+    "clock_error_bound_s",
+    "drive_waveform_sha256",
+    "reduced_drive_waveform_sha256",
+    "dynamic_read_validation_id",
+    "pitch_probe_qualification_id"
+  ],
+  "verdict_boundary": "A physical finding is conditional on valid raw records, bounds, randomization, preparation exchangeability and qualified task coupling. Synthetic demonstrations never become physical evidence.",
+  "mechanical_qualification": {
+    "maximum_write_stroke_m": "0.00025",
+    "maximum_write_force_N": "5",
+    "maximum_dynamic_reader_motion_m": "0.00001",
+    "source": "docs/handoffs/Physical_Build_to_Review_Hidden_Math_20261024.md",
+    "boundary": "Provisional commissioning ceilings do not release combined operation. Independent writer and dynamic diaphragm motion qualification are required; PCM amplitude is not displacement."
+  },
+  "pitch_readout": {
+    "pre_action": "Identical independently qualified E4 pluck at write end; estimate free-decay pitch in 0.10\u20131.00 s. Include this read disturbance in every policy arm and record its actual timing.",
+    "outcome": "Identical qualified E4 pluck at 18 s; independently estimate pitch in 18.10\u201320.00 s. No re-use of pre-action pitch as outcome.",
+    "boundary": "A driven fixed-frequency sinusoid is not a measurement of natural string pitch. The pitch validation must cover mixed resonances, finite-window/nonstationary error, the calibrated ADC timebase and read disturbance. If the stated bound cannot be qualified, return unresolved pitch."
+  },
+  "feature_definitions": {
+    "pre_pitch_cents": "1200*log2(qualified E4 free-decay pitch / target_Hz), from the common 0.10\u20131.00 s pitch readout.",
+    "temperature_C": "Qualified room sensor mean during 1\u20132 s. Record water temperature and geometry as setup covariates.",
+    "displacement_m": "Qualified writer displacement mean during 1\u20132 s, at the declared reference zero.",
+    "condition_code": "connected_clay=0, rod_disconnected_clay=1, reference_cartridge=2.",
+    "write_code": "H0=0, H1=1, from the assigned preparation log.",
+    "slow_force_N": "Qualified force mean over 1.8\u20132.0 s.",
+    "relaxation_N": "Force mean over 1.0\u20131.2 s minus mean over 1.8\u20132.0 s. This is a force-memory feature, not a modulus.",
+    "bridge_feature": "Magnitude of joint multitone E4 bridge-channel coefficient divided by E4 observed electrical loopback coefficient over 2.1\u20133.9 s, at fixed registered gains. This is a digital channel ratio unless separately converted.",
+    "water_feature": "Magnitude of joint multitone E4 hydrophone-channel coefficient divided by E4 observed electrical loopback coefficient over 2.1\u20133.9 s, at fixed registered gains. This is not pressure per mechanical force.",
+    "validation": "Bind an extractor revision implementing these windows, clock/filter corrections and denominator/read-quality rejection. These definitions do not supply a validated physical uncertainty bound."
+  }
+}

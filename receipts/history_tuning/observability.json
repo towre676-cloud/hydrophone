@@ -1,0 +1,33 @@
+{
+  "schema": "fusion.action-observability-witnesses/1",
+  "evidence": "EXACT_DECLARED_MODELS_ONLY",
+  "force_distinguishable_memories_N": [
+    "21/50",
+    "9/50"
+  ],
+  "initial_memory_only_SLS": "fixed poles and baseline-subtracted incremental response are independent of initial memory; raw transients may retain it",
+  "observable_task_delta_but_same_unconstrained_optimum": {
+    "weighted_task_delta": [
+      "2",
+      "-1"
+    ],
+    "action_direction": [
+      "1",
+      "2"
+    ],
+    "forcing": [
+      "0"
+    ]
+  },
+  "action_relevant_task_delta": {
+    "weighted_task_delta": [
+      "1",
+      "1"
+    ],
+    "forcing": [
+      "3"
+    ]
+  },
+  "positive_pitch_coupling": "MUST_BE_IDENTIFIED; not supplied by the SLS equation or a history label",
+  "physical_readiness": false
+}

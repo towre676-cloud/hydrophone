@@ -22,6 +22,9 @@ def main():
     run([sys.executable,'-m','unittest','discover','-s','hardware/electronics','-p','test_t7_capture.py','-v'])
     with tempfile.TemporaryDirectory(prefix='hydrophone-replay-') as tmp:
         base=Path(tmp)
+        run([sys.executable,'-m','evaluation','demo','--output-dir',base/'evaluation'])
+        run([sys.executable,'-m','evaluation','probe','--wav',base/'history_probe.wav','--output',base/'history_probe.json'])
+        run([sys.executable,'-m','evaluation','observability','--output',base/'history_observability.json'])
         run([sys.executable,'-m','instrument','demo','--output-dir',base/'raw_demo'])
         run([sys.executable,'-m','instrument','bench-demo','--output-dir',base/'bench_demo'])
         mechanics=base/'mechanics';shutil.copytree(ROOT/'hardware/mechanics',mechanics)

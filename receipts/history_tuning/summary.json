@@ -1,0 +1,30 @@
+{
+  "coupled": {
+    "status": "FIXED_HORIZON_EVALUATED",
+    "material_information": "USEFUL_WITHIN_DECLARED_CONFIRMATION_DESIGN",
+    "cost_reduction": "NOT_DEMONSTRATED",
+    "physical_claim": false,
+    "episodes": 2304
+  },
+  "no_task_coupling": {
+    "status": "FIXED_HORIZON_EVALUATED",
+    "material_information": "NOT_DEMONSTRATED",
+    "cost_reduction": "NOT_DEMONSTRATED",
+    "physical_claim": false,
+    "episodes": 2304
+  },
+  "unobservable": {
+    "status": "FIXED_HORIZON_EVALUATED",
+    "material_information": "NOT_DEMONSTRATED",
+    "cost_reduction": "NOT_DEMONSTRATED",
+    "physical_claim": false,
+    "episodes": 2304
+  },
+  "observable_nuisance": {
+    "status": "FIXED_HORIZON_EVALUATED",
+    "material_information": "NOT_DEMONSTRATED",
+    "cost_reduction": "NOT_DEMONSTRATED",
+    "physical_claim": false,
+    "episodes": 2304
+  }
+}

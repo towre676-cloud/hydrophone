@@ -1,0 +1,75 @@
+{
+  "schema": "fusion.history-tuning-verification/1",
+  "date_utc": "2026-10-24",
+  "status": "SOFTWARE_VERIFICATION_PASSED",
+  "integration_parent_commit": "4ed13aacc6c575a3e97b37949a78ec39e4451e6e",
+  "experiment_core_sha256": "e456923ee60b77130b9e7affba6cf75ed11b3c21911dfa4c924a472df9edd288",
+  "implementation_sha256": {
+    "evaluation/protocol.py": "b78d25091c1862b1d10e747e23d91e7e4e07730fef0d9953a928c2a4bdf051b8",
+    "evaluation/policies.py": "55efac79b8d2183ce115fe827dccdc78674c721b6b983efd537c2c7b425b02cf",
+    "evaluation/evaluate.py": "98e0780cf9ff54a4147aeda48ecab150e13bb7115001f89584e4c8399f232987",
+    "evaluation/statistics.py": "467a3827a1cb43307ed58ccf25f4ee081000b265596659a06e6831d6091ffbeb",
+    "evaluation/render.py": "c60879ca3bce48563863dce092415052391a18bbcf9fbae6b8cf5f6f885658fe",
+    "computing/memory.py": "56de31bcc55dfd841c27dff67022d6b2c88b948b8f2eee400ffec8f503afe3f8",
+    "computing/acquisition.py": "b02afb6609721e44038da3337af07ee9ca9dd1cb6816f4aa03510f5f732d3a38",
+    "computing/cli.py": "5772848b67e8cf09380db7232222d35961ef883f679bfdf9b454637baf6c9961",
+    "instrument/drive.py": "819f2e30ee6db90d5c76ef2256f4c7a679107bd48fd30c6eaec8387da74c22f5"
+  },
+  "command": "python verify_all.py",
+  "tests": {
+    "repository": 143,
+    "calibration_SI_conversion": 8,
+    "T7_capture_mocks": 10,
+    "total": 161
+  },
+  "imported_design_hashes_checked": 49,
+  "mechanical_generated_file_replays": 5,
+  "openscad_syntax_checked": true,
+  "optional_node_parity_replayed": false,
+  "optional_numerical_replayed": false,
+  "synthetic_cases": {
+    "coupled": {
+      "status": "FIXED_HORIZON_EVALUATED",
+      "material_information": "USEFUL_WITHIN_DECLARED_CONFIRMATION_DESIGN",
+      "cost_reduction": "NOT_DEMONSTRATED",
+      "physical_claim": false,
+      "episodes": 2304
+    },
+    "no_task_coupling": {
+      "status": "FIXED_HORIZON_EVALUATED",
+      "material_information": "NOT_DEMONSTRATED",
+      "cost_reduction": "NOT_DEMONSTRATED",
+      "physical_claim": false,
+      "episodes": 2304
+    },
+    "unobservable": {
+      "status": "FIXED_HORIZON_EVALUATED",
+      "material_information": "NOT_DEMONSTRATED",
+      "cost_reduction": "NOT_DEMONSTRATED",
+      "physical_claim": false,
+      "episodes": 2304
+    },
+    "observable_nuisance": {
+      "status": "FIXED_HORIZON_EVALUATED",
+      "material_information": "NOT_DEMONSTRATED",
+      "cost_reduction": "NOT_DEMONSTRATED",
+      "physical_claim": false,
+      "episodes": 2304
+    }
+  },
+  "probe": {
+    "sha256": "7f04471f478cda4c5fe7325056fdcb4501d5a05d7480563b09f84414b7535465",
+    "frames": 96000,
+    "sample_rate_Hz": 48000,
+    "duration_s": 2.0,
+    "hardware_commands_issued": 0,
+    "reproduce": "python -m evaluation probe --wav results/history_probe.wav --output results/history_probe.json"
+  },
+  "physical_episodes_acquired": 0,
+  "hardware_commands_issued": 0,
+  "hardware_binding_complete": false,
+  "confirmation_registration_created_for_physical_data": false,
+  "material_utility_physically_demonstrated": false,
+  "measurement_cost_reduction_demonstrated": false,
+  "limitations": "Synthetic fixtures validate evaluator logic only. Raw bytes and declared bounds do not authenticate calibration, origin, sampling or causal preparation."
+}

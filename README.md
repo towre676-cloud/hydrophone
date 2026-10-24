@@ -37,6 +37,18 @@ python -m instrument render results/proxy_music.json --score-key score --wav res
 
 Canonical `fusion.run/1` raw records use the shared auditor and can enter the new signal analysis with an explicit tone/window configuration. The compact standalone demo uses `hydrophone.signal-run/1`. Score timing/amplitude aliases are reconciled explicitly; contradictory values reject. The [integration notes](docs/INTEGRATION.md) explain these boundaries.
 
+## Clay-history tuning experiment
+
+The shared [experiment core and run instructions](experiments/clay_tuning_v1/README.md) fix one E4 decision: HOLD or retune upward by 5 cents, then score an independent future pitch window. The new `evaluation` package freezes development-only policies and a randomized confirmation schedule, enforces single-action episode records, separates measurement and sampling uncertainty, and compares memoryless, preparation-log and same-measurement digital baselines. It reports useful information and measurement cost separately. The [mathematical limits](docs/HISTORY_TUNING_MATH.md) include the linear-SLS observability null and a history-linked action test.
+
+```bash
+python -m evaluation demo --output-dir results/evaluation
+python -m evaluation probe --wav results/history_probe.wav --output results/history_probe.json
+python -m evaluation observability --output results/history_observability.json
+```
+
+The positive fixture stipulates useful material-to-pitch coupling; three null fixtures must fail. All are synthetic. A qualified [hardware binding](experiments/clay_tuning_v1/hardware_binding_template.json), actual calibration/readout evidence and registration before confirmation remain necessary. The [return handoff to the physical session](docs/handoffs/Review_Hidden_Math_to_Physical_Build_20261024.md) aligns this core with M03, including its provisional motion/force ceilings and separate full/reduced command bindings. No physical utility or total-time saving has been demonstrated.
+
 ## Dyletsky and shared Fusion decisions
 
 Both recovered engines are executable and preserved separately: v6 has 37 interval rows and Gen2(3) has 43. Their spelling rules, bases, target cents and style weights differ. All thirteen v6 and eight Gen2 static strategies were checked against independent exact rational solutions and augmented least squares. Seventeen pitch labels and eight software voices feed one common exciter input; the four physical strings remain manually tuned. Source musical energy is not mechanical energy in joules.

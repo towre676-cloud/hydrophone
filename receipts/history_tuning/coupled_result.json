@@ -1,0 +1,307 @@
+{
+  "schema": "fusion.experiment-result/1",
+  "status": "FIXED_HORIZON_EVALUATED",
+  "registration_sha256": "e4d533c244f72479a2ba5f3c1647e42a34673e63c5eb4ef2c1c13652158a9197",
+  "confirmation_sha256": "f72c7042f9106607d67bdd4150c635eca0efc99d48a37020d2c0847f426e64b5",
+  "data_origin": "synthetic",
+  "episodes": 2304,
+  "raw_blocks": 64,
+  "independent_units_after_shared_day_or_cartridge_merge": 64,
+  "history_linked_action_success_units": 64,
+  "material_information": "USEFUL_WITHIN_DECLARED_CONFIRMATION_DESIGN",
+  "cost_reduction": "NOT_DEMONSTRATED",
+  "physical_claim": false,
+  "conditional_physical_inference": false,
+  "raw_sources_byte_verified": false,
+  "origin_authentication": "DECLARED_ORIGIN_AND_DIGESTS_ONLY",
+  "digital_comparison": "SAME_FULL_INFORMATION_AND_IDENTICAL_PREDICTOR; NO_DIGITAL_COMPUTATIONAL_ADVANTAGE_CLAIM",
+  "metrics": {
+    "connected_clay": {
+      "constant": {
+        "failure_rate_lower": "1/2",
+        "failure_rate_upper": "1/2",
+        "mean_total_cost_s": "44"
+      },
+      "memoryless": {
+        "failure_rate_lower": "1/2",
+        "failure_rate_upper": "1/2",
+        "mean_total_cost_s": "44"
+      },
+      "digital_log": {
+        "failure_rate_lower": "1/2",
+        "failure_rate_upper": "1/2",
+        "mean_total_cost_s": "44"
+      },
+      "digital_full": {
+        "failure_rate_lower": "0",
+        "failure_rate_upper": "0",
+        "mean_total_cost_s": "44"
+      },
+      "fusion_full": {
+        "failure_rate_lower": "0",
+        "failure_rate_upper": "0",
+        "mean_total_cost_s": "44"
+      },
+      "fusion_reduced": {
+        "failure_rate_lower": "0",
+        "failure_rate_upper": "0",
+        "mean_total_cost_s": "44"
+      }
+    },
+    "rod_disconnected_clay": {
+      "constant": {
+        "failure_rate_lower": "1/2",
+        "failure_rate_upper": "1/2",
+        "mean_total_cost_s": "44"
+      },
+      "memoryless": {
+        "failure_rate_lower": "1/2",
+        "failure_rate_upper": "1/2",
+        "mean_total_cost_s": "44"
+      },
+      "digital_log": {
+        "failure_rate_lower": "1/2",
+        "failure_rate_upper": "1/2",
+        "mean_total_cost_s": "44"
+      },
+      "digital_full": {
+        "failure_rate_lower": "0",
+        "failure_rate_upper": "0",
+        "mean_total_cost_s": "44"
+      },
+      "fusion_full": {
+        "failure_rate_lower": "0",
+        "failure_rate_upper": "0",
+        "mean_total_cost_s": "44"
+      },
+      "fusion_reduced": {
+        "failure_rate_lower": "0",
+        "failure_rate_upper": "0",
+        "mean_total_cost_s": "44"
+      }
+    },
+    "reference_cartridge": {
+      "constant": {
+        "failure_rate_lower": "0",
+        "failure_rate_upper": "0",
+        "mean_total_cost_s": "44"
+      },
+      "memoryless": {
+        "failure_rate_lower": "0",
+        "failure_rate_upper": "0",
+        "mean_total_cost_s": "44"
+      },
+      "digital_log": {
+        "failure_rate_lower": "0",
+        "failure_rate_upper": "0",
+        "mean_total_cost_s": "44"
+      },
+      "digital_full": {
+        "failure_rate_lower": "0",
+        "failure_rate_upper": "0",
+        "mean_total_cost_s": "44"
+      },
+      "fusion_full": {
+        "failure_rate_lower": "0",
+        "failure_rate_upper": "0",
+        "mean_total_cost_s": "44"
+      },
+      "fusion_reduced": {
+        "failure_rate_lower": "0",
+        "failure_rate_upper": "0",
+        "mean_total_cost_s": "44"
+      }
+    }
+  },
+  "tests": {
+    "gain_over_memoryless": {
+      "schema": "fusion.fixed-horizon-bounded-block-test/1",
+      "direction": "LOWER_MEAN_ABOVE_MARGIN",
+      "null_hypothesis": "average_expected_difference_at_most_margin",
+      "n": 64,
+      "mean_difference": "1/2",
+      "margin": "1/10",
+      "gap": "2/5",
+      "alpha": "1/20",
+      "comparisons": 6,
+      "comparison_alpha": "1/120",
+      "hoeffding_exponent": "128/25",
+      "tail_bound_lower": "93448118975821874570851806929131794254685687297706262927896531946774329805445750340342186751102529050334786022397865795530872568216096015555667925334640982064276599716359322851444353017496289712540653982702336675667754864705998901567521/15637175529216072086086146083000609315052476553592264993661020623822745338005236040676296735418578891512526034356592125382938289763731570176257706681733795348646012119847492419464790149797993272355080274227390191299491561949253082275390625",
+      "tail_bound_upper": "9433300381348336754544091954638345561330678538740331340525174705436609214359226431278495284621839558762784730685312757536442665860305489545376954120065132596191122126247349489029622215951606854432504142676671147549614039361/1578524806059825970630646912705957819763067035617923928339949507731901010841940959380733455954085711830086043578980027864022980896409277927608800765690345694223008472065406496257327349265475735506925047957338392734527587890625",
+      "tail_enclosure_width": "8191983683226587543387803987565694780378539500954877632450720185893618111416616865525180003088307501318984309885251094791733637454787295342689726039778001826108544828169220614571247647127195251520050401626434189060524241796460445696/2386043629335948499463828442840669145973583458494913481698764133273734335022771612652022817294094679491047063347868671475668073999592829921914322918965728050025331439185713564981810020415953563286602825046904020889204645072823041118681430816650390625",
+      "passed": true,
+      "status": "PREDECLARED_MARGIN_TEST_PASSED",
+      "method": "one_sided_Hoeffding_with_rigorous_rational_exponential_upper_bound",
+      "assumptions": [
+        "independent_confirmation_blocks",
+        "each_difference_bounded_in_minus_one_to_one",
+        "fixed_horizon_and_comparison_family_before_confirmation",
+        "frozen_policies_and_scoring_rule",
+        "valid_support_endpoints_if_interval_losses_are_supplied"
+      ],
+      "independence_authenticated": false,
+      "physical_calibration_authenticated": false,
+      "anytime_valid": false
+    },
+    "gain_over_known_write_log": {
+      "schema": "fusion.fixed-horizon-bounded-block-test/1",
+      "direction": "LOWER_MEAN_ABOVE_MARGIN",
+      "null_hypothesis": "average_expected_difference_at_most_margin",
+      "n": 64,
+      "mean_difference": "1/2",
+      "margin": "1/10",
+      "gap": "2/5",
+      "alpha": "1/20",
+      "comparisons": 6,
+      "comparison_alpha": "1/120",
+      "hoeffding_exponent": "128/25",
+      "tail_bound_lower": "93448118975821874570851806929131794254685687297706262927896531946774329805445750340342186751102529050334786022397865795530872568216096015555667925334640982064276599716359322851444353017496289712540653982702336675667754864705998901567521/15637175529216072086086146083000609315052476553592264993661020623822745338005236040676296735418578891512526034356592125382938289763731570176257706681733795348646012119847492419464790149797993272355080274227390191299491561949253082275390625",
+      "tail_bound_upper": "9433300381348336754544091954638345561330678538740331340525174705436609214359226431278495284621839558762784730685312757536442665860305489545376954120065132596191122126247349489029622215951606854432504142676671147549614039361/1578524806059825970630646912705957819763067035617923928339949507731901010841940959380733455954085711830086043578980027864022980896409277927608800765690345694223008472065406496257327349265475735506925047957338392734527587890625",
+      "tail_enclosure_width": "8191983683226587543387803987565694780378539500954877632450720185893618111416616865525180003088307501318984309885251094791733637454787295342689726039778001826108544828169220614571247647127195251520050401626434189060524241796460445696/2386043629335948499463828442840669145973583458494913481698764133273734335022771612652022817294094679491047063347868671475668073999592829921914322918965728050025331439185713564981810020415953563286602825046904020889204645072823041118681430816650390625",
+      "passed": true,
+      "status": "PREDECLARED_MARGIN_TEST_PASSED",
+      "method": "one_sided_Hoeffding_with_rigorous_rational_exponential_upper_bound",
+      "assumptions": [
+        "independent_confirmation_blocks",
+        "each_difference_bounded_in_minus_one_to_one",
+        "fixed_horizon_and_comparison_family_before_confirmation",
+        "frozen_policies_and_scoring_rule",
+        "valid_support_endpoints_if_interval_losses_are_supplied"
+      ],
+      "independence_authenticated": false,
+      "physical_calibration_authenticated": false,
+      "anytime_valid": false
+    },
+    "history_linked_action_success": {
+      "schema": "fusion.fixed-horizon-history-discordance-test/1",
+      "direction": "DEFINITE_HISTORY_DISCORDANCE_EXCEEDS_NO_HISTORY_BOUND",
+      "null_hypothesis": "within_unit_equal_binary_failure_probabilities_under_independent_fresh_preparations",
+      "n": 64,
+      "discordant_units": 64,
+      "observed_discordance_fraction": "1",
+      "worst_case_null_discordance_probability": "1/2",
+      "alpha": "1/20",
+      "comparisons": 6,
+      "comparison_alpha": "1/120",
+      "tail_bound_lower": "1/18446744073709551616",
+      "tail_bound_upper": "1/18446744073709551616",
+      "tail_enclosure_width": "0",
+      "passed": true,
+      "status": "PREDECLARED_HISTORY_NULL_REJECTED",
+      "method": "exact_Binomial_n_one_half_upper_tail_stochastic_domination",
+      "ambiguous_pairs_policy": "count_as_non_discordant_and_retain_in_eligible_denominator",
+      "assumptions": [
+        "independence_between_confirmation_units",
+        "one_predeclared_constant_action_H0_H1_pair_per_unit",
+        "independent_fresh_preparations_within_each_unit",
+        "equal_within_unit_binary_failure_probability_under_null",
+        "valid_intervals_and_only_definite_binary_discordances_counted",
+        "fixed_eligible_units_horizon_and_comparison_family_before_confirmation"
+      ],
+      "identical_probabilities_across_units_required": false,
+      "homogeneous_history_effect_direction_established": false,
+      "useful_tuning_established_by_this_test_alone": false,
+      "independence_authenticated": false,
+      "physical_calibration_authenticated": false,
+      "anytime_valid": false
+    },
+    "reference_gain_guard": {
+      "schema": "fusion.fixed-horizon-binomial-worsening-test/1",
+      "direction": "UPPER_WORSENING_PROBABILITY_BELOW_MARGIN",
+      "null_hypothesis": "worsening_probability_at_least_margin",
+      "n": 64,
+      "worsening_blocks": 0,
+      "observed_worsening_fraction": "0",
+      "mean_upper_difference": "0",
+      "margin": "1/10",
+      "alpha": "1/20",
+      "comparisons": 6,
+      "comparison_alpha": "1/120",
+      "tail_bound_lower": "11790184577738583171520872861412518665678211592275841109096961/10000000000000000000000000000000000000000000000000000000000000000",
+      "tail_bound_upper": "11790184577738583171520872861412518665678211592275841109096961/10000000000000000000000000000000000000000000000000000000000000000",
+      "tail_enclosure_width": "0",
+      "passed": true,
+      "status": "PREDECLARED_MARGIN_TEST_PASSED",
+      "method": "exact_one_sided_binomial_CDF_at_null_boundary",
+      "loss_noninferiority_basis": "E[true_difference] <= E[upper_difference] <= P[upper_difference>0]",
+      "scope": "sufficient_worsening_probability_criterion_not_general_mean_test",
+      "assumptions": [
+        "independent_confirmation_blocks",
+        "common_worsening_probability_from_identically_sampled_block_units",
+        "valid_upper_bounds_on_reduced_minus_full_loss",
+        "each_difference_bounded_in_minus_one_to_one",
+        "fixed_horizon_and_comparison_family_before_confirmation",
+        "frozen_policies_and_scoring_rule"
+      ],
+      "independence_authenticated": false,
+      "common_probability_authenticated": false,
+      "physical_calibration_authenticated": false,
+      "anytime_valid": false
+    },
+    "reduced_noninferiority": {
+      "schema": "fusion.fixed-horizon-binomial-worsening-test/1",
+      "direction": "UPPER_WORSENING_PROBABILITY_BELOW_MARGIN",
+      "null_hypothesis": "worsening_probability_at_least_margin",
+      "n": 64,
+      "worsening_blocks": 0,
+      "observed_worsening_fraction": "0",
+      "mean_upper_difference": "0",
+      "margin": "1/10",
+      "alpha": "1/20",
+      "comparisons": 6,
+      "comparison_alpha": "1/120",
+      "tail_bound_lower": "11790184577738583171520872861412518665678211592275841109096961/10000000000000000000000000000000000000000000000000000000000000000",
+      "tail_bound_upper": "11790184577738583171520872861412518665678211592275841109096961/10000000000000000000000000000000000000000000000000000000000000000",
+      "tail_enclosure_width": "0",
+      "passed": true,
+      "status": "PREDECLARED_MARGIN_TEST_PASSED",
+      "method": "exact_one_sided_binomial_CDF_at_null_boundary",
+      "loss_noninferiority_basis": "E[true_difference] <= E[upper_difference] <= P[upper_difference>0]",
+      "scope": "sufficient_worsening_probability_criterion_not_general_mean_test",
+      "assumptions": [
+        "independent_confirmation_blocks",
+        "common_worsening_probability_from_identically_sampled_block_units",
+        "valid_upper_bounds_on_reduced_minus_full_loss",
+        "each_difference_bounded_in_minus_one_to_one",
+        "fixed_horizon_and_comparison_family_before_confirmation",
+        "frozen_policies_and_scoring_rule"
+      ],
+      "independence_authenticated": false,
+      "common_probability_authenticated": false,
+      "physical_calibration_authenticated": false,
+      "anytime_valid": false
+    },
+    "total_cost_saving": {
+      "schema": "fusion.fixed-horizon-bounded-block-test/1",
+      "direction": "LOWER_MEAN_ABOVE_MARGIN",
+      "null_hypothesis": "average_expected_difference_at_most_margin",
+      "n": 64,
+      "mean_difference": "0",
+      "margin": "1/10",
+      "gap": "-1/10",
+      "alpha": "1/20",
+      "comparisons": 6,
+      "comparison_alpha": "1/120",
+      "hoeffding_exponent": "0",
+      "tail_bound_lower": "1",
+      "tail_bound_upper": "1",
+      "tail_enclosure_width": "0",
+      "passed": false,
+      "status": "INSUFFICIENT_FINITE_SAMPLE_EVIDENCE",
+      "method": "one_sided_Hoeffding_with_rigorous_rational_exponential_upper_bound",
+      "assumptions": [
+        "independent_confirmation_blocks",
+        "each_difference_bounded_in_minus_one_to_one",
+        "fixed_horizon_and_comparison_family_before_confirmation",
+        "frozen_policies_and_scoring_rule",
+        "valid_support_endpoints_if_interval_losses_are_supplied"
+      ],
+      "independence_authenticated": false,
+      "physical_calibration_authenticated": false,
+      "anytime_valid": false
+    }
+  },
+  "decision_fallbacks": 0,
+  "operational_failures": 0,
+  "interpretation": "Conditional on valid error bounds, randomized matched preparations, qualified measurements and independent confirmation units. No autonomous clay-computing or universal speedup claim."
+}
