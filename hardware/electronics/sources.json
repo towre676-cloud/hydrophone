@@ -1,0 +1,413 @@
+{
+  "schema": "hydrophone.electronics-sources/1",
+  "retrieved_date": "2026-10-24",
+  "timezone": "America/New_York",
+  "classification": "manufacturer-source candidate engineering; no purchase or physical verification",
+  "sources": [
+    {
+      "id": "A01",
+      "manufacturer": "Behringer",
+      "title": "UMC404HD product",
+      "url": "https://www.behringer.com/en/products/0805-AAT",
+      "verified": {
+        "analog_inputs": 4,
+        "analog_playback_outputs": 4,
+        "maximum_converter_bits": 24,
+        "maximum_sample_rate_Hz": 192000,
+        "phantom_V": 48
+      },
+      "limits": "These are converter/product capabilities, not phase calibration, DC displacement bandwidth, or a published ADC anti-alias rejection bound."
+    },
+    {
+      "id": "A02",
+      "manufacturer": "Music Tribe / Behringer",
+      "title": "U-PHORIA Quick Start Guide V8, current manufacturer CDN",
+      "url": "https://cdn-media.empowertribe.com/3663810b762c4f599f7952daec956e72/QSG_BE_0805-AAR_U-PHORIA-Series_WW.pdf",
+      "verified": {
+        "UMC404HD_LINE_max_input_dBu": 20,
+        "UMC404HD_max_output_dBu": 3,
+        "sample_rate_48000_supported": true,
+        "microphone_input_ohm": 3000,
+        "instrument_input_ohm": 1000000,
+        "insert_send_ohm": 100,
+        "insert_return_ohm": 10000
+      },
+      "limits": "No LINE input impedance or connector-level phantom-isolation schematic is supplied in the reviewed specification. Check actual jack DC and insert lead convention before attaching instrumentation."
+    },
+    {
+      "id": "A03",
+      "manufacturer": "Aquarian Audio",
+      "title": "H2dX user guide",
+      "url": "https://www.aquarianaudio.com/AqAudDocs/H2dX_manual.pdf",
+      "verified": {
+        "power": "standard phantom; do not exceed48V",
+        "XLR": {
+          "pin1": "ground",
+          "pin2": "signal",
+          "pin3": "unused"
+        },
+        "typical_sensitivity_dB_re_1V_per_uPa": -165,
+        "typical_response_tolerance_dB": 4,
+        "typical_response_band_Hz": [
+          20,
+          4000
+        ],
+        "typical_output_impedance_ohm": 6800,
+        "dimensions_mm": [
+          25,
+          46
+        ],
+        "mass_g": 105
+      },
+      "limits": "Typical sensitivity depends on phantom feed, preamplifier load, bias and cable; no detailed phase curve/per-unit pressure calibration. No SI pressure conversion unlocked."
+    },
+    {
+      "id": "A04",
+      "manufacturer": "PCB Piezotronics",
+      "title": "352C33 accelerometer specifications",
+      "url": "https://www.pcb.com/products?m=352c33",
+      "verified": {
+        "sensitivity_mV_per_g": 100,
+        "sensitivity_tolerance_percent": 10,
+        "range_g_peak": 50,
+        "frequency_band_within_5percent_Hz": [
+          0.5,
+          10000
+        ],
+        "mass_g": 5.8,
+        "excitation_VDC": [
+          18,
+          30
+        ],
+        "constant_current_mA": [
+          2,
+          20
+        ],
+        "bias_VDC": [
+          7,
+          12
+        ],
+        "connector": "10-32 coaxial jack"
+      },
+      "limits": "Acceleration reference; does not measure DC displacement or dynamic force. Installed added mass, mounting and cable need characterization."
+    },
+    {
+      "id": "A05",
+      "manufacturer": "PCB Piezotronics",
+      "title": "480E09 ICP conditioner specifications",
+      "url": "https://www.pcb.com/products?m=480e09",
+      "verified": {
+        "sensor_supply_VDC": [
+          25,
+          29
+        ],
+        "sensor_current_mA": [
+          2,
+          3.2
+        ],
+        "gain_options": [
+          1,
+          10,
+          100
+        ],
+        "gain_tolerance_percent": 2,
+        "battery": "three9V cells",
+        "input_output_connector": "BNC",
+        "output": "AC coupled, unbuffered; low-frequency specification depends on1Mohm load"
+      },
+      "limits": "Filter high-impedance input precedes the audio LINE load. Nominal gain does not certify complex sensitivity."
+    },
+    {
+      "id": "A06",
+      "manufacturer": "Krohn-Hite",
+      "title": "Current3364 data sheet",
+      "url": "https://krohn-hite.com/wp-content/uploads/2025/08/3364Data-1.pdf",
+      "verified": {
+        "channels": 4,
+        "filter_poles": 4,
+        "cutoff_range_Hz": [
+          0.1,
+          200000
+        ],
+        "responses": [
+          "Butterworth",
+          "Bessel"
+        ],
+        "coupling": [
+          "AC",
+          "DC"
+        ],
+        "input_ohm": 1000000,
+        "input_at_unity_V_peak": 10,
+        "output_ohm": 50,
+        "current_data_sheet_stopband_dB_greater_than": 80
+      },
+      "limits": "Stopband specification does not hold immediately beyond cutoff/Nyquist. Cutoff and full path phase/DC offset are measured configuration inputs. External bench equipment, quotation required."
+    },
+    {
+      "id": "A07",
+      "manufacturer": "Radial Engineering",
+      "title": "J-Iso specifications",
+      "url": "https://www.radialeng.com/product/j-iso/specifications",
+      "verified": {
+        "part": "R800102500",
+        "channels": 2,
+        "power": "passive",
+        "input": "balancedXLR",
+        "output": "unbalanced quarter-inch/RCA/3.5mm",
+        "frequency_Hz": [
+          20,
+          20000
+        ],
+        "response_dB": [
+          0,
+          -1.5
+        ],
+        "input_ohm": 1300,
+        "output_at_max_control_ohm": 200,
+        "maximum_input_at_1kHz_dBu": 20
+      },
+      "limits": "Transformer isolates the audio actuator path; loaded frequency/phase transfer still requires measurement. Does not isolate every USB/sensor ground."
+    },
+    {
+      "id": "A08",
+      "manufacturer": "SparkFun",
+      "title": "BOB-11044 TPA2005D1 amplifier",
+      "url": "https://www.sparkfun.com/sparkfun-mono-audio-amp-breakout-tpa2005d1.html",
+      "verified": {
+        "supply_V": [
+          2.5,
+          5.5
+        ],
+        "rated_output_W_into_8ohm": 1.4,
+        "topology": "differential classD",
+        "switching_approx_Hz": 250000,
+        "shutdown_input": true
+      },
+      "primary_displayed_price": {
+        "currency": "USD",
+        "unit_price": 10.5,
+        "stock_text": "In stock",
+        "date": "2026-10-24"
+      },
+      "limits": "Power rating is not qualified cartridge motion/force. Neither output terminal is ground."
+    },
+    {
+      "id": "A09",
+      "manufacturer": "SparkFun",
+      "title": "Original amplifier schematic",
+      "url": "https://github.com/sparkfun/Mono_Audio_Amp_Breakout-TPA2005D1/blob/master/Hardware/SparkFun_Mono_Audio_Amp-TPA2005D1.sch",
+      "git_blob_sha": "f4a959370d89d9bbffeedbddaf348a2f127192e7",
+      "verified": {
+        "JP1": {
+          "1": "SDN",
+          "2": "VCC",
+          "3": "GND"
+        },
+        "JP2": {
+          "1": "IN+",
+          "2": "IN-"
+        },
+        "JP3": {
+          "1": "OUT+",
+          "2": "OUT-"
+        }
+      },
+      "limits": "Verify physical purchased revision and silkscreen before wiring; no guessed PCB orientation."
+    },
+    {
+      "id": "A10",
+      "manufacturer": "Dayton Audio",
+      "title": "DAEX25 product specification",
+      "url": "https://www.daytonaudio.com/product/1087/daex25-sound-exciter-pair",
+      "verified": {
+        "nominal_impedance_ohm": 8,
+        "power_handling_RMS_W": 5,
+        "power_handling_max_W": 10,
+        "listed_free_resonance_Hz": 298
+      },
+      "retrieval_note": "Manufacturer-indexed specification fields were returned by search; direct page/PDF currently serves an anti-bot frame. No manufacturer stock or transaction price was verified.",
+      "limits": "Not a calibrated shaker. No verified blocked-force, installed stroke or electrical-to-force transfer."
+    },
+    {
+      "id": "S01",
+      "manufacturer": "FUTEK",
+      "title": "LSB200 drawingFI1041-G, FSH00103 capacity row",
+      "url": "https://media.futek.com/content/futek/files/pdf/productdrawings/fsh00103.pdf",
+      "verified": {
+        "capacity_N": 22.2,
+        "nominal_mV_per_V": 2,
+        "bridge_ohm": 350,
+        "excitation_max_V": 10,
+        "threads": "M3x0.5,2.8mm deep",
+        "full_scale_deflection_m": 0.000127,
+        "nonlinearity_percent_RO": 0.1,
+        "hysteresis_percent_RO": 0.1,
+        "nonrepeatability_percent_RO": 0.05,
+        "standard_calibration": "five-point tension; compression separately available",
+        "wire": {
+          "red": "EX+",
+          "black": "EX-",
+          "green": "SIG+",
+          "white": "SIG-",
+          "shield": "floating"
+        }
+      },
+      "limits": "Nominal full-range error already exceeds10mN. Installed bidirectional calibration and independent carrier displacement required."
+    },
+    {
+      "id": "S02",
+      "manufacturer": "LabJack",
+      "title": "LJTick-InAmp3 datasheet",
+      "url": "https://support.labjack.com/docs/ljtick-inamp-3-0-datasheet",
+      "verified": {
+        "reference_V": 2.5,
+        "reference_current_mA": 20,
+        "output_offset_V": 1.25,
+        "gain_variants": [
+          11,
+          51,
+          201
+        ]
+      },
+      "limits": "Use labelled breakout interrupting OUTA-to-AIN0 for external filter. Current3 differs from discontinued DIP-switchInAmp2. Calibrate offset, gain, temperature and headroom."
+    },
+    {
+      "id": "S03",
+      "manufacturer": "LabJack",
+      "title": "LJTick-InAmp3 product",
+      "url": "https://labjack.com/products/ljtick-inamp3",
+      "primary_displayed_price": {
+        "currency": "USD",
+        "unit_price": 75.0,
+        "date": "2026-10-24"
+      },
+      "limits": "Confirm supplied gain variant; no order made."
+    },
+    {
+      "id": "S04",
+      "manufacturer": "LabJack",
+      "title": "T7 stream data rates",
+      "url": "https://support.labjack.com/docs/a-1-1-stream-data-rates-t-series-datasheet",
+      "verified": {
+        "resolution_index": 7,
+        "four_channel_gain1_max_scans_per_s": 315,
+        "nominal_interchannel_spacing_s": 0.00067
+      },
+      "limits": "Raw\u00b110mV internal gain is not supported in the proposed multichannel stream. Actual accepted rate and lost scans must be recorded."
+    },
+    {
+      "id": "S05",
+      "manufacturer": "LabJack",
+      "title": "T7 DAC specifications",
+      "url": "https://support.labjack.com/docs/a-4-analog-output-t-series-datasheet",
+      "verified": {
+        "nominal_no_load_range_V": [
+          0.01,
+          4.99
+        ],
+        "resolution_bits": 12,
+        "typical_source_ohm": 50,
+        "typical_current_limit_mA": 20
+      },
+      "limits": "Read DAC0 actual voltage atAIN4; software-write epoch is not the marker sample epoch."
+    },
+    {
+      "id": "S06",
+      "manufacturer": "Micro-Epsilon",
+      "title": "optoNCDT1220/1320/1420 currentfamilydatasheet",
+      "url": "https://www.micro-epsilon.com/fileadmin/download/products/dat--optoNCDT-1220-1320-1420--en.pdf",
+      "verified": {
+        "chosen_model": "ILD1420-10CL1",
+        "range_mm": 10,
+        "stand_off_mm": [
+          20,
+          30
+        ],
+        "linearity_um": 8,
+        "repeatability_um": 0.5,
+        "class1_analog_bits": 12,
+        "supply_VDC": [
+          11,
+          30
+        ],
+        "power_at24V_W_less_than": 2,
+        "cable": "PCF1420-3/U,1\u20135V"
+      },
+      "limits": "Surface/configuration dependent. 50Hz slow read cannot enforce300Hz diaphragm amplitude. Local dynamic calibration required before acoustic-read release."
+    },
+    {
+      "id": "S07",
+      "manufacturer": "Micro-Epsilon",
+      "title": "optoNCDT1420 installationmanual",
+      "url": "https://www.micro-epsilon.com/fileadmin/download/manuals/man--optoNCDT-1420--en.pdf",
+      "verified_from_manufacturer_indexed_installation_passages": {
+        "7_red": "power+",
+        "12_blue": "ground",
+        "8_black": "laser enable, connect toground",
+        "11_white": "analogoutput"
+      },
+      "retrieval_note": "Full manual retrieval timed out; pinout is provisional until checked against the delivered cable's current pin sheet. No energization before this check."
+    },
+    {
+      "id": "P01",
+      "manufacturer": "MeanWell",
+      "title": "GST25A familydatasheet",
+      "url": "https://www.meanwell.com/Upload/PDF/GST25A/GST25A-SPEC.PDF",
+      "verified_from_manufacturer_indexed_table": {
+        "GST25A05-P1J": {
+          "output_V": 5,
+          "rated_A": 4
+        },
+        "GST25A24-P1J": {
+          "output_V": 24,
+          "rated_A": 1.04
+        }
+      },
+      "retrieval_note": "Manufacturer indexed table retrieved; fullPDFfetch timed out. Verify exact connector/polarity/market approval against delivered supply before assembly. No price verified."
+    },
+    {
+      "id": "A11",
+      "manufacturer": "PCB Piezotronics",
+      "title": "003C10 cable",
+      "url": "https://www.pcb.com/products?m=003c10",
+      "verified": {
+        "length_ft": 10,
+        "sensor_end": "10-32 coaxial plug",
+        "conditioner_end": "BNC plug",
+        "jacket": "blue PTFE"
+      },
+      "limits": "Dress slack on fixed frame; characterize cable forces at moving sensor. No price verified."
+    },
+    {
+      "id": "LJM01",
+      "manufacturer": "LabJack",
+      "title": "eStreamStart API",
+      "url": "https://support.labjack.com/docs/estreamstart-ljm-user-s-guide",
+      "verified": {
+        "scan_rate_return": "actual accepted device scan rate",
+        "device_sampling": "hardware clock; transport via FIFO buffers"
+      },
+      "limits": "Accepted nominal rate is not an independently calibrated oscillator/timebase accuracy."
+    },
+    {
+      "id": "LJM02",
+      "manufacturer": "LabJack",
+      "title": "eStreamRead API",
+      "url": "https://support.labjack.com/docs/estreamread-ljm-user-s-guide",
+      "verified": {
+        "layout": "scan-major interleaved channels",
+        "backlogs": "device and LJM buffer scan counts",
+        "skipped_data_sentinel": -9999
+      },
+      "limits": "Transport arrival time is not a sample timestamp. Retain all dummy scans and diagnostic backlogs."
+    },
+    {
+      "id": "LJM03",
+      "manufacturer": "LabJack",
+      "title": "Official Python stream example",
+      "url": "https://github.com/labjack/labjack-ljm-python/blob/master/Examples/More/Stream/stream_basic.py",
+      "limits": "Optional native SDK and wrapper must be installed separately; mock tests do not qualify physical hardware."
+    }
+  ]
+}

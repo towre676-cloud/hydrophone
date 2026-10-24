@@ -1,0 +1,11 @@
+{
+  "schema": "fusion.mechanical-sources/1",
+  "checked_date": "2026-10-24",
+  "sources": [
+    {"id": "F1", "url": "https://media.futek.com/content/futek/files/pdf/productdrawings/fsh00103.pdf", "title": "FUTEK LSB200 FI1041-G", "used_for": "FSH00103 22.2N, M3x0.5 2.8mm-deep ports, dimensional keepout,127micrometre nominal rated deflection; standard calibration tension only", "limitation": "Original drawing governs stepped body and active end; no side load, body contact or calibration accuracy is supplied by our geometry."},
+    {"id": "S1", "url": "https://www.precisionbrand.com/product-category/stainless-steel-shim/", "title": "Precision Brand full-hard302 stainless shim", "used_for": "0.012in=0.3048mm stock availability, not exactly0.300mm; use actual measured thickness", "limitation": "200GPa E and100MPa stress screen are assumptions; no material yield/fatigue certificate obtained."},
+    {"id": "A1", "url": "https://online.kaiseraluminum.com/depot/PublicProductInformation/Document/1006/Kaiser_Aluminum_Shapes_Soft_Alloy.pdf", "title": "Kaiser aluminium6061 technical data", "used_for": "Material family reference; calculation E69GPa is an assumed nominal screening value", "limitation": "Geometry does not establish supplied alloy/temper or a joint rating."},
+    {"id": "D1", "url": "https://www.precisionbrand.com/product-category/12-x-50-roll/", "title": "Precision Brand stainless shim roll", "used_for": "0.004in=0.1016mm diaphragm material availability; sufficient sheet area is required", "limitation": "Nominal0.100mm coupon calculations must be recalculated for measured stock thickness; not a ready-made diaphragm rating."},
+    {"id": "H1", "url": "https://www.aquarianaudio.com/AqAudDocs/H2dX_manual.pdf", "title": "Aquarian H2dX guide", "used_for": "25mm diameter46mm body, sensor support/clearance", "limitation": "Hydrophone and water transfer depend on assembled chain; no absolute pressure calibration."}
+  ]
+}

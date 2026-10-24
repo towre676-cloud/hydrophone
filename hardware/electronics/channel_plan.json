@@ -1,0 +1,157 @@
+{
+  "schema": "hydrophone.electronics-channel-plan/1",
+  "revision": "E01-20261024",
+  "status": "UNPURCHASED_UNWIRED_UNCALIBRATED_BENCH_CANDIDATE",
+  "mechanical_envelope_mm": {
+    "x": 600,
+    "y": 360,
+    "base_y_coordinates": [
+      -40,
+      320
+    ],
+    "revision": "M03"
+  },
+  "audio": {
+    "candidate_device": "BehringerUMC404HD",
+    "sample_rate_Hz": 48000,
+    "archive": "PCM16 little-endian",
+    "output2": "silent_unconnected",
+    "channels": [
+      {
+        "physical_input": 1,
+        "saved_index": 0,
+        "name": "hydrophone_raw",
+        "quantity": "uncalibrated hydrophone-chain amplitude",
+        "connector": "XLR",
+        "source": "AquarianH2dX",
+        "filter": "UMCinsert1send to3364CH4 2kHzLP andreturn"
+      },
+      {
+        "physical_input": 2,
+        "saved_index": 1,
+        "name": "bridge_acceleration_raw",
+        "quantity": "uncalibrated acceleration-chain amplitude",
+        "connector": "quarter-inchLINE",
+        "source": "352C33 to480E09 to3364CH3 2kHzLP"
+      },
+      {
+        "physical_input": 3,
+        "saved_index": 2,
+        "name": "drive_loopback_raw",
+        "quantity": "electrical DAC command reference; not coil force",
+        "connector": "quarter-inchLINE",
+        "source": "passive tapofPLAYBACKA1 before J-Iso",
+        "pad": {
+          "series_resistors_ohm": [
+            10000,
+            10000
+          ],
+          "shunt_differential_ohm": 2210,
+          "tolerance_percent": 1,
+          "unloaded_voltage_ratio": 0.0995047276001801,
+          "actual_loaded_transfer": "measure with installed LINE input and all parallel branches"
+        }
+      },
+      {
+        "physical_input": 4,
+        "saved_index": 3,
+        "name": "sync_marker_raw",
+        "quantity": "conditioned actualT7DAC0 marker",
+        "connector": "quarter-inchLINE",
+        "source": "10k/2.21k divider plus10uFnonpolar seriescapacitor"
+      }
+    ]
+  },
+  "slow": {
+    "candidate_device": "LabJackT7",
+    "requested_scans_per_s": 50,
+    "optional_later_scans_per_s": 200,
+    "resolution_index": 7,
+    "range_V": [
+      -10,
+      10
+    ],
+    "scan_list": [
+      "AIN0",
+      "AIN2",
+      "AIN4",
+      "AIN6"
+    ],
+    "sample_time_rule": "time_s=scan_index/actual_accepted_scan_rate; arbitrary local sample epoch, not USB arrival epoch",
+    "nominal_interchannel_spacing_s": 0.00067,
+    "channels": [
+      {
+        "name": "AIN0",
+        "quantity": "conditioned static writer-force voltage",
+        "source": "FSH00103 toLJTickInAmp3-201 OUTA to3364CH1 DC5HzLP",
+        "breakout_requirement": "OUTA must NOT directlycontactAIN0; onlyfilteroutputdrivesAIN0"
+      },
+      {
+        "name": "AIN2",
+        "quantity": "slow optical carrier-position voltage",
+        "source": "ILD1420-10CL1 PCF1420-3/U to3364CH2 DC5HzLP"
+      },
+      {
+        "name": "AIN4",
+        "quantity": "actualunfilteredDAC0markervoltage",
+        "source": "T7DAC0 beforedivider"
+      },
+      {
+        "name": "AIN6",
+        "quantity": "bridgeexcitationmonitorvoltage",
+        "source": "LJTickInAmp3VREF"
+      }
+    ],
+    "mechanical_initial_limits": {
+      "force_N": [
+        -5,
+        5
+      ],
+      "carrier_displacement_m": [
+        -0.00025,
+        0.00025
+      ]
+    },
+    "SI_conversion": "lockeduntilinstalledcalibration"
+  },
+  "synchronization": {
+    "marker_source": "T7DAC0only",
+    "nominal_levels_V": [
+      0.05,
+      1.0
+    ],
+    "minimum_plateau_s": 0.3,
+    "clock_maps": [
+      "generatedcommand_to_audio_fromIN3electricalcorrelation",
+      "logger_to_audio_fromAIN4andIN4physicalmarkeredges"
+    ],
+    "slow_pick_allowance_s_at50Hz_at_least": 0.02,
+    "extra_terms": [
+      "per-channelconversionoffset",
+      "detectorandmarkerpathuncertainty",
+      "fittedmapresidual",
+      "force/laserfiltergroupdelayseparatefromclockmap"
+    ],
+    "nominal5HzButterworth_groupdelay_s": {
+      "near_DC": 0.0832,
+      "at2Hz": 0.0898
+    }
+  },
+  "power": {
+    "audio": "manufacturer-suppliedUMC404HDpoweradapterandUSB",
+    "ICP": "three9Vbatteriesinside480E09",
+    "actuator": "separate5VsealedexternalPSU through1Afuse/DCswitch; amplifierSDNmanualMUTE",
+    "optical": "separate24VsealedexternalPSU",
+    "slow_ADC": "USBpower;InAmp3fromT7VS;bridge2.5VfromInAmpVREF",
+    "isolation": "J-Isoisolatestheaudioactuatorpathonly;noglobalgalvanicisolationclaim"
+  },
+  "release": {
+    "dummy_load_bench_checkout_only": true,
+    "acoustic_read_enabled": false,
+    "reason": "No qualified diaphragm dynamic-displacement bound, installed calibration, anti-alias validation or actuator-motion envelope exists.",
+    "slow_laser_cannot_certify_300Hz_diaphragm_motion": true,
+    "hardware_commands_issued": 0,
+    "manual_writer_enabled": false,
+    "manual_writer_requires": "Installed calibrated live signed-force and actual plate-position display, qualified latency and hand-step/check/dwell procedure; batch voltage logger does not enforce limits"
+  }
+}

@@ -1,0 +1,3 @@
+# Optional offline electrical loopback timing; no device access.
+numpy>=1.24,<3
+scipy>=1.10,<2

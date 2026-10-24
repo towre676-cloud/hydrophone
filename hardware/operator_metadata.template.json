@@ -1,0 +1,52 @@
+{
+  "schema": "hydrophone.operator-metadata/1",
+  "template_status": "UNFILLED_NOT_A_PHYSICAL_RECORD",
+  "run_id": "REPLACE",
+  "configuration_id": "REPLACE",
+  "mechanics_revision": "M03",
+  "electronics_revision": "REPLACE",
+  "specimen_id": "REPLACE",
+  "cartridge_batch": "REPLACE",
+  "history_protocol": "REPLACE_WITH_OTHER_SESSION_FROZEN_PROTOCOL",
+  "preparation_order": "REPLACE",
+  "calibration_id": "REPLACE",
+  "validity_domain": "REPLACE_WITH_MEASURED_DOMAIN",
+  "rod_state": "REPLACE_WITH_OUT_OR_IN",
+  "data_origin": "physical_measurement",
+  "operator_id": "REPLACE",
+  "timestamp_utc": "REPLACE",
+  "gain_per_channel": [null, null, null, null],
+  "drive_channel": "drive_loopback_raw",
+  "response_channel": "hydrophone_raw",
+  "reference_channel": "bridge_acceleration_raw",
+  "max_slow_gap_s": null,
+  "calibration": {"slow_declared": false},
+  "slow_analysis": {"time_column": "logger_time_s"},
+  "slow_pairing": {
+    "scope": "REPLACE_WITH_SETTLED_HOLD_OR_VALIDATED_TIME_ALIGNED_PATH",
+    "per_channel_sample_offsets": "REPLACE_WITH_ACTUAL_SCAN_AND_OFFSET_EVIDENCE",
+    "filter_configuration": "REPLACE_WITH_BOTH_CHANNEL_SETTINGS_AND_TRANSFER_RECORD",
+    "delay_correction_status": "REPLACE_WITH_VALIDATED_ALIGNMENT_OR_UNCORRECTED_SCOPE"
+  },
+  "native_slow_raw_files": [
+    {"path": "REPLACE_RAW_FILE_RELATIVE_TO_THIS_METADATA", "sha256": "REPLACE"}
+  ],
+  "conditions": {
+    "tank_state": null,
+    "cartridge_state": null,
+    "water_depth_m": null,
+    "water_temperature_C": null,
+    "room_temperature_C": null,
+    "hydrophone_xyz_m": null,
+    "hydrophone_orientation": null,
+    "bridge_preload_N": null,
+    "string_tuning_before_Hz": null,
+    "string_tuning_after_Hz": null,
+    "elapsed_since_write_s": null,
+    "reader_displacement_peak_m_measured": null,
+    "sensor_mount_id": null,
+    "carrier_zero_position_m": null
+  },
+  "native_slow_raw_evidence": "RETAIN_ORIGINAL_RAW_COUNTS_VOLTAGES_AND_CALIBRATION_EVIDENCE",
+  "qualification": "Operator metadata is not physical authentication or a calibration certificate."
+}

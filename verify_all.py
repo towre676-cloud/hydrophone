@@ -18,9 +18,20 @@ def main():
         if hashlib.sha256((package/name).read_bytes()).hexdigest()!=digest:
             raise ValueError('Imported design digest mismatch: '+name)
     run([sys.executable,'-m','unittest','discover','-s','tests','-v'])
+    run([sys.executable,'-m','unittest','discover','-s','hardware/calibration','-p','test_si_conversion.py','-v'])
+    run([sys.executable,'-m','unittest','discover','-s','hardware/electronics','-p','test_t7_capture.py','-v'])
     with tempfile.TemporaryDirectory(prefix='hydrophone-replay-') as tmp:
         base=Path(tmp)
         run([sys.executable,'-m','instrument','demo','--output-dir',base/'raw_demo'])
+        run([sys.executable,'-m','instrument','bench-demo','--output-dir',base/'bench_demo'])
+        mechanics=base/'mechanics';shutil.copytree(ROOT/'hardware/mechanics',mechanics)
+        run([sys.executable,mechanics/'build.py'])
+        run([sys.executable,mechanics/'drawing.py'])
+        for name in ('params.scad','calculation_receipt.json','cut_list.csv','drill_table.csv','fabrication.svg'):
+            if (mechanics/'generated'/name).read_bytes()!=(ROOT/'hardware/mechanics/generated'/name).read_bytes():
+                raise ValueError('Mechanical generated file is stale: '+name)
+        cad=shutil.which('openscad')
+        if cad:run([cad,'-o',base/'assembly.csg',mechanics/'assembly.scad'])
         core=base/'dyletsky';shutil.copytree(package/'dyletsky',core)
         run([sys.executable,core/'fusion_bridge.py','--score',core/'output/instrument_score.json'])
         if args.node:
@@ -32,6 +43,7 @@ def main():
             run([sys.executable,model/'passive_instrument_model.py'])
     print(json.dumps({'status':'PASS','imported_payload_hashes':len(lines),
         'node_parity_replayed':bool(args.node),'numerical_replayed':args.numerical,
+        'mechanical_generated_files_replayed':5,'openscad_syntax_checked':bool(cad),
         'hardware_commands_issued':0,'physical_measurements_made':0}))
 
 if __name__=='__main__':main()

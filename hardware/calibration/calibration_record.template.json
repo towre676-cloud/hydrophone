@@ -1,0 +1,110 @@
+{
+  "schema": "hydrophone.calibration-record/1",
+  "calibration_id": null,
+  "status": "not_calibrated",
+  "evidence_type": "unavailable",
+  "configuration_id": null,
+  "sample_rate_Hz": null,
+  "analysis_sample_format": "PCM16_full_scale",
+  "valid_temperature_C": [
+    null,
+    null
+  ],
+  "created_utc": null,
+  "validity_review_due_utc": null,
+  "reference_evidence": [],
+  "gain_clock_and_settings": {
+    "common_audio_clock": null,
+    "automatic_gain_control": false,
+    "limiter": false,
+    "channel_gains": null,
+    "ADC_scaling_source": null,
+    "cross_channel_skew_bound_s": null,
+    "phase_budget_deg": null
+  },
+  "channels": [
+    {
+      "analysis_channel": 0,
+      "role": "drive_loopback",
+      "quantity": "voltage",
+      "SI_unit": "V",
+      "chain_id": null,
+      "sensor_serial": null,
+      "conditioning_and_ADC_settings_id": null,
+      "phase_response_measured": false,
+      "mount_id": null,
+      "orientation": null,
+      "points": []
+    },
+    {
+      "analysis_channel": 1,
+      "role": "hydrophone",
+      "quantity": "pressure",
+      "SI_unit": "Pa",
+      "chain_id": null,
+      "sensor_serial": null,
+      "conditioning_and_ADC_settings_id": null,
+      "phase_response_measured": false,
+      "mount_id": null,
+      "orientation": null,
+      "points": []
+    },
+    {
+      "analysis_channel": 2,
+      "role": "bridge_acceleration",
+      "quantity": "acceleration",
+      "SI_unit": "m/s^2",
+      "chain_id": null,
+      "sensor_serial": null,
+      "conditioning_and_ADC_settings_id": null,
+      "phase_response_measured": false,
+      "mount_id": null,
+      "orientation": null,
+      "points": []
+    }
+  ],
+  "slow_channels": [
+    {
+      "role": "writer_force",
+      "SI_unit": "N",
+      "raw_unit": null,
+      "sensor_serial": null,
+      "sample_rate_Hz": null,
+      "zero_raw_before_run": null,
+      "zero_raw_after_run": null,
+      "scale_SI_per_raw": null,
+      "raw_error_abs": null,
+      "zero_error_abs": null,
+      "scale_error_abs": null,
+      "linearity_residual_bound_SI": null,
+      "hysteresis_bound_SI": null,
+      "temperature_drift_bound_SI": null,
+      "creep_bound_SI": null,
+      "fixture_compliance_map_id": null,
+      "clock_mapping_id": null,
+      "reference_evidence_ids": []
+    },
+    {
+      "role": "writer_displacement",
+      "SI_unit": "m",
+      "raw_unit": null,
+      "sensor_serial": null,
+      "sample_rate_Hz": null,
+      "zero_raw_before_run": null,
+      "zero_raw_after_run": null,
+      "scale_SI_per_raw": null,
+      "raw_error_abs": null,
+      "zero_error_abs": null,
+      "scale_error_abs": null,
+      "linearity_residual_bound_SI": null,
+      "hysteresis_bound_SI": null,
+      "temperature_drift_bound_SI": null,
+      "creep_bound_SI": null,
+      "fixture_compliance_map_id": null,
+      "clock_mapping_id": null,
+      "reference_evidence_ids": []
+    }
+  ],
+  "uncertainty_warning": "BLOCKED TEMPLATE. Complete calibration against independent references before changing status. Nominal manufacturer sensitivity is not a measured chain calibration.",
+  "frequency_axis": "SI_Hz"
+}

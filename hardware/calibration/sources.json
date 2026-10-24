@@ -1,0 +1,54 @@
+{
+  "retrieved_utc_date": "2026-10-24",
+  "scope": "Primary manufacturer/laboratory references; these sources do not calibrate the proposed assembled instrument",
+  "sources": [
+    {
+      "id": "AQUARIAN-H2DX",
+      "url": "https://www.aquarianaudio.com/AqAudDocs/H2dX_manual.pdf",
+      "title": "H2dX Hydrophone User Guide",
+      "supports": "Typical sensitivity under specified phantom supply; dependence on preamp input, bias and cable; no detailed response plots. Nominal specifications do not supply per-unit complex calibration."
+    },
+    {
+      "id": "PCB-352C33",
+      "url": "https://www.pcb.com/products?m=352C33",
+      "title": "PCB Model352C33",
+      "supports": "Accelerometer quantity, nominal100mV/g,5.8g sensor mass and published frequency range. The included amplitude calibration is not automatically assembled-chain phase calibration."
+    },
+    {
+      "id": "PCB-480E09",
+      "url": "https://www.pcb.com/products?m=480E09",
+      "title": "PCB Model480E09",
+      "supports": "Unbuffered output; receiving input impedance affects low-frequency response; published low-frequency range uses1Mohm load."
+    },
+    {
+      "id": "TMS-FORCE",
+      "url": "https://www.modalshop.com/vibration-test/learn/modal-testing-faq",
+      "title": "Modal Testing FAQ",
+      "supports": "Actual force applied to structure needs measurement; amplifier current/voltage is not a substitute in modal force FRFs; structure-side force-sensor placement matters."
+    },
+    {
+      "id": "NPL-LOWFREQ",
+      "url": "https://www.npl.co.uk/research/underwater-acoustics/sensor-calibration",
+      "title": "Underwater acoustics calibration for acoustic technology",
+      "supports": "NPL describes low-frequency pressure comparison5\u2013315Hz,coupler reciprocity20Hz\u20132kHz,and free-field methods to250Hz. Methods and domains differ; no extrapolation from medical-ultrasound calibration."
+    },
+    {
+      "id": "NPL-PHASE",
+      "url": "https://eprintspublications.npl.co.uk/3981/1/AC1.pdf",
+      "title": "NPL AC1:Phase calibration of hydrophones by free-field reciprocity,10\u2013400kHz",
+      "supports": "Phase response is a separate calibration task. This report frequency range does not validate musical-band calibration."
+    },
+    {
+      "id": "MICRO-EPSILON-CL1",
+      "url": "https://www.micro-epsilon.com/fileadmin/download/products/dat--optoNCDT-1220-1320-1420--en.pdf",
+      "title": "optoNCDT 1220 / 1320 / 1420 family datasheet: CL1 footnotes and table",
+      "supports": "Class 1 maximum measuring rate is 4 kHz with 12-bit D/A; ILD1420-10CL1 linearity is below \u00b18 micrometres on the specified target. Code size and faster ADC scans do not establish installed dynamic diaphragm calibration."
+    },
+    {
+      "id": "LABJACK-SCAN",
+      "url": "https://support.labjack.com/docs/a-1-1-stream-data-rates-t-series-datasheet",
+      "title": "T-series stream data rates and interchannel delay",
+      "supports": "A scan and its individual channel samples have different epochs; interchannel delay must be included when phase matters."
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "schema": "hydrophone.physical-experiment-interface/1",
+  "status": "COMMISSIONING_PLAN_NO_PHYSICAL_RUNS",
+  "mechanics_revision": "M03 (see mechanics workstream; dimensions and limits require its released drawings)",
+  "physical_rows_acquired": 0,
+  "raw_record_identity": [
+    "run_id",
+    "configuration_id",
+    "calibration_id",
+    "mechanics_revision",
+    "electronics_revision",
+    "specimen_id",
+    "cartridge_batch",
+    "history_protocol",
+    "preparation_order",
+    "operator_id",
+    "timestamp_utc"
+  ],
+  "condition_fields": [
+    "rod_state out/in",
+    "tank_state empty/water",
+    "cartridge_state none/rigid_dummy/reference_viscoelastic/clay",
+    "water_depth_m",
+    "water_temperature_C",
+    "room_temperature_C",
+    "hydrophone_xyz_m",
+    "hydrophone_orientation",
+    "bridge_preload_N",
+    "string_tuning_before_Hz",
+    "string_tuning_after_Hz",
+    "elapsed_since_write_s",
+    "reader_displacement_peak_m_measured",
+    "sensor_mount_id",
+    "carrier_zero_position_m"
+  ],
+  "channels": [
+    {
+      "role": "drive_loopback",
+      "purpose": "actual sampled electrical input reference; never force",
+      "quantity_without_calibration": "digital_full_scale",
+      "required_for": "channel-ratio signature"
+    },
+    {
+      "role": "hydrophone",
+      "purpose": "local water-pressure sensor chain; pressure only after scoped sensitivity conversion",
+      "quantity_without_calibration": "digital_full_scale",
+      "required_for": "water-path signature"
+    },
+    {
+      "role": "bridge_acceleration",
+      "purpose": "direct bridge vibration reference along declared axis",
+      "quantity_without_calibration": "digital_full_scale",
+      "required_for": "separating electrical drive drift from moving boundary response"
+    },
+    {
+      "role": "dynamic_force",
+      "purpose": "optional actual dynamic input force at structure-side coupling",
+      "quantity_without_calibration": "digital_full_scale",
+      "required_for": "pressure/force or mechanical force FRF; absent in minimum build"
+    },
+    {
+      "role": "writer_force",
+      "purpose": "slow writing-port force",
+      "quantity_without_calibration": "raw_ADC_counts",
+      "required_for": "slow loading baseline and measured writer-port work"
+    },
+    {
+      "role": "writer_displacement",
+      "purpose": "slow writer-port position",
+      "quantity_without_calibration": "raw_encoder_or_indicator_units",
+      "required_for": "slow position hold and loop closure"
+    }
+  ],
+  "candidate_diagnostics_not_success_thresholds": [
+    "electrical loopback gain/phase and channel swap",
+    "rod out vs in with matched other conditions",
+    "tank empty vs water at indexed fill",
+    "none vs rigid dummy vs reference viscoelastic vs clay",
+    "at least three reader amplitudes within measured displacement limits",
+    "repeat identical stationary windows before/after each write",
+    "independent geometry and mass observations before/after write",
+    "fixed-gain vs deliberately changed recording gain control",
+    "slow unloaded baseline before/after, rigid fixture compliance and writer hold"
+  ],
+  "required_raw_files": [
+    "multichannel_audio.wav",
+    "drive_command.wav",
+    "slow_force_displacement.csv",
+    "raw_slow_counts.csv",
+    "run_manifest.json",
+    "calibration_record.json",
+    "setup_geometry_and_mount_record.json"
+  ],
+  "feature_semantics": {
+    "audio_ratios": "digital channel ratios until end-to-end calibration",
+    "pressure_per_voltage": "valid calibrated system response if chain/phase/environment scope holds; not pressure per force",
+    "pressure_per_acceleration": "boundary transmission at specified two ports, not full material modulus",
+    "pressure_per_force": "requires separately measured actual dynamic force",
+    "slow_work": "sampled writer-port work, not isolated clay dissipation",
+    "memory": "fixed-coefficient SLS transfer does not identify initial memory coordinate; no retained-memory inference from one FRF"
+  },
+  "gates": {
+    "G0_identity": "raw hashes, sensor/settings/mount and units recorded",
+    "G1_electrical": "electrical paths checked before exciter connection",
+    "G2_dry_mechanical": "rod out; low-amplitude dry/reference checks; dynamic diaphragm/boss motion release gate remains blocked until separately qualified",
+    "G3_water_path": "vented static fill; hydrophone mount verified; rod out/in checks; read limit assessed at diaphragm/boss port",
+    "G4_slow_writer": "rod disconnected; raw baseline/scale/compliance verified",
+    "G5_combined_read_after_write": "reader repeatability, stationarity and state-change checks supplied to task owner",
+    "G6_experimental_claim": "external theorem/success-criterion workstream owns claim and preregistered thresholds"
+  },
+  "hardware_execution_enabled": false,
+  "dynamic_read_release_gate": {
+    "status": "BLOCKED_UNTIL_INDEPENDENT_DYNAMIC_DIAPHRAGM_MOTION_QUALIFICATION",
+    "quantity": "dynamic diaphragm/boss displacement about wet equilibrium",
+    "provisional_ceiling_m": 1e-05,
+    "acceptable_evidence": "independently calibrated dynamic boss measurement OR validated bridge-to-boss kinematic transfer with uncertainty",
+    "not_accepted": "DAC level, slow50scan/s position trace, unqualified acceleration integration, ADC code size or nominal laser accuracy"
+  },
+  "clock_and_filter_obligations": {
+    "audio_frequency_axis": "ADC nominal seconds until independently calibrated to SI seconds",
+    "absolute_ADC_timebase_factor_required_for_SI_frequency_conversion": true,
+    "slow_scan_channels_sequential": true,
+    "per_channel_scan_offset_record_required": true,
+    "force_and_position_filter_transfer_required": true,
+    "unfiltered_marker_clock_map_is_not_filter_delay_correction": true,
+    "automatic_filter_debiasing_implemented": false
+  }
+}

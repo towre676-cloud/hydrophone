@@ -1,0 +1,43 @@
+{
+  "schema": "hydrophone.physical-build-verification/1",
+  "date": "2026-10-24",
+  "base_commit": "20b6e7f417b244c15bcc55ae97538817d25ace82",
+  "status": "PASS",
+  "command": "python verify_all.py --node <Node executable> --numerical",
+  "python_test_groups": {
+    "root": 89,
+    "calibration": 8,
+    "T7_mock_device": 10
+  },
+  "python_tests_total": 107,
+  "geometry_and_nominal_load_screens": 11,
+  "mechanical_generated_files_byte_replayed": 5,
+  "openscad_assembly_syntax_checked": true,
+  "individual_simple_solid_exports_checked": [
+    "leaf",
+    "carrier",
+    "diaphragm_ring"
+  ],
+  "mechanical_cut_list_rows": 32,
+  "mechanical_drill_table_rows": 126,
+  "electronics_bom_rows": 22,
+  "imported_original_payload_hashes_checked": 49,
+  "recovered_engine_strategy_checks": 21,
+  "archived_Fusion_replay_checks": 600,
+  "passive_reference_model_replayed": true,
+  "synthetic_bench_max_complex_gain_error": 7.918342225495012e-06,
+  "synthetic_bench_data_origin": "synthetic",
+  "hardware_commands_issued": 0,
+  "physical_measurements_made": 0,
+  "physical_calibration_completed": false,
+  "physical_readiness": false,
+  "full_current_bench_cost_quoted": false,
+  "release": "DIMENSIONED_PROTOTYPE_FABRICATION_REVIEW_AND_OFFLINE_ACQUISITION",
+  "remaining_physical_obligations": [
+    "Shop-fit connector/captive journal/catch/retainer/guard details and qualified material/joints.",
+    "Installed live signed-force/after-cell position display and calibration before manual writes.",
+    "Installed clock, channel transfer, sample pairing, anti-alias and logger edge qualification.",
+    "Qualified dynamic diaphragm/boss motion bound before acoustic reads.",
+    "Actual history/control measurements and the other session's frozen task/success criteria."
+  ]
+}

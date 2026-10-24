@@ -1,0 +1,239 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "hydrophone.calibration-record/1",
+  "type": "object",
+  "required": [
+    "schema",
+    "calibration_id",
+    "status",
+    "evidence_type",
+    "configuration_id",
+    "sample_rate_Hz",
+    "analysis_sample_format",
+    "valid_temperature_C",
+    "channels",
+    "reference_evidence",
+    "frequency_axis"
+  ],
+  "properties": {
+    "schema": {
+      "const": "hydrophone.calibration-record/1"
+    },
+    "calibration_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "status": {
+      "enum": [
+        "not_calibrated",
+        "measured_with_declared_scope",
+        "expired",
+        "rejected"
+      ]
+    },
+    "evidence_type": {
+      "enum": [
+        "unavailable",
+        "physical_calibration_declared",
+        "synthetic_demo"
+      ]
+    },
+    "configuration_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "sample_rate_Hz": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "exclusiveMinimum": 0
+    },
+    "analysis_sample_format": {
+      "const": "PCM16_full_scale"
+    },
+    "valid_temperature_C": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": [
+          "number",
+          "null"
+        ]
+      }
+    },
+    "channels": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "analysis_channel",
+          "role",
+          "quantity",
+          "SI_unit",
+          "chain_id",
+          "phase_response_measured",
+          "points"
+        ],
+        "properties": {
+          "analysis_channel": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "role": {
+            "enum": [
+              "drive_loopback",
+              "hydrophone",
+              "bridge_acceleration",
+              "dynamic_force",
+              "bridge_displacement"
+            ]
+          },
+          "quantity": {
+            "enum": [
+              "voltage",
+              "pressure",
+              "acceleration",
+              "force",
+              "displacement"
+            ]
+          },
+          "SI_unit": {
+            "enum": [
+              "V",
+              "Pa",
+              "m/s^2",
+              "N",
+              "m"
+            ]
+          },
+          "chain_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "phase_response_measured": {
+            "type": "boolean"
+          },
+          "points": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "frequency_Hz",
+                "sensitivity_FS_per_SI",
+                "uncertainty_kind",
+                "sensitivity_error_radius_abs_FS_per_SI",
+                "source_reference_id",
+                "frequency_domain_halfwidth_Hz"
+              ],
+              "properties": {
+                "frequency_Hz": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                },
+                "sensitivity_FS_per_SI": {
+                  "type": "object",
+                  "required": [
+                    "real",
+                    "imag"
+                  ],
+                  "properties": {
+                    "real": {
+                      "type": [
+                        "number",
+                        "string"
+                      ]
+                    },
+                    "imag": {
+                      "type": [
+                        "number",
+                        "string"
+                      ]
+                    }
+                  }
+                },
+                "uncertainty_kind": {
+                  "enum": [
+                    "deterministic_disk_declared",
+                    "expanded_uncertainty_declared",
+                    "unspecified"
+                  ]
+                },
+                "sensitivity_error_radius_abs_FS_per_SI": {
+                  "type": [
+                    "number",
+                    "string",
+                    "null"
+                  ]
+                },
+                "source_reference_id": {
+                  "type": "string"
+                },
+                "frequency_domain_halfwidth_Hz": {
+                  "type": [
+                    "number",
+                    "string"
+                  ],
+                  "description": "Sensitivity and its declared error are valid uniformly over this SI-Hz radius around the exact center point. Not an interpolation license."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "reference_evidence": {
+      "type": "array"
+    },
+    "slow_channels": {
+      "type": "array"
+    },
+    "frequency_axis": {
+      "const": "SI_Hz"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "measured_with_declared_scope"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "calibration_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "configuration_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sample_rate_Hz": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "evidence_type": {
+            "enum": [
+              "physical_calibration_declared",
+              "synthetic_demo"
+            ]
+          },
+          "channels": {
+            "minItems": 1
+          }
+        }
+      }
+    }
+  ],
+  "description": "Runtime converter adds quantity/unit/role consistency, exact frequency coverage, strict phase, configuration/rate/temperature and uncertainty-domain checks. This schema records declarations and does not authenticate calibration."
+}

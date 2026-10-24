@@ -1,0 +1,33 @@
+part,qty,material,stock_X_mm,stock_Y_mm,stock_Z_mm,operation_notes
+B01,1,6061-T6 plate,600,360,12,base;Ydatum=-40; underside clearance for heads
+F01,4,qualified full-hard302 stainless,10,0.3048,60,ordered0.012in leaf;free40;measure thickness;deburr without reducing root width
+F02,4,6061-T6,32,24,6,lower clamp foot
+F03,4,6061-T6,16,12,37,fixed post;upper10mm front notch6.1524deep
+F04,8,6061-T6,16,6,10,loose front clamp jaw;4lower4upper
+F05,4,6061-T6,16,6,18,upper rear jaw;top tapped mount clear of leaf bolt
+C01,1,6061-T6,152,80,6,"carrier;2throughpockets20x40 atlocal26/106,20;20mm minimum bridges"
+C02,1,6061-T6,12,72,6,string bridge;4rounded0.5mm seating grooves
+C03,2,6061-T6,48,32,3,"keyed CONTACTface:3grooves30x0.8x0.3parallelX atlocalY8/16/24;toplower,bottomupper"
+C04,1,6061-T6,55,34,69,fixed clay pedestal
+C05,4,6061 tube,5,5,18,spacer OD5 ID3.2;length matched
+C06F,1,6061-T6,26,14,26,frontclevis;central slot8.2wide fullY and13high;relievefront2mm acrosslower13mm forcellclearance
+C06R,1,6061-T6,26,14,26,rearclevis;sameblank;differentpin/topmountYlocations
+T01,1,compatible tank polymer,172,112,6,bottom;bond/joint process qualification required
+T02,2,compatible tank polymer,172,6,100,long walls;nearwall aperture/bolt circle;installedXYZ
+T03,2,compatible tank polymer,6,100,100,inset ends;installedXYZ
+T04,2,corrosion-compatible metal,60,6,60,diaphragm annular ring OD60 ID40;8holesPCD50
+T05,2,gasket compatible with water/polymer,60,0.5,60,annular gasket OD60 ID40;compressed thickness mustbe measured
+T06,1,stainless foil qualified coupon,60,0.1016,60,ordered0.004in;diaphragm solid;do not drill centre;8PCD50clearanceholes
+T07,1,stainless foil comparator,60,0.254,60,ordered0.010in;separate geometry/calibrationID
+T08,1,corrosion-compatible metal,8,1,8,dry boss;bond to dry diaphragm centre;bond process coupon
+W01,2,ground steel shaft,6,65,6,manualwriter guide rods alongY
+W02,4,6061-T6,10,12,65,guide posts;rod centre60 abovebottom;M3radial clamp
+W03,1,6061-T6,36,20,18,guided carriage;2reamed boresX8/28 Z6 alongY;front thrust yoke and rear M3adapter
+W04,1,machined steel,6,70,6,M6x0.5lead;rotating captive thrust journal;nut onlyoutside sensor
+W05,1,6061-T6,50,15,20,fixed topnutbeam;M6x0.5or replaceable nut bush;axisZ92
+W06,2,6061-T6,8,15,72,fixednutbeam legs outside guide shafts;anchor tobase
+W07,2,steel M3x0.5,3,12,3,cellportstuds;2.2engagementeach;jamnut;NO bottoming beyond2.8
+W08,1,steel shoulder pin,30,3,3,frontclevisremovablepin alongX;retainer;no threaded shank bearing
+R01,1,steel rod,3,40,3,adjustable zero-load rear coupler;actual length fittedwet;indexed collar
+A01,2,6061-T6,60,100,8,anchorfoot;4M5base;independent longitudinalloadpath
+A02,2,6061-T6,20,80,110,anchorweb;4M4eye/retainer axes localZ104;measure actualbearingpoints

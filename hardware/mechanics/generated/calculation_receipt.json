@@ -1,0 +1,126 @@
+{
+  "status": "ASSUMED_MATERIAL_NOMINAL_ANALYTICAL_SCREEN_NOT_PHYSICAL_QUALIFICATION",
+  "illustrative_strings": {
+    "linear_density_kg_m": 0.00022580197197676635,
+    "actual_straight_speaking_length_m": 0.4000012499980469,
+    "tensions_N": [
+      9.891696396231973,
+      12.462756508781151,
+      15.702089265131384,
+      22.206107596332153
+    ],
+    "total_N": 60.26264976647666,
+    "front_break_angle_deg": 0.14323915036830656,
+    "after_break_angle_deg": 0.5729386976834859,
+    "bridge_nominal_force_X_N": -0.0028245866244465253,
+    "bridge_nominal_force_Z_N": -0.7532525222159917,
+    "end_bank_longitudinal_load_N": 60.26264976647666
+  },
+  "flexures": {
+    "count": 4,
+    "nominal_E_Pa": 200000000000,
+    "Y_stiffness_N_per_m": 3539.605824000001,
+    "X_stiffness_N_per_m": 3810000.0000000005,
+    "cantilever_comparison_Pcr_per_leaf_N": 7.278022753889987,
+    "vertical_load_screen_total_N": 4.6834492225033495,
+    "X_tension_mismatch_screen_N": 10.004687126496083,
+    "screening_cases": {
+      "initial": {
+        "force_abs_N": 5,
+        "stroke_abs_mm": 0.25,
+        "ideal_Y_restoring_force_N": 0.8849014560000003,
+        "ideal_guided_tip_moment_total_Nm": 0.01769802912000001,
+        "assumed_force_axis_error_max_mm": 0.5,
+        "maximum_compression_per_leaf_N": 1.4233376696258375,
+        "cantilever_Euler_comparison_ratio": 5.113349354270382,
+        "conservative_sum_bending_and_axial_stress_MPa": 38.889107299578114,
+        "nominal_screen_passes": true,
+        "qualified_operating_permission": false
+      },
+      "conditional_upper": {
+        "force_abs_N": 20,
+        "stroke_abs_mm": 0.5,
+        "ideal_Y_restoring_force_N": 1.7698029120000005,
+        "ideal_guided_tip_moment_total_Nm": 0.03539605824000002,
+        "assumed_force_axis_error_max_mm": 0.5,
+        "maximum_compression_per_leaf_N": 1.7383130336258377,
+        "cantilever_Euler_comparison_ratio": 4.186830917737076,
+        "conservative_sum_bending_and_axial_stress_MPa": 67.56744567359387,
+        "nominal_screen_passes": true,
+        "qualified_operating_permission": false
+      }
+    },
+    "omitted": [
+      "clamp slip and root concentration",
+      "fatigue",
+      "dynamic resonance",
+      "coupled nonlinear buckling",
+      "fluid and rod mismatch loads",
+      "material/thickness tolerance enclosure"
+    ]
+  },
+  "moving_mass": {
+    "known_machined_aluminium_estimate_kg": 0.26958744,
+    "installed_mass_cap_kg": 0.35,
+    "remaining_allowance_kg": 0.08041255999999997,
+    "must_include": "spacers, nuts, bolts, drive puck, transducers, cable traction and moving clay share; weigh assembled"
+  },
+  "anchor_bank": {
+    "screen_force_N": 100,
+    "overturning_moment_Nm": 10.4,
+    "web_bending_stress_MPa": 1.95,
+    "web_tip_deflection_um": 10.188985507246375,
+    "nominal_tension_per_base_bolt_N": 130.0,
+    "nominal_web_to_foot_bolt_tension_with_10mm_contact_lever_N": 520.0,
+    "nominal_direct_shear_per_base_bolt_N": 25.0,
+    "joint_strength_or_base_stiffness_qualified": false
+  },
+  "diaphragm": {
+    "centre_hydrostatic_pressure_Pa": 225.63,
+    "rows": [
+      {
+        "thickness_mm": 0.1016,
+        "bending_rigidity_Nm": 0.01920828014652014,
+        "ideal_central_point_stiffness_N_per_m": 2413.783671856094,
+        "linear_hydrostatic_centre_deflection_um": 29.36624183410769,
+        "linear_deflection_over_thickness": 0.2890378133278316,
+        "ideal_force_at_10um_N": 0.02413783671856094,
+        "wet_tangent_stiffness_measured": false
+      },
+      {
+        "thickness_mm": 0.254,
+        "bending_rigidity_Nm": 0.3001293772893773,
+        "ideal_central_point_stiffness_N_per_m": 37715.36987275147,
+        "linear_hydrostatic_centre_deflection_um": 1.8794394773828917,
+        "linear_deflection_over_thickness": 0.007399368021192488,
+        "ideal_force_at_10um_N": 0.37715369872751475,
+        "wet_tangent_stiffness_measured": false
+      }
+    ],
+    "limitation": "small-deflection static plate model; wet tangent, boss footprint, fluid inertia, gasket and residual stress omitted"
+  },
+  "force_cell": {
+    "source_item": "FSH00103",
+    "rated_load_N": 22.2,
+    "nominal_rated_deflection_um": 127,
+    "nominal_deflection_at_5N_um": 28.603603603603606,
+    "nominal_deflection_at_20N_um": 114.41441441441442,
+    "interpretation": "cell compliance alone defeats treating hand-screw travel as specimen displacement"
+  },
+  "physical_readiness": false,
+  "geometry_revision": "M03-manual-coupon-build",
+  "params_sha256": "e47016d10b7827ed4d62202cf949726a2c9eb324b6b8119e0501f68d1302955b",
+  "checks": {
+    "leaf_free_span_matches_clamp_edges": true,
+    "leaf_hole_edge_distance_at_least_1p5diameters": true,
+    "pad_fits_plate_with_registered_bolt_lands": true,
+    "clay_height_stack_consistent": true,
+    "writer_force_axis_matches_upper_clay_contact": true,
+    "sensor_engagement_below_maximum": true,
+    "hydrophone_body_submerged_clear_floor": true,
+    "hydrophone_clear_sidewalls": true,
+    "diaphragm_clear_aperture_submerged": true,
+    "initial_nominal_load_screen": true,
+    "conditional_upper_nominal_load_screen": true
+  }
+}

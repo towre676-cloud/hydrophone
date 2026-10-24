@@ -1,0 +1,3 @@
+# Optional only: all offline analysis, probe compilation and dry-run use stdlib.
+# PortAudio device/backend installation remains platform-specific.
+sounddevice>=0.5.1,<0.6

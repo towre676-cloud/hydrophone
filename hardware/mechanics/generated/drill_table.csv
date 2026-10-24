@@ -1,0 +1,127 @@
+part,hole_axis,local_X_mm,local_Y_mm,local_Z_mm,diameter_or_tap_drill_mm,operation,depth_mm,notes
+B01,Z,392,92,0,4.5,THRU,12,globalX;localY=globalY+40;clampfoot
+B01,Z,408,92,0,4.5,THRU,12,globalX;localY=globalY+40;clampfoot
+B01,Z,392,132,0,4.5,THRU,12,globalX;localY=globalY+40;clampfoot
+B01,Z,408,132,0,4.5,THRU,12,globalX;localY=globalY+40;clampfoot
+B01,Z,512,92,0,4.5,THRU,12,globalX;localY=globalY+40;clampfoot
+B01,Z,528,92,0,4.5,THRU,12,globalX;localY=globalY+40;clampfoot
+B01,Z,512,132,0,4.5,THRU,12,globalX;localY=globalY+40;clampfoot
+B01,Z,528,132,0,4.5,THRU,12,globalX;localY=globalY+40;clampfoot
+B01,Z,441,101,0,4.5,THRU,12,claypedestal;counterbore underside7.5x4
+B01,Z,441,123,0,4.5,THRU,12,claypedestal;counterbore underside7.5x4
+B01,Z,479,101,0,4.5,THRU,12,claypedestal;counterbore underside7.5x4
+B01,Z,479,123,0,4.5,THRU,12,claypedestal;counterbore underside7.5x4
+B01,Z,25,76,0,5.5,THRU,12,anchorfoot;M5throughnut
+B01,Z,25,148,0,5.5,THRU,12,anchorfoot;M5throughnut
+B01,Z,65,76,0,5.5,THRU,12,anchorfoot;M5throughnut
+B01,Z,65,148,0,5.5,THRU,12,anchorfoot;M5throughnut
+B01,Z,550,76,0,5.5,THRU,12,anchorfoot;M5throughnut
+B01,Z,550,148,0,5.5,THRU,12,anchorfoot;M5throughnut
+B01,Z,590,76,0,5.5,THRU,12,anchorfoot;M5throughnut
+B01,Z,590,148,0,5.5,THRU,12,anchorfoot;M5throughnut
+B01,Z,450,10,0,3.4,THRU,12,guidepost;undersidecounterbore6x3.2
+B01,Z,450,75,0,3.4,THRU,12,guidepost;undersidecounterbore6x3.2
+B01,Z,470,10,0,3.4,THRU,12,guidepost;undersidecounterbore6x3.2
+B01,Z,470,75,0,3.4,THRU,12,guidepost;undersidecounterbore6x3.2
+F01,Y,5,0,5,3.2,THRU,0.3048,hole within10mm clampedzone;notfree root
+F01,Y,5,0,55,3.2,THRU,0.3048,hole within10mm clampedzone;notfree root
+F02,Z,8,12,0,4.5,THRU,6,basebolt
+F02,Z,24,12,0,4.5,THRU,6,basebolt
+F02,Z,16,12,0,3.4,THRU,6,fixedpost;M3bolt into bottomtap
+F03,Z,8,6,0,2.5,TAP M3x0.5,12,bottom;leave15mm solid beforetopcrosshole
+F03,Y,8,0,32,3.2,THRU,12,clampbolt;globalZ50
+F04,Y,8,0,5,3.2,THRU,6,M3jawbolt
+F05,Y,8,0,5,3.2,THRU,6,globalZ100
+F05,Z,8,3,18,2.5,TAP M3x0.5,6,topmount;bottomof tap global107 clearscrossbolt100
+C01,Z,16,15.1524,0,3.4,THRU,6,upperrearjawmount
+C01,Z,16,55.1524,0,3.4,THRU,6,upperrearjawmount
+C01,Z,136,15.1524,0,3.4,THRU,6,upperrearjawmount
+C01,Z,136,55.1524,0,3.4,THRU,6,upperrearjawmount
+C01,Z,57,21,0,3.4,THRU,6,cartridgespacer
+C01,Z,57,43,0,3.4,THRU,6,cartridgespacer
+C01,Z,95,21,0,3.4,THRU,6,cartridgespacer
+C01,Z,95,43,0,3.4,THRU,6,cartridgespacer
+C01,Z,68,6,0,3.4,THRU,6,front/rearclevistopmount
+C01,Z,68,70,0,3.4,THRU,6,front/rearclevistopmount
+C01,Z,84,6,0,3.4,THRU,6,front/rearclevistopmount
+C01,Z,84,70,0,3.4,THRU,6,front/rearclevistopmount
+C01,Z,76,12,0,3.4,THRU,6,bridgebar mount;exclude stringcontact grooves
+C01,Z,76,60,0,3.4,THRU,6,bridgebar mount;exclude stringcontact grooves
+C02,Z,6,16,0,2.5,TAP M3x0.5,4,blindto4mm;do notbreak saddle contact surface
+C02,Z,6,64,0,2.5,TAP M3x0.5,4,blindto4mm;do notbreak saddle contact surface
+C03,Z,5,5,0,3.2,THRU,3,upperflushhead outsideclay footprint;lowerclearance
+C03,Z,5,27,0,3.2,THRU,3,upperflushhead outsideclay footprint;lowerclearance
+C03,Z,43,5,0,3.2,THRU,3,upperflushhead outsideclay footprint;lowerclearance
+C03,Z,43,27,0,3.2,THRU,3,upperflushhead outsideclay footprint;lowerclearance
+C04,Z,8.5,6,69,2.5,TAP M3x0.5,8,topplate
+C04,Z,8.5,6,0,3.3,TAP M4x0.7,12,bottomtobase;oppositeendstopdoesnotintersect
+C04,Z,8.5,28,69,2.5,TAP M3x0.5,8,topplate
+C04,Z,8.5,28,0,3.3,TAP M4x0.7,12,bottomtobase;oppositeendstopdoesnotintersect
+C04,Z,46.5,6,69,2.5,TAP M3x0.5,8,topplate
+C04,Z,46.5,6,0,3.3,TAP M4x0.7,12,bottomtobase;oppositeendstopdoesnotintersect
+C04,Z,46.5,28,69,2.5,TAP M3x0.5,8,topplate
+C04,Z,46.5,28,0,3.3,TAP M4x0.7,12,bottomtobase;oppositeendstopdoesnotintersect
+C06F,Z,5,6,26,2.5,TAP M3x0.5,8,topcarrier mount
+C06F,Z,21,6,26,2.5,TAP M3x0.5,8,topcarrier mount
+C06F,X,0,8,5,3.1,REAM,26,"clevispin;frontglobalY48,rearglobalY110"
+C06R,Z,5,6,26,2.5,TAP M3x0.5,8,topcarrier mount
+C06R,Z,21,6,26,2.5,TAP M3x0.5,8,topcarrier mount
+C06R,X,0,6,5,3.1,REAM,26,"clevispin;frontglobalY48,rearglobalY110"
+T04,Y,55.0,0,30.0,3.4,THRU,stock,"centrelocal30,30;PCD50"
+T04,Y,47.67766952966369,0,47.67766952966369,3.4,THRU,stock,"centrelocal30,30;PCD50"
+T04,Y,30.0,0,55.0,3.4,THRU,stock,"centrelocal30,30;PCD50"
+T04,Y,12.322330470336315,0,47.67766952966369,3.4,THRU,stock,"centrelocal30,30;PCD50"
+T04,Y,5.0,0,30.000000000000004,3.4,THRU,stock,"centrelocal30,30;PCD50"
+T04,Y,12.322330470336308,0,12.322330470336315,3.4,THRU,stock,"centrelocal30,30;PCD50"
+T04,Y,29.999999999999996,0,5.0,3.4,THRU,stock,"centrelocal30,30;PCD50"
+T04,Y,47.67766952966369,0,12.322330470336308,3.4,THRU,stock,"centrelocal30,30;PCD50"
+T05,Y,55.0,0,30.0,3.4,THRU,stock,"centrelocal30,30;PCD50"
+T05,Y,47.67766952966369,0,47.67766952966369,3.4,THRU,stock,"centrelocal30,30;PCD50"
+T05,Y,30.0,0,55.0,3.4,THRU,stock,"centrelocal30,30;PCD50"
+T05,Y,12.322330470336315,0,47.67766952966369,3.4,THRU,stock,"centrelocal30,30;PCD50"
+T05,Y,5.0,0,30.000000000000004,3.4,THRU,stock,"centrelocal30,30;PCD50"
+T05,Y,12.322330470336308,0,12.322330470336315,3.4,THRU,stock,"centrelocal30,30;PCD50"
+T05,Y,29.999999999999996,0,5.0,3.4,THRU,stock,"centrelocal30,30;PCD50"
+T05,Y,47.67766952966369,0,12.322330470336308,3.4,THRU,stock,"centrelocal30,30;PCD50"
+T06,Y,55.0,0,30.0,3.4,THRU,stock,"centrelocal30,30;PCD50"
+T06,Y,47.67766952966369,0,47.67766952966369,3.4,THRU,stock,"centrelocal30,30;PCD50"
+T06,Y,30.0,0,55.0,3.4,THRU,stock,"centrelocal30,30;PCD50"
+T06,Y,12.322330470336315,0,47.67766952966369,3.4,THRU,stock,"centrelocal30,30;PCD50"
+T06,Y,5.0,0,30.000000000000004,3.4,THRU,stock,"centrelocal30,30;PCD50"
+T06,Y,12.322330470336308,0,12.322330470336315,3.4,THRU,stock,"centrelocal30,30;PCD50"
+T06,Y,29.999999999999996,0,5.0,3.4,THRU,stock,"centrelocal30,30;PCD50"
+T06,Y,47.67766952966369,0,12.322330470336308,3.4,THRU,stock,"centrelocal30,30;PCD50"
+T07,Y,55.0,0,30.0,3.4,THRU,stock,"centrelocal30,30;PCD50"
+T07,Y,47.67766952966369,0,47.67766952966369,3.4,THRU,stock,"centrelocal30,30;PCD50"
+T07,Y,30.0,0,55.0,3.4,THRU,stock,"centrelocal30,30;PCD50"
+T07,Y,12.322330470336315,0,47.67766952966369,3.4,THRU,stock,"centrelocal30,30;PCD50"
+T07,Y,5.0,0,30.000000000000004,3.4,THRU,stock,"centrelocal30,30;PCD50"
+T07,Y,12.322330470336308,0,12.322330470336315,3.4,THRU,stock,"centrelocal30,30;PCD50"
+T07,Y,29.999999999999996,0,5.0,3.4,THRU,stock,"centrelocal30,30;PCD50"
+T07,Y,47.67766952966369,0,12.322330470336308,3.4,THRU,stock,"centrelocal30,30;PCD50"
+T02-near,Y,111.0,0,57.0,3.4,THRU,6,wall originX374 Z35
+T02-near,Y,103.67766952966369,0,74.67766952966369,3.4,THRU,6,wall originX374 Z35
+T02-near,Y,86.0,0,82.0,3.4,THRU,6,wall originX374 Z35
+T02-near,Y,68.32233047033631,0,74.67766952966369,3.4,THRU,6,wall originX374 Z35
+T02-near,Y,61.0,0,57.0,3.4,THRU,6,wall originX374 Z35
+T02-near,Y,68.32233047033631,0,39.32233047033631,3.4,THRU,6,wall originX374 Z35
+T02-near,Y,86.0,0,32.0,3.4,THRU,6,wall originX374 Z35
+T02-near,Y,103.67766952966369,0,39.32233047033631,3.4,THRU,6,wall originX374 Z35
+T02-near,Y,86,0,57,40,BORE/ROUTE,6,clearaperture
+W02,Y,5,0,60,6,REAM,12,guide rod;secureM3radialclampafteralignment
+W02,Z,5,6,0,2.5,TAP M3x0.5,12,bottommount
+W03,Y,8,0,6,6.05,REAM/LINEBORE,20,matchedguidebores;fitcheckandlubeoutside specimen
+W03,Y,28,0,6,6.05,REAM/LINEBORE,20,matchedguidebores;fitcheckandlubeoutside specimen
+W05,Y,25,0,8,5.5,TAP M6x0.5,15,actualscrewfit;replaceablenutbush preferred
+A01,Z,10,14,0,5.5,THRU,8,basejoint
+A01,Z,10,86,0,5.5,THRU,8,basejoint
+A01,Z,50,14,0,5.5,THRU,8,basejoint
+A01,Z,50,86,0,5.5,THRU,8,basejoint
+A01,Z,30,22,0,4.5,THRU,8,webmount;undersideCB7.5x4.5
+A01,Z,30,78,0,4.5,THRU,8,webmount;undersideCB7.5x4.5
+A02,Z,10,12,0,3.3,TAP M4x0.7,16,webtobasefoot
+A02,Z,10,68,0,3.3,TAP M4x0.7,16,webtobasefoot
+A02,X,0,22,104,4.5,THRU,20,M4eyeorlineclamp;actualbearingpointmustmeasure
+A02,X,0,34,104,4.5,THRU,20,M4eyeorlineclamp;actualbearingpointmustmeasure
+A02,X,0,46,104,4.5,THRU,20,M4eyeorlineclamp;actualbearingpointmustmeasure
+A02,X,0,58,104,4.5,THRU,20,M4eyeorlineclamp;actualbearingpointmustmeasure

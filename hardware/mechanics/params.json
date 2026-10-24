@@ -1,0 +1,252 @@
+{
+  "schema": "fusion.mechanics/3",
+  "revision": "M03-manual-coupon-build",
+  "status": "DIMENSIONED_PROTOTYPE_NOT_FABRICATED_OR_QUALIFIED",
+  "length_unit": "mm",
+  "base": {
+    "origin": [
+      0,
+      -40,
+      0
+    ],
+    "size": [
+      600,
+      360,
+      12
+    ]
+  },
+  "leaf": {
+    "x_centres": [
+      400,
+      520
+    ],
+    "y_centres": [
+      52,
+      92
+    ],
+    "width": 10,
+    "thickness": 0.3048,
+    "blank_length": 60,
+    "free_length": 40,
+    "blank_bottom_z": 45,
+    "free_bottom_z": 55,
+    "free_top_z": 95,
+    "hole_z": [
+      50,
+      100
+    ],
+    "hole_diameter": 3.2
+  },
+  "carrier": {
+    "origin": [
+      384,
+      40,
+      113
+    ],
+    "size": [
+      152,
+      80,
+      6
+    ],
+    "bridge_origin": [
+      454,
+      36,
+      119
+    ],
+    "bridge_size": [
+      12,
+      72,
+      6
+    ],
+    "front_port": [
+      460,
+      48,
+      92
+    ],
+    "rear_port": [
+      460,
+      110,
+      92
+    ]
+  },
+  "clay": {
+    "lower_origin": [
+      436,
+      56,
+      81
+    ],
+    "plate_size": [
+      48,
+      32,
+      3
+    ],
+    "upper_origin": [
+      436,
+      56,
+      92
+    ],
+    "pad_origin": [
+      445,
+      57,
+      84
+    ],
+    "pad_size": [
+      30,
+      30,
+      8
+    ],
+    "pedestal_origin": [
+      432.5,
+      55,
+      12
+    ],
+    "pedestal_size": [
+      55,
+      34,
+      69
+    ],
+    "mount_x": [
+      441,
+      479
+    ],
+    "mount_y": [
+      61,
+      83
+    ],
+    "spacer_length": 18,
+    "spacer_od": 5,
+    "spacer_id": 3.2
+  },
+  "strings": {
+    "nut_x": 60,
+    "bridge_x": 460,
+    "anchor_x": 560,
+    "end_z": 124,
+    "bridge_z": 125,
+    "y_centres": [
+      54,
+      66,
+      78,
+      90
+    ],
+    "diameter": 0.5,
+    "assumed_density_kg_m3": 1150,
+    "illustrative_Hz": [
+      261.6255653006,
+      293.6647679174,
+      329.6275569129,
+      391.9954359817
+    ]
+  },
+  "tank": {
+    "internal_origin": [
+      380,
+      160,
+      35
+    ],
+    "internal_size": [
+      160,
+      100,
+      100
+    ],
+    "wall": 6,
+    "fill_z": 115,
+    "hydrophone_centre": [
+      500,
+      215,
+      80
+    ],
+    "hydrophone_diameter": 25,
+    "hydrophone_body_length": 46
+  },
+  "diaphragm": {
+    "centre": [
+      460,
+      153.4,
+      92
+    ],
+    "clear_diameter": 40,
+    "coupon_diameter": 60,
+    "nominal_thickness": 0.1016,
+    "comparator_thickness": 0.254,
+    "bolt_circle_diameter": 50,
+    "bolt_count": 8,
+    "bolt_clearance": 3.4,
+    "ring_thickness": 6,
+    "gasket_free_thickness": 0.5,
+    "dry_boss_diameter": 8
+  },
+  "writer": {
+    "force_axis_x": 460,
+    "force_axis_z": 92,
+    "guide_x": [
+      450,
+      470
+    ],
+    "guide_z": 72,
+    "guide_y": [
+      -30,
+      35
+    ],
+    "guide_diameter": 6,
+    "carriage_origin": [
+      442,
+      -5,
+      66
+    ],
+    "carriage_size": [
+      36,
+      20,
+      18
+    ],
+    "lead_pitch": 0.5,
+    "lead_major_diameter": 6,
+    "sensor_model": "FUTEK LSB200 FSH00103",
+    "sensor_load_axis_y": [
+      20.9,
+      40
+    ],
+    "sensor_keepout_origin": [
+      450.5,
+      20.9,
+      88
+    ],
+    "sensor_keepout_size": [
+      17.5,
+      19.1,
+      8
+    ],
+    "sensor_thread": "M3x0.5",
+    "sensor_thread_max_depth": 2.8,
+    "sensor_thread_target_engagement": 2.2,
+    "park_translation_y": -15
+  },
+  "operating_declarations": {
+    "initial_write_force_abs_N": 5,
+    "initial_write_displacement_abs_mm": 0.25,
+    "conditional_write_force_abs_N": 20,
+    "conditional_write_displacement_abs_mm": 0.5,
+    "read_dynamic_displacement_abs_mm": 0.01,
+    "per_string_tension_cap_N": 25,
+    "total_string_tension_cap_N": 100,
+    "moving_mass_cap_kg": 0.35,
+    "nominal_clamp_tilt_tolerance_mrad": 1,
+    "minimum_buckling_ratio_screen": 4,
+    "leaf_bending_stress_screen_MPa": 100
+  },
+  "assumed_materials": {
+    "leaf_E_Pa": 200000000000,
+    "leaf_density_kg_m3": 7900,
+    "aluminium_E_Pa": 69000000000,
+    "aluminium_density_kg_m3": 2700,
+    "diaphragm_E_Pa": 200000000000,
+    "diaphragm_poisson": 0.3,
+    "water_density_kg_m3": 1000,
+    "g_m_s2": 9.81
+  },
+  "notes": [
+    "Original design/fusion_design packet is immutable; M03 has a 360mm-deep base, wider leaf spacing, 100mm afterlength, aligned Z92 writer/rod and mechanically detailed clamps.",
+    "Force cell is a sourced keepout and its manufacturer's drawing governs stepped body shape; do not manufacture or clamp that body from this envelope.",
+    "All operating values are commissioning proposals conditional on measured displacement, force, alignment and source material qualification."
+  ]
+}

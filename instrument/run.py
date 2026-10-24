@@ -44,6 +44,9 @@ def analyze_run(manifest_path):
             raise ValueError('Canonical fusion.run/1 requires raw_files; use hydrophone.signal-run/1 for compact input')
         for role in ('multichannel_audio','slow_force_displacement','drive_command'):
             _bound_file(path.parent,raw[role])
+        for role,record in raw.items():
+            if role not in ('multichannel_audio','slow_force_displacement','drive_command'):
+                _bound_file(path.parent,record)
         acquisition_audit=audit_run(path)
         analysis=run.get('analysis',{})
         cfg=analysis.get('tones')
@@ -74,6 +77,7 @@ def analyze_run(manifest_path):
         'specimen_id':run.get('specimen_id'),'history_protocol':run.get('history_protocol'),
         'clock_alignment_declaration':run.get('sync') if canonical else run.get('clock_alignment'),
         'calibration_declaration':run.get('calibration'),
+        'slow_pairing_declaration':run.get('slow_pairing_declaration'),
         'source_score_sha256':run.get('source_score_sha256'),
         'audio':tones,'slow':mechanical,
         'evidence_levels':{'raw_bytes_hash_checked':True,'features_computed':True,
@@ -83,4 +87,5 @@ def analyze_run(manifest_path):
         'limitations':['Manifest origin/calibration/clock fields are declarations, not authenticated measurements.',
             'Audio residuals are not deterministic model-error bounds.',
             'Slow sampled writer-port work is not identified clay dissipation.',
+            'Force/position rows require qualified time pairing; clock alignment alone does not remove sensor/filter delays.',
             'No finite decision certificate may silently replace synthetic uncertainty with these diagnostics.']}

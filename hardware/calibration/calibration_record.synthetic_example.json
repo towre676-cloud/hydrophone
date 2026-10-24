@@ -1,0 +1,111 @@
+{
+  "schema": "hydrophone.calibration-record/1",
+  "calibration_id": "SYNTHETIC-CALIBRATION-NOT-A-SENSOR-CERTIFICATE",
+  "status": "measured_with_declared_scope",
+  "evidence_type": "synthetic_demo",
+  "configuration_id": "SYNTHETIC-CHAIN-A",
+  "sample_rate_Hz": 48000,
+  "analysis_sample_format": "PCM16_full_scale",
+  "valid_temperature_C": [
+    18,
+    22
+  ],
+  "created_utc": "2026-10-24T00:00:00Z",
+  "validity_review_due_utc": null,
+  "reference_evidence": [
+    {
+      "id": "SYNTHETIC-REFERENCE",
+      "sha256": null,
+      "physical_traceability_verified": false
+    }
+  ],
+  "gain_clock_and_settings": {
+    "common_audio_clock": "SYNTHETIC-CLOCK",
+    "automatic_gain_control": false,
+    "limiter": false,
+    "channel_gains": "synthetic_fixed_gains",
+    "ADC_scaling_source": "synthetic_complete_chain",
+    "cross_channel_skew_bound_s": null,
+    "phase_budget_deg": null
+  },
+  "channels": [
+    {
+      "analysis_channel": 0,
+      "role": "drive_loopback",
+      "quantity": "voltage",
+      "SI_unit": "V",
+      "chain_id": "SYNTHETIC-drive_loopback",
+      "sensor_serial": "NONE-SYNTHETIC",
+      "conditioning_and_ADC_settings_id": "SYNTHETIC-SETTINGS",
+      "phase_response_measured": true,
+      "mount_id": "SYNTHETIC-MOUNT",
+      "orientation": "positive declared axis",
+      "points": [
+        {
+          "frequency_Hz": 300,
+          "sensitivity_FS_per_SI": {
+            "real": ".1",
+            "imag": "0"
+          },
+          "uncertainty_kind": "deterministic_disk_declared",
+          "sensitivity_error_radius_abs_FS_per_SI": ".0001",
+          "source_reference_id": "SYNTHETIC-REFERENCE",
+          "frequency_domain_halfwidth_Hz": 0
+        }
+      ]
+    },
+    {
+      "analysis_channel": 1,
+      "role": "hydrophone",
+      "quantity": "pressure",
+      "SI_unit": "Pa",
+      "chain_id": "SYNTHETIC-hydrophone",
+      "sensor_serial": "NONE-SYNTHETIC",
+      "conditioning_and_ADC_settings_id": "SYNTHETIC-SETTINGS",
+      "phase_response_measured": true,
+      "mount_id": "SYNTHETIC-MOUNT",
+      "orientation": "positive declared axis",
+      "points": [
+        {
+          "frequency_Hz": 300,
+          "sensitivity_FS_per_SI": {
+            "real": ".01",
+            "imag": ".02"
+          },
+          "uncertainty_kind": "deterministic_disk_declared",
+          "sensitivity_error_radius_abs_FS_per_SI": ".0001",
+          "source_reference_id": "SYNTHETIC-REFERENCE",
+          "frequency_domain_halfwidth_Hz": 0
+        }
+      ]
+    },
+    {
+      "analysis_channel": 2,
+      "role": "bridge_acceleration",
+      "quantity": "acceleration",
+      "SI_unit": "m/s^2",
+      "chain_id": "SYNTHETIC-bridge_acceleration",
+      "sensor_serial": "NONE-SYNTHETIC",
+      "conditioning_and_ADC_settings_id": "SYNTHETIC-SETTINGS",
+      "phase_response_measured": true,
+      "mount_id": "SYNTHETIC-MOUNT",
+      "orientation": "positive declared axis",
+      "points": [
+        {
+          "frequency_Hz": 300,
+          "sensitivity_FS_per_SI": {
+            "real": ".05",
+            "imag": "0"
+          },
+          "uncertainty_kind": "deterministic_disk_declared",
+          "sensitivity_error_radius_abs_FS_per_SI": ".0001",
+          "source_reference_id": "SYNTHETIC-REFERENCE",
+          "frequency_domain_halfwidth_Hz": 0
+        }
+      ]
+    }
+  ],
+  "slow_channels": [],
+  "uncertainty_warning": "Synthetic arithmetic demonstration only. Deterministic bounds here are assigned, not measured; statistical expanded uncertainty must not be relabeled as a worst-case disk.",
+  "frequency_axis": "SI_Hz"
+}

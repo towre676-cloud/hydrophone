@@ -1,0 +1,23 @@
+item_id,quantity,unit,manufacturer,part,role,verified_price_USD,price_status,source_ids,qualification
+AUDIO-01,1,unit,Behringer,UMC404HD,Four common-clock audio inputs and playback,,no primary price verified,A01 A02,48kHz PCM16 archive; actual driver channel routing and jack DC check required
+HYD-01,1,unit,Aquarian Audio,H2dX,Water-cell pressure-sensitive raw channel,,no primary price verified,A03,Typical sensitivity cannot enable pascal conversion
+ACC-01,1,unit,PCB Piezotronics,352C33,Direct moving-carrier acceleration,,quotation required,A04,Mounting/cable mass and end-to-end complex calibration required
+ACC-02,1,unit,PCB Piezotronics,480E09,Battery ICP excitation and AC output,,quotation required,A05,Three9V batteries; startgain1; high-impedance filter input follows
+ACC-03,1,cable,PCB Piezotronics,003C10,10ft10-32-coax-to-BNC matched sensor cable,,no primary price verified,A11,Do not substitute an audio connector for ICP sensor connection
+FILT-01,1,unit,Krohn-Hite,3364,Four physical anti-alias filter channels,,quotation required,A06,CH1/2 DC5Hz; CH3/4 2kHz; unitygain; measured delay required
+ISO-01,1,unit,Radial Engineering,J-Iso R800102500,Actuator-path audio transformer isolation,,no primary price verified,A07,Onlychannel1used; remaining instrument grounds are not all isolated
+AMP-01,1,board,SparkFun,BOB-11044 TPA2005D1,Low-voltage mono drive amplifier,10.50,primary displayed2026-10-24 in stock,A08 A09,5V supply; floatingOUT+/OUT-; manualMUTE; not force calibrated
+EXC-01,1,pair,Dayton Audio,DAEX25,One dry mechanical exciter plus spare,,no transaction price/stock verified,A10,8ohm5WRMS listing; force/stroke unqualified; validate installed mount
+PWR-05,1,unit,MeanWell,GST25A05-P1J,Separate5V actuator power,,no primary price verified,P01,Verify deliveredbarrelpolarity;1Afuse andDCswitch; not a motion limit
+PWR-24,1,unit,MeanWell,GST25A24-P1J,24V optical measurement power,,no primary price verified,P01,Verify deliveredconnector/polarity; external sealed supply staysdry
+SLOW-01,1,unit,LabJack,T7,Shared slow hardware stream,,no primary price verified,S04 S05,AIN0/2/4/6 ±10V resolution7 50scans/s initially; sequential samples
+SLOW-02,1,unit,LabJack,LJTick-InAmp3 gain201,Force bridge excitation/conditioning,75.00,primary displayed2026-10-24,S02 S03,Use OUTA-interrupt breakout; validate lower headroom; optionalgain51 later
+SLOW-03,1,unit,FUTEK,LSB200 FSH00103,Inline bidirectional static writer-force cell,,quotation/availability unverified,S01,22.2NRO; initial±5N; tension andcompression installedcal; shieldfloating
+SLOW-04,1,unit,Micro-Epsilon,ILD1420-10CL1,Noncontact slow carrier displacement,,quotation required,S06 S07,Class1head;20–30mmstand-off; local targetcalibration; not acoustic-limit sensor
+SLOW-05,1,cable,Micro-Epsilon,PCF1420-3/U,Matched1–5V optical cable,,quotation required,S06 S07,Check deliveredpinout before energizing; noextra shunt
+WIRE-01,1,assembly,Custom,InAmp3 labelled signal-interrupt breakout,VS/GND pass through and OUTA isolated through filter,,unquoted custom assembly,S02,No direct OUTA-AIN0 link; filteroutput alone drives AIN0
+WIRE-02,1,assembly,Custom,Passive parallel TRS line-output splitter,DAC output feeds loopback and isolator,,unquoted custom assembly,A02 A07,Never joins two outputs; all branches load one output
+WIRE-03,1,assembly,Custom,2x10.0kohm1% plus2.21kohm1% differential loopback pad,Lower-level command reference intoLINE3,,unquoted custom assembly,design,Two10kserieslegs;2.21kacrossLINE3side;0.09950unloadedratio;calibrateactualLINEloadedtransfer
+SYNC-01,1,assembly,Custom,10k plus2.21k divider and10uFNP25V seriescapacitor,DAC0 marker conditioned intoLINE4,,unquoted custom assembly,S05,ReadactualDACnode atAIN4; slow50Hz pick allowance≥20ms
+SAFE-01,1,set,Custom,1A fuse DCswitch MUTE switch and insulated box,Independent amplifier power/mute,,unquoted custom assembly,A08 A09,No mains wiring within instrument; no active outputs in code by default
+LOAD-01,1,unit,Generic verified part required,8ohm at least5W dummy resistor,Disconnected-object amplifier checkout,,no part price verified,design,Not a substitute for mechanical qualification
