@@ -1,4 +1,4 @@
-FUSION INSTRUMENT - ENGINEERING DESIGN 0.1 - 24 OCTOBER 2026
+FUSION INSTRUMENT - ENGINEERING DESIGN 0.2 - 24 OCTOBER 2026
 
 Start with output/Fusion_Instrument_Design.pdf. Dimensions are nominal, not
 measured results. The OpenSCAD file is a fit-check assembly; clamps, seals,
@@ -23,3 +23,10 @@ The new ratio fixture is not a replay of original Dyletsky JavaScript. Source
 documents recovered are Claycompute.txt, claycompute_exposition.md.pdf,
 dyle2.txt and dyle3.txt. The original hydrophone-and-string description was
 not recovered; the combined mechanism is a new, explicitly proposed design.
+
+SOFTWARE INTEGRATION 0.2
+Read dyletsky/README.txt for recovered source engines, exact verification and
+the executable bridge to the Review Hidden Math session. Open
+dyletsky/output/Dyletsky_Fusion_Audition.html to audition offline. The physical
+adapter remains disabled; the software now generates and checks real targets.
+The cross-session handoff is Fusion_Physical_Integration_Handoff_20261024.json.

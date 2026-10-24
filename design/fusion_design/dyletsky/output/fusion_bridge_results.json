@@ -1,0 +1,931 @@
+{
+  "schema": "fusion.dyletsky-decision-bridge/1",
+  "evidence_status": "REAL_SOFTWARE_TARGETS_WITH_SYNTHETIC_BOUNDED_READINGS",
+  "physical_execution_enabled": false,
+  "score_source_name": "instrument_score.json",
+  "score_sha256": "8ce894fae115bee8639d9f9e127379f6fff11c692afc77309193a0cbed5ab6d4",
+  "recovered_engine_provenance": {
+    "source": "Review Hidden Math session Fusion_Decision_Engine_20261024.zip",
+    "zip_sha256": "699965824802bb8d4a1157fc5e74255bb4b697c9376a08e1712a056bc66532e2",
+    "engine_sha256": "5acc5d9fdfd2a9390f4d73f445bad25b82bbe58a9e322534b57e6dfa92f54cbc",
+    "source_files_unchanged": true,
+    "scope": "Archived research demonstrator; not a physical controller"
+  },
+  "recovered_engine_independent_replay": {
+    "archive_results_equal": true,
+    "panel_cross_checks": 600,
+    "minimal_obstructions": 8,
+    "archived_music_gram_determinant": 52002816
+  },
+  "target_count": 4,
+  "target_results": [
+    {
+      "dyletsky_target": {
+        "spelling": "C",
+        "octave": 4,
+        "pitch_class": 0,
+        "offset_cents": 0,
+        "target_Hz": 261.626,
+        "engine_id": "dyletsky-gen2-43",
+        "strategy": "hex_nat",
+        "manual_tuning_required": true
+      },
+      "hypotheses": [
+        {
+          "state_index": 0,
+          "tuning_error_cents": -4,
+          "sensor_nuisance_code": 0,
+          "nominal_frequency_Hz_approximate": 261.02221337605897
+        },
+        {
+          "state_index": 1,
+          "tuning_error_cents": -4,
+          "sensor_nuisance_code": 1,
+          "nominal_frequency_Hz_approximate": 261.02221337605897
+        },
+        {
+          "state_index": 2,
+          "tuning_error_cents": 0,
+          "sensor_nuisance_code": 0,
+          "nominal_frequency_Hz_approximate": 261.626
+        },
+        {
+          "state_index": 3,
+          "tuning_error_cents": 0,
+          "sensor_nuisance_code": 1,
+          "nominal_frequency_Hz_approximate": 261.626
+        },
+        {
+          "state_index": 4,
+          "tuning_error_cents": 4,
+          "sensor_nuisance_code": 0,
+          "nominal_frequency_Hz_approximate": 262.23118328012026
+        },
+        {
+          "state_index": 5,
+          "tuning_error_cents": 4,
+          "sensor_nuisance_code": 1,
+          "nominal_frequency_Hz_approximate": 262.23118328012026
+        }
+      ],
+      "successful_actions_by_state": [
+        [
+          "RAISE_4_CENTS"
+        ],
+        [
+          "RAISE_4_CENTS"
+        ],
+        [
+          "LOWER_4_CENTS",
+          "RAISE_4_CENTS"
+        ],
+        [
+          "LOWER_4_CENTS",
+          "RAISE_4_CENTS"
+        ],
+        [
+          "LOWER_4_CENTS"
+        ],
+        [
+          "LOWER_4_CENTS"
+        ]
+      ],
+      "probes": [
+        {
+          "name": "coarse_pitch",
+          "cost": 1,
+          "values": [
+            "-1",
+            "-1",
+            "0",
+            "0",
+            "1",
+            "1"
+          ]
+        },
+        {
+          "name": "fine_pitch",
+          "cost": 4,
+          "values": [
+            "-4",
+            "-4",
+            "0",
+            "0",
+            "4",
+            "4"
+          ]
+        },
+        {
+          "name": "sensor_nuisance_code",
+          "cost": 2,
+          "values": [
+            "0",
+            "2",
+            "0",
+            "2",
+            "0",
+            "2"
+          ]
+        }
+      ],
+      "normalized_closed_noise_radius": "1/2",
+      "target_tolerance_cents": "4",
+      "optimal_panels_for_declared_costs": {
+        "action": {
+          "status": "CERTIFIED_FOR_DECLARED_MODEL",
+          "cost": 1,
+          "panel": [
+            "coarse_pitch"
+          ]
+        },
+        "task": {
+          "status": "CERTIFIED_FOR_DECLARED_MODEL",
+          "cost": 4,
+          "panel": [
+            "fine_pitch"
+          ]
+        },
+        "state": {
+          "status": "CERTIFIED_FOR_DECLARED_MODEL",
+          "cost": 6,
+          "panel": [
+            "fine_pitch",
+            "sensor_nuisance_code"
+          ]
+        }
+      },
+      "synthetic_decisions": [
+        {
+          "synthetic_coarse_normalized_reading": "-1/2",
+          "compatible_state_indices": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "compatible_error_cents": [
+            -4,
+            0
+          ],
+          "compatible_sensor_nuisance_codes": [
+            0,
+            1
+          ],
+          "common_successful_actions": [
+            "RAISE_4_CENTS"
+          ],
+          "selected_offline_action": "RAISE_4_CENTS",
+          "assumed_correction_cents": "4",
+          "post_action_error_cents": [
+            "0",
+            "4"
+          ],
+          "full_state_identified": false,
+          "tuning_task_identified": false,
+          "physical_execution_enabled": false
+        },
+        {
+          "synthetic_coarse_normalized_reading": "0",
+          "compatible_state_indices": [
+            2,
+            3
+          ],
+          "compatible_error_cents": [
+            0
+          ],
+          "compatible_sensor_nuisance_codes": [
+            0,
+            1
+          ],
+          "common_successful_actions": [
+            "LOWER_4_CENTS",
+            "RAISE_4_CENTS"
+          ],
+          "selected_offline_action": "LOWER_4_CENTS",
+          "assumed_correction_cents": "-4",
+          "post_action_error_cents": [
+            "-4"
+          ],
+          "full_state_identified": false,
+          "tuning_task_identified": true,
+          "physical_execution_enabled": false
+        },
+        {
+          "synthetic_coarse_normalized_reading": "1/2",
+          "compatible_state_indices": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "compatible_error_cents": [
+            0,
+            4
+          ],
+          "compatible_sensor_nuisance_codes": [
+            0,
+            1
+          ],
+          "common_successful_actions": [
+            "LOWER_4_CENTS"
+          ],
+          "selected_offline_action": "LOWER_4_CENTS",
+          "assumed_correction_cents": "-4",
+          "post_action_error_cents": [
+            "-4",
+            "0"
+          ],
+          "full_state_identified": false,
+          "tuning_task_identified": false,
+          "physical_execution_enabled": false
+        }
+      ],
+      "coarse_panel_fails_when_closed_noise_radius_equals_1": true,
+      "certificate_scope": "Exact rational finite normalized-cents table only; frequency conversion is display arithmetic"
+    },
+    {
+      "dyletsky_target": {
+        "spelling": "D",
+        "octave": 4,
+        "pitch_class": 2,
+        "offset_cents": -7.500395184551755,
+        "target_Hz": 292.39573306577114,
+        "engine_id": "dyletsky-gen2-43",
+        "strategy": "hex_nat",
+        "manual_tuning_required": true
+      },
+      "hypotheses": [
+        {
+          "state_index": 0,
+          "tuning_error_cents": -4,
+          "sensor_nuisance_code": 0,
+          "nominal_frequency_Hz_approximate": 291.7209353296037
+        },
+        {
+          "state_index": 1,
+          "tuning_error_cents": -4,
+          "sensor_nuisance_code": 1,
+          "nominal_frequency_Hz_approximate": 291.7209353296037
+        },
+        {
+          "state_index": 2,
+          "tuning_error_cents": 0,
+          "sensor_nuisance_code": 0,
+          "nominal_frequency_Hz_approximate": 292.39573306577114
+        },
+        {
+          "state_index": 3,
+          "tuning_error_cents": 0,
+          "sensor_nuisance_code": 1,
+          "nominal_frequency_Hz_approximate": 292.39573306577114
+        },
+        {
+          "state_index": 4,
+          "tuning_error_cents": 4,
+          "sensor_nuisance_code": 0,
+          "nominal_frequency_Hz_approximate": 293.072091718313
+        },
+        {
+          "state_index": 5,
+          "tuning_error_cents": 4,
+          "sensor_nuisance_code": 1,
+          "nominal_frequency_Hz_approximate": 293.072091718313
+        }
+      ],
+      "successful_actions_by_state": [
+        [
+          "RAISE_4_CENTS"
+        ],
+        [
+          "RAISE_4_CENTS"
+        ],
+        [
+          "LOWER_4_CENTS",
+          "RAISE_4_CENTS"
+        ],
+        [
+          "LOWER_4_CENTS",
+          "RAISE_4_CENTS"
+        ],
+        [
+          "LOWER_4_CENTS"
+        ],
+        [
+          "LOWER_4_CENTS"
+        ]
+      ],
+      "probes": [
+        {
+          "name": "coarse_pitch",
+          "cost": 1,
+          "values": [
+            "-1",
+            "-1",
+            "0",
+            "0",
+            "1",
+            "1"
+          ]
+        },
+        {
+          "name": "fine_pitch",
+          "cost": 4,
+          "values": [
+            "-4",
+            "-4",
+            "0",
+            "0",
+            "4",
+            "4"
+          ]
+        },
+        {
+          "name": "sensor_nuisance_code",
+          "cost": 2,
+          "values": [
+            "0",
+            "2",
+            "0",
+            "2",
+            "0",
+            "2"
+          ]
+        }
+      ],
+      "normalized_closed_noise_radius": "1/2",
+      "target_tolerance_cents": "4",
+      "optimal_panels_for_declared_costs": {
+        "action": {
+          "status": "CERTIFIED_FOR_DECLARED_MODEL",
+          "cost": 1,
+          "panel": [
+            "coarse_pitch"
+          ]
+        },
+        "task": {
+          "status": "CERTIFIED_FOR_DECLARED_MODEL",
+          "cost": 4,
+          "panel": [
+            "fine_pitch"
+          ]
+        },
+        "state": {
+          "status": "CERTIFIED_FOR_DECLARED_MODEL",
+          "cost": 6,
+          "panel": [
+            "fine_pitch",
+            "sensor_nuisance_code"
+          ]
+        }
+      },
+      "synthetic_decisions": [
+        {
+          "synthetic_coarse_normalized_reading": "-1/2",
+          "compatible_state_indices": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "compatible_error_cents": [
+            -4,
+            0
+          ],
+          "compatible_sensor_nuisance_codes": [
+            0,
+            1
+          ],
+          "common_successful_actions": [
+            "RAISE_4_CENTS"
+          ],
+          "selected_offline_action": "RAISE_4_CENTS",
+          "assumed_correction_cents": "4",
+          "post_action_error_cents": [
+            "0",
+            "4"
+          ],
+          "full_state_identified": false,
+          "tuning_task_identified": false,
+          "physical_execution_enabled": false
+        },
+        {
+          "synthetic_coarse_normalized_reading": "0",
+          "compatible_state_indices": [
+            2,
+            3
+          ],
+          "compatible_error_cents": [
+            0
+          ],
+          "compatible_sensor_nuisance_codes": [
+            0,
+            1
+          ],
+          "common_successful_actions": [
+            "LOWER_4_CENTS",
+            "RAISE_4_CENTS"
+          ],
+          "selected_offline_action": "LOWER_4_CENTS",
+          "assumed_correction_cents": "-4",
+          "post_action_error_cents": [
+            "-4"
+          ],
+          "full_state_identified": false,
+          "tuning_task_identified": true,
+          "physical_execution_enabled": false
+        },
+        {
+          "synthetic_coarse_normalized_reading": "1/2",
+          "compatible_state_indices": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "compatible_error_cents": [
+            0,
+            4
+          ],
+          "compatible_sensor_nuisance_codes": [
+            0,
+            1
+          ],
+          "common_successful_actions": [
+            "LOWER_4_CENTS"
+          ],
+          "selected_offline_action": "LOWER_4_CENTS",
+          "assumed_correction_cents": "-4",
+          "post_action_error_cents": [
+            "-4",
+            "0"
+          ],
+          "full_state_identified": false,
+          "tuning_task_identified": false,
+          "physical_execution_enabled": false
+        }
+      ],
+      "coarse_panel_fails_when_closed_noise_radius_equals_1": true,
+      "certificate_scope": "Exact rational finite normalized-cents table only; frequency conversion is display arithmetic"
+    },
+    {
+      "dyletsky_target": {
+        "spelling": "E",
+        "octave": 4,
+        "pitch_class": 4,
+        "offset_cents": -15.131752028495834,
+        "target_Hz": 326.759563456652,
+        "engine_id": "dyletsky-gen2-43",
+        "strategy": "hex_nat",
+        "manual_tuning_required": true
+      },
+      "hypotheses": [
+        {
+          "state_index": 0,
+          "tuning_error_cents": -4,
+          "sensor_nuisance_code": 0,
+          "nominal_frequency_Hz_approximate": 326.00546006608715
+        },
+        {
+          "state_index": 1,
+          "tuning_error_cents": -4,
+          "sensor_nuisance_code": 1,
+          "nominal_frequency_Hz_approximate": 326.00546006608715
+        },
+        {
+          "state_index": 2,
+          "tuning_error_cents": 0,
+          "sensor_nuisance_code": 0,
+          "nominal_frequency_Hz_approximate": 326.759563456652
+        },
+        {
+          "state_index": 3,
+          "tuning_error_cents": 0,
+          "sensor_nuisance_code": 1,
+          "nominal_frequency_Hz_approximate": 326.759563456652
+        },
+        {
+          "state_index": 4,
+          "tuning_error_cents": 4,
+          "sensor_nuisance_code": 0,
+          "nominal_frequency_Hz_approximate": 327.515411210405
+        },
+        {
+          "state_index": 5,
+          "tuning_error_cents": 4,
+          "sensor_nuisance_code": 1,
+          "nominal_frequency_Hz_approximate": 327.515411210405
+        }
+      ],
+      "successful_actions_by_state": [
+        [
+          "RAISE_4_CENTS"
+        ],
+        [
+          "RAISE_4_CENTS"
+        ],
+        [
+          "LOWER_4_CENTS",
+          "RAISE_4_CENTS"
+        ],
+        [
+          "LOWER_4_CENTS",
+          "RAISE_4_CENTS"
+        ],
+        [
+          "LOWER_4_CENTS"
+        ],
+        [
+          "LOWER_4_CENTS"
+        ]
+      ],
+      "probes": [
+        {
+          "name": "coarse_pitch",
+          "cost": 1,
+          "values": [
+            "-1",
+            "-1",
+            "0",
+            "0",
+            "1",
+            "1"
+          ]
+        },
+        {
+          "name": "fine_pitch",
+          "cost": 4,
+          "values": [
+            "-4",
+            "-4",
+            "0",
+            "0",
+            "4",
+            "4"
+          ]
+        },
+        {
+          "name": "sensor_nuisance_code",
+          "cost": 2,
+          "values": [
+            "0",
+            "2",
+            "0",
+            "2",
+            "0",
+            "2"
+          ]
+        }
+      ],
+      "normalized_closed_noise_radius": "1/2",
+      "target_tolerance_cents": "4",
+      "optimal_panels_for_declared_costs": {
+        "action": {
+          "status": "CERTIFIED_FOR_DECLARED_MODEL",
+          "cost": 1,
+          "panel": [
+            "coarse_pitch"
+          ]
+        },
+        "task": {
+          "status": "CERTIFIED_FOR_DECLARED_MODEL",
+          "cost": 4,
+          "panel": [
+            "fine_pitch"
+          ]
+        },
+        "state": {
+          "status": "CERTIFIED_FOR_DECLARED_MODEL",
+          "cost": 6,
+          "panel": [
+            "fine_pitch",
+            "sensor_nuisance_code"
+          ]
+        }
+      },
+      "synthetic_decisions": [
+        {
+          "synthetic_coarse_normalized_reading": "-1/2",
+          "compatible_state_indices": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "compatible_error_cents": [
+            -4,
+            0
+          ],
+          "compatible_sensor_nuisance_codes": [
+            0,
+            1
+          ],
+          "common_successful_actions": [
+            "RAISE_4_CENTS"
+          ],
+          "selected_offline_action": "RAISE_4_CENTS",
+          "assumed_correction_cents": "4",
+          "post_action_error_cents": [
+            "0",
+            "4"
+          ],
+          "full_state_identified": false,
+          "tuning_task_identified": false,
+          "physical_execution_enabled": false
+        },
+        {
+          "synthetic_coarse_normalized_reading": "0",
+          "compatible_state_indices": [
+            2,
+            3
+          ],
+          "compatible_error_cents": [
+            0
+          ],
+          "compatible_sensor_nuisance_codes": [
+            0,
+            1
+          ],
+          "common_successful_actions": [
+            "LOWER_4_CENTS",
+            "RAISE_4_CENTS"
+          ],
+          "selected_offline_action": "LOWER_4_CENTS",
+          "assumed_correction_cents": "-4",
+          "post_action_error_cents": [
+            "-4"
+          ],
+          "full_state_identified": false,
+          "tuning_task_identified": true,
+          "physical_execution_enabled": false
+        },
+        {
+          "synthetic_coarse_normalized_reading": "1/2",
+          "compatible_state_indices": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "compatible_error_cents": [
+            0,
+            4
+          ],
+          "compatible_sensor_nuisance_codes": [
+            0,
+            1
+          ],
+          "common_successful_actions": [
+            "LOWER_4_CENTS"
+          ],
+          "selected_offline_action": "LOWER_4_CENTS",
+          "assumed_correction_cents": "-4",
+          "post_action_error_cents": [
+            "-4",
+            "0"
+          ],
+          "full_state_identified": false,
+          "tuning_task_identified": false,
+          "physical_execution_enabled": false
+        }
+      ],
+      "coarse_panel_fails_when_closed_noise_radius_equals_1": true,
+      "certificate_scope": "Exact rational finite normalized-cents table only; frequency conversion is display arithmetic"
+    },
+    {
+      "dyletsky_target": {
+        "spelling": "G",
+        "octave": 4,
+        "pitch_class": 7,
+        "offset_cents": -3.8498676689216933,
+        "target_Hz": 391.1253463782126,
+        "engine_id": "dyletsky-gen2-43",
+        "strategy": "hex_nat",
+        "manual_tuning_required": true
+      },
+      "hypotheses": [
+        {
+          "state_index": 0,
+          "tuning_error_cents": -4,
+          "sensor_nuisance_code": 0,
+          "nominal_frequency_Hz_approximate": 390.22269812296486
+        },
+        {
+          "state_index": 1,
+          "tuning_error_cents": -4,
+          "sensor_nuisance_code": 1,
+          "nominal_frequency_Hz_approximate": 390.22269812296486
+        },
+        {
+          "state_index": 2,
+          "tuning_error_cents": 0,
+          "sensor_nuisance_code": 0,
+          "nominal_frequency_Hz_approximate": 391.1253463782126
+        },
+        {
+          "state_index": 3,
+          "tuning_error_cents": 0,
+          "sensor_nuisance_code": 1,
+          "nominal_frequency_Hz_approximate": 391.1253463782126
+        },
+        {
+          "state_index": 4,
+          "tuning_error_cents": 4,
+          "sensor_nuisance_code": 0,
+          "nominal_frequency_Hz_approximate": 392.0300826049613
+        },
+        {
+          "state_index": 5,
+          "tuning_error_cents": 4,
+          "sensor_nuisance_code": 1,
+          "nominal_frequency_Hz_approximate": 392.0300826049613
+        }
+      ],
+      "successful_actions_by_state": [
+        [
+          "RAISE_4_CENTS"
+        ],
+        [
+          "RAISE_4_CENTS"
+        ],
+        [
+          "LOWER_4_CENTS",
+          "RAISE_4_CENTS"
+        ],
+        [
+          "LOWER_4_CENTS",
+          "RAISE_4_CENTS"
+        ],
+        [
+          "LOWER_4_CENTS"
+        ],
+        [
+          "LOWER_4_CENTS"
+        ]
+      ],
+      "probes": [
+        {
+          "name": "coarse_pitch",
+          "cost": 1,
+          "values": [
+            "-1",
+            "-1",
+            "0",
+            "0",
+            "1",
+            "1"
+          ]
+        },
+        {
+          "name": "fine_pitch",
+          "cost": 4,
+          "values": [
+            "-4",
+            "-4",
+            "0",
+            "0",
+            "4",
+            "4"
+          ]
+        },
+        {
+          "name": "sensor_nuisance_code",
+          "cost": 2,
+          "values": [
+            "0",
+            "2",
+            "0",
+            "2",
+            "0",
+            "2"
+          ]
+        }
+      ],
+      "normalized_closed_noise_radius": "1/2",
+      "target_tolerance_cents": "4",
+      "optimal_panels_for_declared_costs": {
+        "action": {
+          "status": "CERTIFIED_FOR_DECLARED_MODEL",
+          "cost": 1,
+          "panel": [
+            "coarse_pitch"
+          ]
+        },
+        "task": {
+          "status": "CERTIFIED_FOR_DECLARED_MODEL",
+          "cost": 4,
+          "panel": [
+            "fine_pitch"
+          ]
+        },
+        "state": {
+          "status": "CERTIFIED_FOR_DECLARED_MODEL",
+          "cost": 6,
+          "panel": [
+            "fine_pitch",
+            "sensor_nuisance_code"
+          ]
+        }
+      },
+      "synthetic_decisions": [
+        {
+          "synthetic_coarse_normalized_reading": "-1/2",
+          "compatible_state_indices": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "compatible_error_cents": [
+            -4,
+            0
+          ],
+          "compatible_sensor_nuisance_codes": [
+            0,
+            1
+          ],
+          "common_successful_actions": [
+            "RAISE_4_CENTS"
+          ],
+          "selected_offline_action": "RAISE_4_CENTS",
+          "assumed_correction_cents": "4",
+          "post_action_error_cents": [
+            "0",
+            "4"
+          ],
+          "full_state_identified": false,
+          "tuning_task_identified": false,
+          "physical_execution_enabled": false
+        },
+        {
+          "synthetic_coarse_normalized_reading": "0",
+          "compatible_state_indices": [
+            2,
+            3
+          ],
+          "compatible_error_cents": [
+            0
+          ],
+          "compatible_sensor_nuisance_codes": [
+            0,
+            1
+          ],
+          "common_successful_actions": [
+            "LOWER_4_CENTS",
+            "RAISE_4_CENTS"
+          ],
+          "selected_offline_action": "LOWER_4_CENTS",
+          "assumed_correction_cents": "-4",
+          "post_action_error_cents": [
+            "-4"
+          ],
+          "full_state_identified": false,
+          "tuning_task_identified": true,
+          "physical_execution_enabled": false
+        },
+        {
+          "synthetic_coarse_normalized_reading": "1/2",
+          "compatible_state_indices": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "compatible_error_cents": [
+            0,
+            4
+          ],
+          "compatible_sensor_nuisance_codes": [
+            0,
+            1
+          ],
+          "common_successful_actions": [
+            "LOWER_4_CENTS"
+          ],
+          "selected_offline_action": "LOWER_4_CENTS",
+          "assumed_correction_cents": "-4",
+          "post_action_error_cents": [
+            "-4",
+            "0"
+          ],
+          "full_state_identified": false,
+          "tuning_task_identified": false,
+          "physical_execution_enabled": false
+        }
+      ],
+      "coarse_panel_fails_when_closed_noise_radius_equals_1": true,
+      "certificate_scope": "Exact rational finite normalized-cents table only; frequency conversion is display arithmetic"
+    }
+  ],
+  "semantic_assumptions": [
+    "Finite hypothetical tuning errors are -4, 0, +4 cents relative to each actual Dyletsky target; they are not measured frequencies.",
+    "An action adds its declared correction exactly and preserves all other state; real string tuning, drift and coupling require a calibrated actuation model.",
+    "The acceptable performance goal is final absolute tuning error at most 4 cents; this declared tolerance is not an established perceptual or instrument specification.",
+    "Probe costs 1, 4, 2 are illustrative units, not measured duration, money, or computation cost.",
+    "Closed bounded errors and independent rectangular reading possibilities are exactly the recovered engine's finite model semantics.",
+    "Probes are fixed-panel non-state-changing observations or require a reset; an invasive probe needs a new protocol contract.",
+    "Sensor nuisance code is synthetic. No hydrophone calibration or inferred clay material parameter is supplied.",
+    "Targets and nominal displayed frequencies use software floating-point arithmetic; the exact decision certificate concerns the declared rational normalized-cents table.",
+    "A common successful correction is retained even with four compatible hypotheses and unresolved tuning task. Full state identification is unnecessary for this declared action.",
+    "No theorem extension, physical performance advantage, real-world noise guarantee, or hardware controller is asserted."
+  ]
+}

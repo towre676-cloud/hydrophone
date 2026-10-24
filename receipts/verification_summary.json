@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-24",
+  "status": "PASS",
+  "python_signal_tests": 25,
+  "dyletsky_static_strategies_independently_checked": 21,
+  "source_Fusion_archive_checks": 600,
+  "synthetic_complex_gain_max_error": 6.17860610004579e-06,
+  "full_source_import_files": 50,
+  "hardware_commands_issued": 0,
+  "physical_calibration_verified": false,
+  "checks": [
+    "source packet digests",
+    "Python signal tests",
+    "Node original-source parity",
+    "mock audition graph",
+    "Fraction/Bareiss plus independent least squares",
+    "passive energy and transfer-law replay"
+  ],
+  "combined_python_tests": 67,
+  "session_compatibility_tests": 4,
+  "parallel_workbench_commit": "bfd7aeee1a06fbf704f1bd86241669a252aa4883",
+  "schemas_reconciled": [
+    "fusion.run/1 canonical",
+    "hydrophone.signal-run/1 compact",
+    "fusion.score/1 timing and amplitude aliases"
+  ]
+}

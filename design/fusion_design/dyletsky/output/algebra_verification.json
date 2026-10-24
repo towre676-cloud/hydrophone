@@ -1,0 +1,424 @@
+{
+  "schema": "fusion.dyletsky-algebra-verification/1",
+  "passed": true,
+  "input_sha256": "ead2e68bd8e3d70256d52a9ddb68731f23d993bd201f25dfac6ce9f148dafbff",
+  "method": "Independent note-rule reconstruction, Fraction Gaussian solve, integer Bareiss determinant, NumPy augmented least squares. No JS solver imported.",
+  "ridge_exact": "1/125",
+  "matrices": {
+    "v6": {
+      "full_shape": [
+        37,
+        17
+      ],
+      "gauge_fixed_shape": [
+        37,
+        16
+      ],
+      "gauge_note": "C",
+      "basis": [
+        "C",
+        "Db",
+        "C#",
+        "D",
+        "Eb",
+        "D#",
+        "E",
+        "F",
+        "Gb",
+        "F#",
+        "G",
+        "Ab",
+        "G#",
+        "A",
+        "Bb",
+        "A#",
+        "B"
+      ],
+      "rank_exact": 16,
+      "nullity_before_gauge_exact": 1,
+      "unweighted_reduced_gram_determinant_exact": "508958496",
+      "family_counts": {
+        "M3": 13,
+        "m3": 8,
+        "P5": 16
+      }
+    },
+    "gen2": {
+      "full_shape": [
+        43,
+        17
+      ],
+      "gauge_fixed_shape": [
+        43,
+        16
+      ],
+      "gauge_note": "C",
+      "basis": [
+        "Gb",
+        "Db",
+        "Ab",
+        "Eb",
+        "Bb",
+        "F",
+        "C",
+        "G",
+        "D",
+        "A",
+        "E",
+        "B",
+        "F#",
+        "C#",
+        "G#",
+        "D#",
+        "A#"
+      ],
+      "rank_exact": 16,
+      "nullity_before_gauge_exact": 1,
+      "unweighted_reduced_gram_determinant_exact": "3564531008",
+      "family_counts": {
+        "P5": 16,
+        "M3": 13,
+        "m3": 14
+      }
+    }
+  },
+  "v6": {
+    "ET": {
+      "source_vs_exact_solution_max_abs_cents": 2.6645352591003757e-15,
+      "numpy_augmented_lstsq_max_abs_cents": 1.0658141036401503e-14,
+      "normal_equation_residual_l2": 1.1205401797495368e-14,
+      "conventional_weighted_RMS": 9.269691782424955,
+      "legacy_squared_weight_RMS": 9.269691782424955,
+      "regularized_objective": 3180.849081355815,
+      "quadratic_energy_gap_identity_error": 3.872457909892546e-13,
+      "regularized_normal_matrix_min_eigenvalue": 0.2697873282878334,
+      "arithmetic_scope": "exact rational nominal coefficients; exported JS result checked numerically",
+      "energy_scope": "weighted musical objective; not joules",
+      "gauge_projection_and_enharmonic_checks": true
+    },
+    "hex_nat": {
+      "source_vs_exact_solution_max_abs_cents": 4.884981308350689e-15,
+      "numpy_augmented_lstsq_max_abs_cents": 2.0872192862952943e-14,
+      "normal_equation_residual_l2": 3.513774145753342e-14,
+      "conventional_weighted_RMS": 8.457695515587229,
+      "legacy_squared_weight_RMS": 11.44182799659559,
+      "regularized_objective": 5618.130826535701,
+      "quadratic_energy_gap_identity_error": 1.1652900866465643e-12,
+      "regularized_normal_matrix_min_eigenvalue": 0.7405705916258534,
+      "arithmetic_scope": "exact rational nominal coefficients; exported JS result checked numerically",
+      "energy_scope": "weighted musical objective; not joules",
+      "gauge_projection_and_enharmonic_checks": true
+    },
+    "hex_hard": {
+      "source_vs_exact_solution_max_abs_cents": 2.6645352591003757e-15,
+      "numpy_augmented_lstsq_max_abs_cents": 9.416079027602109e-15,
+      "normal_equation_residual_l2": 2.286091652111595e-14,
+      "conventional_weighted_RMS": 9.274204947643263,
+      "legacy_squared_weight_RMS": 12.435250439240171,
+      "regularized_objective": 5118.647373352028,
+      "quadratic_energy_gap_identity_error": 2.913225216616411e-13,
+      "regularized_normal_matrix_min_eigenvalue": 0.4888023247937082,
+      "arithmetic_scope": "exact rational nominal coefficients; exported JS result checked numerically",
+      "energy_scope": "weighted musical objective; not joules",
+      "gauge_projection_and_enharmonic_checks": true
+    },
+    "hex_soft": {
+      "source_vs_exact_solution_max_abs_cents": 1.2434497875801753e-14,
+      "numpy_augmented_lstsq_max_abs_cents": 1.4210854715202004e-14,
+      "normal_equation_residual_l2": 3.214831425144276e-14,
+      "conventional_weighted_RMS": 8.225395507638238,
+      "legacy_squared_weight_RMS": 9.438681679942304,
+      "regularized_objective": 4000.346753643518,
+      "quadratic_energy_gap_identity_error": 0.0,
+      "regularized_normal_matrix_min_eigenvalue": 0.4762445169986476,
+      "arithmetic_scope": "exact rational nominal coefficients; exported JS result checked numerically",
+      "energy_scope": "weighted musical objective; not joules",
+      "gauge_projection_and_enharmonic_checks": true
+    },
+    "modal": {
+      "source_vs_exact_solution_max_abs_cents": 2.6645352591003757e-15,
+      "numpy_augmented_lstsq_max_abs_cents": 9.325873406851315e-15,
+      "normal_equation_residual_l2": 4.8274988060769846e-14,
+      "conventional_weighted_RMS": 8.034499961870528,
+      "legacy_squared_weight_RMS": 14.045411997947477,
+      "regularized_objective": 6200.154074383061,
+      "quadratic_energy_gap_identity_error": 7.531752999057062e-13,
+      "regularized_normal_matrix_min_eigenvalue": 0.9155101756720014,
+      "arithmetic_scope": "exact rational nominal coefficients; exported JS result checked numerically",
+      "energy_scope": "weighted musical objective; not joules",
+      "gauge_projection_and_enharmonic_checks": true
+    },
+    "resurrect": {
+      "source_vs_exact_solution_max_abs_cents": 6.661338147750939e-15,
+      "numpy_augmented_lstsq_max_abs_cents": 1.4210854715202004e-14,
+      "normal_equation_residual_l2": 1.4674361358444287e-13,
+      "conventional_weighted_RMS": 6.865109889126871,
+      "legacy_squared_weight_RMS": 17.667056137554972,
+      "regularized_objective": 11410.826533010431,
+      "quadratic_energy_gap_identity_error": 2.5863755581667647e-12,
+      "regularized_normal_matrix_min_eigenvalue": 2.022215604127267,
+      "arithmetic_scope": "exact rational nominal coefficients; exported JS result checked numerically",
+      "energy_scope": "weighted musical objective; not joules",
+      "gauge_projection_and_enharmonic_checks": true
+    },
+    "passion": {
+      "source_vs_exact_solution_max_abs_cents": 2.4868995751603507e-14,
+      "numpy_augmented_lstsq_max_abs_cents": 2.4868995751603507e-14,
+      "normal_equation_residual_l2": 6.879751606284947e-14,
+      "conventional_weighted_RMS": 7.162518751113116,
+      "legacy_squared_weight_RMS": 8.528002713529885,
+      "regularized_objective": 4318.404287727929,
+      "quadratic_energy_gap_identity_error": 1.2789769243681803e-12,
+      "regularized_normal_matrix_min_eigenvalue": 0.44676770459495596,
+      "arithmetic_scope": "exact rational nominal coefficients; exported JS result checked numerically",
+      "energy_scope": "weighted musical objective; not joules",
+      "gauge_projection_and_enharmonic_checks": true
+    },
+    "liturgy": {
+      "source_vs_exact_solution_max_abs_cents": 2.220446049250313e-15,
+      "numpy_augmented_lstsq_max_abs_cents": 3.552713678800501e-15,
+      "normal_equation_residual_l2": 2.0955734578644252e-14,
+      "conventional_weighted_RMS": 10.720208986723968,
+      "legacy_squared_weight_RMS": 19.105237403437222,
+      "regularized_objective": 9812.101402070824,
+      "quadratic_energy_gap_identity_error": 1.1723955140041653e-12,
+      "regularized_normal_matrix_min_eigenvalue": 0.6779494683605172,
+      "arithmetic_scope": "exact rational nominal coefficients; exported JS result checked numerically",
+      "energy_scope": "weighted musical objective; not joules",
+      "gauge_projection_and_enharmonic_checks": true
+    },
+    "cadence": {
+      "source_vs_exact_solution_max_abs_cents": 4.440892098500626e-15,
+      "numpy_augmented_lstsq_max_abs_cents": 1.7763568394002505e-14,
+      "normal_equation_residual_l2": 7.421777390767551e-14,
+      "conventional_weighted_RMS": 8.497966418329856,
+      "legacy_squared_weight_RMS": 16.160719986800565,
+      "regularized_objective": 8816.501639522785,
+      "quadratic_energy_gap_identity_error": 1.6768808563938364e-12,
+      "regularized_normal_matrix_min_eigenvalue": 1.0541059631163616,
+      "arithmetic_scope": "exact rational nominal coefficients; exported JS result checked numerically",
+      "energy_scope": "weighted musical objective; not joules",
+      "gauge_projection_and_enharmonic_checks": true
+    },
+    "tonal": {
+      "source_vs_exact_solution_max_abs_cents": 7.105427357601002e-15,
+      "numpy_augmented_lstsq_max_abs_cents": 1.7763568394002505e-14,
+      "normal_equation_residual_l2": 1.7444575768356146e-13,
+      "conventional_weighted_RMS": 5.196490128348072,
+      "legacy_squared_weight_RMS": 9.032345790465554,
+      "regularized_objective": 8815.521937137613,
+      "quadratic_energy_gap_identity_error": 1.1368683772161603e-13,
+      "regularized_normal_matrix_min_eigenvalue": 2.5395254229420474,
+      "arithmetic_scope": "exact rational nominal coefficients; exported JS result checked numerically",
+      "energy_scope": "weighted musical objective; not joules",
+      "gauge_projection_and_enharmonic_checks": true
+    },
+    "chant": {
+      "source_vs_exact_solution_max_abs_cents": 2.6645352591003757e-15,
+      "numpy_augmented_lstsq_max_abs_cents": 2.3092638912203256e-14,
+      "normal_equation_residual_l2": 4.8123377078268317e-14,
+      "conventional_weighted_RMS": 6.76863911496372,
+      "legacy_squared_weight_RMS": 12.046763423790127,
+      "regularized_objective": 7333.989283410175,
+      "quadratic_energy_gap_identity_error": 1.6626700016786344e-12,
+      "regularized_normal_matrix_min_eigenvalue": 1.0994186187433512,
+      "arithmetic_scope": "exact rational nominal coefficients; exported JS result checked numerically",
+      "energy_scope": "weighted musical objective; not joules",
+      "gauge_projection_and_enharmonic_checks": true
+    },
+    "guidetone": {
+      "source_vs_exact_solution_max_abs_cents": 1.1546319456101628e-14,
+      "numpy_augmented_lstsq_max_abs_cents": 1.2156942119645464e-14,
+      "normal_equation_residual_l2": 2.516203875884787e-13,
+      "conventional_weighted_RMS": 8.83858372001027,
+      "legacy_squared_weight_RMS": 25.8494046161891,
+      "regularized_objective": 25080.22156312209,
+      "quadratic_energy_gap_identity_error": 3.865352482534945e-12,
+      "regularized_normal_matrix_min_eigenvalue": 1.2549477559203892,
+      "arithmetic_scope": "exact rational nominal coefficients; exported JS result checked numerically",
+      "energy_scope": "weighted musical objective; not joules",
+      "gauge_projection_and_enharmonic_checks": true
+    },
+    "triad": {
+      "source_vs_exact_solution_max_abs_cents": 1.3322676295501878e-15,
+      "numpy_augmented_lstsq_max_abs_cents": 1.1018963519404679e-14,
+      "normal_equation_residual_l2": 5.2011624019082844e-14,
+      "conventional_weighted_RMS": 9.134882399674435,
+      "legacy_squared_weight_RMS": 20.94787581755971,
+      "regularized_objective": 15021.841234291887,
+      "quadratic_energy_gap_identity_error": 6.252776074688882e-13,
+      "regularized_normal_matrix_min_eigenvalue": 1.8431338539931883,
+      "arithmetic_scope": "exact rational nominal coefficients; exported JS result checked numerically",
+      "energy_scope": "weighted musical objective; not joules",
+      "gauge_projection_and_enharmonic_checks": true
+    }
+  },
+  "gen2": {
+    "resurrect": {
+      "source_vs_exact_solution_max_abs_cents": 5.684341886080802e-14,
+      "numpy_augmented_lstsq_max_abs_cents": 2.842170943040401e-14,
+      "normal_equation_residual_l2": 1.6004094709319073e-13,
+      "conventional_weighted_RMS": 4.6119997227826035,
+      "legacy_squared_weight_RMS": 7.974292390952958,
+      "regularized_objective": 2386.7329552690508,
+      "quadratic_energy_gap_identity_error": 1.5631940186722204e-12,
+      "regularized_normal_matrix_min_eigenvalue": 0.709877714664227,
+      "arithmetic_scope": "exact rational nominal coefficients; exported JS result checked numerically",
+      "energy_scope": "weighted musical objective; not joules",
+      "exact_family_weights": [
+        "13/4",
+        "11/6",
+        "29/12"
+      ],
+      "gauge_spelling_and_exported_weight_checks": true
+    },
+    "hex_nat": {
+      "source_vs_exact_solution_max_abs_cents": 2.842170943040401e-14,
+      "numpy_augmented_lstsq_max_abs_cents": 1.7763568394002505e-13,
+      "normal_equation_residual_l2": 6.881758015124365e-14,
+      "conventional_weighted_RMS": 4.484512142113004,
+      "legacy_squared_weight_RMS": 5.8856518682338645,
+      "regularized_objective": 1414.5621588351214,
+      "quadratic_energy_gap_identity_error": 1.1368683772161603e-13,
+      "regularized_normal_matrix_min_eigenvalue": 0.45488172513499575,
+      "arithmetic_scope": "exact rational nominal coefficients; exported JS result checked numerically",
+      "energy_scope": "weighted musical objective; not joules",
+      "exact_family_weights": [
+        "11/6",
+        "4/3",
+        "3/2"
+      ],
+      "gauge_spelling_and_exported_weight_checks": true
+    },
+    "modal": {
+      "source_vs_exact_solution_max_abs_cents": 2.4868995751603507e-14,
+      "numpy_augmented_lstsq_max_abs_cents": 5.684341886080802e-14,
+      "normal_equation_residual_l2": 1.7679522467754646e-13,
+      "conventional_weighted_RMS": 4.303647473170897,
+      "legacy_squared_weight_RMS": 6.573930103403691,
+      "regularized_objective": 1913.3276339530676,
+      "quadratic_energy_gap_identity_error": 5.968558980384842e-13,
+      "regularized_normal_matrix_min_eigenvalue": 0.6912523559309884,
+      "arithmetic_scope": "exact rational nominal coefficients; exported JS result checked numerically",
+      "energy_scope": "weighted musical objective; not joules",
+      "exact_family_weights": [
+        "7/3",
+        "7/3",
+        "7/3"
+      ],
+      "gauge_spelling_and_exported_weight_checks": true
+    },
+    "cadence": {
+      "source_vs_exact_solution_max_abs_cents": 7.105427357601002e-15,
+      "numpy_augmented_lstsq_max_abs_cents": 2.4868995751603507e-14,
+      "normal_equation_residual_l2": 9.206963227316805e-14,
+      "conventional_weighted_RMS": 4.303792588353043,
+      "legacy_squared_weight_RMS": 6.086481848089681,
+      "regularized_objective": 1647.8462286764736,
+      "quadratic_energy_gap_identity_error": 2.1316282072803006e-13,
+      "regularized_normal_matrix_min_eigenvalue": 0.5936448765122765,
+      "arithmetic_scope": "exact rational nominal coefficients; exported JS result checked numerically",
+      "energy_scope": "weighted musical objective; not joules",
+      "exact_family_weights": [
+        "2",
+        "2",
+        "2"
+      ],
+      "gauge_spelling_and_exported_weight_checks": true
+    },
+    "liturgy": {
+      "source_vs_exact_solution_max_abs_cents": 1.7763568394002505e-14,
+      "numpy_augmented_lstsq_max_abs_cents": 1.7763568394002505e-14,
+      "normal_equation_residual_l2": 1.2690248565151292e-13,
+      "conventional_weighted_RMS": 3.827537054964652,
+      "legacy_squared_weight_RMS": 5.074838171554522,
+      "regularized_objective": 1317.3297405562678,
+      "quadratic_energy_gap_identity_error": 8.526512829121202e-14,
+      "regularized_normal_matrix_min_eigenvalue": 0.6074253306501372,
+      "arithmetic_scope": "exact rational nominal coefficients; exported JS result checked numerically",
+      "energy_scope": "weighted musical objective; not joules",
+      "exact_family_weights": [
+        "29/24",
+        "65/24",
+        "9/4"
+      ],
+      "gauge_spelling_and_exported_weight_checks": true
+    },
+    "lent": {
+      "source_vs_exact_solution_max_abs_cents": 4.263256414560601e-14,
+      "numpy_augmented_lstsq_max_abs_cents": 4.263256414560601e-14,
+      "normal_equation_residual_l2": 1.471324917223821e-13,
+      "conventional_weighted_RMS": 4.40807088981773,
+      "legacy_squared_weight_RMS": 6.605407051375502,
+      "regularized_objective": 1827.2916226309499,
+      "quadratic_energy_gap_identity_error": 1.4210854715202004e-14,
+      "regularized_normal_matrix_min_eigenvalue": 0.5743482148694505,
+      "arithmetic_scope": "exact rational nominal coefficients; exported JS result checked numerically",
+      "energy_scope": "weighted musical objective; not joules",
+      "exact_family_weights": [
+        "17/8",
+        "7/10",
+        "27/8"
+      ],
+      "gauge_spelling_and_exported_weight_checks": true
+    },
+    "passion": {
+      "source_vs_exact_solution_max_abs_cents": 8.526512829121202e-14,
+      "numpy_augmented_lstsq_max_abs_cents": 7.105427357601002e-14,
+      "normal_equation_residual_l2": 2.0062505625539197e-13,
+      "conventional_weighted_RMS": 4.075546602478574,
+      "legacy_squared_weight_RMS": 5.67005580724817,
+      "regularized_objective": 1580.081273428028,
+      "quadratic_energy_gap_identity_error": 5.258016244624741e-13,
+      "regularized_normal_matrix_min_eigenvalue": 0.5668087260973821,
+      "arithmetic_scope": "exact rational nominal coefficients; exported JS result checked numerically",
+      "energy_scope": "weighted musical objective; not joules",
+      "exact_family_weights": [
+        "209/120",
+        "1/2",
+        "4"
+      ],
+      "gauge_spelling_and_exported_weight_checks": true
+    },
+    "hex_hard": {
+      "source_vs_exact_solution_max_abs_cents": 1.4210854715202004e-14,
+      "numpy_augmented_lstsq_max_abs_cents": 3.552713678800501e-14,
+      "normal_equation_residual_l2": 8.763768232372956e-14,
+      "conventional_weighted_RMS": 4.5643987013184955,
+      "legacy_squared_weight_RMS": 7.154063886057285,
+      "regularized_objective": 1977.1699529325995,
+      "quadratic_energy_gap_identity_error": 1.9895196601282805e-13,
+      "regularized_normal_matrix_min_eigenvalue": 0.6062038664395676,
+      "arithmetic_scope": "exact rational nominal coefficients; exported JS result checked numerically",
+      "energy_scope": "weighted musical objective; not joules",
+      "exact_family_weights": [
+        "8/3",
+        "5/3",
+        "2"
+      ],
+      "gauge_spelling_and_exported_weight_checks": true
+    }
+  },
+  "semantics": {
+    "v6_m3": "Legacy label uses 3 semitones and 1 letter step: C to D# is an augmented second by standard spelling, not a minor third. Preserved as source convention.",
+    "gen2_m3": "Fifths-chain displacement -3 gives 3 semitones and 2 letter steps: C to Eb, a standard spelled minor third.",
+    "row_count_difference": "Gen2 has16 P5+13 M3+14 true spelled m3; v6 has16 P5+13 M3+8 legacy m3-labelled augmented-second rows. Not the same graph plus6 added rows.",
+    "targets_differ": {
+      "v6_family_bases": {
+        "P5": "-3.422",
+        "M3": "-13.686",
+        "m3": "10.265"
+      },
+      "v6_additions": "Spelled M3 +/-0.8; natural P5 +0.4",
+      "gen2": {
+        "P5": "1.955",
+        "M3": "-13.686",
+        "m3": "15.641"
+      }
+    },
+    "gen2_weight_transport": "Each12-pitch-class family is averaged and broadcast to every spelled row in that family, with lower floor1/2. Pitch-location-specific weights are discarded by this transport.",
+    "gen2_modal_vs_cadence": "Both transported weights are uniform across all43rows (7/3 versus2); their relative interval priorities agree. With ridge0 their exact solutions coincide; at ridge1/125 only overall regularization scale distinguishes them.",
+    "v6_ET": "Uniform source weights; computed offsets are nonzero. Not an equal-temperament bypass.",
+    "energy": "Normal-equation and quadratic objective identities are musical nominal algebra, not physical passivity or material calibration."
+  }
+}

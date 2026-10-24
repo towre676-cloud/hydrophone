@@ -1,0 +1,128 @@
+{
+  "schema": "fusion.cross-session-handoff/2",
+  "date": "2026-10-24",
+  "from": "Design Unified Physical Object",
+  "to": "Review Hidden Math and Fusion theorems/adversary/literature",
+  "design_status": "Preliminary physical design; no assembled hardware or physical measurements",
+  "software_status": "Recovered Dyletsky scoring plus other-session Fusion decision engine execute together",
+  "shared_artifacts": {
+    "physical_design": {
+      "library_file_id": "libfile_79d36de17ea081918ebc3377fd88908e",
+      "filename": "Fusion_Instrument_Design.pdf"
+    },
+    "integrated_package": {
+      "library_file_id": "libfile_ce15f0a9fc4881918921ba7f3ace4ab0",
+      "filename": "Fusion_Instrument_Design_Package_20261024.zip"
+    },
+    "source_fusion_engine": {
+      "library_file_id": "libfile_c912928b562081919e6c58c19f4f567b",
+      "filename": "Fusion_Decision_Engine_20261024.zip"
+    }
+  },
+  "source_engines": {
+    "v6": {
+      "library_file_id": "libfile_10e997b6fa4481918adc5c45ef5e6a88",
+      "original_name": "dyletsky_v6_fixed.jsx",
+      "sha256": "19b45fcb60330d7a6ac060329d3c707e63277fed9baa4d9ad51fd6f3a7507f5c",
+      "extraction": "Pure declarations before setupChurch plus sparseInvert; numerical expressions unchanged."
+    },
+    "gen2": {
+      "library_file_id": "libfile_e044b8c722d081918e116b5db6abab9c",
+      "original_name": "dyletsky_gen2 (3).jsx",
+      "sha256": "8688bf74f884a0a1895e2756dabc9616d0ecdf209f374f6e6fdc279c9343a07c",
+      "extraction": "Pure declarations before React component; Math.random() replaced with nextRandom() for replay.",
+      "random_call_sites_replaced": 7
+    },
+    "scope": "Static pure-function parity tested. New headless scheduler is an adaptation, not a bit-for-bit replay of browser/audio timing or all audio-side random draws."
+  },
+  "active_engine": "dyletsky-gen2-43; v6-37 is an explicit comparison",
+  "contracts": {
+    "score": "fusion.score/1",
+    "instrument": "fusion.instrument-plan/1",
+    "decision": "recovered exact finite action-panel engine with synthetic observations"
+  },
+  "outputs": {
+    "score": "dyletsky/output/instrument_score.json",
+    "plan": "dyletsky/output/instrument_plan.json",
+    "fusion_replay": "dyletsky/output/fusion_bridge_results.json",
+    "algebra": "dyletsky/output/algebra_verification.json",
+    "audition": "dyletsky/output/Dyletsky_Fusion_Audition.html"
+  },
+  "calibration_targets": [
+    {
+      "spelling": "C",
+      "octave": 4,
+      "pitch_class": 0,
+      "offset_cents": 0,
+      "target_Hz": 261.626,
+      "engine_id": "dyletsky-gen2-43",
+      "strategy": "hex_nat",
+      "manual_tuning_required": true
+    },
+    {
+      "spelling": "D",
+      "octave": 4,
+      "pitch_class": 2,
+      "offset_cents": -7.500395184551755,
+      "target_Hz": 292.39573306577114,
+      "engine_id": "dyletsky-gen2-43",
+      "strategy": "hex_nat",
+      "manual_tuning_required": true
+    },
+    {
+      "spelling": "E",
+      "octave": 4,
+      "pitch_class": 4,
+      "offset_cents": -15.131752028495834,
+      "target_Hz": 326.759563456652,
+      "engine_id": "dyletsky-gen2-43",
+      "strategy": "hex_nat",
+      "manual_tuning_required": true
+    },
+    {
+      "spelling": "G",
+      "octave": 4,
+      "pitch_class": 7,
+      "offset_cents": -3.8498676689216933,
+      "target_Hz": 391.1253463782126,
+      "engine_id": "dyletsky-gen2-43",
+      "strategy": "hex_nat",
+      "manual_tuning_required": true
+    }
+  ],
+  "verified": {
+    "static_strategies": 21,
+    "generated_note_events": 68,
+    "visited_phrase_types": 5,
+    "visited_spellings": 4,
+    "other_session_archive_checks": 600,
+    "declared_new_action_task_state_costs": [
+      1,
+      4,
+      6
+    ]
+  },
+  "physical_mapping": {
+    "score_voices": 8,
+    "spelled_pitch_labels": 17,
+    "simultaneous_physical_strings": 4,
+    "common_exciter_inputs": 1,
+    "automatic_retuning": false,
+    "hardware_execution_enabled": false
+  },
+  "semantic_findings": [
+    "v6 37-row and Gen2 43-row models have different targets, spelling rules and bases.",
+    "v6 source ET means uniform weights; source m3 labels use augmented-second spellings.",
+    "v6 legacy RMS squares weights. Conventional RMS is separately exported.",
+    "Gen2 family averaging erases pitch-specific style locations; modal/cadence differ by overall scale before ridge.",
+    "Source sampling and musical energy are heuristic; no exact stationary law or physical-energy identification is asserted.",
+    "A useful action remains possible with four unresolved synthetic hypotheses; costs are declared units, not measured speedups."
+  ],
+  "next_physical_work": [
+    "Calibrate force/displacement and independent vibration sensing",
+    "Measure wet/dry membrane and cartridge loading including bridge rotation",
+    "Measure clay history, reset and read-disturbance behaviour",
+    "Replace synthetic probe/error/action tables with validated physical evidence"
+  ],
+  "browser_qa": "Offline audition syntax and mocked Web Audio graph checked; actual browser audio untested in this runtime."
+}

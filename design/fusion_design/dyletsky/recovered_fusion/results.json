@@ -1,0 +1,276 @@
+{
+  "title": "Fusion: certified decisions from incomplete observations",
+  "date": "2026-10-24",
+  "evidence": "EXACT_SYNTHETIC_MODELS_NO_PHYSICAL_TRIALS",
+  "states": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      2,
+      0
+    ],
+    [
+      2,
+      1
+    ]
+  ],
+  "actions": {
+    "a": [
+      "1/2",
+      "1"
+    ],
+    "b": [
+      "1",
+      "0"
+    ],
+    "c": [
+      "3/2",
+      "1"
+    ]
+  },
+  "targets": [
+    [
+      "0",
+      "0"
+    ],
+    [
+      "2",
+      "0"
+    ],
+    [
+      "1",
+      "2"
+    ]
+  ],
+  "squared_loss_budget": "5/4",
+  "squared_losses": [
+    [
+      "5/4",
+      "1",
+      "13/4"
+    ],
+    [
+      "13/4",
+      "1",
+      "5/4"
+    ],
+    [
+      "5/4",
+      "4",
+      "5/4"
+    ]
+  ],
+  "successful_actions": [
+    [
+      "a",
+      "b"
+    ],
+    [
+      "a",
+      "b"
+    ],
+    [
+      "b",
+      "c"
+    ],
+    [
+      "b",
+      "c"
+    ],
+    [
+      "a",
+      "c"
+    ],
+    [
+      "a",
+      "c"
+    ]
+  ],
+  "probes": [
+    {
+      "name": "decision",
+      "cost": 1,
+      "values": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "name": "task",
+      "cost": 2,
+      "values": [
+        "0",
+        "0",
+        "1",
+        "1",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "name": "nuisance",
+      "cost": 4,
+      "values": [
+        "0",
+        "1",
+        "0",
+        "1",
+        "0",
+        "1"
+      ]
+    }
+  ],
+  "minimal_obstruction_count": 8,
+  "minimal_obstructions": [
+    [
+      0,
+      2,
+      4
+    ],
+    [
+      0,
+      2,
+      5
+    ],
+    [
+      0,
+      3,
+      4
+    ],
+    [
+      0,
+      3,
+      5
+    ],
+    [
+      1,
+      2,
+      4
+    ],
+    [
+      1,
+      2,
+      5
+    ],
+    [
+      1,
+      3,
+      4
+    ],
+    [
+      1,
+      3,
+      5
+    ]
+  ],
+  "every_pair_compatible": true,
+  "noise_cases": [
+    {
+      "noise_radius": "0",
+      "action": {
+        "status": "CERTIFIED_FOR_DECLARED_MODEL",
+        "cost": 1,
+        "panel": [
+          "decision"
+        ]
+      },
+      "task": {
+        "status": "CERTIFIED_FOR_DECLARED_MODEL",
+        "cost": 3,
+        "panel": [
+          "decision",
+          "task"
+        ]
+      },
+      "state": {
+        "status": "CERTIFIED_FOR_DECLARED_MODEL",
+        "cost": 7,
+        "panel": [
+          "decision",
+          "task",
+          "nuisance"
+        ]
+      }
+    },
+    {
+      "noise_radius": "1/10",
+      "action": {
+        "status": "CERTIFIED_FOR_DECLARED_MODEL",
+        "cost": 1,
+        "panel": [
+          "decision"
+        ]
+      },
+      "task": {
+        "status": "CERTIFIED_FOR_DECLARED_MODEL",
+        "cost": 3,
+        "panel": [
+          "decision",
+          "task"
+        ]
+      },
+      "state": {
+        "status": "CERTIFIED_FOR_DECLARED_MODEL",
+        "cost": 7,
+        "panel": [
+          "decision",
+          "task",
+          "nuisance"
+        ]
+      }
+    },
+    {
+      "noise_radius": "1/2",
+      "action": {
+        "status": "INFEASIBLE_FOR_DECLARED_MODEL"
+      },
+      "task": {
+        "status": "INFEASIBLE_FOR_DECLARED_MODEL"
+      },
+      "state": {
+        "status": "INFEASIBLE_FOR_DECLARED_MODEL"
+      }
+    }
+  ],
+  "continuous_no_probe_minimax_squared_loss": "25/16",
+  "continuous_minimax_center": [
+    "1",
+    "3/4"
+  ],
+  "finite_action_no_probe_minimax_squared_loss": "13/4",
+  "independent_panel_cross_checks": 600,
+  "observation_arrangement_includes_closed_endpoints": true,
+  "empty_population_rejected": true,
+  "linear": {
+    "state_dimension": 4,
+    "observation_rank": 2,
+    "task_identified": true,
+    "one_actuator_squared_residual_at_a1": "1/5",
+    "unobserved_robust_squared_loss_a_in_unit_interval": "2",
+    "two_actuators_squared_residual": "0"
+  },
+  "music": {
+    "interval_rows": 36,
+    "free_pitch_offsets": 11,
+    "gram_determinant": 52002816,
+    "familywise_forcing_exactly_zero": true
+  }
+}

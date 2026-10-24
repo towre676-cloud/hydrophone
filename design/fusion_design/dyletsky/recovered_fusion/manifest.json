@@ -1,0 +1,25 @@
+{
+  "evidence": "EXACT_SYNTHETIC_MODELS_NO_PHYSICAL_TRIALS",
+  "files": [
+    {
+      "name": "Fusion_Research.html",
+      "bytes": 26477,
+      "sha256": "999f9b4928e51cc426270ed69451cd217bd390eac47fd07e5d2dd21743ab480e"
+    },
+    {
+      "name": "fusion_engine.py",
+      "bytes": 15009,
+      "sha256": "5acc5d9fdfd2a9390f4d73f445bad25b82bbe58a9e322534b57e6dfa92f54cbc"
+    },
+    {
+      "name": "results.json",
+      "bytes": 4032,
+      "sha256": "a4443c609dfbcc86d0637e6caef2fdb8b2d2ddbc71bd453f4ddccc4f611768d2"
+    },
+    {
+      "name": "README.txt",
+      "bytes": 1472,
+      "sha256": "e42193b500de509e0c776ff593b3cc8a60cc2c0e20cfa4c2a667a390f8f26c17"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "schema": "hydrophone.instrument-demo-receipt/1",
+  "data_origin": "synthetic",
+  "dyletsky_target_count": 4,
+  "frequencies_Hz": [
+    261.626,
+    292.39573306577114,
+    326.759563456652,
+    391.1253463782126
+  ],
+  "max_complex_gain_error": 6.17860610004579e-06,
+  "source_audio_sha256": "75e33938129ff5eea7c75f0dc0a9c42ac816bac9ba8648a9132f54358cbe7b7c",
+  "source_slow_sha256": "56d6e71d6ee3183eb475cfe09e47444782fa4c7816117e83f652bf323eda581c",
+  "hardware_execution_enabled": false,
+  "physical_calibration_verified": false,
+  "analysis_file": "analysis.json"
+}

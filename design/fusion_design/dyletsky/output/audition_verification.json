@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "method": "Node syntax plus mocked DOM/Web Audio graph-contract check",
+  "eventCallbacks": 68,
+  "oscillatorNodesCreated": 311,
+  "calibrationRows": 4,
+  "playStopState": "passed",
+  "external_dependencies": 0,
+  "actual_browser_audio_tested": false,
+  "limitation": "A browser executable was unavailable in this runtime. This check does not establish real-time browser scheduling, audible quality or physical operation."
+}

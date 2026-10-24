@@ -1,6 +1,6 @@
 {
   "schema": "fusion.interfaces/1",
-  "implementation_status": "PROPOSED_ADAPTERS_NOT_LIVE_REPOSITORY_INTEGRATION",
+  "implementation_status": "Dyletsky headless source extraction, deterministic scoring, common-input command compiler and recovered Fusion software bridge implemented; physical/repository adapters proposed.",
   "physical_model_status": "UNCALIBRATED",
   "run_contract": {
     "schema": "fusion.run/1",
@@ -77,7 +77,8 @@
         "amplitude",
         "tolerance_cents"
       ],
-      "boundary": "17 software labels, 4 simultaneous physical strings; manual retuning in v1"
+      "boundary": "Recovered Gen2(3) 43-row scorer active; v6 37-row comparator separate; 17 labels and8software voices, one common exciter input, 4 manually tuned physical strings.",
+      "implementation": "dyletsky/dyletsky_runner.mjs; original cores preserved and independently checked"
     },
     {
       "owner": "DynaComp",
@@ -164,6 +165,12 @@
         "closure_failure_witnesses"
       ],
       "boundary": "Single chosen modal conservative symbolic reference only; no general vector-Hamiltonian adapter, dissipation or plastic history law is supplied."
+    },
+    {
+      "owner": "Recovered Fusion Decision Engine",
+      "input": "Dyletsky calibration targets and explicitly declared finite observation/action tables",
+      "output": "Exact action/task/state panel and independent arrangement replay",
+      "boundary": "Current example uses synthetic uncertainty, actions and costs; no physical certificate."
     }
   ],
   "decision_to_hardware_guard": {

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="509.27599999999995" height="345" preserveAspectRatio="xMinYMin meet" viewBox="0 0 509 345" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="509.27599999999995" height="345"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-345)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="15.0" y="57.0" width="468.0" height="249.60000000000002" style="stroke: rgb(9%,20%,25%); stroke-linecap: butt; stroke-width: 0.6; fill: rgb(94%,96%,96%); fill-rule: evenodd;"/>
+			<rect x="306.72" y="177.12" width="134.15999999999997" height="87.36000000000001" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 0.6; fill: rgb(80%,91%,94%); fill-rule: evenodd;"/>
+			<rect x="311.40000000000003" y="181.8" width="124.80000000000001" height="78.0" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 0.6; fill: rgb(84%,94%,96%); fill-rule: evenodd;"/>
+			<rect x="54.0" y="84.3" width="15.599999999999994" height="62.39999999999999" style="stroke: rgb(9%,20%,25%); stroke-linecap: butt; stroke-width: 0.6; fill: rgb(64%,69%,72%); fill-rule: evenodd;"/>
+			<rect x="405.0" y="84.3" width="15.600000000000023" height="62.39999999999999" style="stroke: rgb(9%,20%,25%); stroke-linecap: butt; stroke-width: 0.6; fill: rgb(64%,69%,72%); fill-rule: evenodd;"/>
+			<path d="M 61.8,99.12 L 412.8,99.12 Z" style="stroke: rgb(64%,48%,17%); stroke-linecap: butt; stroke-width: 1.15;"/>
+			<path d="M 61.8,108.48 L 412.8,108.48 Z" style="stroke: rgb(64%,48%,17%); stroke-linecap: butt; stroke-width: 1.15;"/>
+			<path d="M 61.8,117.84 L 412.8,117.84 Z" style="stroke: rgb(64%,48%,17%); stroke-linecap: butt; stroke-width: 1.15;"/>
+			<path d="M 61.8,127.2 L 412.8,127.2 Z" style="stroke: rgb(64%,48%,17%); stroke-linecap: butt; stroke-width: 1.15;"/>
+			<rect x="369.12" y="85.08" width="9.360000000000014" height="56.16000000000001" style="stroke: rgb(9%,20%,25%); stroke-linecap: butt; stroke-width: 0.6; fill: rgb(46%,55%,59%); fill-rule: evenodd;"/>
+			<rect x="358.2" y="97.56" width="31.19999999999999" height="31.19999999999999" style="stroke: rgb(9%,20%,25%); stroke-linecap: butt; stroke-width: 0.6; fill: rgb(72%,37%,21%); fill-rule: evenodd;"/>
+			<rect x="341.82" y="94.44" width="7.800000000000011" height="6.239999999999995" style="stroke: rgb(9%,20%,25%); stroke-linecap: butt; stroke-width: 0.6; fill: rgb(72%,77%,80%); fill-rule: evenodd;"/>
+			<rect x="341.82" y="125.64" width="7.800000000000011" height="6.239999999999995" style="stroke: rgb(9%,20%,25%); stroke-linecap: butt; stroke-width: 0.6; fill: rgb(72%,77%,80%); fill-rule: evenodd;"/>
+			<rect x="390.18" y="94.44" width="7.800000000000011" height="6.239999999999995" style="stroke: rgb(9%,20%,25%); stroke-linecap: butt; stroke-width: 0.6; fill: rgb(72%,77%,80%); fill-rule: evenodd;"/>
+			<rect x="390.18" y="125.64" width="7.800000000000011" height="6.239999999999995" style="stroke: rgb(9%,20%,25%); stroke-linecap: butt; stroke-width: 0.6; fill: rgb(72%,77%,80%); fill-rule: evenodd;"/>
+			<path d="M 373.8,136.56 L 373.8,177.12 Z" style="stroke: rgb(9%,20%,25%); stroke-linecap: butt; stroke-width: 2.2;"/>
+			<path d="M 350.4,177.12 L 397.2,177.12 Z" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 3;"/>
+			<circle cx="405.0" cy="224.70000000000002" r="9.75" style="stroke: rgb(9%,20%,25%); stroke-linecap: butt; stroke-width: 1; fill: rgb(9%,20%,25%); fill-rule: evenodd;"/>
+			<rect x="358.2" y="60.9" width="31.19999999999999" height="17.940000000000005" style="stroke: rgb(9%,20%,25%); stroke-linecap: butt; stroke-width: 0.6; fill: rgb(83%,67%,33%); fill-rule: evenodd;"/>
+			<text x="34.5" y="275.4" style="font-family: D; font-size: 11px;fill: rgb(9%,20%,25%); stroke:none;" transform="translate(0,550) scale(1,-1)">DRY STRINGS + CLAY</text>
+			<text x="34.5" y="260.58000000000004" style="font-family: D; font-size: 8px;fill: rgb(9%,20%,25%); stroke:none;" transform="translate(0,521) scale(1,-1)">One intended shared bridge translation</text>
+			<text x="314.52" y="280.08000000000004" style="font-family: D; font-size: 9px;fill: rgb(3%,49%,54%); stroke:none;" transform="translate(0,560) scale(1,-1)">VENTED WATER CELL</text>
+			<text x="318.42" y="245.76000000000002" style="font-family: D; font-size: 8px;fill: rgb(3%,49%,54%); stroke:none;" transform="translate(0,491) scale(1,-1)">1.28 L fill</text>
+			<text x="324.66" y="202.86" style="font-family: D; font-size: 8px;fill: rgb(3%,49%,54%); stroke:none;" transform="translate(0,405) scale(1,-1)">hydrophone</text>
+			<text x="196.74" y="159.96" style="font-family: D; font-size: 8px;fill: rgb(64%,48%,17%); stroke:none;" transform="translate(0,319) scale(1,-1)">400 mm speaking length</text>
+			<path d="M 61.8,152.94 L 373.8,152.94 Z" style="stroke: rgb(64%,48%,17%); stroke-linecap: butt; stroke-width: 0.7;"/>
+			<path d="M 61.8,149.04 L 61.8,156.84 Z" style="stroke: rgb(64%,48%,17%); stroke-linecap: butt; stroke-width: 1;"/>
+			<path d="M 373.8,149.04 L 373.8,156.84 Z" style="stroke: rgb(64%,48%,17%); stroke-linecap: butt; stroke-width: 1;"/>
+			<text x="32.94" y="207.54" style="font-family: D; font-size: 8px;fill: rgb(9%,20%,25%); stroke:none;" transform="translate(0,415) scale(1,-1)">Bridge moves across strings (+Y)</text>
+			<path d="M 268.5,199.74 L 370.68,131.88 Z" style="stroke: rgb(31%,38%,41%); stroke-linecap: butt; stroke-width: 0.5;"/>
+			<text x="34.5" y="225.48000000000002" style="font-family: D; font-size: 8px;fill: rgb(72%,37%,21%); stroke:none;" transform="translate(0,450) scale(1,-1)">Clay shear pad sits below the bridge</text>
+			<path d="M 272.4,218.46 L 362.1,119.4 Z" style="stroke: rgb(72%,37%,21%); stroke-linecap: butt; stroke-width: 0.5;"/>
+			<text x="35.28" y="73.38" style="font-family: D; font-size: 8px;fill: rgb(9%,20%,25%); stroke:none;" transform="translate(0,146) scale(1,-1)">Nut / tuning anchors carry the string tension</text>
+			<path d="M 15,40.62 L 483,40.62 Z" style="stroke: rgb(31%,38%,41%); stroke-linecap: butt; stroke-width: 1;"/>
+			<text x="221.70000000000002" y="29.7" style="font-family: D; font-size: 8px;fill: rgb(9%,20%,25%); stroke:none;" transform="translate(0,59) scale(1,-1)">600 mm</text>
+			<path d="M 15,35.94 L 15,45.3 Z" style="stroke: rgb(31%,38%,41%); stroke-linecap: butt; stroke-width: 1;"/>
+			<path d="M 483,35.94 L 483,45.3 Z" style="stroke: rgb(31%,38%,41%); stroke-linecap: butt; stroke-width: 1;"/>
+			<text x="17" y="329" style="font-family: D; font-size: 8px;fill: rgb(3%,49%,54%); stroke:none;" transform="translate(0,658) scale(1,-1)">TOP VIEW / millimetres / nominal positions</text>
+			<text x="17" y="10" style="font-family: D; font-size: 8px;fill: rgb(31%,38%,41%); stroke:none;" transform="translate(0,20) scale(1,-1)">Rod detaches for clay writing; water never contacts clay or strings.</text>
+		</g>
+	</g>
+</svg>

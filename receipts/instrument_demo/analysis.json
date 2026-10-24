@@ -1,0 +1,477 @@
+{
+  "schema": "fusion.run-analysis/1",
+  "run_id": "dyletsky-four-target-synthetic-v1",
+  "source_manifest_schema": "hydrophone.signal-run/1",
+  "acquisition_audit": null,
+  "source_manifest_sha256": "4b6c07fadbdf2dfe63f5d4a502c80e71f4d636d0d5e9ce04170ffcb64c0b69be",
+  "data_origin_declared": "synthetic",
+  "specimen_id": "NO_PHYSICAL_SPECIMEN",
+  "history_protocol": "declared synthetic load/hold/unload/rest",
+  "clock_alignment_declaration": {
+    "status": "synthetic construction only; no measured clock certificate"
+  },
+  "calibration_declaration": {
+    "slow_declared": false,
+    "pressure": null,
+    "force": null
+  },
+  "source_score_sha256": "8ce894fae115bee8639d9f9e127379f6fff11c692afc77309193a0cbed5ab6d4",
+  "audio": {
+    "schema": "hydrophone.stationary-tone-analysis/1",
+    "evidence_status": "ANALYSIS_OF_SUPPLIED_PCM_NOT_SENSOR_CALIBRATION",
+    "source_name": "synthetic_channels.wav",
+    "source_file_sha256": "75e33938129ff5eea7c75f0dc0a9c42ac816bac9ba8648a9132f54358cbe7b7c",
+    "selected_pcm_sha256": "d58017ed6de816123581bec3566178cf3335422965d5b7000261aa365d870a44",
+    "pcm": {
+      "sample_width_bits": 16,
+      "sample_rate_Hz": 8192,
+      "channel_count": 3,
+      "source_frame_count": 16384
+    },
+    "window": {
+      "start_frame_inclusive": 0,
+      "end_frame_exclusive": 16384,
+      "sample_count": 16384,
+      "first_sample_time_s": 0.0,
+      "last_sample_time_s": 1.9998779296875,
+      "phase_origin_time_s": 0.99993896484375
+    },
+    "channel_map": {
+      "drive": 0,
+      "response": 1,
+      "reference": 2,
+      "used_channels": [
+        0,
+        1,
+        2
+      ]
+    },
+    "fit": {
+      "method": "scaled_column_pivoted_Householder_QR",
+      "basis": "DC + centered linear trend + joint cosine/sine pairs at known frequencies",
+      "basis_columns": 10,
+      "scaled_R_infinity_condition_number": 1.0154762326568354,
+      "condition_rejection_threshold": 100000000.0,
+      "clipping_policy": "reject either PCM16 rail code on any used channel"
+    },
+    "units": {
+      "amplitude": "digital full-scale fraction, peak phasor amplitude",
+      "ratios": "dimensionless digital channel amplitude ratios, uncalibrated",
+      "phase": "response phase relative to denominator channel; radians and degrees",
+      "calibration": "No pressure, material parameter, voltage or actuator calibration supplied"
+    },
+    "channels": {
+      "0": {
+        "channel_index": 0,
+        "dc_at_window_midpoint_full_scale": 1.1934656658041155e-08,
+        "linear_trend_full_scale_per_s": -1.5270204652553296e-07,
+        "signal_rms_full_scale": 0.05653384257856304,
+        "residual_rms_full_scale": 1.054100813464472e-05,
+        "residual_std_dof_adjusted_full_scale": 1.0544226468348582e-05,
+        "residual_degrees_of_freedom": 16374,
+        "rail_sample_count": 0
+      },
+      "1": {
+        "channel_index": 1,
+        "dc_at_window_midpoint_full_scale": 0.012999491505819957,
+        "linear_trend_full_scale_per_s": 0.0019998391187372876,
+        "signal_rms_full_scale": 0.039752881912775824,
+        "residual_rms_full_scale": 1.0487389682449235e-05,
+        "residual_std_dof_adjusted_full_scale": 1.0490591645605837e-05,
+        "residual_degrees_of_freedom": 16374,
+        "rail_sample_count": 0
+      },
+      "2": {
+        "channel_index": 2,
+        "dc_at_window_midpoint_full_scale": -0.008999731455299557,
+        "linear_trend_full_scale_per_s": -0.0009998719023337362,
+        "signal_rms_full_scale": 0.03835505365859278,
+        "residual_rms_full_scale": 1.0543258786605954e-05,
+        "residual_std_dof_adjusted_full_scale": 1.0546477807468858e-05,
+        "residual_degrees_of_freedom": 16374,
+        "rail_sample_count": 0
+      }
+    },
+    "tones": [
+      {
+        "frequency_Hz": 261.626,
+        "channel_phasors_full_scale_peak": {
+          "0": {
+            "real": -0.0308145452068555,
+            "imag": -0.025502578677860398,
+            "amplitude": 0.03999897143084808,
+            "phase_rad": -2.4502386583584777,
+            "phase_deg": -140.38833392373797
+          },
+          "1": {
+            "real": -0.015331305289456476,
+            "imag": -0.02342885894372514,
+            "amplitude": 0.027999292013968596,
+            "phase_rad": -2.1502423390515664,
+            "phase_deg": -123.19981095799295
+          },
+          "2": {
+            "real": -0.014057328038036712,
+            "imag": -0.014225458086738951,
+            "amplitude": 0.019999303221525985,
+            "phase_rad": -2.3502499532035612,
+            "phase_deg": -134.65940311938328
+          }
+        },
+        "denominator_resolution_threshold_full_scale": {
+          "0": 3.0517578125e-05,
+          "1": 3.0517578125e-05,
+          "2": 3.0517578125e-05
+        },
+        "response_over_drive": {
+          "real": 0.6687365906910284,
+          "imag": 0.2068617719999618,
+          "amplitude": 0.7000003003170958,
+          "phase_rad": 0.29999631930691156,
+          "phase_deg": 17.188522965745047
+        },
+        "reference_over_drive": {
+          "real": 0.4974981067321703,
+          "imag": 0.04991063367610647,
+          "amplitude": 0.49999543753522835,
+          "phase_rad": 0.0999887051549165,
+          "phase_deg": 5.728930804354693
+        },
+        "response_over_reference": {
+          "real": 1.3721042001748314,
+          "imag": 0.2781501678640269,
+          "amplitude": 1.4000133756576043,
+          "phase_rad": 0.20000761415199508,
+          "phase_deg": 11.459592161390354
+        }
+      },
+      {
+        "frequency_Hz": 292.39573306577114,
+        "channel_phasors_full_scale_peak": {
+          "0": {
+            "real": -0.028791888861456463,
+            "imag": 0.027765892107862775,
+            "amplitude": 0.03999897034619688,
+            "phase_rad": 2.374333183255117,
+            "phase_deg": 136.03927055838005
+          },
+          "1": {
+            "real": -0.004782121337029264,
+            "imag": 0.015268214948625767,
+            "amplitude": 0.015999596001134212,
+            "phase_rad": 1.874325733972117,
+            "phase_deg": 107.39095398936261
+          },
+          "2": {
+            "real": -0.01808594451974574,
+            "imag": 0.0157752423998706,
+            "amplitude": 0.023999159609161234,
+            "phase_rad": 2.424329293650753,
+            "phase_deg": 138.90383667612014
+          }
+        },
+        "denominator_resolution_threshold_full_scale": {
+          "0": 3.0517578125e-05,
+          "1": 3.0517578125e-05,
+          "2": 3.0517578125e-05
+        },
+        "response_over_drive": {
+          "real": 0.35103176870277525,
+          "imag": -0.19177292462336068,
+          "amplitude": 0.40000019657144653,
+          "phase_rad": -0.5000074492829997,
+          "phase_deg": -28.648316569017442
+        },
+        "reference_over_drive": {
+          "real": 0.599244714718641,
+          "imag": 0.029984892598342857,
+          "amplitude": 0.5999944348928243,
+          "phase_rad": 0.049996110395636076,
+          "phase_deg": 2.8645661177400874
+        },
+        "response_over_reference": {
+          "real": 0.5683539918578469,
+          "imag": -0.3484635790656927,
+          "amplitude": 0.6666731777985535,
+          "phase_rad": -0.5500035596786358,
+          "phase_deg": -31.512882686757532
+        }
+      },
+      {
+        "frequency_Hz": 326.759563456652,
+        "channel_phasors_full_scale_peak": {
+          "0": {
+            "real": -0.0026070048187616917,
+            "imag": -0.03991397956898539,
+            "amplitude": 0.03999902797767003,
+            "phase_rad": -1.6360192646659133,
+            "phase_deg": -93.73699906745324
+          },
+          "1": {
+            "real": 0.02134725414764284,
+            "imag": -0.028986550148654373,
+            "amplitude": 0.03599896316790956,
+            "phase_rad": -0.9360213237001268,
+            "phase_deg": -53.630071382265925
+          },
+          "2": {
+            "real": -0.008387631281052736,
+            "imag": -0.03088014966504174,
+            "amplitude": 0.03199900001316091,
+            "phase_rad": -1.8360164164988486,
+            "phase_deg": -105.19599178211755
+          }
+        },
+        "denominator_resolution_threshold_full_scale": {
+          "0": 3.0517578125e-05,
+          "1": 3.0517578125e-05,
+          "2": 3.0517578125e-05
+        },
+        "response_over_drive": {
+          "real": 0.6883560644533735,
+          "imag": 0.5797918918282616,
+          "amplitude": 0.8999959496017366,
+          "phase_rad": 0.6999979409657866,
+          "phase_deg": 40.10692768518732
+        },
+        "reference_over_drive": {
+          "real": 0.7840482663990092,
+          "imag": -0.15893212706201781,
+          "amplitude": 0.7999944406405266,
+          "phase_rad": -0.1999971518329352,
+          "phase_deg": -11.458992714664303
+        },
+        "response_over_reference": {
+          "real": 0.6993172511973411,
+          "imag": 0.8812414996152735,
+          "amplitude": 1.125002754870574,
+          "phase_rad": 0.8999950927987217,
+          "phase_deg": 51.56592039985162
+        }
+      },
+      {
+        "frequency_Hz": 391.1253463782126,
+        "channel_phasors_full_scale_peak": {
+          "0": {
+            "real": 0.03214052658053675,
+            "imag": 0.023809521261661165,
+            "amplitude": 0.03999883437781262,
+            "phase_rad": 0.6375834283365476,
+            "phase_deg": 36.53083953116595
+          },
+          "1": {
+            "real": 0.018896118812520974,
+            "imag": 0.011264885948139878,
+            "amplitude": 0.02199911274577928,
+            "phase_rad": 0.5375824314280583,
+            "phase_deg": 30.801204461208723
+          },
+          "2": {
+            "real": 0.016568108444137235,
+            "imag": 0.022571029817048505,
+            "amplitude": 0.027999171495220788,
+            "phase_rad": 0.9375861018106497,
+            "phase_deg": 53.719726563873344
+          }
+        },
+        "denominator_resolution_threshold_full_scale": {
+          "0": 3.0517578125e-05,
+          "1": 3.0517578125e-05,
+          "2": 3.0517578125e-05
+        },
+        "response_over_drive": {
+          "real": 0.547246112680361,
+          "imag": -0.054908310312292555,
+          "amplitude": 0.5499938457702208,
+          "phase_rad": -0.1000009969084893,
+          "phase_deg": -5.72963506995723
+        },
+        "reference_over_drive": {
+          "real": 0.6687346891345686,
+          "imag": 0.20686583964417393,
+          "amplitude": 0.6999996857596417,
+          "phase_rad": 0.3000026734741021,
+          "phase_deg": 17.188887032707385
+        },
+        "response_over_reference": {
+          "real": 0.7236818851045151,
+          "imag": -0.30597092454484986,
+          "amplitude": 0.7857058466724394,
+          "phase_rad": -0.40000367038259144,
+          "phase_deg": -22.918522102664618
+        }
+      }
+    ],
+    "assumptions": [
+      "One stationary, common-clock observation window with known frequencies and linear superposition.",
+      "All supplied tones are fitted jointly with DC and trend; omitted tones and time variation may bias the fit.",
+      "Residuals combine noise, quantization and model mismatch and are not certified physical error bounds.",
+      "Coefficient-noise thresholds use an iid residual diagnostic solely to reject unresolved denominators.",
+      "Channel gain/phase, driver, propagation and sensor responses remain in the reported digital ratios."
+    ]
+  },
+  "slow": {
+    "schema": "fusion.slow-features/1",
+    "source_csv": "/workspace/scratch/39e3b32705c8/hydrophone/results/instrument_demo/synthetic_slow.csv",
+    "source_time_column": "time_s",
+    "source_sha256": "56d6e71d6ee3183eb475cfe09e47444782fa4c7816117e83f652bf323eda581c",
+    "sample_count": 401,
+    "raw_start": {
+      "force_N": 0.15,
+      "displacement_m": 0.0,
+      "time_s": 0.0,
+      "temperature_C": 20.0,
+      "stage": "load"
+    },
+    "raw_end": {
+      "force_N": 0.15,
+      "displacement_m": 0.0,
+      "time_s": 4.0,
+      "temperature_C": 20.0,
+      "stage": "rest"
+    },
+    "baseline": {
+      "selection": "first_sample_only_no_baseline_stage_inferred",
+      "sample_count": 1,
+      "time_start_s": 0.0,
+      "time_end_s": 0.0,
+      "force_mean_N": 0.15,
+      "displacement_mean_m": 0.0,
+      "raw_samples": [
+        {
+          "force_N": 0.15,
+          "displacement_m": 0.0,
+          "time_s": 0.0,
+          "temperature_C": 20.0,
+          "stage": "load"
+        }
+      ],
+      "detrended": false
+    },
+    "timestamps": {
+      "start_s": 0.0,
+      "end_s": 4.0,
+      "duration_s": 4.0,
+      "max_sample_gap_s": 0.010000000000000231,
+      "strictly_increasing": true
+    },
+    "work": {
+      "sampled_path_work_J": 9.179150013761014e-05,
+      "quantity": "signed_measured_writer_port_work_not_clay_dissipation",
+      "method": "trapezoidal_force_displacement_in_time_order",
+      "sign_convention": "force_on_specimen_positive_along_positive_displacement_must_be_verified",
+      "force_error_N": 0.01,
+      "displacement_error_m": 1e-06,
+      "sampled_path_error_bound_J": 0.0007136455245784776,
+      "sampled_path_interval_J": [
+        -0.0006218540244408674,
+        0.0008054370247160877
+      ],
+      "sample_value_semantics": "finite_parsed_binary_float_samples",
+      "interval_arithmetic": "rational_sample_bound_with_outward_rounded_float_endpoints",
+      "error_bound_scope": "uniform_sample_errors_only_interpolation_and_undersampling_excluded",
+      "between_sample_path_error_bounded": false,
+      "dissipation_identified": false
+    },
+    "closure": {
+      "endpoint_displacement_change_m": 0.0,
+      "endpoint_force_change_N": 0.0,
+      "displacement_closure_tolerance_m": 1e-09,
+      "force_return_tolerance_N": 1e-09,
+      "geometric_loop_closed": true,
+      "force_returned": true,
+      "scope": "observed_endpoints_only_not_a_thermodynamic_closure_test",
+      "internal_state_returned": null
+    },
+    "hold_analysis": {
+      "selection": "explicit_window",
+      "windows": [
+        {
+          "selection": "explicit_window",
+          "requested_window_s": [
+            1.0,
+            2.0
+          ],
+          "sample_count": 101,
+          "eligible": true,
+          "reasons": [],
+          "raw_start": {
+            "force_N": 2.15,
+            "displacement_m": 0.0002,
+            "time_s": 1.0,
+            "temperature_C": 20.0,
+            "stage": "hold"
+          },
+          "raw_end": {
+            "force_N": 1.2320849986238986,
+            "displacement_m": 0.0002,
+            "time_s": 2.0,
+            "temperature_C": 20.0,
+            "stage": "hold"
+          },
+          "baseline_force_N": 0.15,
+          "features": {
+            "endpoint_block_samples": 20,
+            "first_block_force_mean_N": 1.9468164000445953,
+            "last_block_force_mean_N": 1.2551748589569778,
+            "force_drop_N": 0.6916415410876176,
+            "baseline_relative_start_force_N": 1.7968164000445954,
+            "relaxation_fraction": 0.38492610656851284,
+            "relaxation_fraction_status": "descriptive_ratio_with_resolved_denominator",
+            "interpretation": "descriptive_force_change_during_declared_displacement_hold",
+            "relaxation_time_identified": false
+          },
+          "time_start_s": 1.0,
+          "time_end_s": 2.0,
+          "duration_s": 1.0,
+          "elapsed_from_record_start_s": 1.0,
+          "displacement_range_m": 0.0,
+          "max_hold_drift_m": 1e-09
+        }
+      ],
+      "eligible_window_count": 1
+    },
+    "rod_state": "synthetic_disconnected_write",
+    "calibration_declared": false,
+    "calibration_verified": false,
+    "interpretation_status": "declared_units_only",
+    "physical_readiness": false,
+    "limitations": [
+      "No material law, relaxation time, modulus, memory identity or dissipation is identified.",
+      "Force/displacement calibration, sign, fixture loading and clock provenance are declarations.",
+      "A geometric loop can exchange stored internal energy even when force also returns.",
+      "Writer-port work includes fixture forces; rod and other coupling states must be controlled."
+    ]
+  },
+  "evidence_levels": {
+    "raw_bytes_hash_checked": true,
+    "features_computed": true,
+    "laboratory_authenticity_verified": false,
+    "clock_alignment_verified": false,
+    "pressure_or_force_calibration_verified": false,
+    "physical_model_certified": false
+  },
+  "hardware_execution_enabled": false,
+  "limitations": [
+    "Manifest origin/calibration/clock fields are declarations, not authenticated measurements.",
+    "Audio residuals are not deterministic model-error bounds.",
+    "Slow sampled writer-port work is not identified clay dissipation.",
+    "No finite decision certificate may silently replace synthetic uncertainty with these diagnostics."
+  ],
+  "synthetic_truth": {
+    "response_gain": [
+      0.7,
+      0.4,
+      0.9,
+      0.55
+    ],
+    "response_phase_rad": [
+      0.3,
+      -0.5,
+      0.7,
+      -0.1
+    ],
+    "max_complex_gain_error": 6.17860610004579e-06,
+    "status": "known generated values, not physical truth"
+  }
+}

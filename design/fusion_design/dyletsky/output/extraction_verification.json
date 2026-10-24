@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "v6_strategies": 13,
+  "gen2_strategies": 8,
+  "source_parity": "Exact JS-number equality for full static outputs and selected seeded stochastic function calls",
+  "normal_equation_max_residual": {
+    "v6": 2.53937204423382e-13,
+    "gen2": 2.0099592034950918e-13
+  },
+  "generated_events": 68,
+  "phrases": [
+    "jubilate",
+    "precad",
+    "interior",
+    "cadence",
+    "resolve"
+  ],
+  "seed_replay": "identical; changing seed changes score",
+  "physical_execution": "disabled; common-input plan does not retune or independently drive strings",
+  "invalid_inputs": "unknown strategy, spelling mismatch and nonfinite frequency rejected",
+  "scope": "Does not certify original GUI scheduling/audio timing, a sampler stationary law, physical dynamics or novelty"
+}

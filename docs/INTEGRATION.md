@@ -1,6 +1,6 @@
 # Shared object and computing boundary
 
-The design session's completed Engineering Design0.1 packet is preserved in `design/fusion_design/`. The current computing session supplies `computing/`, its examples/tests, and the earlier Fusion and object handoff archives. The repository is now the shared durable source for these parallel outputs.
+The design session's current Engineering Design0.2 packet is preserved in `design/fusion_design/`. The current computing session supplies `computing/`, its examples/tests, and the earlier Fusion and object handoff archives. The repository is now the shared durable source for these parallel outputs.
 
 The authoritative current design interface description is `design/fusion_design/src/fusion_contracts.json`. The older `docs/handoffs/acquisition_contract.json` remains a draft checkpoint; the design PDF and CAD now supply geometry that was unavailable when that checkpoint was written. Sensor calibration, synchronization, physical drivers and actuator limits remain unqualified in both.
 
@@ -11,3 +11,7 @@ A joint experiment begins with ordered preparation of the clay cartridge, record
 The first acceptance task is to determine whether prepared history differences are observable under confirmation cartridges or days, and whether a bounded diagnostic decision can be replayed. Dynamic transfer features can identify operators while concealing initial state. Slow force complements them in the illustrative SLS model. The new finite-hold calculation propagates memory relaxation instead of freezing its value throughout a nonzero dwell.
 
 Hardware command readiness remains separate from model decision sufficiency. The physical owner must supply measured travel, force, tension and speed envelopes, calibrated transfer paths, timing and drive limits before any recommendation is mapped to actuation. The existing code records this boundary explicitly and emits zero hardware commands.
+
+The prior0.1 packet remains byte-preserved in archives/Fusion_Instrument_Design_Package_v0_1_20261024.zip and its PDF is docs/reports/Fusion_Instrument_Design_v0_1.pdf. The new instrument/ layer adds common-input WAV rendering, joint digital-channel tone features and signed slow writer-port work. The original computing/ layer retains its grouped finite planner, memory enclosures and acquisition auditor.
+
+Canonical fusion.run/1 uses raw_files and the computing auditor. instrument analyze-run accepts that canonical record when explicit analysis.tones frequencies and channel selections are added, preserving logger_time_s. Its smaller standalone record is named hydrophone.signal-run/1. Both score variants retain fusion.score/1 with explicit start_s/onset_s and source_amplitude/amplitude aliases; contradictory aliases reject, and voice identifiers are not silently remapped. The archived36-row twelve-class music proxy and recovered37-row/43-row spelled engines remain distinct.

@@ -1,0 +1,5176 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fusion / recovered Dyletsky audition</title>
+<style>body{margin:0;background:#101c23;color:#e9f2f2;font:17px/1.65 system-ui}main{max-width:1040px;margin:0 auto;padding:42px 26px}h1{font-size:40px;line-height:1.1;margin:12px 0 22px}p{max-width:900px}.tag{color:#6ed6d8;font-size:13px;letter-spacing:.15em}button{font:600 16px system-ui;padding:13px 20px;margin:8px 8px 8px 0;border:0;border-radius:8px;background:#70d5c6;color:#10222a;cursor:pointer}button[disabled]{opacity:.5}table{border-collapse:collapse;width:100%;font-size:15px;table-layout:fixed}td,th{overflow-wrap:anywhere}td,th{text-align:left;padding:11px;border-bottom:1px solid #3b515c}th{color:#88dadd}.panel{background:#192c36;padding:24px;border-radius:14px;margin:25px 0}.status{color:#f3cc86;min-height:27px}a{color:#88dadd}small{color:#b3c4cb}#progress{width:100%;accent-color:#70d5c6}</style>
+<main><div class="tag">FUSION INSTRUMENT / SOFTWARE INTEGRATION 0.2</div><h1>Dyletsky supplies the score.<br>The object supplies the response.</h1>
+<p>This offline audition uses the recovered Gen2 43-row tuning and note-selection rules, then its original Web Audio note synthesizer. The saved score retains eight software voices, spelled notes, five visited phrase types, local memory and phrase memory. Its deterministic scheduler is a new headless adaptation. Room rendering, drones and percussion are preserved in the archive but are not performed here.</p>
+<div class="panel"><button id="play">Play saved score</button><button id="stop" disabled>Stop</button><button id="save">Save score JSON</button><p class="status" id="status">Software audition only. No hardware connection.</p><progress id="progress" value="0" max="1"></progress><small id="event"></small></div>
+<p>The physical plan mixes the score into one common exciter input. Four strings provide four manually tuned resonant voices; this does not create seventeen independently tuned resonators. Musical energy values are heuristic score features, not joules. Measured force, displacement and hydrophone data remain separate.</p>
+<h2>Four fixed-string calibration targets</h2><table><thead><tr><th>Spelling</th><th>Target Hz</th><th>Offset cents</th><th>Source</th></tr></thead><tbody id="targets"></tbody></table>
+<p><small>The v6 37-row comparison engine is also preserved and verified in the package. It has different spelling rules and interval targets; the two systems are not silently combined. The 68-event seeded Gen2 demonstration visits four distinct spellings, rather than all seventeen available labels. This is a wiring and replay demonstration, not a claim of musical diversity or physical performance.</small></p></main>
+<script>
+const engine=(()=>{// Only numerical change to source extraction: injected seedable PRNG.
+let rngState=20261024;
+function setSeed(seed){if(!Number.isInteger(seed))throw Error('Integer seed required');rngState=seed>>>0;}
+function nextRandom(){let t=rngState+=0x6D2B79F5;t=Math.imul(t^(t>>>15),t|1);t^=t+Math.imul(t^(t>>>7),t|61);return((t^(t>>>14))>>>0)/4294967296;}
+const CHAIN=[
+  {sp:'Gb',midi:6},{sp:'Db',midi:1},{sp:'Ab',midi:8},
+  {sp:'Eb',midi:3},{sp:'Bb',midi:10},{sp:'F',midi:5},
+  {sp:'C',midi:0},{sp:'G',midi:7},{sp:'D',midi:2},
+  {sp:'A',midi:9},{sp:'E',midi:4},{sp:'B',midi:11},
+  {sp:'F#',midi:6},{sp:'C#',midi:1},{sp:'G#',midi:8},
+  {sp:'D#',midi:3},{sp:'A#',midi:10},
+];
+const CG=6;                         // C at chain index 6 (gauge)
+const ci2fi=si=>si<CG?si:si-1;     // chain index → free variable index (0..15)
+
+function buildSpelledSys(){
+  const J=[],b=[];
+  // P5: chain[k] → chain[k+1]  (16 rows)
+  for(let k=0;k<16;k++){
+    const row=new Array(16).fill(0);
+    if(k+1!==CG)row[ci2fi(k+1)]+=1; if(k!==CG)row[ci2fi(k)]-=1;
+    J.push(row);b.push(1.955);
+  }
+  // M3: chain[k] → chain[k+4]  (13 rows, k=0..12)
+  for(let k=0;k<=12;k++){
+    const e=k+4,row=new Array(16).fill(0);
+    if(e!==CG)row[ci2fi(e)]+=1; if(k!==CG)row[ci2fi(k)]-=1;
+    J.push(row);b.push(-13.686);
+  }
+  // m3: chain[k] → chain[k-3]  ascending m3 (14 rows, k=3..16)
+  for(let k=3;k<17;k++){
+    const e=k-3,row=new Array(16).fill(0);
+    if(e!==CG)row[ci2fi(e)]+=1; if(k!==CG)row[ci2fi(k)]-=1;
+    J.push(row);b.push(15.641);
+  }
+  return{J,b};
+}
+
+// ── Linear algebra (16×16) ───────────────────────────────────────────
+function chol(A){
+  const n=A.length,L=A.map(r=>r.slice());
+  for(let i=0;i<n;i++){
+    for(let j=0;j<i;j++){let s=L[i][j];for(let k=0;k<j;k++)s-=L[i][k]*L[j][k];L[i][j]=s/L[j][j];}
+    let s=L[i][i];for(let k=0;k<i;k++)s-=L[i][k]*L[i][k];L[i][i]=Math.sqrt(Math.max(s,1e-14));
+  }
+  return L;
+}
+function fwdBack(L,rhs){
+  const n=rhs.length,y=new Array(n).fill(0),x=new Array(n).fill(0);
+  for(let i=0;i<n;i++){let s=rhs[i];for(let j=0;j<i;j++)s-=L[i][j]*y[j];y[i]=s/L[i][i];}
+  for(let i=n-1;i>=0;i--){let s=y[i];for(let j=i+1;j<n;j++)s-=L[j][i]*x[j];x[i]=s/L[i][i];}
+  return x;
+}
+function cholInv(A){
+  const n=A.length,L=chol(A),M=Array.from({length:n},()=>new Array(n).fill(0)),e=new Array(n).fill(0);
+  for(let c=0;c<n;c++){e.fill(0);e[c]=1;const v=fwdBack(L,e);for(let r=0;r<n;r++)M[r][c]=v[r];}
+  return M;
+}
+
+function powerIter(H,it=12){
+  const n=H.length;let v=new Array(n).fill(0);v[0]=1;
+  for(let t=0;t<it;t++){const w=H.map(row=>row.reduce((s,h,j)=>s+h*v[j],0)),nm=Math.sqrt(w.reduce((s,x)=>s+x*x,0));if(nm<1e-12)break;v=w.map(x=>x/nm);}
+  return{lmax:H.reduce((s,row,i)=>s+row.reduce((s2,h,j)=>s2+h*v[i]*v[j],0),0),q:v};
+}
+function invPowerIter(Hi,it=10){
+  const n=Hi.length;let v=new Array(n).fill(1/Math.sqrt(n));
+  for(let t=0;t<it;t++){const w=Hi.map(row=>row.reduce((s,h,j)=>s+h*v[j],0)),nm=Math.sqrt(w.reduce((s,x)=>s+x*x,0));if(nm<1e-12)break;v=w.map(x=>x/nm);}
+  return v;
+}
+const cl=(v,a,b)=>Math.min(b,Math.max(a,v));
+const kProj=(H,lmax)=>Math.max(0,1-lmax/H.reduce((s,_,i)=>s+H[i][i],0));
+
+// ── Style operator weights (36-dim for Z₁₂ voicing coupling) ────────
+const HN=new Set([0,2,4,5,7,9]),HH=new Set([0,2,4,7,9,11]),HS=new Set([0,2,5,7,9,10]);
+const FN=new Set([2,4,5,7]),CS=new Set([4,7,11]);
+const SK=['resurrect','hex_nat','modal','cadence','liturgy','lent','passion','hex_hard'];
+
+function pureW36(s){
+  const IVLS_Z12=[{st:7},{st:4},{st:3}];
+  const w=new Array(36).fill(1);let r=0;
+  for(const{st}of IVLS_Z12)for(let p=0;p<12;p++){
+    const e=(p+st)%12,iN=HN.has(p)&&HN.has(e),iH=HH.has(p)&&HH.has(e),iS=HS.has(p)&&HS.has(e);
+    if(s==='hex_nat'){if(iN)w[r]=3;}else if(s==='hex_hard'){if(iH)w[r]=5;}
+    else if(s==='modal'){if(FN.has(e))w[r]=5;}else if(s==='resurrect'){w[r]=(iH&&FN.has(e))?8:iH?4:1;}
+    else if(s==='cadence'){if(CS.has(e))w[r]=5;}
+    else if(s==='liturgy'){w[r]=iN?(st===4?3.75:st===3?3:1.5):(st===4?2.5:st===3?2:1);}
+    else if(s==='lent'){w[r]=iS?(st===3?6:st===7?3:.7):(st===3?2.5:st===4?.7:1.5);}
+    else if(s==='passion'){w[r]=iS?(st===3?7:st===7?2.5:.5):(st===3?3:st===4?.5:1.2);}
+    r++;
+  }
+  return w;
+}
+
+// Map 36-dim Z₁₂ weight to 43-dim spelled weight (by interval family)
+function w36toSpelled(w36){
+  // First 16 rows = P5, next 13 = M3, last 14 = m3
+  const w=new Array(43).fill(1);
+  // P5 rows 0..15: average over the 12 P5 rows in w36 (rows 0..11)
+  const avgP5=w36.slice(0,12).reduce((s,v)=>s+v,0)/12;
+  for(let r=0;r<16;r++)w[r]=avgP5;
+  // M3 rows 16..28: average over w36 rows 12..23
+  const avgM3=w36.slice(12,24).reduce((s,v)=>s+v,0)/12;
+  for(let r=16;r<29;r++)w[r]=avgM3;
+  // m3 rows 29..42: average over w36 rows 24..35
+  const avgm3=w36.slice(24,36).reduce((s,v)=>s+v,0)/12;
+  for(let r=29;r<43;r++)w[r]=avgm3;
+  return w.map(v=>Math.max(.5,v));
+}
+
+function solve(J,b,w){
+  const n=J[0].length,lam=.008,G=Array.from({length:n},()=>new Array(n).fill(0)),f=new Array(n).fill(0);
+  for(let r=0;r<J.length;r++){const wr=w[r];for(let i=0;i<n;i++){f[i]+=wr*J[r][i]*b[r];for(let j=0;j<n;j++)G[i][j]+=wr*J[r][i]*J[r][j];}}
+  for(let i=0;i<n;i++)G[i][i]+=lam;
+  const L=chol(G),xs=fwdBack(L,f),Hi=cholInv(G);
+  const eta=f.reduce((s,v)=>s+v*v,0),norm=Math.sqrt(xs.reduce((s,v)=>s+v*v,0));
+  let wN=0,wD=0;
+  for(let r=0;r<J.length;r++){const res=b[r]-J[r].reduce((s,v,i)=>s+v*xs[i],0);wN+=w[r]*res*res;wD+=w[r];}
+  return{xs,H:G,Hi,eta,norm,wRMS:Math.sqrt(wN/wD),trHi:Hi.reduce((s,_,i)=>s+Hi[i][i],0)};
+}
+
+function mixW(g){
+  const w=new Array(36).fill(0);
+  SK.forEach((s,k)=>{const pw=pureW36(s),gk=g[k]||0;for(let r=0;r<36;r++)w[r]+=gk*pw[r];});
+  return w.map(v=>Math.max(.5,v));
+}
+
+// ── Spelled energy field (16-dim) ────────────────────────────────────
+// e_{si} ∈ ℝ^16: unit vector at free variable ci2fi(si), zero at gauge
+function eVec(si){const v=new Array(16).fill(0);if(si!==CG)v[ci2fi(si)]=1;return v;}
+
+function pcE_sp(si,xs,H){
+  const n=16,d=xs.map((v,i)=>eVec(si)[i]-v);
+  let e=0;for(let i=0;i<n;i++)for(let j=0;j<n;j++)e+=d[i]*H[i][j]*d[j];return Math.max(0,e);
+}
+function normE_sp(xs,H){
+  const raw=Array.from({length:17},(_,si)=>pcE_sp(si,xs,H));
+  const mu=raw.reduce((s,v)=>s+v,0)/17,sigma=Math.sqrt(raw.reduce((s,v)=>s+(v-mu)**2,0)/17);
+  return{raw,norm:raw.map(e=>(e-mu)/(sigma+1e-6)),sigma};
+}
+function hinvW_sp(si,xs,Hi){
+  const n=16,ev=eVec(si),d=xs.map((v,i)=>ev[i]-v);
+  let q=0;for(let i=0;i<n;i++)for(let j=0;j<n;j++)q+=d[i]*Hi[i][j]*d[j];return Math.exp(-.5*q);
+}
+function geomCost_sp(fSi,tSi,H){
+  const n=16,fv=eVec(fSi),tv=eVec(tSi),d=Array.from({length:n},(_,i)=>tv[i]-fv[i]);
+  let q=0;for(let i=0;i<n;i++)for(let j=0;j<n;j++)q+=d[i]*H[i][j]*d[j];return Math.max(0,q);
+}
+
+// Voice-block register modifiers on spelled weight vector (43-dim)
+const VREG={
+  discant:{P5:.85,M3:1.55,m3:.90},cantus:{P5:1.05,M3:1.20,m3:1.05},
+  bass:{P5:1.80,M3:.50,m3:1.20},pedal:{P5:2.20,M3:.30,m3:.80},
+};
+function applyVreg43(w43,vtype){
+  const m=VREG[vtype]||VREG.cantus;
+  return w43.map((v,r)=>v*(r<16?m.P5:r<29?m.M3:m.m3));
+}
+function blockSolve(J,b,baseW43){
+  return Object.fromEntries(['discant','cantus','bass','pedal'].map(vc=>[vc,solve(J,b,applyVreg43(baseW43,vc)).xs]));
+}
+
+// Geodesic: precompute d²_rs from pure spelled x* vectors
+function buildGeoMat(J,b,sys){
+  const pxs=SK.map(s=>solve(J,b,w36toSpelled(pureW36(s))).xs);
+  return pxs.map(xi=>pxs.map(xj=>xj.reduce((s,v,i)=>s+(v-xi[i])**2,0)));
+}
+
+// ════════════════════════════════════════════════════════════════════
+//  II. GEODESIC γ FLOW — true quadratic form G(γ) = γᵀ D² γ
+// ════════════════════════════════════════════════════════════════════
+
+// ∇G(γ) = 2 D² γ,  projected onto simplex tangent (subtract mean)
+function geoGradient(g,d2){
+  const raw=g.map((_,r)=>2*d2[r].reduce((s,d,c)=>s+d*g[c],0));
+  const mean=raw.reduce((s,v)=>s+v,0)/g.length;
+  return raw.map(v=>v-mean);
+}
+
+const PAFF={
+  jubilate:{resurrect:3,hex_hard:1.5,hex_nat:.8,modal:.5,cadence:.3,liturgy:.2,lent:0,passion:.1},
+  interior:{hex_nat:2.5,modal:1.2,liturgy:1,resurrect:.5,cadence:.4,hex_hard:.3,lent:.2,passion:.1},
+  precad:  {cadence:2.8,modal:1.5,hex_nat:.8,resurrect:.6,hex_hard:.4,liturgy:.2,lent:.1,passion:.1},
+  cadence: {modal:3,cadence:2,resurrect:.8,hex_nat:.5,liturgy:.4,hex_hard:.3,lent:.1,passion:.2},
+  resolve: {liturgy:3,hex_nat:1.5,modal:1,lent:.6,cadence:.3,resurrect:.2,hex_hard:.1,passion:.1},
+};
+function smx(v,t){const mx=Math.max(...v),ex=v.map(x=>Math.exp((x-mx)/(t||1))),s=ex.reduce((a,b)=>a+b,0);return ex.map(x=>x/s);}
+
+function flowG(g,ph,D,pin,d2){
+  // PAFF phrase target
+  const target=pin?SK.map((_,k)=>k===SK.indexOf(pin)?.93:.01):smx(SK.map(s=>(PAFF[ph]||PAFF.interior)[s]||0),.6+.8*D);
+  const nu=.15,mu=.04;  // mu = geodesic repulsion on γ
+  const gg=d2?geoGradient(g,d2):new Array(g.length).fill(0);
+  // γ̇ = −ν(γ − γ*) − μ ∇G(γ),  then project onto simplex
+  const nx=g.map((v,k)=>Math.max(.001,v+nu*(target[k]-v)-mu*gg[k]));
+  const sm=nx.reduce((a,b)=>a+b,0);return nx.map(v=>v/sm);
+}
+
+// ── Memory ────────────────────────────────────────────────────────────
+const ML=8,MR=.72,MLM=2.4,MLM_PH=1.6,MR_PH=.85;
+const updMem=(m,pc)=>[pc,...m.slice(0,ML-1)];
+const memPen=(m,si)=>m.reduce((s,x,j)=>s+(x===si?Math.pow(MR,j+1):0),0);
+const phaseMemPen=(pm,si)=>(pm||[]).reduce((s,x,j)=>s+(x===si?Math.pow(MR_PH,j+1):0),0);
+
+// ── MH sampler in spelled space (17 candidates per octave) ───────────
+const PB={jubilate:new Set([7,4,11,2]),interior:new Set([0,2,9,5]),precad:new Set([9,2,11,6]),cadence:new Set([7,4,11,5]),resolve:new Set([4,9,0,5])};
+const ST={discant:1.8,cantus:1.2,bass:.9,pedal:.7};
+
+function pairV(p1,o1,p2,o2){
+  const iv=Math.abs(o1*12+p1-o2*12-p2)%12;
+  return[2.5,.3,.2,-.8,-1.2,.5,-.2,-.6,.1,-.7,.3,.4][iv]+(Math.abs(o1*12+p1-o2*12-p2)<3?.8:0);
+}
+function jointE_midi(cfg,xs,H){
+  let E=0;
+  for(const{si,oct}of cfg)E+=pcE_sp(si,xs,H)*.5;
+  for(let i=0;i<cfg.length;i++)for(let j=i+1;j<cfg.length;j++)E+=pairV(CHAIN[cfg[i].si].midi,cfg[i].oct,CHAIN[cfg[j].si].midi,cfg[j].oct);
+  return E;
+}
+
+function mhStep(vi,vs,xs_v,xs_sh,H,Hi,En_sp,Er_sp,mem,phaseMem,mode,ph){
+  const vc=vs[vi],bias=PB[ph]||PB.interior,beta=1/(ST[vc.vtype]||1);
+  const[lo,hi]=vc.octRange,curSi=vc.si,oth=vs.filter((_,i)=>i!==vi).map(v=>v.oct*12+CHAIN[v.si].midi);
+  const cands=[];
+  for(let oct=lo;oct<=hi;oct++)for(let si=0;si<17;si++){
+    const{midi:pc}=CHAIN[si];
+    const midiThis=oct*12+pc,midiCur=vc.oct*12+CHAIN[curSi].midi;
+    const dist=Math.abs(midiThis-midiCur);if(dist>14)continue;
+    const sw=dist<=2?1:dist<=4?.65:dist<=7?.32:.10;
+    let sp=1;for(const om of oth){const iv=Math.abs(midiThis-om)%12;if(!iv)sp*=.08;else if(iv===7)sp*=.55;}
+    const cw=(ph==='cadence'||ph==='precad')&&CS.has(pc)?1.6:1;
+    const bw=bias.has(pc)?1.35:mode.includes(pc)?.85:.28;
+    let aw=1;
+    if(vc.vtype==='pedal'){
+      const top2=new Set(Er_sp.map((e,i)=>({si:i,e})).sort((a,b)=>a.e-b.e).slice(0,3).filter(x=>mode.includes(CHAIN[x.si].midi)).slice(0,2).map(x=>x.si));
+      aw=top2.has(si)?3.2:mode.includes(pc)?.5:.04;
+    }
+    const hw=hinvW_sp(si,xs_v,Hi);
+    const stabW=Math.exp(-beta*.5*(En_sp[si]||0));
+    const gtW=Math.exp(-beta*.18*geomCost_sp(curSi,si,H));
+    const memE=MLM*memPen(mem,si)+MLM_PH*phaseMemPen(phaseMem,si);
+    cands.push({si,oct,w:hw*stabW*gtW*Math.exp(-beta*memE)*sw*sp*cw*bw*aw});
+  }
+  if(!cands.length)return vs;
+  const tot=cands.reduce((s,c)=>s+c.w,0);let r=nextRandom()*tot,prop=cands[cands.length-1];
+  for(const c of cands){r-=c.w;if(r<=0){prop=c;break;}}
+  const cc=vs.map(v=>({si:v.si,oct:v.oct})),p2=cc.map((v,i)=>i===vi?{si:prop.si,oct:prop.oct}:v);
+  const dE=jointE_midi(p2,xs_sh,H)-jointE_midi(cc,xs_sh,H),T=(ST[vc.vtype]||1)*2;
+  if(dE<0||nextRandom()<Math.exp(-dE/T)){
+    const nv=vs.slice();
+    const cents=prop.si===CG?0:(xs_v[ci2fi(prop.si)]||0);
+    nv[vi]=Object.assign({},vs[vi],{si:prop.si,pc:CHAIN[prop.si].midi,oct:prop.oct,sp:CHAIN[prop.si].sp,cents});
+    return nv;
+  }
+  return vs;
+}
+
+function eDur(si,En_sp,vt,ph){
+  const base=Math.exp(-.35*(En_sp[si]||0));
+  const SC={discant:{lo:1,hi:5},cantus:{lo:2,hi:9},bass:{lo:3,hi:11},pedal:{lo:5,hi:20}};
+  const sc=SC[vt]||SC.cantus,pm=ph==='cadence'?1.5:ph==='jubilate'?.65:1;
+  return Math.round(cl(-(sc.lo+base*(sc.hi-sc.lo)*pm)*Math.log(Math.max(nextRandom(),.001)),sc.lo,sc.hi*1.6));
+}
+
+const gjt=d=>1+.3282804759*d+.08007661*d*d+.01088191*d*d*d+.0009844771*Math.pow(d,4);
+function stepD(D,ph){const c2=ph==='cadence'||ph==='precad',a=c2?-.7133:ph==='jubilate'?.11:ph==='resolve'?-.25:-.04,g=c2?-4.277:-1.2;return cl(D+.28*(a+g*D*D),0,3);}
+const sigT=(D,ph)=>.12*(1+(ph==='jubilate'?1.8:ph==='resolve'?.6:1.2)*D);
+
+function residualNominate(xs,xs_block,g){
+  const rms=vt=>xs_block[vt]?Math.sqrt(xs_block[vt].reduce((s,v,i)=>s+(v-(xs[i]||0))**2,0)):0;
+  const devs=['discant','cantus','bass','pedal'].map(rms),maxDev=Math.max(...devs,.001);
+  const nom={resurrect:devs[0]/maxDev,lent:devs[3]/maxDev};
+  return g.map((v,k)=>Math.max(.001,v+.03*(nom[SK[k]]||0)*(1-v))).map((v,_,a)=>v/a.reduce((s,x)=>s+x,0));
+}
+
+const PHT={jubilate:[[.5,'interior'],[.2,'jubilate'],[.18,'precad'],[.12,'cadence']],interior:[[.33,'precad'],[.27,'interior'],[.22,'jubilate'],[.18,'cadence']],precad:[[.7,'cadence'],[.18,'interior'],[.12,'precad']],cadence:[[.5,'resolve'],[.28,'jubilate'],[.22,'interior']],resolve:[[.35,'jubilate'],[.3,'interior'],[.2,'resolve'],[.15,'cadence']]};
+function nxtPh(ph){const t=PHT[ph]||PHT.interior;let r=nextRandom(),c=0;for(const[p,n]of t){c+=p;if(r<c)return n;}return t[0][1];}
+
+const MODES={'G Mixolydian':[7,9,11,0,2,4,5],'G Major':[7,9,11,0,2,4,6],'D Dorian':[2,4,5,7,9,11,0],'E Phrygian':[4,5,7,9,11,0,2],'A Aeolian':[9,11,0,2,4,5,7],'C Lydian':[0,2,4,6,7,9,11],'Bb Major':[10,0,2,3,5,7,9],'F Dorian':[5,7,8,10,0,2,3]};
+const MK=Object.keys(MODES);
+
+const VCFG=[
+  {name:'S1',vtype:'discant',octRange:[4,5],amp:.48,color:'#f59e0b',pan:-.6},
+  {name:'S2',vtype:'cantus', octRange:[4,5],amp:.41,color:'#fcd34d',pan:-.3},
+  {name:'A1',vtype:'discant',octRange:[3,4],amp:.38,color:'#60a5fa',pan:.3},
+  {name:'A2',vtype:'cantus', octRange:[3,4],amp:.34,color:'#818cf8',pan:.6},
+  {name:'T1',vtype:'discant',octRange:[2,3],amp:.32,color:'#34d399',pan:-.5},
+  {name:'T2',vtype:'cantus', octRange:[2,3],amp:.29,color:'#6ee7b7',pan:.5},
+  {name:'B1',vtype:'bass',   octRange:[2,3],amp:.27,color:'#f87171',pan:-.2},
+  {name:'B2',vtype:'pedal',  octRange:[1,2],amp:.24,color:'#fb923c',pan:.2},
+];
+
+// ════════════════════════════════════════════════════════════════════
+//  III. DUAL Π+/Π- SYNTHESIS PATHS
+//  Π+(t) = constraint tightening  →  bright, high-Q, short
+//  Π-(t) = constraint release     →  dark, inharmonic, bloom
+// ════════════════════════════════════════════════════════════════════
+
+function pcHz(pc,oct,cents){return 261.626*Math.pow(2,(oct-4+pc/12)+cents/1200);}
+
+function getFmts(vt,ph,sigE){
+  const phS={jubilate:1,interior:.83,precad:.78,cadence:.72,resolve:.64};
+  const vtB={discant:[900,1400,2800],cantus:[720,1160,2550],bass:[510,1010,2210],pedal:[410,820,1820]};
+  return(vtB[vt]||vtB.cantus).map(f=>f*(phS[ph]||1)*(1+.28*Math.min(sigE||0,600)/600));
+}
+
+function playNote(ctx,mast,freq,pHz,vt,amp,dur,ph,pan,Et,sigE,trHi){
+  if(!ctx||freq<28||freq>9800)return null;
+  const now=ctx.currentTime,spread=cl((trHi||0)*.035,0,.65);
+  const adjPan=pan*(1-spread)+(nextRandom()*.5-.25)*spread;
+  const pnr=ctx.createStereoPanner?ctx.createStereoPanner():null;
+  if(pnr){pnr.pan.value=adjPan;pnr.connect(mast);}
+  const gN=ctx.createGain();gN.connect(pnr||mast);
+  const atk=vt==='pedal'?.26:vt==='bass'?.13:.07;
+  gN.gain.setValueAtTime(0,now);gN.gain.linearRampToValueAtTime(amp,now+atk);
+  gN.gain.setValueAtTime(amp*.88,now+Math.max(dur*.65,atk+.05));gN.gain.linearRampToValueAtTime(0,now+dur);
+  const fmts=getFmts(vt,ph,sigE),et=cl(Et||0,-2,2),pEnd=now+cl(atk*1.8,.04,.18);
+  const mults={discant:[1,2,3,4],cantus:[1,2,3,4],bass:[1,2,3,4],pedal:[.5,1,2,3]}[vt]||[1,2,3,4];
+  const pAmps=[1,.38+et*.08,.18+et*.05,.07+et*.03];
+  const oscs=mults.map((m,h)=>{
+    const o=ctx.createOscillator(),sg=ctx.createGain();
+    o.type=(vt==='pedal'||vt==='bass')?'sawtooth':vt==='cantus'?'triangle':'sine';
+    o.frequency.setValueAtTime((pHz>0?pHz:freq)*m,now);
+    o.frequency.exponentialRampToValueAtTime(freq*m,pEnd);
+    sg.gain.value=pAmps[h]||.01;o.connect(sg);
+    fmts.forEach((fHz,fi)=>{const ff=ctx.createBiquadFilter();ff.type='bandpass';ff.frequency.value=fHz;ff.Q.value=8+fi;const fg=ctx.createGain();fg.gain.value=fi===0?.65:fi===1?.45:.22;sg.connect(ff);ff.connect(fg);fg.connect(gN);});
+    const pg=ctx.createGain();pg.gain.value=.20;sg.connect(pg);pg.connect(gN);
+    o.start(now);o.stop(now+dur+.1);return o;
+  });
+  if(freq>180&&(vt==='discant'||vt==='cantus')){const lfo=ctx.createOscillator(),lg=ctx.createGain();lfo.frequency.value=5.1;lg.gain.value=freq*cl(.0014+et*.0007,.001,.004);lfo.connect(lg);oscs.forEach(o=>lg.connect(o.frequency));lfo.start(now+.3);lfo.stop(now+dur);}
+  return{oscs,gN,pnr,stopAt:now+dur+.1};
+}
+
+// Π+ path: constraint tightening — high-Q bandpass array, sharp pink noise, short decay
+function triggerPercPlus(ctx,mast,xs,Er_sp,trH,piVal){
+  if(!ctx||piVal<.1)return null;
+  const now=ctx.currentTime,Fs=ctx.sampleRate,dur=cl(trH*.0025,.015,.09);
+  const buf=ctx.createBuffer(1,Math.floor(Fs*dur),Fs),data=buf.getChannelData(0);
+  let b0=0,b1=0,b2=0;
+  for(let i=0;i<data.length;i++){const wn=nextRandom()*2-1;b0=.99886*b0+wn*.0555179;b1=.99332*b1+wn*.0750759;b2=.969*b2+wn*.153852;data[i]=(b0+b1+b2+wn*.5362)*.11;}
+  const src=ctx.createBufferSource();src.buffer=buf;
+  const env=ctx.createGain(),outG=ctx.createGain();
+  env.gain.setValueAtTime(cl(piVal*.00016,.003,.40),now);
+  env.gain.exponentialRampToValueAtTime(.0001,now+dur);
+  outG.gain.value=.40;outG.connect(mast);
+  const Q=cl(55/(1+trH*.8),6,55);
+  const Em=Math.min(...Er_sp.slice(0,12));
+  Er_sp.slice(0,17).forEach((e,si)=>{
+    const g=Math.exp(-(e-Em)/600);if(g<.03)return;
+    const f=pcHz(CHAIN[si].midi,3,si===CG?0:(xs[ci2fi(si)]||0));
+    if(f<80||f>8000)return;
+    const ff=ctx.createBiquadFilter();ff.type='bandpass';ff.frequency.value=f;ff.Q.value=Q;
+    const wg=ctx.createGain();wg.gain.value=g*1.8;src.connect(ff);ff.connect(wg);wg.connect(env);
+  });
+  env.connect(outG);src.start(now);src.stop(now+dur+.02);
+  return{src,env,outG,stopAt:now+dur+.05};
+}
+
+// Π- path: constraint release — inharmonic FM bloom, dark noise, slow swell, κ_proj spatial spread
+function triggerPercMinus(ctx,mast,xs,Er_sp,trH,piVal,kap,qsoft){
+  if(!ctx||piVal<.1)return null;
+  const now=ctx.currentTime,dur=cl(trH*.01,.06,.40);
+  // Inharmonic FM: carrier = soft mode pitch, modulator = slightly detuned
+  const softSi=qsoft?qsoft.reduce((best,v,i)=>Math.abs(v)>Math.abs(qsoft[best])?i:best,0):CG;
+  const fCarr=pcHz(CHAIN[softSi].midi,2,softSi===CG?0:(xs[ci2fi(softSi)]||0));
+  if(fCarr<20||fCarr>600)return null;
+  const osc=ctx.createOscillator(),mod=ctx.createOscillator(),modG=ctx.createGain();
+  osc.type='sine';mod.type='sine';
+  osc.frequency.value=fCarr;mod.frequency.value=fCarr*1.414;  // √2 ratio → inharmonic
+  modG.gain.value=fCarr*.7;mod.connect(modG);modG.connect(osc.frequency);
+  const env=ctx.createGain();
+  env.gain.setValueAtTime(0,now);
+  env.gain.linearRampToValueAtTime(cl(piVal*.0004,.003,.25),now+dur*.3);  // slow bloom
+  env.gain.linearRampToValueAtTime(0,now+dur);
+  // κ_proj controls stereo width of release
+  const pnr=ctx.createStereoPanner?ctx.createStereoPanner():null;
+  if(pnr){pnr.pan.value=(nextRandom()-.5)*cl(kap||0,0,.9)*1.4;pnr.connect(mast);}
+  const outG=ctx.createGain();outG.gain.value=.32;outG.connect(pnr||mast);
+  const flt=ctx.createBiquadFilter();flt.type='lowpass';flt.frequency.value=fCarr*3;flt.Q.value=1.5;
+  osc.connect(flt);flt.connect(env);env.connect(outG);
+  osc.start(now);mod.start(now);osc.stop(now+dur+.05);mod.stop(now+dur+.05);
+  return{oscs:[osc,mod],gN:env,pnr,stopAt:now+dur+.05};
+}
+
+function playDroneMode(ctx,mast,qsoft,xs,kap){
+  if(!ctx||!mast||!qsoft)return null;
+  const now=ctx.currentTime;
+  const idx=qsoft.reduce((best,v,i)=>Math.abs(v)>Math.abs(qsoft[best])?i:best,0);
+  const si=idx<CG?idx:idx+1;
+  const freq=pcHz(CHAIN[si].midi,1,si===CG?0:(xs[idx]||0));
+  if(freq<18||freq>200)return null;
+  const o=ctx.createOscillator(),g=ctx.createGain(),flt=ctx.createBiquadFilter();
+  o.type='sine';o.frequency.value=freq;flt.type='lowpass';flt.frequency.value=freq*2.2;flt.Q.value=1.5;
+  g.gain.setValueAtTime(0,now);g.gain.linearRampToValueAtTime(cl(.06*kap,.004,.16),now+2.5);
+  o.connect(flt);flt.connect(g);g.connect(mast);o.start(now);
+  return{osc:o,gain:g,flt,stopAt:null,isDrone:true};
+}
+
+const SC={resurrect:'#f59e0b',hex_nat:'#3b82f6',modal:'#a78bfa',cadence:'#ef4444',liturgy:'#34d399',lent:'#64748b',passion:'#ec4899',hex_hard:'#fb923c'};
+const SL={resurrect:'Resurrect',hex_nat:'Hex Nat',modal:'Modal',cadence:'Cadence',liturgy:'Liturgy',lent:'Lenten',passion:'Passion',hex_hard:'Hex Hard'};
+const PHC={jubilate:'#f59e0b',interior:'#60a5fa',precad:'#a78bfa',cadence:'#ef4444',resolve:'#34d399'};
+const PHL={jubilate:'Jubilate',interior:'Interior',precad:'Pre-Cad',cadence:'Cadence',resolve:'Resolve'};
+
+// ════════════════════════════════════════════════════════════════════
+//  IV. COMPONENT
+// ════════════════════════════════════════════════════════════════════
+
+
+return {playNote,setSeed};})();
+const score={
+  "schema": "fusion.score/1",
+  "data_origin": "software_generated_score",
+  "engine_id": "dyletsky-gen2-43",
+  "seed": 20261024,
+  "ticks": 64,
+  "tempo": 52,
+  "mode": "G Mixolydian",
+  "basis": [
+    "Gb",
+    "Db",
+    "Ab",
+    "Eb",
+    "Bb",
+    "F",
+    "C",
+    "G",
+    "D",
+    "A",
+    "E",
+    "B",
+    "F#",
+    "C#",
+    "G#",
+    "D#",
+    "A#"
+  ],
+  "reference_C4_Hz": 261.626,
+  "scheduler_scope": "New deterministic headless adaptation of recovered Gen2 rules. Fixed mode; source phrase transitions, style flow, register solves, note selection, local and phase memory retained. No audio-side random draws, room, drone or percussion generated.",
+  "musical_energy_is_physical_energy": false,
+  "calibration_targets": [
+    {
+      "spelling": "C",
+      "octave": 4,
+      "pitch_class": 0,
+      "offset_cents": 0,
+      "target_Hz": 261.626,
+      "engine_id": "dyletsky-gen2-43",
+      "strategy": "hex_nat",
+      "manual_tuning_required": true
+    },
+    {
+      "spelling": "D",
+      "octave": 4,
+      "pitch_class": 2,
+      "offset_cents": -7.500395184551755,
+      "target_Hz": 292.39573306577114,
+      "engine_id": "dyletsky-gen2-43",
+      "strategy": "hex_nat",
+      "manual_tuning_required": true
+    },
+    {
+      "spelling": "E",
+      "octave": 4,
+      "pitch_class": 4,
+      "offset_cents": -15.131752028495834,
+      "target_Hz": 326.759563456652,
+      "engine_id": "dyletsky-gen2-43",
+      "strategy": "hex_nat",
+      "manual_tuning_required": true
+    },
+    {
+      "spelling": "G",
+      "octave": 4,
+      "pitch_class": 7,
+      "offset_cents": -3.8498676689216933,
+      "target_Hz": 391.1253463782126,
+      "engine_id": "dyletsky-gen2-43",
+      "strategy": "hex_nat",
+      "manual_tuning_required": true
+    }
+  ],
+  "events": [
+    {
+      "event_id": "g2-0",
+      "start_s": 1.7307692307692306,
+      "duration_s": 1.575,
+      "voice": 0,
+      "voice_name": "S1",
+      "voice_type": "discant",
+      "spelling": "Gb",
+      "octave": 4,
+      "pitch_class": 6,
+      "offset_cents": 21.2880860141218,
+      "target_Hz": 374.57276156190363,
+      "previous_Hz": 374.57276156190363,
+      "phrase": "jubilate",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.48,
+      "source_pan": -0.6,
+      "normalized_energy": -1.592690468471195,
+      "energy_sigma": 71.75602988904488,
+      "inverse_trace": 3.4926457373278343,
+      "local_memory": [
+        0,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "phrase_memory_length": 1
+    },
+    {
+      "event_id": "g2-1",
+      "start_s": 1.7307692307692306,
+      "duration_s": 4.2,
+      "voice": 1,
+      "voice_name": "S2",
+      "voice_type": "cantus",
+      "spelling": "Ab",
+      "octave": 4,
+      "pitch_class": 8,
+      "offset_cents": 15.835217222786019,
+      "target_Hz": 419.1215207544579,
+      "previous_Hz": 419.1215207544579,
+      "phrase": "jubilate",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.41,
+      "source_pan": -0.3,
+      "normalized_energy": -1.6828569947318042,
+      "energy_sigma": 71.75602988904488,
+      "inverse_trace": 3.4926457373278343,
+      "local_memory": [
+        2,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "phrase_memory_length": 1
+    },
+    {
+      "event_id": "g2-2",
+      "start_s": 1.7307692307692306,
+      "duration_s": 1.05,
+      "voice": 2,
+      "voice_name": "A1",
+      "voice_type": "discant",
+      "spelling": "B",
+      "octave": 4,
+      "pitch_class": 11,
+      "offset_cents": 0,
+      "target_Hz": 493.8841218593214,
+      "previous_Hz": 493.8841218593214,
+      "phrase": "jubilate",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.38,
+      "source_pan": 0.3,
+      "normalized_energy": 0.03718380569110135,
+      "energy_sigma": 71.75602988904488,
+      "inverse_trace": 3.4926457373278343,
+      "local_memory": [
+        11,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "phrase_memory_length": 1
+    },
+    {
+      "event_id": "g2-3",
+      "start_s": 1.7307692307692306,
+      "duration_s": 1.575,
+      "voice": 3,
+      "voice_name": "A2",
+      "voice_type": "cantus",
+      "spelling": "Gb",
+      "octave": 3,
+      "pitch_class": 6,
+      "offset_cents": 21.576781341016023,
+      "target_Hz": 187.31761469260485,
+      "previous_Hz": 187.31761469260485,
+      "phrase": "jubilate",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.34,
+      "source_pan": 0.6,
+      "normalized_energy": -1.592690468471195,
+      "energy_sigma": 71.75602988904488,
+      "inverse_trace": 3.4926457373278343,
+      "local_memory": [
+        0,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "phrase_memory_length": 1
+    },
+    {
+      "event_id": "g2-4",
+      "start_s": 1.7307692307692306,
+      "duration_s": 2.1,
+      "voice": 4,
+      "voice_name": "T1",
+      "voice_type": "discant",
+      "spelling": "Gb",
+      "octave": 2,
+      "pitch_class": 6,
+      "offset_cents": 21.2880860141218,
+      "target_Hz": 93.64319039047591,
+      "previous_Hz": 93.64319039047591,
+      "phrase": "jubilate",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.32,
+      "source_pan": -0.5,
+      "normalized_energy": -1.592690468471195,
+      "energy_sigma": 71.75602988904488,
+      "inverse_trace": 3.4926457373278343,
+      "local_memory": [
+        0,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "phrase_memory_length": 1
+    },
+    {
+      "event_id": "g2-5",
+      "start_s": 1.7307692307692306,
+      "duration_s": 3.15,
+      "voice": 5,
+      "voice_name": "T2",
+      "voice_type": "cantus",
+      "spelling": "Gb",
+      "octave": 2,
+      "pitch_class": 6,
+      "offset_cents": 21.576781341016023,
+      "target_Hz": 93.65880734630242,
+      "previous_Hz": 93.65880734630242,
+      "phrase": "jubilate",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.29,
+      "source_pan": 0.5,
+      "normalized_energy": -1.592690468471195,
+      "energy_sigma": 71.75602988904488,
+      "inverse_trace": 3.4926457373278343,
+      "local_memory": [
+        0,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "phrase_memory_length": 1
+    },
+    {
+      "event_id": "g2-6",
+      "start_s": 1.7307692307692306,
+      "duration_s": 9.45,
+      "voice": 6,
+      "voice_name": "B1",
+      "voice_type": "bass",
+      "spelling": "Gb",
+      "octave": 2,
+      "pitch_class": 6,
+      "offset_cents": 21.179199372753338,
+      "target_Hz": 93.63730085067355,
+      "previous_Hz": 93.63730085067355,
+      "phrase": "jubilate",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.27,
+      "source_pan": -0.2,
+      "normalized_energy": -1.592690468471195,
+      "energy_sigma": 71.75602988904488,
+      "inverse_trace": 3.4926457373278343,
+      "local_memory": [
+        0,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "phrase_memory_length": 1
+    },
+    {
+      "event_id": "g2-7",
+      "start_s": 1.7307692307692306,
+      "duration_s": 4.2,
+      "voice": 7,
+      "voice_name": "B2",
+      "voice_type": "pedal",
+      "spelling": "Gb",
+      "octave": 1,
+      "pitch_class": 6,
+      "offset_cents": 18.05774434548494,
+      "target_Hz": 46.734311371364626,
+      "previous_Hz": 46.734311371364626,
+      "phrase": "jubilate",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.24,
+      "source_pan": 0.2,
+      "normalized_energy": -1.592690468471195,
+      "energy_sigma": 71.75602988904488,
+      "inverse_trace": 3.4926457373278343,
+      "local_memory": [
+        0,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "phrase_memory_length": 1
+    },
+    {
+      "event_id": "g2-8",
+      "start_s": 2.884615384615384,
+      "duration_s": 1.05,
+      "voice": 2,
+      "voice_name": "A1",
+      "voice_type": "discant",
+      "spelling": "Bb",
+      "octave": 3,
+      "pitch_class": 10,
+      "offset_cents": 7.200228306983469,
+      "target_Hz": 234.05367932834005,
+      "previous_Hz": 493.8841218593214,
+      "phrase": "jubilate",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.38,
+      "source_pan": 0.3,
+      "normalized_energy": 0.03718388072125694,
+      "energy_sigma": 71.75617679733436,
+      "inverse_trace": 3.492626758938952,
+      "local_memory": [
+        4,
+        11,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "phrase_memory_length": 2
+    },
+    {
+      "event_id": "g2-9",
+      "start_s": 3.4615384615384612,
+      "duration_s": 4.2,
+      "voice": 0,
+      "voice_name": "S1",
+      "voice_type": "discant",
+      "spelling": "Gb",
+      "octave": 4,
+      "pitch_class": 6,
+      "offset_cents": 21.288075668926155,
+      "target_Hz": 374.5727593235994,
+      "previous_Hz": 374.57276156190363,
+      "phrase": "jubilate",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.48,
+      "source_pan": -0.6,
+      "normalized_energy": -1.5926900585239412,
+      "energy_sigma": 71.75621725041404,
+      "inverse_trace": 3.492620105642041,
+      "local_memory": [
+        0,
+        0,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "phrase_memory_length": 2
+    },
+    {
+      "event_id": "g2-10",
+      "start_s": 3.4615384615384612,
+      "duration_s": 2.6249999999999996,
+      "voice": 3,
+      "voice_name": "A2",
+      "voice_type": "cantus",
+      "spelling": "Gb",
+      "octave": 3,
+      "pitch_class": 6,
+      "offset_cents": 21.57676723204924,
+      "target_Hz": 187.31761316603018,
+      "previous_Hz": 187.31761469260485,
+      "phrase": "jubilate",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.34,
+      "source_pan": 0.6,
+      "normalized_energy": -1.5926900585239412,
+      "energy_sigma": 71.75621725041404,
+      "inverse_trace": 3.492620105642041,
+      "local_memory": [
+        0,
+        0,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "phrase_memory_length": 2
+    },
+    {
+      "event_id": "g2-11",
+      "start_s": 4.038461538461538,
+      "duration_s": 4.2,
+      "voice": 2,
+      "voice_name": "A1",
+      "voice_type": "discant",
+      "spelling": "Gb",
+      "octave": 3,
+      "pitch_class": 6,
+      "offset_cents": 21.28807329974188,
+      "target_Hz": 187.28637940549933,
+      "previous_Hz": 234.05367932834005,
+      "phrase": "jubilate",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.38,
+      "source_pan": 0.3,
+      "normalized_energy": -1.5926899648212698,
+      "energy_sigma": 71.75624920022862,
+      "inverse_trace": 3.492614852151978,
+      "local_memory": [
+        0,
+        4,
+        11,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "phrase_memory_length": 3
+    },
+    {
+      "event_id": "g2-12",
+      "start_s": 4.038461538461538,
+      "duration_s": 1.05,
+      "voice": 4,
+      "voice_name": "T1",
+      "voice_type": "discant",
+      "spelling": "Gb",
+      "octave": 2,
+      "pitch_class": 6,
+      "offset_cents": 21.28807329974188,
+      "target_Hz": 93.64318970274967,
+      "previous_Hz": 93.64319039047591,
+      "phrase": "jubilate",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.32,
+      "source_pan": -0.5,
+      "normalized_energy": -1.5926899648212698,
+      "energy_sigma": 71.75624920022862,
+      "inverse_trace": 3.492614852151978,
+      "local_memory": [
+        0,
+        0,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "phrase_memory_length": 2
+    },
+    {
+      "event_id": "g2-13",
+      "start_s": 5.192307692307692,
+      "duration_s": 0.525,
+      "voice": 4,
+      "voice_name": "T1",
+      "voice_type": "discant",
+      "spelling": "Gb",
+      "octave": 2,
+      "pitch_class": 6,
+      "offset_cents": 21.289833012752304,
+      "target_Hz": 93.64328488642694,
+      "previous_Hz": 93.64318970274967,
+      "phrase": "precad",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.32,
+      "source_pan": -0.5,
+      "normalized_energy": -1.5927593533783173,
+      "energy_sigma": 71.75199897657092,
+      "inverse_trace": 3.4954908549497707,
+      "local_memory": [
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "phrase_memory_length": 3
+    },
+    {
+      "event_id": "g2-14",
+      "start_s": 5.192307692307692,
+      "duration_s": 1.05,
+      "voice": 5,
+      "voice_name": "T2",
+      "voice_type": "cantus",
+      "spelling": "Gb",
+      "octave": 2,
+      "pitch_class": 6,
+      "offset_cents": 21.579154375262636,
+      "target_Hz": 93.65893572623453,
+      "previous_Hz": 93.65880734630242,
+      "phrase": "precad",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.29,
+      "source_pan": 0.5,
+      "normalized_energy": -1.5927593533783173,
+      "energy_sigma": 71.75199897657092,
+      "inverse_trace": 3.4954908549497707,
+      "local_memory": [
+        0,
+        0,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "phrase_memory_length": 2
+    },
+    {
+      "event_id": "g2-15",
+      "start_s": 5.769230769230768,
+      "duration_s": 2.1,
+      "voice": 4,
+      "voice_name": "T1",
+      "voice_type": "discant",
+      "spelling": "Gb",
+      "octave": 2,
+      "pitch_class": 6,
+      "offset_cents": 21.28984413143364,
+      "target_Hz": 93.64328548784177,
+      "previous_Hz": 93.64328488642694,
+      "phrase": "precad",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.32,
+      "source_pan": -0.5,
+      "normalized_energy": -1.5927597874095925,
+      "energy_sigma": 71.7521674544101,
+      "inverse_trace": 3.4954977412631947,
+      "local_memory": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "phrase_memory_length": 4
+    },
+    {
+      "event_id": "g2-16",
+      "start_s": 6.346153846153846,
+      "duration_s": 7.35,
+      "voice": 1,
+      "voice_name": "S2",
+      "voice_type": "cantus",
+      "spelling": "Ab",
+      "octave": 4,
+      "pitch_class": 8,
+      "offset_cents": 15.835217222786019,
+      "target_Hz": 419.1215207544579,
+      "previous_Hz": 419.1215207544579,
+      "phrase": "precad",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.41,
+      "source_pan": -0.3,
+      "normalized_energy": -1.682710229223926,
+      "energy_sigma": 71.7521837838607,
+      "inverse_trace": 3.495497861397983,
+      "local_memory": [
+        2,
+        2,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "phrase_memory_length": 2
+    },
+    {
+      "event_id": "g2-17",
+      "start_s": 6.346153846153846,
+      "duration_s": 3.675,
+      "voice": 3,
+      "voice_name": "A2",
+      "voice_type": "cantus",
+      "spelling": "Gb",
+      "octave": 3,
+      "pitch_class": 6,
+      "offset_cents": 21.579170282670006,
+      "target_Hz": 187.31787317363532,
+      "previous_Hz": 187.31761316603018,
+      "phrase": "precad",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.34,
+      "source_pan": 0.6,
+      "normalized_energy": -1.592759814954902,
+      "energy_sigma": 71.7521837838607,
+      "inverse_trace": 3.495497861397983,
+      "local_memory": [
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "phrase_memory_length": 3
+    },
+    {
+      "event_id": "g2-18",
+      "start_s": 6.346153846153846,
+      "duration_s": 1.05,
+      "voice": 5,
+      "voice_name": "T2",
+      "voice_type": "cantus",
+      "spelling": "Gb",
+      "octave": 2,
+      "pitch_class": 6,
+      "offset_cents": 21.579170282670006,
+      "target_Hz": 93.65893658681767,
+      "previous_Hz": 93.65893572623453,
+      "phrase": "precad",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.29,
+      "source_pan": 0.5,
+      "normalized_energy": -1.592759814954902,
+      "energy_sigma": 71.7521837838607,
+      "inverse_trace": 3.495497861397983,
+      "local_memory": [
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "phrase_memory_length": 3
+    },
+    {
+      "event_id": "g2-19",
+      "start_s": 6.346153846153846,
+      "duration_s": 16.8,
+      "voice": 7,
+      "voice_name": "B2",
+      "voice_type": "pedal",
+      "spelling": "Gb",
+      "octave": 1,
+      "pitch_class": 6,
+      "offset_cents": 18.068522497906805,
+      "target_Hz": 46.73460232630485,
+      "previous_Hz": 46.734311371364626,
+      "phrase": "precad",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.24,
+      "source_pan": 0.2,
+      "normalized_energy": -1.592759814954902,
+      "energy_sigma": 71.7521837838607,
+      "inverse_trace": 3.495497861397983,
+      "local_memory": [
+        0,
+        0,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "phrase_memory_length": 2
+    },
+    {
+      "event_id": "g2-20",
+      "start_s": 7.499999999999999,
+      "duration_s": 7.35,
+      "voice": 5,
+      "voice_name": "T2",
+      "voice_type": "cantus",
+      "spelling": "Gb",
+      "octave": 2,
+      "pitch_class": 6,
+      "offset_cents": 21.579170346612784,
+      "target_Hz": 93.65893659027694,
+      "previous_Hz": 93.65893658681767,
+      "phrase": "precad",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.29,
+      "source_pan": 0.5,
+      "normalized_energy": -1.592759816810946,
+      "energy_sigma": 71.75218508522943,
+      "inverse_trace": 3.495497858195632,
+      "local_memory": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "phrase_memory_length": 4
+    },
+    {
+      "event_id": "g2-21",
+      "start_s": 8.076923076923077,
+      "duration_s": 2.6249999999999996,
+      "voice": 0,
+      "voice_name": "S1",
+      "voice_type": "discant",
+      "spelling": "Gb",
+      "octave": 4,
+      "pitch_class": 6,
+      "offset_cents": 21.289844887556818,
+      "target_Hz": 374.5731421149634,
+      "previous_Hz": 374.5727593235994,
+      "phrase": "precad",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.48,
+      "source_pan": -0.6,
+      "normalized_energy": -1.5927598168179107,
+      "energy_sigma": 71.75218509068524,
+      "inverse_trace": 3.4954978581526204,
+      "local_memory": [
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "phrase_memory_length": 3
+    },
+    {
+      "event_id": "g2-22",
+      "start_s": 8.076923076923077,
+      "duration_s": 4.2,
+      "voice": 4,
+      "voice_name": "T1",
+      "voice_type": "discant",
+      "spelling": "Gb",
+      "octave": 2,
+      "pitch_class": 6,
+      "offset_cents": 21.289844887556818,
+      "target_Hz": 93.64328552874083,
+      "previous_Hz": 93.64328548784177,
+      "phrase": "precad",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.32,
+      "source_pan": -0.5,
+      "normalized_energy": -1.5927598168179107,
+      "energy_sigma": 71.75218509068524,
+      "inverse_trace": 3.4954978581526204,
+      "local_memory": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        -1
+      ],
+      "phrase_memory_length": 5
+    },
+    {
+      "event_id": "g2-23",
+      "start_s": 8.653846153846153,
+      "duration_s": 2.6249999999999996,
+      "voice": 2,
+      "voice_name": "A1",
+      "voice_type": "discant",
+      "spelling": "Gb",
+      "octave": 3,
+      "pitch_class": 6,
+      "offset_cents": 21.289844887568258,
+      "target_Hz": 187.28657105748292,
+      "previous_Hz": 187.28637940549933,
+      "phrase": "precad",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.38,
+      "source_pan": 0.3,
+      "normalized_energy": -1.5927598168183434,
+      "energy_sigma": 71.7521850910369,
+      "inverse_trace": 3.4954978581495397,
+      "local_memory": [
+        0,
+        0,
+        4,
+        11,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "phrase_memory_length": 4
+    },
+    {
+      "event_id": "g2-24",
+      "start_s": 10.384615384615383,
+      "duration_s": 7.35,
+      "voice": 3,
+      "voice_name": "A2",
+      "voice_type": "cantus",
+      "spelling": "Gb",
+      "octave": 3,
+      "pitch_class": 6,
+      "offset_cents": 21.578173519012328,
+      "target_Hz": 187.31776532478915,
+      "previous_Hz": 187.31787317363532,
+      "phrase": "interior",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.34,
+      "source_pan": 0.6,
+      "normalized_energy": -1.5927309187223395,
+      "energy_sigma": 71.66272246610554,
+      "inverse_trace": 3.4988742512631816,
+      "local_memory": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "phrase_memory_length": 4
+    },
+    {
+      "event_id": "g2-25",
+      "start_s": 10.96153846153846,
+      "duration_s": 4.2,
+      "voice": 0,
+      "voice_name": "S1",
+      "voice_type": "discant",
+      "spelling": "Gb",
+      "octave": 4,
+      "pitch_class": 6,
+      "offset_cents": 21.289113332001683,
+      "target_Hz": 374.57298383422415,
+      "previous_Hz": 374.5731421149634,
+      "phrase": "interior",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.48,
+      "source_pan": -0.6,
+      "normalized_energy": -1.592730907572985,
+      "energy_sigma": 71.6627113838945,
+      "inverse_trace": 3.4988744376378613,
+      "local_memory": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "phrase_memory_length": 4
+    },
+    {
+      "event_id": "g2-26",
+      "start_s": 11.538461538461537,
+      "duration_s": 3.15,
+      "voice": 2,
+      "voice_name": "A1",
+      "voice_type": "discant",
+      "spelling": "Gb",
+      "octave": 3,
+      "pitch_class": 6,
+      "offset_cents": 21.289113313366837,
+      "target_Hz": 187.28649191509615,
+      "previous_Hz": 187.28657105748292,
+      "phrase": "interior",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.38,
+      "source_pan": 0.3,
+      "normalized_energy": -1.5927309068500044,
+      "energy_sigma": 71.66271073843505,
+      "inverse_trace": 3.4988744462238976,
+      "local_memory": [
+        0,
+        0,
+        0,
+        4,
+        11,
+        -1,
+        -1,
+        -1
+      ],
+      "phrase_memory_length": 5
+    },
+    {
+      "event_id": "g2-27",
+      "start_s": 12.115384615384615,
+      "duration_s": 9.45,
+      "voice": 6,
+      "voice_name": "B1",
+      "voice_type": "bass",
+      "spelling": "Gb",
+      "octave": 2,
+      "pitch_class": 6,
+      "offset_cents": 21.183104779694606,
+      "target_Hz": 93.63751208275819,
+      "previous_Hz": 93.63730085067355,
+      "phrase": "interior",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.27,
+      "source_pan": -0.2,
+      "normalized_energy": -1.5927309068038442,
+      "energy_sigma": 71.66271069956123,
+      "inverse_trace": 3.4988744466605035,
+      "local_memory": [
+        0,
+        0,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "phrase_memory_length": 2
+    },
+    {
+      "event_id": "g2-28",
+      "start_s": 12.692307692307692,
+      "duration_s": 4.2,
+      "voice": 4,
+      "voice_name": "T1",
+      "voice_type": "discant",
+      "spelling": "Gb",
+      "octave": 2,
+      "pitch_class": 6,
+      "offset_cents": 21.289113312101417,
+      "target_Hz": 93.64324595747964,
+      "previous_Hz": 93.64328552874083,
+      "phrase": "interior",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.32,
+      "source_pan": -0.5,
+      "normalized_energy": -1.5927309068009228,
+      "energy_sigma": 71.66271069717672,
+      "inverse_trace": 3.4988744466845496,
+      "local_memory": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -1
+      ],
+      "phrase_memory_length": 6
+    },
+    {
+      "event_id": "g2-29",
+      "start_s": 14.423076923076922,
+      "duration_s": 3.15,
+      "voice": 1,
+      "voice_name": "S2",
+      "voice_type": "cantus",
+      "spelling": "Ab",
+      "octave": 4,
+      "pitch_class": 8,
+      "offset_cents": 15.835217222786019,
+      "target_Hz": 419.1215207544579,
+      "previous_Hz": 419.1215207544579,
+      "phrase": "interior",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.41,
+      "source_pan": -0.3,
+      "normalized_energy": -1.6827584649082705,
+      "energy_sigma": 71.66271069701803,
+      "inverse_trace": 3.4988744466860364,
+      "local_memory": [
+        2,
+        2,
+        2,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "phrase_memory_length": 3
+    },
+    {
+      "event_id": "g2-30",
+      "start_s": 14.999999999999998,
+      "duration_s": 1.05,
+      "voice": 2,
+      "voice_name": "A1",
+      "voice_type": "discant",
+      "spelling": "Gb",
+      "octave": 3,
+      "pitch_class": 6,
+      "offset_cents": 21.28911331209634,
+      "target_Hz": 187.2864919149587,
+      "previous_Hz": 187.28649191509615,
+      "phrase": "interior",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.38,
+      "source_pan": 0.3,
+      "normalized_energy": -1.592730906800702,
+      "energy_sigma": 71.66271069701763,
+      "inverse_trace": 3.4988744466860333,
+      "local_memory": [
+        0,
+        0,
+        0,
+        0,
+        4,
+        11,
+        -1,
+        -1
+      ],
+      "phrase_memory_length": 6
+    },
+    {
+      "event_id": "g2-31",
+      "start_s": 15.576923076923075,
+      "duration_s": 4.2,
+      "voice": 0,
+      "voice_name": "S1",
+      "voice_type": "discant",
+      "spelling": "Gb",
+      "octave": 4,
+      "pitch_class": 6,
+      "offset_cents": 21.289113312096312,
+      "target_Hz": 374.5729838299174,
+      "previous_Hz": 374.57298383422415,
+      "phrase": "interior",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.48,
+      "source_pan": -0.6,
+      "normalized_energy": -1.5927309068007447,
+      "energy_sigma": 71.66271069701914,
+      "inverse_trace": 3.4988744466860324,
+      "local_memory": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        -1
+      ],
+      "phrase_memory_length": 5
+    },
+    {
+      "event_id": "g2-32",
+      "start_s": 15.576923076923075,
+      "duration_s": 7.35,
+      "voice": 5,
+      "voice_name": "T2",
+      "voice_type": "cantus",
+      "spelling": "Gb",
+      "octave": 2,
+      "pitch_class": 6,
+      "offset_cents": 21.5781731085047,
+      "target_Hz": 93.65888264018632,
+      "previous_Hz": 93.65893659027694,
+      "phrase": "interior",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.29,
+      "source_pan": 0.5,
+      "normalized_energy": -1.5927309068007447,
+      "energy_sigma": 71.66271069701914,
+      "inverse_trace": 3.4988744466860324,
+      "local_memory": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        -1
+      ],
+      "phrase_memory_length": 5
+    },
+    {
+      "event_id": "g2-33",
+      "start_s": 16.153846153846153,
+      "duration_s": 4.2,
+      "voice": 2,
+      "voice_name": "A1",
+      "voice_type": "discant",
+      "spelling": "Gb",
+      "octave": 3,
+      "pitch_class": 6,
+      "offset_cents": 21.289113312096312,
+      "target_Hz": 187.2864919149587,
+      "previous_Hz": 187.2864919149587,
+      "phrase": "interior",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.38,
+      "source_pan": 0.3,
+      "normalized_energy": -1.5927309068007447,
+      "energy_sigma": 71.66271069701914,
+      "inverse_trace": 3.4988744466860324,
+      "local_memory": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        4,
+        11,
+        -1
+      ],
+      "phrase_memory_length": 7
+    },
+    {
+      "event_id": "g2-34",
+      "start_s": 17.307692307692307,
+      "duration_s": 0.525,
+      "voice": 4,
+      "voice_name": "T1",
+      "voice_type": "discant",
+      "spelling": "Gb",
+      "octave": 2,
+      "pitch_class": 6,
+      "offset_cents": 21.289113312096312,
+      "target_Hz": 93.64324595747935,
+      "previous_Hz": 93.64324595747964,
+      "phrase": "interior",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.32,
+      "source_pan": -0.5,
+      "normalized_energy": -1.5927309068007447,
+      "energy_sigma": 71.66271069701914,
+      "inverse_trace": 3.4988744466860324,
+      "local_memory": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1
+      ],
+      "phrase_memory_length": 7
+    },
+    {
+      "event_id": "g2-35",
+      "start_s": 17.884615384615383,
+      "duration_s": 1.575,
+      "voice": 1,
+      "voice_name": "S2",
+      "voice_type": "cantus",
+      "spelling": "Ab",
+      "octave": 4,
+      "pitch_class": 8,
+      "offset_cents": 15.835217222786019,
+      "target_Hz": 419.1215207544579,
+      "previous_Hz": 419.1215207544579,
+      "phrase": "interior",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.41,
+      "source_pan": -0.3,
+      "normalized_energy": -1.682758464908219,
+      "energy_sigma": 71.66271069701914,
+      "inverse_trace": 3.4988744466860324,
+      "local_memory": [
+        2,
+        2,
+        2,
+        2,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "phrase_memory_length": 4
+    },
+    {
+      "event_id": "g2-36",
+      "start_s": 17.884615384615383,
+      "duration_s": 0.525,
+      "voice": 4,
+      "voice_name": "T1",
+      "voice_type": "discant",
+      "spelling": "Gb",
+      "octave": 2,
+      "pitch_class": 6,
+      "offset_cents": 21.289113312096312,
+      "target_Hz": 93.64324595747935,
+      "previous_Hz": 93.64324595747935,
+      "phrase": "interior",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.32,
+      "source_pan": -0.5,
+      "normalized_energy": -1.5927309068007447,
+      "energy_sigma": 71.66271069701914,
+      "inverse_trace": 3.4988744466860324,
+      "local_memory": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "phrase_memory_length": 8
+    },
+    {
+      "event_id": "g2-37",
+      "start_s": 18.46153846153846,
+      "duration_s": 7.35,
+      "voice": 3,
+      "voice_name": "A2",
+      "voice_type": "cantus",
+      "spelling": "Gb",
+      "octave": 3,
+      "pitch_class": 6,
+      "offset_cents": 21.579084244385047,
+      "target_Hz": 187.31786386437517,
+      "previous_Hz": 187.31776532478915,
+      "phrase": "precad",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.34,
+      "source_pan": 0.6,
+      "normalized_energy": -1.5927573187298514,
+      "energy_sigma": 71.74798936996844,
+      "inverse_trace": 3.4956209933600335,
+      "local_memory": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        -1
+      ],
+      "phrase_memory_length": 5
+    },
+    {
+      "event_id": "g2-38",
+      "start_s": 18.46153846153846,
+      "duration_s": 1.05,
+      "voice": 4,
+      "voice_name": "T1",
+      "voice_type": "discant",
+      "spelling": "Gb",
+      "octave": 2,
+      "pitch_class": 6,
+      "offset_cents": 21.289780887369062,
+      "target_Hz": 93.64328206693986,
+      "previous_Hz": 93.64324595747935,
+      "phrase": "precad",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.32,
+      "source_pan": -0.5,
+      "normalized_energy": -1.5927573187298514,
+      "energy_sigma": 71.74798936996844,
+      "inverse_trace": 3.4956209933600335,
+      "local_memory": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "phrase_memory_length": 9
+    },
+    {
+      "event_id": "g2-39",
+      "start_s": 19.615384615384613,
+      "duration_s": 1.575,
+      "voice": 1,
+      "voice_name": "S2",
+      "voice_type": "cantus",
+      "spelling": "Ab",
+      "octave": 4,
+      "pitch_class": 8,
+      "offset_cents": 15.835217222786019,
+      "target_Hz": 419.1215207544579,
+      "previous_Hz": 419.1215207544579,
+      "phrase": "precad",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.41,
+      "source_pan": -0.3,
+      "normalized_energy": -1.6827102448592284,
+      "energy_sigma": 71.75217292604323,
+      "inverse_trace": 3.4954980652418848,
+      "local_memory": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        -1,
+        -1,
+        -1
+      ],
+      "phrase_memory_length": 5
+    },
+    {
+      "event_id": "g2-40",
+      "start_s": 19.615384615384613,
+      "duration_s": 3.15,
+      "voice": 4,
+      "voice_name": "T1",
+      "voice_type": "discant",
+      "spelling": "Gb",
+      "octave": 2,
+      "pitch_class": 6,
+      "offset_cents": 21.289844575410317,
+      "target_Hz": 93.64328551185669,
+      "previous_Hz": 93.64328206693986,
+      "phrase": "precad",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.32,
+      "source_pan": -0.5,
+      "normalized_energy": -1.5927598047019818,
+      "energy_sigma": 71.75217292604323,
+      "inverse_trace": 3.4954980652418848,
+      "local_memory": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "phrase_memory_length": 10
+    },
+    {
+      "event_id": "g2-41",
+      "start_s": 20.19230769230769,
+      "duration_s": 0.525,
+      "voice": 0,
+      "voice_name": "S1",
+      "voice_type": "discant",
+      "spelling": "Gb",
+      "octave": 4,
+      "pitch_class": 6,
+      "offset_cents": 21.28984486718843,
+      "target_Hz": 374.57314211055643,
+      "previous_Hz": 374.5729838299174,
+      "phrase": "precad",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.48,
+      "source_pan": -0.6,
+      "normalized_energy": -1.592759816027954,
+      "energy_sigma": 71.75218437354906,
+      "inverse_trace": 3.495497868028765,
+      "local_memory": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -1
+      ],
+      "phrase_memory_length": 6
+    },
+    {
+      "event_id": "g2-42",
+      "start_s": 20.769230769230766,
+      "duration_s": 1.05,
+      "voice": 0,
+      "voice_name": "S1",
+      "voice_type": "discant",
+      "spelling": "Gb",
+      "octave": 4,
+      "pitch_class": 6,
+      "offset_cents": 21.28984488625879,
+      "target_Hz": 374.5731421146825,
+      "previous_Hz": 374.57314211055643,
+      "phrase": "precad",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.48,
+      "source_pan": -0.6,
+      "normalized_energy": -1.59275981676758,
+      "energy_sigma": 71.75218504738078,
+      "inverse_trace": 3.495497858668229,
+      "local_memory": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1
+      ],
+      "phrase_memory_length": 7
+    },
+    {
+      "event_id": "g2-43",
+      "start_s": 20.769230769230766,
+      "duration_s": 2.6249999999999996,
+      "voice": 2,
+      "voice_name": "A1",
+      "voice_type": "discant",
+      "spelling": "Gb",
+      "octave": 3,
+      "pitch_class": 6,
+      "offset_cents": 21.28984488625879,
+      "target_Hz": 187.28657105734126,
+      "previous_Hz": 187.2864919149587,
+      "phrase": "precad",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.38,
+      "source_pan": 0.3,
+      "normalized_energy": -1.59275981676758,
+      "energy_sigma": 71.75218504738078,
+      "inverse_trace": 3.495497858668229,
+      "local_memory": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        4,
+        11
+      ],
+      "phrase_memory_length": 8
+    },
+    {
+      "event_id": "g2-44",
+      "start_s": 21.346153846153843,
+      "duration_s": 5.7749999999999995,
+      "voice": 1,
+      "voice_name": "S2",
+      "voice_type": "cantus",
+      "spelling": "Ab",
+      "octave": 4,
+      "pitch_class": 8,
+      "offset_cents": 15.835217222786019,
+      "target_Hz": 419.1215207544579,
+      "previous_Hz": 419.1215207544579,
+      "phrase": "precad",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.41,
+      "source_pan": -0.3,
+      "normalized_energy": -1.682710226257249,
+      "energy_sigma": 71.75218508835482,
+      "inverse_trace": 3.4954978581786524,
+      "local_memory": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        -1,
+        -1
+      ],
+      "phrase_memory_length": 6
+    },
+    {
+      "event_id": "g2-45",
+      "start_s": 21.92307692307692,
+      "duration_s": 1.05,
+      "voice": 0,
+      "voice_name": "S1",
+      "voice_type": "discant",
+      "spelling": "Gb",
+      "octave": 4,
+      "pitch_class": 6,
+      "offset_cents": 21.28984488756371,
+      "target_Hz": 374.57314211496487,
+      "previous_Hz": 374.5731421146825,
+      "phrase": "precad",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.48,
+      "source_pan": -0.6,
+      "normalized_energy": -1.5927598168181427,
+      "energy_sigma": 71.75218509089292,
+      "inverse_trace": 3.4954978581510563,
+      "local_memory": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "phrase_memory_length": 8
+    },
+    {
+      "event_id": "g2-46",
+      "start_s": 22.499999999999996,
+      "duration_s": 4.2,
+      "voice": 6,
+      "voice_name": "B1",
+      "voice_type": "bass",
+      "spelling": "Gb",
+      "octave": 2,
+      "pitch_class": 6,
+      "offset_cents": 21.185624836654256,
+      "target_Hz": 93.63764838555092,
+      "previous_Hz": 93.63751208275819,
+      "phrase": "precad",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.27,
+      "source_pan": -0.2,
+      "normalized_energy": -1.5927598168183958,
+      "energy_sigma": 71.75218509105053,
+      "inverse_trace": 3.4954978581494225,
+      "local_memory": [
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "phrase_memory_length": 3
+    },
+    {
+      "event_id": "g2-47",
+      "start_s": 23.076923076923073,
+      "duration_s": 1.05,
+      "voice": 0,
+      "voice_name": "S1",
+      "voice_type": "discant",
+      "spelling": "Gb",
+      "octave": 4,
+      "pitch_class": 6,
+      "offset_cents": 21.28990786138498,
+      "target_Hz": 374.5731557401027,
+      "previous_Hz": 374.57314211496487,
+      "phrase": "cadence",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.48,
+      "source_pan": -0.6,
+      "normalized_energy": -1.5927626138530981,
+      "energy_sigma": 71.80314215169463,
+      "inverse_trace": 3.4931426327231114,
+      "local_memory": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "phrase_memory_length": 9
+    },
+    {
+      "event_id": "g2-48",
+      "start_s": 23.076923076923073,
+      "duration_s": 1.05,
+      "voice": 4,
+      "voice_name": "T1",
+      "voice_type": "discant",
+      "spelling": "Gb",
+      "octave": 2,
+      "pitch_class": 6,
+      "offset_cents": 21.28990786138498,
+      "target_Hz": 93.64328893502568,
+      "previous_Hz": 93.64328551185669,
+      "phrase": "cadence",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.32,
+      "source_pan": -0.5,
+      "normalized_energy": -1.5927626138530981,
+      "energy_sigma": 71.80314215169463,
+      "inverse_trace": 3.4931426327231114,
+      "local_memory": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "phrase_memory_length": 11
+    },
+    {
+      "event_id": "g2-49",
+      "start_s": 23.653846153846153,
+      "duration_s": 4.2,
+      "voice": 2,
+      "voice_name": "A1",
+      "voice_type": "discant",
+      "spelling": "Gb",
+      "octave": 3,
+      "pitch_class": 6,
+      "offset_cents": 21.28991454517778,
+      "target_Hz": 187.28657859311053,
+      "previous_Hz": 187.28657105734126,
+      "phrase": "cadence",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.38,
+      "source_pan": 0.3,
+      "normalized_energy": -1.592762884453748,
+      "energy_sigma": 71.80496006857018,
+      "inverse_trace": 3.493063925524422,
+      "local_memory": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        4
+      ],
+      "phrase_memory_length": 9
+    },
+    {
+      "event_id": "g2-50",
+      "start_s": 23.653846153846153,
+      "duration_s": 7.35,
+      "voice": 5,
+      "voice_name": "T2",
+      "voice_type": "cantus",
+      "spelling": "Gb",
+      "octave": 2,
+      "pitch_class": 6,
+      "offset_cents": 21.579277131518726,
+      "target_Hz": 93.65894236728961,
+      "previous_Hz": 93.65888264018632,
+      "phrase": "cadence",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.29,
+      "source_pan": 0.5,
+      "normalized_energy": -1.592762884453748,
+      "energy_sigma": 71.80496006857018,
+      "inverse_trace": 3.493063925524422,
+      "local_memory": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -1
+      ],
+      "phrase_memory_length": 6
+    },
+    {
+      "event_id": "g2-51",
+      "start_s": 24.23076923076923,
+      "duration_s": 4.2,
+      "voice": 0,
+      "voice_name": "S1",
+      "voice_type": "discant",
+      "spelling": "Gb",
+      "octave": 4,
+      "pitch_class": 6,
+      "offset_cents": 21.289915058383716,
+      "target_Hz": 374.5731572972593,
+      "previous_Hz": 374.5731557401027,
+      "phrase": "cadence",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.48,
+      "source_pan": -0.6,
+      "normalized_energy": -1.5927629047200533,
+      "energy_sigma": 71.80502907148994,
+      "inverse_trace": 3.4930612471146723,
+      "local_memory": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "phrase_memory_length": 10
+    },
+    {
+      "event_id": "g2-52",
+      "start_s": 24.23076923076923,
+      "duration_s": 3.15,
+      "voice": 4,
+      "voice_name": "T1",
+      "voice_type": "discant",
+      "spelling": "Gb",
+      "octave": 2,
+      "pitch_class": 6,
+      "offset_cents": 21.289915058383716,
+      "target_Hz": 93.64328932431482,
+      "previous_Hz": 93.64328893502568,
+      "phrase": "cadence",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.32,
+      "source_pan": -0.5,
+      "normalized_energy": -1.5927629047200533,
+      "energy_sigma": 71.80502907148994,
+      "inverse_trace": 3.4930612471146723,
+      "local_memory": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "phrase_memory_length": 12
+    },
+    {
+      "event_id": "g2-53",
+      "start_s": 24.807692307692307,
+      "duration_s": 16.8,
+      "voice": 7,
+      "voice_name": "B2",
+      "voice_type": "pedal",
+      "spelling": "Gb",
+      "octave": 1,
+      "pitch_class": 6,
+      "offset_cents": 18.069042086745384,
+      "target_Hz": 46.7346163525894,
+      "previous_Hz": 46.73460232630485,
+      "phrase": "cadence",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.24,
+      "source_pan": 0.2,
+      "normalized_energy": -1.5927629061085091,
+      "energy_sigma": 71.80503193125317,
+      "inverse_trace": 3.493061153101078,
+      "local_memory": [
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "phrase_memory_length": 3
+    },
+    {
+      "event_id": "g2-54",
+      "start_s": 26.538461538461537,
+      "duration_s": 7.35,
+      "voice": 3,
+      "voice_name": "A2",
+      "voice_type": "cantus",
+      "spelling": "Gb",
+      "octave": 3,
+      "pitch_class": 6,
+      "offset_cents": 21.579277882049123,
+      "target_Hz": 187.31788481578593,
+      "previous_Hz": 187.31786386437517,
+      "phrase": "cadence",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.34,
+      "source_pan": 0.6,
+      "normalized_energy": -1.592762906206271,
+      "energy_sigma": 71.80503207000896,
+      "inverse_trace": 3.493061149481503,
+      "local_memory": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -1
+      ],
+      "phrase_memory_length": 6
+    },
+    {
+      "event_id": "g2-55",
+      "start_s": 27.115384615384613,
+      "duration_s": 9.45,
+      "voice": 6,
+      "voice_name": "B1",
+      "voice_type": "bass",
+      "spelling": "Gb",
+      "octave": 2,
+      "pitch_class": 6,
+      "offset_cents": 21.18593517146199,
+      "target_Hz": 93.63766517070151,
+      "previous_Hz": 93.63764838555092,
+      "phrase": "cadence",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.27,
+      "source_pan": -0.2,
+      "normalized_energy": -1.5927629062063393,
+      "energy_sigma": 71.805032070031,
+      "inverse_trace": 3.4930611494812025,
+      "local_memory": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "phrase_memory_length": 4
+    },
+    {
+      "event_id": "g2-56",
+      "start_s": 27.69230769230769,
+      "duration_s": 7.35,
+      "voice": 1,
+      "voice_name": "S2",
+      "voice_type": "cantus",
+      "spelling": "Ab",
+      "octave": 4,
+      "pitch_class": 8,
+      "offset_cents": 15.835217222786019,
+      "target_Hz": 419.1215207544579,
+      "previous_Hz": 419.1215207544579,
+      "phrase": "resolve",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.41,
+      "source_pan": -0.3,
+      "normalized_energy": -1.682551791340708,
+      "energy_sigma": 71.83426672607796,
+      "inverse_trace": 3.4949368237228136,
+      "local_memory": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        -1
+      ],
+      "phrase_memory_length": 7
+    },
+    {
+      "event_id": "g2-57",
+      "start_s": 27.69230769230769,
+      "duration_s": 4.2,
+      "voice": 4,
+      "voice_name": "T1",
+      "voice_type": "discant",
+      "spelling": "Gb",
+      "octave": 2,
+      "pitch_class": 6,
+      "offset_cents": 21.292838588811247,
+      "target_Hz": 93.64344745962703,
+      "previous_Hz": 93.64328932431482,
+      "phrase": "resolve",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.32,
+      "source_pan": -0.5,
+      "normalized_energy": -1.5928750476945195,
+      "energy_sigma": 71.83426672607796,
+      "inverse_trace": 3.4949368237228136,
+      "local_memory": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "phrase_memory_length": 13
+    },
+    {
+      "event_id": "g2-58",
+      "start_s": 28.269230769230766,
+      "duration_s": 4.2,
+      "voice": 2,
+      "voice_name": "A1",
+      "voice_type": "discant",
+      "spelling": "Gb",
+      "octave": 3,
+      "pitch_class": 6,
+      "offset_cents": 21.29301527158969,
+      "target_Hz": 187.2869140330016,
+      "previous_Hz": 187.28657859311053,
+      "phrase": "resolve",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.38,
+      "source_pan": 0.3,
+      "normalized_energy": -1.5928818474899464,
+      "energy_sigma": 71.83774175118435,
+      "inverse_trace": 3.494974972860132,
+      "local_memory": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "phrase_memory_length": 10
+    },
+    {
+      "event_id": "g2-59",
+      "start_s": 28.846153846153843,
+      "duration_s": 4.2,
+      "voice": 0,
+      "voice_name": "S1",
+      "voice_type": "discant",
+      "spelling": "Gb",
+      "octave": 4,
+      "pitch_class": 6,
+      "offset_cents": 21.29302626228797,
+      "target_Hz": 374.5738304439763,
+      "previous_Hz": 374.5731572972593,
+      "phrase": "resolve",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.48,
+      "source_pan": -0.6,
+      "normalized_energy": -1.5928822714482112,
+      "energy_sigma": 71.8380178983843,
+      "inverse_trace": 3.494974701063627,
+      "local_memory": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "phrase_memory_length": 11
+    },
+    {
+      "event_id": "g2-60",
+      "start_s": 31.730769230769226,
+      "duration_s": 2.6249999999999996,
+      "voice": 5,
+      "voice_name": "T2",
+      "voice_type": "cantus",
+      "spelling": "Gb",
+      "octave": 2,
+      "pitch_class": 6,
+      "offset_cents": 21.583391426400553,
+      "target_Hz": 93.65916494895922,
+      "previous_Hz": 93.65894236728961,
+      "phrase": "resolve",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.29,
+      "source_pan": 0.5,
+      "normalized_energy": -1.5928823001092969,
+      "energy_sigma": 71.83803880000289,
+      "inverse_trace": 3.49497458297773,
+      "local_memory": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1
+      ],
+      "phrase_memory_length": 7
+    },
+    {
+      "event_id": "g2-61",
+      "start_s": 32.30769230769231,
+      "duration_s": 4.2,
+      "voice": 4,
+      "voice_name": "T1",
+      "voice_type": "discant",
+      "spelling": "Gb",
+      "octave": 2,
+      "pitch_class": 6,
+      "offset_cents": 21.29010079214427,
+      "target_Hz": 93.64329937074456,
+      "previous_Hz": 93.64344745962703,
+      "phrase": "cadence",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.32,
+      "source_pan": -0.5,
+      "normalized_energy": -1.5927700663220072,
+      "energy_sigma": 71.80877662300684,
+      "inverse_trace": 3.493096820252706,
+      "local_memory": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "phrase_memory_length": 13
+    },
+    {
+      "event_id": "g2-62",
+      "start_s": 32.88461538461538,
+      "duration_s": 4.2,
+      "voice": 2,
+      "voice_name": "A1",
+      "voice_type": "discant",
+      "spelling": "Gb",
+      "octave": 3,
+      "pitch_class": 6,
+      "offset_cents": 21.289926473118527,
+      "target_Hz": 187.28657988348675,
+      "previous_Hz": 187.2869140330016,
+      "phrase": "cadence",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.38,
+      "source_pan": 0.3,
+      "normalized_energy": -1.5927633459445825,
+      "energy_sigma": 71.80532366129279,
+      "inverse_trace": 3.4930605911584864,
+      "local_memory": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "phrase_memory_length": 11
+    },
+    {
+      "event_id": "g2-63",
+      "start_s": 33.46153846153846,
+      "duration_s": 2.1,
+      "voice": 0,
+      "voice_name": "S1",
+      "voice_type": "discant",
+      "spelling": "Gb",
+      "octave": 4,
+      "pitch_class": 6,
+      "offset_cents": 21.289915804246675,
+      "target_Hz": 374.57315745863565,
+      "previous_Hz": 374.5738304439763,
+      "phrase": "cadence",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.48,
+      "source_pan": -0.6,
+      "normalized_energy": -1.5927629336014335,
+      "energy_sigma": 71.80505232827068,
+      "inverse_trace": 3.493061021238192,
+      "local_memory": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "phrase_memory_length": 12
+    },
+    {
+      "event_id": "g2-64",
+      "start_s": 34.61538461538461,
+      "duration_s": 4.725,
+      "voice": 3,
+      "voice_name": "A2",
+      "voice_type": "cantus",
+      "spelling": "Gb",
+      "octave": 3,
+      "pitch_class": 6,
+      "offset_cents": 21.579277885785586,
+      "target_Hz": 187.31788481619017,
+      "previous_Hz": 187.31788481578593,
+      "phrase": "cadence",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.34,
+      "source_pan": 0.6,
+      "normalized_energy": -1.5927629063147772,
+      "energy_sigma": 71.80503215696422,
+      "inverse_trace": 3.493061148671844,
+      "local_memory": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1
+      ],
+      "phrase_memory_length": 7
+    },
+    {
+      "event_id": "g2-65",
+      "start_s": 34.61538461538461,
+      "duration_s": 7.35,
+      "voice": 5,
+      "voice_name": "T2",
+      "voice_type": "cantus",
+      "spelling": "Gb",
+      "octave": 2,
+      "pitch_class": 6,
+      "offset_cents": 21.579277885785586,
+      "target_Hz": 93.65894240809509,
+      "previous_Hz": 93.65916494895922,
+      "phrase": "cadence",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.29,
+      "source_pan": 0.5,
+      "normalized_energy": -1.5927629063147772,
+      "energy_sigma": 71.80503215696422,
+      "inverse_trace": 3.493061148671844,
+      "local_memory": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "phrase_memory_length": 8
+    },
+    {
+      "event_id": "g2-66",
+      "start_s": 35.76923076923077,
+      "duration_s": 3.675,
+      "voice": 0,
+      "voice_name": "S1",
+      "voice_type": "discant",
+      "spelling": "Gb",
+      "octave": 4,
+      "pitch_class": 6,
+      "offset_cents": 21.289915096417403,
+      "target_Hz": 374.57315730548834,
+      "previous_Hz": 374.57315745863565,
+      "phrase": "cadence",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.48,
+      "source_pan": -0.6,
+      "normalized_energy": -1.592762906206742,
+      "energy_sigma": 71.80503207038858,
+      "inverse_trace": 3.493061149477617,
+      "local_memory": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "phrase_memory_length": 13
+    },
+    {
+      "event_id": "g2-67",
+      "start_s": 35.76923076923077,
+      "duration_s": 7.35,
+      "voice": 1,
+      "voice_name": "S2",
+      "voice_type": "cantus",
+      "spelling": "Ab",
+      "octave": 4,
+      "pitch_class": 8,
+      "offset_cents": 15.835217222786019,
+      "target_Hz": 419.1215207544579,
+      "previous_Hz": 419.1215207544579,
+      "phrase": "cadence",
+      "engine_id": "dyletsky-gen2-43",
+      "source_amplitude": 0.41,
+      "source_pan": -0.3,
+      "normalized_energy": -1.6827037625292534,
+      "energy_sigma": 71.80503207038858,
+      "inverse_trace": 3.493061149477617,
+      "local_memory": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "phrase_memory_length": 8
+    }
+  ],
+  "trace": [
+    {
+      "tick": 0,
+      "time_s": 0,
+      "phrase": "jubilate",
+      "defect": 0.33964,
+      "style_weights": [
+        0.19075719014027112,
+        0.1550414546959571,
+        0.15907292360977074,
+        0.15884335157695983,
+        0.1521100172549225,
+        0.02899217940611202,
+        0.0009651397442624691,
+        0.15421774357174417
+      ],
+      "weighted_RMS": 4.378746486592395,
+      "normal_equation_residual": 1.0477944714594956e-13,
+      "normalized_pitch_energy": [
+        -1.5923729451997266,
+        -1.6835379695999635,
+        -1.6835379695999635,
+        -0.742378238701365,
+        0.03726180762157843,
+        0.03726180762157843,
+        -0.13877298100859778,
+        0.03726180762157843,
+        0.03726180762152778,
+        0.03726180762157843,
+        0.03726180762157843,
+        0.03726180762157843,
+        0.0372618076215531,
+        0.7619434409794027,
+        1.6447945335719367,
+        1.6447945335719367,
+        1.4909731350134592
+      ],
+      "source_energy": 41316.2456357581,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 1,
+      "time_s": 0.5769230769230769,
+      "phrase": "jubilate",
+      "defect": 0.3316806092544,
+      "style_weights": [
+        0.17044797031493167,
+        0.15944769658748176,
+        0.16297387318470619,
+        0.16285824840639948,
+        0.15586360866349222,
+        0.02898480979597338,
+        0.0009649241304401242,
+        0.15845886891657524
+      ],
+      "weighted_RMS": 4.3712477471914175,
+      "normal_equation_residual": 1.0722122963093178e-13,
+      "normalized_pitch_energy": [
+        -1.592674723170194,
+        -1.6828869998102423,
+        -1.6828869998102676,
+        -0.7445982599783291,
+        0.037187412341937585,
+        0.037187412341937585,
+        -0.1381660762256294,
+        0.037187412341937585,
+        0.03718741234191224,
+        0.037187412341937585,
+        0.037187412341937585,
+        0.037187412341937585,
+        0.03718741234196294,
+        0.7638634221554993,
+        1.644021393148356,
+        1.644021393148356,
+        1.4918075518071783
+      ],
+      "source_energy": 41281.52357983593,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 2,
+      "time_s": 1.1538461538461537,
+      "phrase": "jubilate",
+      "defect": 0.3255165683317957,
+      "style_weights": [
+        0.1697680805305278,
+        0.15952800275839404,
+        0.16311894238647953,
+        0.16300292361444244,
+        0.15612200168391355,
+        0.028984605431382277,
+        0.0009649155875170827,
+        0.1585105280073432
+      ],
+      "weighted_RMS": 4.370902478413448,
+      "normal_equation_residual": 1.196991694130371e-13,
+      "normalized_pitch_energy": [
+        -1.5926898605395807,
+        -1.6828579500425764,
+        -1.6828579500425764,
+        -0.7446936369538777,
+        0.037183930766203833,
+        0.03718393076625453,
+        -0.13813795482075997,
+        0.037183930766203833,
+        0.03718393076625453,
+        0.037183930766203833,
+        0.03718393076625453,
+        0.03718393076625453,
+        0.03718393076622918,
+        0.7639453580859162,
+        1.6439866110737478,
+        1.6439866110737225,
+        1.49184732603605
+      ],
+      "source_energy": 41283.31454246167,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 3,
+      "time_s": 1.7307692307692306,
+      "phrase": "jubilate",
+      "defect": 0.3207136601489368,
+      "style_weights": [
+        0.1697604341284138,
+        0.15952319434362855,
+        0.16312189986520897,
+        0.1630058504337678,
+        0.15613626464916394,
+        0.028984602662378903,
+        0.0009649153828444194,
+        0.1585028385345937
+      ],
+      "weighted_RMS": 4.370890539035726,
+      "normal_equation_residual": 1.3990767027158435e-13,
+      "normalized_pitch_energy": [
+        -1.592690468471195,
+        -1.6828569947318042,
+        -1.6828569947318042,
+        -0.7446965420339914,
+        0.037183805691075995,
+        0.037183805691075995,
+        -0.1381369616397149,
+        0.037183805691075995,
+        0.037183805691075995,
+        0.03718380569110135,
+        0.03718380569105065,
+        0.03718380569110135,
+        0.037183805691075995,
+        0.7639478170475069,
+        1.6439854488112133,
+        1.6439854488112133,
+        1.4918488014092584
+      ],
+      "source_energy": 40921.70850860262,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 4,
+      "time_s": 2.3076923076923075,
+      "phrase": "jubilate",
+      "defect": 0.3169536235420779,
+      "style_weights": [
+        0.16977335940847135,
+        0.15951994115461532,
+        0.16311954266959752,
+        0.16300372066580548,
+        0.15613502003877638,
+        0.028984606549645266,
+        0.0009649155096781622,
+        0.1584988940034105
+      ],
+      "weighted_RMS": 4.370894440662883,
+      "normal_equation_residual": 1.1563663193308584e-13,
+      "normalized_pitch_energy": [
+        -1.5926903254071658,
+        -1.6828573390892352,
+        -1.6828573390892352,
+        -0.7446953351733739,
+        0.03718384346821665,
+        0.03718384346821665,
+        -0.1381372724074447,
+        0.037183843468241995,
+        0.03718384346819129,
+        0.037183843468241995,
+        0.037183843468241995,
+        0.037183843468165945,
+        0.037183843468241995,
+        0.7639467681522933,
+        1.6439858550297621,
+        1.6439858550298128,
+        1.4918483852088282
+      ],
+      "source_energy": 40921.75599267984,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 5,
+      "time_s": 2.884615384615384,
+      "phrase": "jubilate",
+      "defect": 0.3139991981179896,
+      "style_weights": [
+        0.16978424454871385,
+        0.15951757609744172,
+        0.16311747192353937,
+        0.16300185465736625,
+        0.15613324752004337,
+        0.028984609857303178,
+        0.0009649156233656271,
+        0.15849607977222663
+      ],
+      "weighted_RMS": 4.370898236310624,
+      "normal_equation_residual": 1.0898209248135268e-13,
+      "normalized_pitch_energy": [
+        -1.5926901772145585,
+        -1.682857668877445,
+        -1.682857668877445,
+        -0.7446942028400777,
+        0.03718388072125694,
+        0.03718388072125694,
+        -0.13813757697099788,
+        0.03718388072125694,
+        0.03718388072125694,
+        0.03718388072125694,
+        0.037183880721206236,
+        0.03718388072125694,
+        0.03718388072125694,
+        0.7639457875194737,
+        1.6439862459341434,
+        1.6439862459341434,
+        1.4918479696233164
+      ],
+      "source_energy": 40913.97980388594,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 6,
+      "time_s": 3.4615384615384612,
+      "phrase": "jubilate",
+      "defect": 0.31167111132129277,
+      "style_weights": [
+        0.16979285101085834,
+        0.15951573003753328,
+        0.16311583122560921,
+        0.16300037807011084,
+        0.156131804203641,
+        0.028984612473673604,
+        0.0009649157136289343,
+        0.15849387726494485
+      ],
+      "weighted_RMS": 4.370901265281252,
+      "normal_equation_residual": 1.0832095984209767e-13,
+      "normalized_pitch_energy": [
+        -1.5926900585239412,
+        -1.6828579318041148,
+        -1.6828579318041148,
+        -0.7446933012149126,
+        0.037183910473667446,
+        0.037183910473667446,
+        -0.13813782012428816,
+        0.037183910473616744,
+        0.037183910473616744,
+        0.037183910473667446,
+        0.037183910473667446,
+        0.0371839104736421,
+        0.037183910473692794,
+        0.7639450068592185,
+        1.6439865576770627,
+        1.6439865576770627,
+        1.4918476374689162
+      ],
+      "source_energy": 40913.997707963565,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 7,
+      "time_s": 4.038461538461538,
+      "phrase": "jubilate",
+      "defect": 0.3098324470928569,
+      "style_weights": [
+        0.16979964826067273,
+        0.15951427355869818,
+        0.1631145365541383,
+        0.1629992136947066,
+        0.1561306638869468,
+        0.028984614539298913,
+        0.0009649157849065297,
+        0.1584921337206319
+      ],
+      "weighted_RMS": 4.370903656773687,
+      "normal_equation_residual": 1.579508663509996e-13,
+      "normalized_pitch_energy": [
+        -1.5926899648212698,
+        -1.6828581394008868,
+        -1.6828581394008868,
+        -0.7446925893027433,
+        0.0371839339639802,
+        0.0371839339639802,
+        -0.13813801210200927,
+        0.0371839339639802,
+        0.0371839339639802,
+        0.0371839339639802,
+        0.037183933963929494,
+        0.037183933963904146,
+        0.0371839339639802,
+        0.7639443904558673,
+        1.6439868038153822,
+        1.6439868038154077,
+        1.49184737522917
+      ],
+      "source_energy": 40877.13503075159,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 8,
+      "time_s": 4.615384615384615,
+      "phrase": "precad",
+      "defect": 0,
+      "style_weights": [
+        0.16612779128098554,
+        0.15956208764471463,
+        0.1636942386643886,
+        0.1664855796724367,
+        0.15615497164003195,
+        0.028983354702993253,
+        0.0009648737750600113,
+        0.1580271026193892
+      ],
+      "weighted_RMS": 4.369355914746681,
+      "normal_equation_residual": 9.239518043583811e-14,
+      "normalized_pitch_energy": [
+        -1.592752538622711,
+        -1.6827250951120016,
+        -1.6827250951120016,
+        -0.7451433868511913,
+        0.03716863551091768,
+        0.03716863551091768,
+        -0.13801339947197622,
+        0.03716863551091768,
+        0.03716863551091768,
+        0.03716863551086698,
+        0.03716863551086698,
+        0.03716863551086698,
+        0.03716863551089233,
+        0.7643338918810126,
+        1.6438286347579962,
+        1.643828634757971,
+        1.4920192696849777
+      ],
+      "source_energy": 40877.539868521555,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 9,
+      "time_s": 5.192307692307692,
+      "phrase": "precad",
+      "defect": 0,
+      "style_weights": [
+        0.16581202726608613,
+        0.1593364874186776,
+        0.16343268850834486,
+        0.16759195779469566,
+        0.1560505697022329,
+        0.028983240897441063,
+        0.0009648697532701412,
+        0.15782815865925165
+      ],
+      "weighted_RMS": 4.369191276125824,
+      "normal_equation_residual": 1.562582234903943e-13,
+      "normalized_pitch_energy": [
+        -1.5927593533783173,
+        -1.6827110552294438,
+        -1.6827110552294438,
+        -0.7451904953121138,
+        0.03716700069089057,
+        0.03716700069089057,
+        -0.138000118477119,
+        0.03716700069089057,
+        0.03716700069089057,
+        0.037167000690941275,
+        0.037167000690941275,
+        0.037167000690941275,
+        0.03716700069089057,
+        0.7643745251724773,
+        1.6438119080922746,
+        1.6438119080923002,
+        1.4920377307420838
+      ],
+      "source_energy": 40877.79826921704,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 10,
+      "time_s": 5.769230769230768,
+      "phrase": "precad",
+      "defect": 0,
+      "style_weights": [
+        0.16580004477397836,
+        0.15932684310606138,
+        0.16342511780316402,
+        0.16762895514322002,
+        0.15605232322550813,
+        0.028983237258815197,
+        0.0009648695577209763,
+        0.15781860913153187
+      ],
+      "weighted_RMS": 4.369181833105189,
+      "normal_equation_residual": 1.637250045300302e-13,
+      "normalized_pitch_energy": [
+        -1.5927597874095925,
+        -1.6827102750808165,
+        -1.6827102750808165,
+        -0.7451929967150192,
+        0.03716690453170547,
+        0.03716690453170547,
+        -0.137999346131761,
+        0.03716690453170547,
+        0.037166904531756174,
+        0.03716690453170547,
+        0.03716690453170547,
+        0.03716690453170547,
+        0.037166904531680124,
+        0.7643766647065048,
+        1.6438109693800735,
+        1.6438109693800482,
+        1.4920388406977354
+      ],
+      "source_energy": 40877.914354049455,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 11,
+      "time_s": 6.346153846153846,
+      "phrase": "precad",
+      "defect": 0,
+      "style_weights": [
+        0.16579954671770114,
+        0.15932638287484338,
+        0.1634249316955318,
+        0.16763022223306073,
+        0.15605270601713772,
+        0.028983237086539205,
+        0.0009648695472102056,
+        0.15781810382797568
+      ],
+      "weighted_RMS": 4.369181267263179,
+      "normal_equation_residual": 9.288132631443041e-14,
+      "normalized_pitch_energy": [
+        -1.592759814954902,
+        -1.6827102292239513,
+        -1.682710229223926,
+        -0.7451931394808984,
+        0.03716689868416541,
+        0.03716689868414006,
+        -0.137999299471422,
+        0.03716689868416541,
+        0.03716689868414006,
+        0.03716689868421611,
+        0.03716689868416541,
+        0.03716689868411471,
+        0.03716689868419076,
+        0.7643767861256577,
+        1.6438109138624823,
+        1.6438109138624568,
+        1.4920389090305204
+      ],
+      "source_energy": 40877.92495495118,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 12,
+      "time_s": 6.9230769230769225,
+      "phrase": "precad",
+      "defect": 0,
+      "style_weights": [
+        0.16579952366652415,
+        0.15932635861548963,
+        0.1634249294762084,
+        0.16763026746355233,
+        0.15605273907512573,
+        0.02898323707752291,
+        0.0009648695466057575,
+        0.15781807507897117
+      ],
+      "weighted_RMS": 4.369181232491085,
+      "normal_equation_residual": 7.372731835132802e-14,
+      "normalized_pitch_energy": [
+        -1.5927598167004098,
+        -1.6827102264365186,
+        -1.6827102264365186,
+        -0.745193148009557,
+        0.037166898321948465,
+        0.03716689832192312,
+        -0.13799929659095708,
+        0.03716689832192312,
+        0.037166898321948465,
+        0.037166898321948465,
+        0.03716689832192312,
+        0.03716689832197382,
+        0.037166898321948465,
+        0.7643767933542156,
+        1.6438109104758873,
+        1.6438109104759382,
+        1.492038913292307
+      ],
+      "source_energy": 40877.92573196093,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 13,
+      "time_s": 7.499999999999999,
+      "phrase": "precad",
+      "defect": 0,
+      "style_weights": [
+        0.16579952248331034,
+        0.15932635723803076,
+        0.16342492964756702,
+        0.16763026918843055,
+        0.15605274145415293,
+        0.028983237077013738,
+        0.0009648695465694836,
+        0.15781807336492507
+      ],
+      "weighted_RMS": 4.369181230324475,
+      "normal_equation_residual": 1.3966961501433192e-13,
+      "normalized_pitch_energy": [
+        -1.592759816810946,
+        -1.682710226263897,
+        -1.6827102262638465,
+        -0.745193148532769,
+        0.03716689829927389,
+        0.037166898299223185,
+        -0.13799929641103625,
+        0.03716689829927389,
+        0.03716689829927389,
+        0.037166898299223185,
+        0.03716689829927389,
+        0.037166898299223185,
+        0.03716689829924853,
+        0.7643767937967697,
+        1.6438109102658376,
+        1.6438109102656855,
+        1.4920389135599097
+      ],
+      "source_energy": 40877.92578459333,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 14,
+      "time_s": 8.076923076923077,
+      "phrase": "precad",
+      "defect": 0,
+      "style_weights": [
+        0.16579952241740079,
+        0.15932635715597687,
+        0.16342492966858208,
+        0.1676302692605724,
+        0.15605274161402644,
+        0.02898323707698352,
+        0.0009648695465672526,
+        0.15781807325989075
+      ],
+      "weighted_RMS": 4.369181230188477,
+      "normal_equation_residual": 1.4230535247242144e-13,
+      "normalized_pitch_energy": [
+        -1.5927598168179107,
+        -1.68271022625302,
+        -1.6827102262530453,
+        -0.7451931485653422,
+        0.03716689829784213,
+        0.03716689829784213,
+        -0.13799929639973196,
+        0.03716689829784213,
+        0.03716689829784213,
+        0.037166898297867484,
+        0.03716689829781678,
+        0.03716689829781678,
+        0.03716689829781678,
+        0.7643767938242845,
+        1.643810910252645,
+        1.643810910252645,
+        1.492038913576789
+      ],
+      "source_energy": 40877.92578803691,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 15,
+      "time_s": 8.653846153846153,
+      "phrase": "precad",
+      "defect": 0,
+      "style_weights": [
+        0.1657995224135216,
+        0.15932635715095034,
+        0.16342492967024375,
+        0.1676302692639333,
+        0.1560527416244462,
+        0.02898323707698168,
+        0.0009648695465671138,
+        0.1578180732533561
+      ],
+      "weighted_RMS": 4.369181230179904,
+      "normal_equation_residual": 1.5304374419616639e-13,
+      "normalized_pitch_energy": [
+        -1.5927598168183434,
+        -1.6827102262523528,
+        -1.6827102262523528,
+        -0.7451931485673686,
+        0.03716689829776138,
+        0.03716689829776138,
+        -0.13799929639900493,
+        0.03716689829776138,
+        0.03716689829776138,
+        0.03716689829776138,
+        0.03716689829776138,
+        0.03716689829781208,
+        0.03716689829778673,
+        0.7643767938260394,
+        1.6438109102518137,
+        1.643810910251763,
+        1.4920389135779184
+      ],
+      "source_energy": 40877.925788258486,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 16,
+      "time_s": 9.23076923076923,
+      "phrase": "interior",
+      "defect": 0,
+      "style_weights": [
+        0.16583910477616695,
+        0.16349860517085277,
+        0.16339821097985277,
+        0.16310111925770232,
+        0.15635896632524923,
+        0.028983475527710793,
+        0.0009648773962676224,
+        0.15785564056619766
+      ],
+      "weighted_RMS": 4.369727802686577,
+      "normal_equation_residual": 1.479116156260589e-13,
+      "normalized_pitch_energy": [
+        -1.5927333971420166,
+        -1.682754542816699,
+        -1.682754542816699,
+        -0.7450546826731083,
+        0.03717253621239226,
+        0.03717253621239226,
+        -0.1380443679881244,
+        0.03717253621239226,
+        0.0371725362123415,
+        0.03717253621239226,
+        0.03717253621239226,
+        0.03717253621239226,
+        0.03717253621236688,
+        0.7642589670754851,
+        1.6438645418499063,
+        1.6438645418499571,
+        1.491973192962389
+      ],
+      "source_energy": 40827.91964946771,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 17,
+      "time_s": 9.807692307692307,
+      "phrase": "interior",
+      "defect": 0,
+      "style_weights": [
+        0.16585166409365576,
+        0.16364923705834827,
+        0.1633902957206278,
+        0.16294866398024307,
+        0.15633353821947854,
+        0.028983479286616088,
+        0.0009648780858802558,
+        0.1578782435551502
+      ],
+      "weighted_RMS": 4.3697734360493135,
+      "normal_equation_residual": 1.4795264633907853e-13,
+      "normalized_pitch_energy": [
+        -1.592731085164389,
+        -1.6827581891120023,
+        -1.682758189112053,
+        -0.7450435813488149,
+        0.037173013047329916,
+        0.037173013047329916,
+        -0.1380481570589056,
+        0.037173013047329916,
+        0.037173013047329916,
+        0.03717301304730453,
+        0.0371730130473553,
+        0.037173013047329916,
+        0.037173013047329916,
+        0.7642495683629816,
+        1.6438689770824766,
+        1.6438689770825021,
+        1.4919675748891081
+      ],
+      "source_energy": 40825.558926260004,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 18,
+      "time_s": 10.384615384615383,
+      "phrase": "interior",
+      "defect": 0,
+      "style_weights": [
+        0.1658527965185958,
+        0.16365505036158307,
+        0.1633896074780733,
+        0.16294339168830804,
+        0.1563304794468364,
+        0.028983479769280018,
+        0.0009648781363342089,
+        0.15788031660098942
+      ],
+      "weighted_RMS": 4.369776674113899,
+      "normal_equation_residual": 1.1578726109713724e-13,
+      "normalized_pitch_energy": [
+        -1.5927309187223395,
+        -1.682758446616207,
+        -1.682758446616207,
+        -0.7450428040773576,
+        0.03717304701833961,
+        0.03717304701833961,
+        -0.1380484264845428,
+        0.03717304701833961,
+        0.03717304701833961,
+        0.03717304701833961,
+        0.03717304701833961,
+        0.03717304701839038,
+        0.03717304701833961,
+        0.7642489114302976,
+        1.6438692908169559,
+        1.6438692908170065,
+        1.4919671733053725
+      ],
+      "source_energy": 40825.43635970386,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 19,
+      "time_s": 10.96153846153846,
+      "phrase": "interior",
+      "defect": 0,
+      "style_weights": [
+        0.16585287933292853,
+        0.1636552961760769,
+        0.16338955843640948,
+        0.1629432006877428,
+        0.15633023955619038,
+        0.028983479807804465,
+        0.0009648781397402419,
+        0.15788046786310703
+      ],
+      "weighted_RMS": 4.369776889719469,
+      "normal_equation_residual": 1.301179832563473e-13,
+      "normalized_pitch_energy": [
+        -1.592730907572985,
+        -1.6827584637274007,
+        -1.6827584637273754,
+        -0.7450427526164931,
+        0.037173049284125716,
+        0.0371730492841511,
+        -0.13804844443955308,
+        0.037173049284125716,
+        0.037173049284125716,
+        0.037173049284125716,
+        0.03717304928410033,
+        0.037173049284125716,
+        0.0371730492841511,
+        0.7642488679688862,
+        1.6438693116792842,
+        1.6438693116793603,
+        1.4919671464840065
+      ],
+      "source_energy": 40825.42950788211,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 20,
+      "time_s": 11.538461538461537,
+      "phrase": "interior",
+      "defect": 0,
+      "style_weights": [
+        0.1658528849311119,
+        0.16365530771268563,
+        0.16338955518042356,
+        0.16294319325530418,
+        0.15633022292832172,
+        0.028983479810496374,
+        0.0009648781399620286,
+        0.1578804780416945
+      ],
+      "weighted_RMS": 4.369776903662825,
+      "normal_equation_residual": 7.755078037894999e-14,
+      "normalized_pitch_energy": [
+        -1.5927309068500044,
+        -1.6827584648330072,
+        -1.6827584648330072,
+        -0.7450427492973251,
+        0.03717304943070223,
+        0.03717304943070223,
+        -0.13804844560126137,
+        0.03717304943070223,
+        0.03717304943070223,
+        0.03717304943070223,
+        0.03717304943070223,
+        0.037173049430752995,
+        0.037173049430752995,
+        0.7642488651664378,
+        1.6438693130276092,
+        1.6438693130276092,
+        1.491967144747001
+      ],
+      "source_energy": 40825.42910540925,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 21,
+      "time_s": 12.115384615384615,
+      "phrase": "interior",
+      "defect": 0,
+      "style_weights": [
+        0.165852885296156,
+        0.16365530830960526,
+        0.1633895549706528,
+        0.16294319293712656,
+        0.15633022183301487,
+        0.02898347981067446,
+        0.0009648781399762183,
+        0.15788047870279373
+      ],
+      "weighted_RMS": 4.369776904551733,
+      "normal_equation_residual": 1.6552247845175005e-13,
+      "normalized_pitch_energy": [
+        -1.5927309068038442,
+        -1.6827584649034546,
+        -1.6827584649034546,
+        -0.7450427490859483,
+        0.0371730494401047,
+        0.0371730494401047,
+        -0.1380484456752835,
+        0.03717304944007932,
+        0.0371730494401047,
+        0.03717304944005394,
+        0.0371730494401047,
+        0.03717304944005394,
+        0.03717304944007932,
+        0.7642488649880953,
+        1.643869313113512,
+        1.6438693131135627,
+        1.4919671446362057
+      ],
+      "source_energy": 40825.42908104989,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 22,
+      "time_s": 12.692307692307692,
+      "phrase": "interior",
+      "defect": 0,
+      "style_weights": [
+        0.16585288531953693,
+        0.16365530834291842,
+        0.16338955495732146,
+        0.1629431929219838,
+        0.15633022176256114,
+        0.02898347981068594,
+        0.000964878139977118,
+        0.15788047874501498
+      ],
+      "weighted_RMS": 4.369776904607988,
+      "normal_equation_residual": 1.8849039421711053e-13,
+      "normalized_pitch_energy": [
+        -1.5927309068009228,
+        -1.6827584649078946,
+        -1.6827584649078946,
+        -0.745042749072614,
+        0.03717304944068166,
+        0.03717304944068166,
+        -0.13804844567997845,
+        0.03717304944068166,
+        0.03717304944068166,
+        0.03717304944063089,
+        0.03717304944068166,
+        0.03717304944063089,
+        0.037173049440656275,
+        0.7642488649768217,
+        1.6438693131189932,
+        1.6438693131189932,
+        1.49196714462917
+      ],
+      "source_energy": 40825.42907955027,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 23,
+      "time_s": 13.269230769230768,
+      "phrase": "interior",
+      "defect": 0,
+      "style_weights": [
+        0.16585288532102058,
+        0.16365530834487396,
+        0.16338955495647972,
+        0.1629431929211905,
+        0.1563302217580823,
+        0.02898347981068668,
+        0.000964878139977175,
+        0.15788047874768915
+      ],
+      "weighted_RMS": 4.36977690461154,
+      "normal_equation_residual": 1.081623410495452e-13,
+      "normalized_pitch_energy": [
+        -1.592730906800665,
+        -1.6827584649081786,
+        -1.6827584649081786,
+        -0.7450427490716683,
+        0.03717304944073319,
+        0.03717304944070781,
+        -0.13804844568026411,
+        0.03717304944073319,
+        0.037173049440758575,
+        0.03717304944073319,
+        0.037173049440758575,
+        0.037173049440758575,
+        0.037173049440758575,
+        0.7642488649761187,
+        1.6438693131193742,
+        1.6438693131193742,
+        1.4919671446287546
+      ],
+      "source_energy": 40825.4290794571,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 24,
+      "time_s": 13.846153846153845,
+      "phrase": "interior",
+      "defect": 0,
+      "style_weights": [
+        0.16585288532111453,
+        0.16365530834499228,
+        0.16338955495642665,
+        0.1629431929211458,
+        0.15633022175779918,
+        0.028983479810686715,
+        0.0009648781399771784,
+        0.15788047874785777
+      ],
+      "weighted_RMS": 4.3697769046117605,
+      "normal_equation_residual": 1.7361958020949757e-13,
+      "normalized_pitch_energy": [
+        -1.5927309068007516,
+        -1.6827584649082263,
+        -1.6827584649082263,
+        -0.7450427490717174,
+        0.03717304944066203,
+        0.03717304944068741,
+        -0.13804844568033336,
+        0.03717304944068741,
+        0.03717304944066203,
+        0.03717304944066203,
+        0.03717304944068741,
+        0.03717304944068741,
+        0.037173049440738175,
+        0.7642488649759926,
+        1.6438693131193154,
+        1.643869313119341,
+        1.4919671446287006
+      ],
+      "source_energy": 40825.429079451285,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 25,
+      "time_s": 14.423076923076922,
+      "phrase": "interior",
+      "defect": 0,
+      "style_weights": [
+        0.16585288532112033,
+        0.16365530834499956,
+        0.16338955495642332,
+        0.16294319292114312,
+        0.15633022175778138,
+        0.02898347981068672,
+        0.0009648781399771786,
+        0.15788047874786834
+      ],
+      "weighted_RMS": 4.369776904611775,
+      "normal_equation_residual": 1.6728221770838934e-13,
+      "normalized_pitch_energy": [
+        -1.5927309068007438,
+        -1.682758464908245,
+        -1.6827584649082705,
+        -0.7450427490717003,
+        0.037173049440687826,
+        0.037173049440687826,
+        -0.13804844568030952,
+        0.037173049440687826,
+        0.03717304944063706,
+        0.037173049440687826,
+        0.03717304944063706,
+        0.03717304944063706,
+        0.037173049440687826,
+        0.7642488649760519,
+        1.6438693131193083,
+        1.6438693131193083,
+        1.4919671446286664
+      ],
+      "source_energy": 40825.42907945098,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 26,
+      "time_s": 14.999999999999998,
+      "phrase": "interior",
+      "defect": 0,
+      "style_weights": [
+        0.1658528853211205,
+        0.16365530834500008,
+        0.16338955495642318,
+        0.16294319292114304,
+        0.15633022175778027,
+        0.02898347981068673,
+        0.000964878139977179,
+        0.15788047874786906
+      ],
+      "weighted_RMS": 4.369776904611775,
+      "normal_equation_residual": 1.4178378548244567e-13,
+      "normalized_pitch_energy": [
+        -1.592730906800702,
+        -1.6827584649082037,
+        -1.6827584649082037,
+        -0.745042749071679,
+        0.03717304944071342,
+        0.03717304944071342,
+        -0.1380484456802849,
+        0.03717304944071342,
+        0.03717304944076418,
+        0.03717304944071342,
+        0.03717304944076418,
+        0.037173049440789564,
+        0.0371730494407388,
+        0.764248864976107,
+        1.6438693131193682,
+        1.6438693131193174,
+        1.4919671446287255
+      ],
+      "source_energy": 40825.42907945092,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 27,
+      "time_s": 15.576923076923075,
+      "phrase": "interior",
+      "defect": 0,
+      "style_weights": [
+        0.1658528853211205,
+        0.16365530834500014,
+        0.16338955495642318,
+        0.16294319292114304,
+        0.15633022175778027,
+        0.028983479810686736,
+        0.0009648781399771791,
+        0.15788047874786912
+      ],
+      "weighted_RMS": 4.369776904611774,
+      "normal_equation_residual": 1.4614238172683389e-13,
+      "normalized_pitch_energy": [
+        -1.5927309068007447,
+        -1.682758464908219,
+        -1.682758464908219,
+        -0.7450427490716633,
+        0.0371730494407634,
+        0.0371730494407634,
+        -0.13804844568028202,
+        0.0371730494407634,
+        0.0371730494407634,
+        0.03717304944071263,
+        0.03717304944071263,
+        0.03717304944071263,
+        0.03717304944071263,
+        0.7642488649760655,
+        1.6438693131193591,
+        1.6438693131193336,
+        1.4919671446286689
+      ],
+      "source_energy": 40825.42907945088,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 28,
+      "time_s": 16.153846153846153,
+      "phrase": "interior",
+      "defect": 0,
+      "style_weights": [
+        0.16585288532112052,
+        0.1636553083450001,
+        0.16338955495642318,
+        0.16294319292114304,
+        0.15633022175778027,
+        0.028983479810686736,
+        0.0009648781399771791,
+        0.15788047874786915
+      ],
+      "weighted_RMS": 4.369776904611774,
+      "normal_equation_residual": 1.4614238172683389e-13,
+      "normalized_pitch_energy": [
+        -1.5927309068007447,
+        -1.682758464908219,
+        -1.682758464908219,
+        -0.7450427490716633,
+        0.0371730494407634,
+        0.0371730494407634,
+        -0.13804844568028202,
+        0.0371730494407634,
+        0.0371730494407634,
+        0.03717304944071263,
+        0.03717304944071263,
+        0.03717304944071263,
+        0.03717304944071263,
+        0.7642488649760655,
+        1.6438693131193591,
+        1.6438693131193336,
+        1.4919671446286689
+      ],
+      "source_energy": 40825.42907945088,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 29,
+      "time_s": 16.73076923076923,
+      "phrase": "interior",
+      "defect": 0,
+      "style_weights": [
+        0.16585288532112052,
+        0.1636553083450001,
+        0.16338955495642318,
+        0.16294319292114304,
+        0.15633022175778027,
+        0.028983479810686736,
+        0.0009648781399771791,
+        0.15788047874786915
+      ],
+      "weighted_RMS": 4.369776904611774,
+      "normal_equation_residual": 1.4614238172683389e-13,
+      "normalized_pitch_energy": [
+        -1.5927309068007447,
+        -1.682758464908219,
+        -1.682758464908219,
+        -0.7450427490716633,
+        0.0371730494407634,
+        0.0371730494407634,
+        -0.13804844568028202,
+        0.0371730494407634,
+        0.0371730494407634,
+        0.03717304944071263,
+        0.03717304944071263,
+        0.03717304944071263,
+        0.03717304944071263,
+        0.7642488649760655,
+        1.6438693131193591,
+        1.6438693131193336,
+        1.4919671446286689
+      ],
+      "source_energy": 40825.42907945088,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 30,
+      "time_s": 17.307692307692307,
+      "phrase": "interior",
+      "defect": 0,
+      "style_weights": [
+        0.16585288532112052,
+        0.1636553083450001,
+        0.16338955495642318,
+        0.16294319292114304,
+        0.15633022175778027,
+        0.028983479810686736,
+        0.0009648781399771791,
+        0.15788047874786915
+      ],
+      "weighted_RMS": 4.369776904611774,
+      "normal_equation_residual": 1.4614238172683389e-13,
+      "normalized_pitch_energy": [
+        -1.5927309068007447,
+        -1.682758464908219,
+        -1.682758464908219,
+        -0.7450427490716633,
+        0.0371730494407634,
+        0.0371730494407634,
+        -0.13804844568028202,
+        0.0371730494407634,
+        0.0371730494407634,
+        0.03717304944071263,
+        0.03717304944071263,
+        0.03717304944071263,
+        0.03717304944071263,
+        0.7642488649760655,
+        1.6438693131193591,
+        1.6438693131193336,
+        1.4919671446286689
+      ],
+      "source_energy": 40825.42907945088,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 31,
+      "time_s": 17.884615384615383,
+      "phrase": "interior",
+      "defect": 0,
+      "style_weights": [
+        0.16585288532112052,
+        0.1636553083450001,
+        0.16338955495642318,
+        0.16294319292114304,
+        0.15633022175778027,
+        0.028983479810686736,
+        0.0009648781399771791,
+        0.15788047874786915
+      ],
+      "weighted_RMS": 4.369776904611774,
+      "normal_equation_residual": 1.4614238172683389e-13,
+      "normalized_pitch_energy": [
+        -1.5927309068007447,
+        -1.682758464908219,
+        -1.682758464908219,
+        -0.7450427490716633,
+        0.0371730494407634,
+        0.0371730494407634,
+        -0.13804844568028202,
+        0.0371730494407634,
+        0.0371730494407634,
+        0.03717304944071263,
+        0.03717304944071263,
+        0.03717304944071263,
+        0.03717304944071263,
+        0.7642488649760655,
+        1.6438693131193591,
+        1.6438693131193336,
+        1.4919671446286689
+      ],
+      "source_energy": 40825.42907945088,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 32,
+      "time_s": 18.46153846153846,
+      "phrase": "precad",
+      "defect": 0,
+      "style_weights": [
+        0.1658133205852985,
+        0.159485072306395,
+        0.16341626146651314,
+        0.16747015806368273,
+        0.15602414801597358,
+        0.028983241492023703,
+        0.0009648702945824376,
+        0.1578429277755308
+      ],
+      "weighted_RMS": 4.369230544545524,
+      "normal_equation_residual": 7.868806802096959e-14,
+      "normalized_pitch_energy": [
+        -1.5927573187298514,
+        -1.6827141627814763,
+        -1.6827141627815017,
+        -0.7451811709968768,
+        0.03716741329932391,
+        0.03716741329932391,
+        -0.13800338825789876,
+        0.03716741329932391,
+        0.03716741329932391,
+        0.03716741329937461,
+        0.03716741329937461,
+        0.03716741329934926,
+        0.03716741329932391,
+        0.7643666542784715,
+        1.6438156988612433,
+        1.6438156988611927,
+        1.492032845152182
+      ],
+      "source_energy": 40875.41108477599,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 33,
+      "time_s": 19.038461538461537,
+      "phrase": "precad",
+      "defect": 0,
+      "style_weights": [
+        0.16580075158382562,
+        0.15933263222800065,
+        0.16342418382770635,
+        0.16762458303496408,
+        0.1560494202352837,
+        0.028983237611961768,
+        0.0009648696013260383,
+        0.15782032187693174
+      ],
+      "weighted_RMS": 4.36918473662484,
+      "normal_equation_residual": 1.7728251857346908e-13,
+      "normalized_pitch_energy": [
+        -1.5927596367623142,
+        -1.68271050487624,
+        -1.68271050487624,
+        -0.7451923076946899,
+        0.03716693505277938,
+        0.03716693505277938,
+        -0.1379995878990615,
+        0.03716693505277938,
+        0.037166935052830086,
+        0.03716693505277938,
+        0.03716693505280473,
+        0.03716693505275403,
+        0.03716693505275403,
+        0.7643760831472722,
+        1.6438112497122594,
+        1.6438112497122594,
+        1.4920384791145198
+      ],
+      "source_energy": 40877.79319138646,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 34,
+      "time_s": 19.615384615384613,
+      "phrase": "precad",
+      "defect": 0,
+      "style_weights": [
+        0.1657996123286923,
+        0.15932663084030058,
+        0.1634248764571126,
+        0.16763005439330697,
+        0.15605248193966326,
+        0.028983237119354063,
+        0.0009648695502792923,
+        0.15781823737129097
+      ],
+      "weighted_RMS": 4.369181464795094,
+      "normal_equation_residual": 1.6539793990209597e-13,
+      "normalized_pitch_energy": [
+        -1.5927598047019818,
+        -1.6827102448592537,
+        -1.6827102448592284,
+        -0.7451930926081239,
+        0.03716690076086182,
+        0.03716690076091252,
+        -0.13799931591905693,
+        0.03716690076091252,
+        0.03716690076091252,
+        0.03716690076086182,
+        0.03716690076086182,
+        0.03716690076091252,
+        0.03716690076091252,
+        0.7643767465640365,
+        1.643810932936324,
+        1.6438109329363493,
+        1.492038884423508
+      ],
+      "source_energy": 40877.91827161485,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 35,
+      "time_s": 20.19230769230769,
+      "phrase": "precad",
+      "defect": 0,
+      "style_weights": [
+        0.16579952851586813,
+        0.15932637042854902,
+        0.16342492612064777,
+        0.1676302603938907,
+        0.15605272357139363,
+        0.028983237079945944,
+        0.000964869546810226,
+        0.15781808434289452
+      ],
+      "weighted_RMS": 4.3691812454453425,
+      "normal_equation_residual": 1.5539701806158312e-13,
+      "normalized_pitch_energy": [
+        -1.592759816027954,
+        -1.6827102274620127,
+        -1.6827102274620127,
+        -0.7451931449354152,
+        0.037166898458137546,
+        0.037166898458137546,
+        -0.13799929766959365,
+        0.037166898458137546,
+        0.037166898458137546,
+        0.03716689845808684,
+        0.03716689845811219,
+        0.03716689845808684,
+        0.037166898458137546,
+        0.7643767907594856,
+        1.6438109117268842,
+        1.6438109117268842,
+        1.4920389116783803
+      ],
+      "source_energy": 40877.925341421585,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 36,
+      "time_s": 20.769230769230766,
+      "phrase": "precad",
+      "defect": 0,
+      "style_weights": [
+        0.16579952281345747,
+        0.15932635785848917,
+        0.1634249294402508,
+        0.16763026885695184,
+        0.15605274042966477,
+        0.028983237077178536,
+        0.0009648695465827618,
+        0.15781807397742462
+      ],
+      "weighted_RMS": 4.369181231159176,
+      "normal_equation_residual": 1.4216420291991421e-13,
+      "normalized_pitch_energy": [
+        -1.59275981676758,
+        -1.682710226329937,
+        -1.682710226329937,
+        -0.7451931483346919,
+        0.037166898308054225,
+        0.037166898308054225,
+        -0.1379992964805594,
+        0.037166898308054225,
+        0.037166898308054225,
+        0.037166898308054225,
+        0.037166898308054225,
+        0.037166898308054225,
+        0.03716689830802887,
+        0.764376793629549,
+        1.643810910346368,
+        1.6438109103463934,
+        1.492038913455961
+      ],
+      "source_energy": 40877.925760946135,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 37,
+      "time_s": 21.346153846153843,
+      "phrase": "precad",
+      "defect": 0,
+      "style_weights": [
+        0.16579952243906906,
+        0.1593263571910754,
+        0.16342492965564223,
+        0.16763026924337854,
+        0.1560527415477742,
+        0.028983237076994326,
+        0.0009648695465681042,
+        0.15781807329949818
+      ],
+      "weighted_RMS": 4.369181230241783,
+      "normal_equation_residual": 1.1323991977170891e-13,
+      "normalized_pitch_energy": [
+        -1.5927598168151116,
+        -1.682710226257249,
+        -1.682710226257249,
+        -0.7451931485526848,
+        0.03716689829841549,
+        0.03716689829841549,
+        -0.1379992964041633,
+        0.03716689829841549,
+        0.03716689829841549,
+        0.03716689829841549,
+        0.03716689829841549,
+        0.03716689829839014,
+        0.037166898298440845,
+        0.7643767938136191,
+        1.6438109102578164,
+        1.6438109102577658,
+        1.4920389135701864
+      ],
+      "source_energy": 40877.92578657558,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 38,
+      "time_s": 21.92307692307692,
+      "phrase": "precad",
+      "defect": 0,
+      "style_weights": [
+        0.1657995224149186,
+        0.15932635715303486,
+        0.16342492966943126,
+        0.16763026926296867,
+        0.15605274162020724,
+        0.02898323707698237,
+        0.000964869546567168,
+        0.15781807325588987
+      ],
+      "weighted_RMS": 4.36918123018329,
+      "normal_equation_residual": 1.2065441262288105e-13,
+      "normalized_pitch_energy": [
+        -1.5927598168181427,
+        -1.6827102262526112,
+        -1.6827102262526112,
+        -0.7451931485665824,
+        0.03716689829786131,
+        0.03716689829781061,
+        -0.13799929639923114,
+        0.03716689829786131,
+        0.03716689829786131,
+        0.03716689829781061,
+        0.03716689829781061,
+        0.03716689829781061,
+        0.03716689829778526,
+        0.7643767938253677,
+        1.6438109102521463,
+        1.6438109102521463,
+        1.4920389135774645
+      ],
+      "source_energy": 40877.925788167166,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 39,
+      "time_s": 22.499999999999996,
+      "phrase": "precad",
+      "defect": 0,
+      "style_weights": [
+        0.16579952241337498,
+        0.15932635715076504,
+        0.16342492967030853,
+        0.1676302692640497,
+        0.15605274162484564,
+        0.028983237076981604,
+        0.0009648695465671084,
+        0.15781807325310743
+      ],
+      "weighted_RMS": 4.369181230179579,
+      "normal_equation_residual": 1.0067448046960511e-13,
+      "normalized_pitch_energy": [
+        -1.5927598168183958,
+        -1.682710226252388,
+        -1.682710226252388,
+        -0.7451931485675313,
+        0.03716689829772897,
+        0.03716689829772897,
+        -0.13799929639902941,
+        0.03716689829772897,
+        0.03716689829772897,
+        0.03716689829772897,
+        0.03716689829767827,
+        0.03716689829772897,
+        0.03716689829772897,
+        0.7643767938260463,
+        1.6438109102517042,
+        1.6438109102517042,
+        1.4920389135778884
+      ],
+      "source_energy": 40877.92578826685,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 40,
+      "time_s": 23.076923076923073,
+      "phrase": "cadence",
+      "defect": 0,
+      "style_weights": [
+        0.16579236554221097,
+        0.1592253279059251,
+        0.16740313043964322,
+        0.16380634953229659,
+        0.15604641846636916,
+        0.02898320071753242,
+        0.000964868368656507,
+        0.1577783390273661
+      ],
+      "weighted_RMS": 4.369111064646825,
+      "normal_equation_residual": 2.0636574598718908e-13,
+      "normalized_pitch_energy": [
+        -1.5927626138530981,
+        -1.682704262656288,
+        -1.682704262656288,
+        -0.7452134045511004,
+        0.03716620874019537,
+        0.03716620874019537,
+        -0.137993640647669,
+        0.0371662087401447,
+        0.03716620874019537,
+        0.03716620874019537,
+        0.03716620874019537,
+        0.03716620874019537,
+        0.037166208740170036,
+        0.7643942914174351,
+        1.6438038126719845,
+        1.6438038126719592,
+        1.4920465976810204
+      ],
+      "source_energy": 40907.1955426019,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 41,
+      "time_s": 23.653846153846153,
+      "phrase": "cadence",
+      "defect": 0,
+      "style_weights": [
+        0.1657909298156549,
+        0.15921972409808272,
+        0.1675338763944874,
+        0.1636825442071919,
+        0.15605052766471192,
+        0.028983200360546576,
+        0.000964868277965832,
+        0.15777432918135878
+      ],
+      "weighted_RMS": 4.369105346076367,
+      "normal_equation_residual": 1.5227572799762102e-13,
+      "normalized_pitch_energy": [
+        -1.592762884453748,
+        -1.6827037974099137,
+        -1.6827037974099137,
+        -0.7452148729341137,
+        0.03716615011701453,
+        0.03716615011701453,
+        -0.1379931702940013,
+        0.03716615011701453,
+        0.03716615011701453,
+        0.03716615011701453,
+        0.03716615011701453,
+        0.037166150116963864,
+        0.03716615011701453,
+        0.7643955431772168,
+        1.6438032505985558,
+        1.6438032505985052,
+        1.4920472771913977
+      ],
+      "source_energy": 40908.24766829837,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 42,
+      "time_s": 24.23076923076923,
+      "phrase": "cadence",
+      "defect": 0,
+      "style_weights": [
+        0.16579079868815652,
+        0.15921940440587665,
+        0.16753820576073486,
+        0.16367855571581505,
+        0.15605093816944976,
+        0.02898320030535041,
+        0.0009648682715242841,
+        0.15777402868309248
+      ],
+      "weighted_RMS": 4.369104939721682,
+      "normal_equation_residual": 1.2801252885492325e-13,
+      "normalized_pitch_energy": [
+        -1.5927629047200533,
+        -1.682703764850473,
+        -1.682703764850473,
+        -0.7452149728565745,
+        0.03716614589224279,
+        0.03716614589224279,
+        -0.13799313664347676,
+        0.03716614589224279,
+        0.03716614589224279,
+        0.03716614589224279,
+        0.03716614589224279,
+        0.03716614589219212,
+        0.03716614589221746,
+        0.7643956279041737,
+        1.6438032110513607,
+        1.6438032110514114,
+        1.4920473267763652
+      ],
+      "source_energy": 40908.28806652065,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 43,
+      "time_s": 24.807692307692307,
+      "phrase": "cadence",
+      "defect": 0,
+      "style_weights": [
+        0.16579078880605272,
+        0.1592193856153413,
+        0.16753835112696194,
+        0.16367842850419848,
+        0.15605096916817046,
+        0.028983200300705017,
+        0.0009648682710909729,
+        0.1577740082074792
+      ],
+      "weighted_RMS": 4.369104912468204,
+      "normal_equation_residual": 2.1683414055143117e-13,
+      "normalized_pitch_energy": [
+        -1.5927629061085091,
+        -1.682703762680737,
+        -1.6827037626806862,
+        -0.74521497943387,
+        0.037166145607265284,
+        0.037166145607265284,
+        -0.13799313438016222,
+        0.037166145607265284,
+        0.037166145607265284,
+        0.037166145607265284,
+        0.037166145607265284,
+        0.037166145607315945,
+        0.037166145607265284,
+        0.7643956334680168,
+        1.6438032084100465,
+        1.643803208410097,
+        1.492047330138746
+      ],
+      "source_energy": 40908.28976616836,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 44,
+      "time_s": 25.384615384615383,
+      "phrase": "cadence",
+      "defect": 0,
+      "style_weights": [
+        0.16579078812001014,
+        0.15921938448289719,
+        0.1675383561330464,
+        0.16367842452879797,
+        0.15605097129781123,
+        0.02898320030037059,
+        0.0009648682710626183,
+        0.15777400686600368
+      ],
+      "weighted_RMS": 4.36910491069012,
+      "normal_equation_residual": 1.4474524467312316e-13,
+      "normalized_pitch_energy": [
+        -1.592762906200032,
+        -1.682703762539653,
+        -1.682703762539653,
+        -0.7452149798594287,
+        0.03716614558851426,
+        0.0371661455885396,
+        -0.13799313423238932,
+        0.03716614558851426,
+        0.0371661455885396,
+        0.037166145588564924,
+        0.0371661455885396,
+        0.0371661455885396,
+        0.03716614558851426,
+        0.7643956338273731,
+        1.6438032082379748,
+        1.643803208238,
+        1.492047330359137
+      ],
+      "source_energy": 40908.289845693886,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 45,
+      "time_s": 25.96153846153846,
+      "phrase": "cadence",
+      "defect": 0,
+      "style_weights": [
+        0.16579078807431202,
+        0.1592193844133868,
+        0.1675383563131391,
+        0.1636784244098629,
+        0.15605097143822613,
+        0.02898320030034801,
+        0.0009648682710607902,
+        0.1577740067796643
+      ],
+      "weighted_RMS": 4.36910491057573,
+      "normal_equation_residual": 9.05674240941961e-14,
+      "normalized_pitch_energy": [
+        -1.5927629062059148,
+        -1.6827037625305332,
+        -1.6827037625305585,
+        -0.745214979886639,
+        0.037166145587366854,
+        0.037166145587366854,
+        -0.1379931342228452,
+        0.037166145587366854,
+        0.037166145587366854,
+        0.037166145587366854,
+        0.037166145587366854,
+        0.03716614558739219,
+        0.037166145587366854,
+        0.7643956338504831,
+        1.6438032082269725,
+        1.6438032082269725,
+        1.4920473303733557
+      ],
+      "source_energy": 40908.289849809946,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 46,
+      "time_s": 26.538461538461537,
+      "phrase": "cadence",
+      "defect": 0,
+      "style_weights": [
+        0.16579078807133485,
+        0.15921938440906747,
+        0.16753835632007927,
+        0.1636784244066541,
+        0.15605097144730348,
+        0.028983200300346536,
+        0.0009648682710606734,
+        0.15777400677415368
+      ],
+      "weighted_RMS": 4.369104910568422,
+      "normal_equation_residual": 1.3653093790422557e-13,
+      "normalized_pitch_energy": [
+        -1.592762906206271,
+        -1.682703762529967,
+        -1.6827037625299164,
+        -0.7452149798883743,
+        0.03716614558730085,
+        0.03716614558732618,
+        -0.13799313422220585,
+        0.03716614558730085,
+        0.03716614558730085,
+        0.03716614558732618,
+        0.03716614558730085,
+        0.03716614558732618,
+        0.03716614558732618,
+        0.764395633851967,
+        1.6438032082262788,
+        1.6438032082262788,
+        1.4920473303743098
+      ],
+      "source_energy": 40908.289850040484,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 47,
+      "time_s": 27.115384615384613,
+      "phrase": "cadence",
+      "defect": 0,
+      "style_weights": [
+        0.16579078807114342,
+        0.15921938440879693,
+        0.16753835632037314,
+        0.16367842440659153,
+        0.15605097144788446,
+        0.02898320030034643,
+        0.0009648682710606656,
+        0.15777400677380335
+      ],
+      "weighted_RMS": 4.369104910567956,
+      "normal_equation_residual": 1.422644569736874e-13,
+      "normalized_pitch_energy": [
+        -1.5927629062063393,
+        -1.6827037625299572,
+        -1.6827037625299572,
+        -0.7452149798885255,
+        0.03716614558726411,
+        0.03716614558726411,
+        -0.13799313422221415,
+        0.037166145587238776,
+        0.03716614558726411,
+        0.037166145587238776,
+        0.037166145587238776,
+        0.037166145587238776,
+        0.037166145587238776,
+        0.7643956338520109,
+        1.643803208226129,
+        1.6438032082262302,
+        1.4920473303743331
+      ],
+      "source_energy": 40908.289850054156,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 48,
+      "time_s": 27.69230769230769,
+      "phrase": "resolve",
+      "defect": 0,
+      "style_weights": [
+        0.16575409052281992,
+        0.15955520201094847,
+        0.16319860332428868,
+        0.16288319745355817,
+        0.16089527599560904,
+        0.028982356169664963,
+        0.0009648401049679596,
+        0.1577664344181429
+      ],
+      "weighted_RMS": 4.3671172138873375,
+      "normal_equation_residual": 1.1902635455476312e-13,
+      "normalized_pitch_energy": [
+        -1.5928750476945195,
+        -1.682551791340708,
+        -1.682551791340708,
+        -0.7456440802142326,
+        0.03714477036067897,
+        0.03714477036062833,
+        -0.1378256850158458,
+        0.03714477036067897,
+        0.03714477036065365,
+        0.03714477036065365,
+        0.0371447703607043,
+        0.03714477036065365,
+        0.03714477036062833,
+        0.7647532423527555,
+        1.6436157449341586,
+        1.6436157449341333,
+        1.492305500500193
+      ],
+      "source_energy": 40930.243321343485,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 49,
+      "time_s": 28.269230769230766,
+      "phrase": "resolve",
+      "defect": 0,
+      "style_weights": [
+        0.16572769377203594,
+        0.15953356294613147,
+        0.16307056355294217,
+        0.1628673722958946,
+        0.16113145047993768,
+        0.02898233181626428,
+        0.0009648382195888748,
+        0.15772218691720513
+      ],
+      "weighted_RMS": 4.366991646250119,
+      "normal_equation_residual": 1.393356167041814e-13,
+      "normalized_pitch_energy": [
+        -1.5928818474899464,
+        -1.6825420520194676,
+        -1.6825420520194676,
+        -0.7456723813751737,
+        0.03714343733593908,
+        0.037143437335989724,
+        -0.1378151898404068,
+        0.03714343733593908,
+        0.037143437335989724,
+        0.037143437335989724,
+        0.037143437335989724,
+        0.037143437335989724,
+        0.03714343733593908,
+        0.7647769764255286,
+        1.6436037952860019,
+        1.6436037952859766,
+        1.4923214570592145
+      ],
+      "source_energy": 40932.547164264404,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 50,
+      "time_s": 28.846153846153843,
+      "phrase": "resolve",
+      "defect": 0,
+      "style_weights": [
+        0.1657252309159389,
+        0.15953074312808593,
+        0.16306725255617927,
+        0.1628675058170833,
+        0.16114419151112647,
+        0.02898233018117231,
+        0.0009648380951994407,
+        0.15771790779521436
+      ],
+      "weighted_RMS": 4.366983647132241,
+      "normal_equation_residual": 1.753862664397189e-13,
+      "normalized_pitch_energy": [
+        -1.5928822714482112,
+        -1.6825414264726748,
+        -1.6825414264726748,
+        -0.7456742259713741,
+        0.03714335293662317,
+        0.03714335293662317,
+        -0.13781452354689375,
+        0.03714335293667381,
+        0.03714335293667381,
+        0.03714335293667381,
+        0.03714335293667381,
+        0.03714335293662317,
+        0.03714335293667381,
+        0.7647785281432935,
+        1.6436030298959128,
+        1.643603029895938,
+        1.492322462483547
+      ],
+      "source_energy": 40932.724786520856,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 51,
+      "time_s": 29.42307692307692,
+      "phrase": "resolve",
+      "defect": 0,
+      "style_weights": [
+        0.16572504816082645,
+        0.1595305145713186,
+        0.16306720035113031,
+        0.16286755197927047,
+        0.16114493115914202,
+        0.028982330073921304,
+        0.0009648380871020968,
+        0.15771758561728882
+      ],
+      "weighted_RMS": 4.366983135228279,
+      "normal_equation_residual": 1.6959957779021169e-13,
+      "normalized_pitch_energy": [
+        -1.5928822982804127,
+        -1.68254138627232,
+        -1.6825413862723453,
+        -0.745674345381997,
+        0.03714334755220711,
+        0.03714334755218179,
+        -0.1378144809800451,
+        0.03714334755220711,
+        0.03714334755223243,
+        0.03714334755220711,
+        0.03714334755218179,
+        0.03714334755218179,
+        0.03714334755223243,
+        0.7647786287470008,
+        1.643602980777304,
+        1.6436029807773547,
+        1.49232252646788
+      ],
+      "source_energy": 40932.73718247218,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 52,
+      "time_s": 29.999999999999996,
+      "phrase": "resolve",
+      "defect": 0,
+      "style_weights": [
+        0.16572503563079943,
+        0.15953049830987096,
+        0.16306720224245516,
+        0.16286755617520265,
+        0.16114497613311418,
+        0.02898233006696022,
+        0.0009648380865782301,
+        0.15771756335501927
+      ],
+      "weighted_RMS": 4.366983102386961,
+      "normal_equation_residual": 1.0182666416157726e-13,
+      "normalized_pitch_energy": [
+        -1.5928822999921302,
+        -1.68254138368778,
+        -1.68254138368778,
+        -0.7456743530871577,
+        0.03714334720728468,
+        0.03714334720731,
+        -0.13781447825149937,
+        0.03714334720725936,
+        0.03714334720728468,
+        0.03714334720731,
+        0.03714334720725936,
+        0.03714334720736065,
+        0.03714334720731,
+        0.764778635243577,
+        1.64360297762164,
+        1.64360297762164,
+        1.4923225305612382
+      ],
+      "source_energy": 40932.73801189486,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 53,
+      "time_s": 30.576923076923073,
+      "phrase": "resolve",
+      "defect": 0,
+      "style_weights": [
+        0.1657250348001233,
+        0.1595304972122162,
+        0.1630672025355502,
+        0.16286755648517184,
+        0.16114497894141472,
+        0.028982330066510558,
+        0.0009648380865444358,
+        0.1577175618724687
+      ],
+      "weighted_RMS": 4.366983100277155,
+      "normal_equation_residual": 1.654809125381938e-13,
+      "normalized_pitch_energy": [
+        -1.592882300101767,
+        -1.6825413835215284,
+        -1.682541383521579,
+        -0.7456743535835677,
+        0.037143347185194964,
+        0.037143347185194964,
+        -0.13781447807624503,
+        0.03714334718514432,
+        0.037143347185194964,
+        0.037143347185245604,
+        0.037143347185194964,
+        0.037143347185194964,
+        0.037143347185194964,
+        0.7647786356623042,
+        1.643602977418813,
+        1.643602977418737,
+        1.4923225308238555
+      ],
+      "source_energy": 40932.73806631005,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 54,
+      "time_s": 31.15384615384615,
+      "phrase": "resolve",
+      "defect": 0,
+      "style_weights": [
+        0.16572503474589986,
+        0.15953049713989476,
+        0.1630672025600046,
+        0.16286755650642104,
+        0.16114497911931913,
+        0.028982330066481578,
+        0.0009648380865422588,
+        0.15771756177543672
+      ],
+      "weighted_RMS": 4.366983100141518,
+      "normal_equation_residual": 8.439591785372792e-14,
+      "normalized_pitch_energy": [
+        -1.5928823001088206,
+        -1.6825413835108938,
+        -1.6825413835108431,
+        -0.7456743536155447,
+        0.03714334718373717,
+        0.03714334718378781,
+        -0.13781447806499997,
+        0.03714334718373717,
+        0.03714334718373717,
+        0.03714334718373717,
+        0.03714334718373717,
+        0.03714334718373717,
+        0.03714334718378781,
+        0.7647786356892442,
+        1.643602977405725,
+        1.643602977405725,
+        1.4923225308407129
+      ],
+      "source_energy": 40932.73806984573,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 55,
+      "time_s": 31.730769230769226,
+      "phrase": "resolve",
+      "defect": 0,
+      "style_weights": [
+        0.16572503474238634,
+        0.15953049713518538,
+        0.16306720256176077,
+        0.16286755650783086,
+        0.161144979130675,
+        0.02898233006647971,
+        0.0009648380865421187,
+        0.1577175617691397
+      ],
+      "weighted_RMS": 4.366983100132793,
+      "normal_equation_residual": 1.3688165849013997e-13,
+      "normalized_pitch_energy": [
+        -1.5928823001092969,
+        -1.6825413835102074,
+        -1.682541383510258,
+        -0.7456743536176729,
+        0.03714334718362526,
+        0.03714334718362526,
+        -0.13781447806432823,
+        0.03714334718357462,
+        0.03714334718362526,
+        0.03714334718362526,
+        0.03714334718362526,
+        0.03714334718357462,
+        0.03714334718359994,
+        0.7647786356909718,
+        1.6436029774048306,
+        1.6436029774048306,
+        1.4923225308417485
+      ],
+      "source_energy": 40932.73807007439,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 56,
+      "time_s": 32.30769230769231,
+      "phrase": "cadence",
+      "defect": 0,
+      "style_weights": [
+        0.16576175385247433,
+        0.15919437123090144,
+        0.16741098508914704,
+        0.16366352374171958,
+        0.1562961796049133,
+        0.02898317543666516,
+        0.0009648662939848042,
+        0.1577251447501944
+      ],
+      "weighted_RMS": 4.368972905077009,
+      "normal_equation_residual": 1.2583690216725029e-13,
+      "normalized_pitch_energy": [
+        -1.5927700663220072,
+        -1.6826934879710929,
+        -1.6826934879710929,
+        -0.7452448893203397,
+        0.03716474073369237,
+        0.03716474073369237,
+        -0.13798207045731936,
+        0.03716474073369237,
+        0.03716474073374303,
+        0.03716474073374303,
+        0.03716474073374303,
+        0.03716474073369237,
+        0.03716474073369237,
+        0.764420724230982,
+        1.6437906041747399,
+        1.6437906041747652,
+        1.4920641435916235
+      ],
+      "source_energy": 40910.76396473491,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 57,
+      "time_s": 32.88461538461538,
+      "phrase": "cadence",
+      "defect": 0,
+      "style_weights": [
+        0.16578815834318184,
+        0.15921632297535895,
+        0.16753538291687378,
+        0.16367867160077104,
+        0.15606396725003555,
+        0.028983198656707766,
+        0.0009648681426777623,
+        0.15776943011439334
+      ],
+      "weighted_RMS": 4.369096629530551,
+      "normal_equation_residual": 1.2943180643613464e-13,
+      "normalized_pitch_energy": [
+        -1.5927633459445825,
+        -1.6827031125817362,
+        -1.6827031125817362,
+        -0.7452168997165047,
+        0.03716605797847614,
+        0.03716605797847614,
+        -0.13799244240207112,
+        0.037166057978425475,
+        0.037166057978425475,
+        0.03716605797845081,
+        0.037166057978425475,
+        0.03716605797840014,
+        0.03716605797840014,
+        0.7643972493054683,
+        1.6438024131114082,
+        1.6438024131114335,
+        1.4920483738714236
+      ],
+      "source_energy": 40908.47699071497,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 58,
+      "time_s": 33.46153846153846,
+      "phrase": "cadence",
+      "defect": 0,
+      "style_weights": [
+        0.16579059640132632,
+        0.1592191417684342,
+        0.1675383342426552,
+        0.16367847890459375,
+        0.15605171177049598,
+        0.028983200194133876,
+        0.0009648682628317769,
+        0.15777366845552873
+      ],
+      "weighted_RMS": 4.369104388851775,
+      "normal_equation_residual": 1.94507236345357e-13,
+      "normalized_pitch_energy": [
+        -1.5927629336014335,
+        -1.682703721407961,
+        -1.682703721407961,
+        -0.7452151022537782,
+        0.037166140085068466,
+        0.03716614008504313,
+        -0.1379930907114203,
+        0.0371661400850178,
+        0.037166140085068466,
+        0.037166140085068466,
+        0.03716614008504313,
+        0.037166140085068466,
+        0.037166140085068466,
+        0.7643957369748609,
+        1.643803157990542,
+        1.6438031579905927,
+        1.492047395746542
+      ],
+      "source_energy": 40908.302703830625,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 59,
+      "time_s": 34.03846153846153,
+      "phrase": "cadence",
+      "defect": 0,
+      "style_weights": [
+        0.16579077513459445,
+        0.15921936743261814,
+        0.16753836034754324,
+        0.16367842912506367,
+        0.1560510156342749,
+        0.028983200293556954,
+        0.0009648682705364969,
+        0.15777398376181218
+      ],
+      "weighted_RMS": 4.369104877620542,
+      "normal_equation_residual": 1.3549454926208112e-13,
+      "normalized_pitch_energy": [
+        -1.592762907926299,
+        -1.68270375992736,
+        -1.68270375992736,
+        -0.7452149876619564,
+        0.037166145240379395,
+        0.037166145240328734,
+        -0.1379931314768587,
+        0.037166145240328734,
+        0.037166145240379395,
+        0.037166145240328734,
+        0.037166145240328734,
+        0.0371661452403034,
+        0.037166145240328734,
+        0.7643956404081079,
+        1.6438032050490934,
+        1.6438032050491695,
+        1.492047334490732
+      ],
+      "source_energy": 40908.29069708902,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 60,
+      "time_s": 34.61538461538461,
+      "phrase": "cadence",
+      "defect": 0,
+      "style_weights": [
+        0.16579078722651247,
+        0.1592193832805085,
+        0.16753835675251913,
+        0.16367842474675873,
+        0.15605097415826977,
+        0.028983200299914587,
+        0.0009648682710273758,
+        0.15777400526448934
+      ],
+      "weighted_RMS": 4.369104908484483,
+      "normal_equation_residual": 1.5546877861658618e-13,
+      "normalized_pitch_energy": [
+        -1.5927629063147772,
+        -1.6827037623651742,
+        -1.6827037623651995,
+        -0.7452149803815854,
+        0.03716614556537074,
+        0.03716614556537074,
+        -0.13799313404868832,
+        0.03716614556532007,
+        0.03716614556537074,
+        0.03716614556537074,
+        0.03716614556532007,
+        0.03716614556532007,
+        0.03716614556532007,
+        0.7643956342679926,
+        1.6438032080251241,
+        1.6438032080251495,
+        1.4920473306342434
+      ],
+      "source_energy": 40908.289904785954,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 61,
+      "time_s": 35.192307692307686,
+      "phrase": "cadence",
+      "defect": 0,
+      "style_weights": [
+        0.16579078801683506,
+        0.15921938433556754,
+        0.1675383563535363,
+        0.16367842442948485,
+        0.15605097161670556,
+        0.028983200300319027,
+        0.0009648682710585541,
+        0.1577740066764931
+      ],
+      "weighted_RMS": 4.369104910436082,
+      "normal_equation_residual": 1.0293417141298053e-13,
+      "normalized_pitch_energy": [
+        -1.5927629062131832,
+        -1.6827037625195131,
+        -1.6827037625195131,
+        -0.7452149799197293,
+        0.03716614558587535,
+        0.03716614558592602,
+        -0.13799313421120463,
+        0.03716614558592602,
+        0.03716614558592602,
+        0.03716614558587535,
+        0.037166145585850026,
+        0.03716614558590069,
+        0.037166145585850026,
+        0.7643956338783575,
+        1.6438032082134841,
+        1.6438032082134841,
+        1.4920473303907638
+      ],
+      "source_energy": 40908.28985355707,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 62,
+      "time_s": 35.76923076923077,
+      "phrase": "cadence",
+      "defect": 0,
+      "style_weights": [
+        0.16579078806766587,
+        0.15921938440408412,
+        0.167538356322676,
+        0.16367842440808633,
+        0.15605097145851995,
+        0.028983200300344698,
+        0.0009648682710605316,
+        0.15777400676756254
+      ],
+      "weighted_RMS": 4.36910491055958,
+      "normal_equation_residual": 1.1618966648338229e-13,
+      "normalized_pitch_energy": [
+        -1.592762906206742,
+        -1.682703762529304,
+        -1.6827037625292534,
+        -0.7452149798904889,
+        0.037166145587155024,
+        0.037166145587155024,
+        -0.13799313422152698,
+        0.037166145587155024,
+        0.037166145587155024,
+        0.03716614558720569,
+        0.03716614558720569,
+        0.03716614558720569,
+        0.03716614558720569,
+        0.7643956338537269,
+        1.6438032082253653,
+        1.6438032082254161,
+        1.4920473303753894
+      ],
+      "source_energy": 40908.28985027799,
+      "source_energy_units": "musical heuristic; not joules"
+    },
+    {
+      "tick": 63,
+      "time_s": 36.34615384615384,
+      "phrase": "cadence",
+      "defect": 0,
+      "style_weights": [
+        0.16579078807090988,
+        0.15921938440847958,
+        0.16753835632053896,
+        0.1636784244066885,
+        0.1560509714485921,
+        0.02898320030034633,
+        0.000964868271060657,
+        0.1577740067733841
+      ],
+      "weighted_RMS": 4.3691049105673985,
+      "normal_equation_residual": 1.3713297137325535e-13,
+      "normalized_pitch_energy": [
+        -1.592762906206304,
+        -1.682703762529842,
+        -1.682703762529842,
+        -0.7452149798886131,
+        0.03716614558730272,
+        0.03716614558730272,
+        -0.1379931342220934,
+        0.03716614558730272,
+        0.03716614558730272,
+        0.03716614558730272,
+        0.03716614558730272,
+        0.03716614558730272,
+        0.03716614558732805,
+        0.7643956338521682,
+        1.6438032082262035,
+        1.6438032082261782,
+        1.4920473303744826
+      ],
+      "source_energy": 40908.28985006919,
+      "source_energy_units": "musical heuristic; not joules"
+    }
+  ]
+}
+;
+const targets=document.querySelector('#targets');score.calibration_targets.forEach(t=>{const r=document.createElement('tr');[t.spelling+t.octave,t.target_Hz.toFixed(6),t.offset_cents.toFixed(6),t.engine_id+' / '+t.strategy].forEach(v=>{const d=document.createElement('td');d.textContent=v;r.append(d)});targets.append(r)});
+let ctx=null,timers=[],started=0,duration=0,raf=0;
+function stop(){timers.forEach(clearTimeout);timers=[];cancelAnimationFrame(raf);if(ctx){ctx.close();ctx=null}document.querySelector('#play').disabled=false;document.querySelector('#stop').disabled=true;document.querySelector('#status').textContent='Stopped. Hardware execution remains disabled.'}
+function progress(){if(!ctx)return;const t=ctx.currentTime-started;document.querySelector('#progress').value=Math.min(1,t/duration);if(t<duration)raf=requestAnimationFrame(progress);else stop()}
+document.querySelector('#play').onclick=async()=>{stop();const Audio=window.AudioContext||window.webkitAudioContext;if(!Audio){document.querySelector('#status').textContent='Web Audio unavailable in this browser.';return}ctx=new Audio();await ctx.resume();engine.setSeed(score.seed);const master=ctx.createGain(),lim=ctx.createDynamicsCompressor();master.gain.value=.15;lim.threshold.value=-12;lim.ratio.value=12;master.connect(lim);lim.connect(ctx.destination);started=ctx.currentTime;duration=Math.max(...score.events.map(e=>e.start_s+e.duration_s))+.5;document.querySelector('#play').disabled=true;document.querySelector('#stop').disabled=false;document.querySelector('#status').textContent='Playing recovered Gen2 note synthesis locally. No actuator commands.';for(const e of score.events){timers.push(setTimeout(()=>{if(!ctx)return;engine.playNote(ctx,master,e.target_Hz,e.previous_Hz,e.voice_type,e.source_amplitude,e.duration_s,e.phrase,e.source_pan,e.normalized_energy,e.energy_sigma,e.inverse_trace);document.querySelector('#event').textContent=e.voice_name+' / '+e.spelling+e.octave+' / '+e.target_Hz.toFixed(3)+' Hz / '+e.phrase},e.start_s*1000))}progress()};
+document.querySelector('#stop').onclick=stop;
+document.querySelector('#save').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(score,null,2)],{type:'application/json'}));a.download='instrument_score.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)};
+globalThis.fusionAuditionCheck={schema:score.schema,eventCount:score.events.length,sourceSynthesis:typeof engine.playNote==='function',hardwareEnabled:false};
+</script></html>

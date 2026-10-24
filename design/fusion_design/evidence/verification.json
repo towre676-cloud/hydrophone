@@ -6,10 +6,10 @@
     "physical_evidence_gate": "synthetic run rejected",
     "passive_model": "rerun by primary agent; internal energy, repeat and state-space/FRF assertions passed",
     "OpenSCAD": "CSG syntax compile passed; no strength, seal or fabrication validation claimed",
-    "PDF": "11 pages rendered; contact sheet inspected; revised pages individually checked",
+    "PDF": "13 pages rendered; new integration pages individually inspected; revised original pages reviewed in contact sheet.",
     "source_status": "current selected Library reads and explicit repository main source inspections; repo test suites not executed",
     "hardware": "not assembled, purchased or measured",
-    "repo_adapters": "proposed interfaces; no live integration or repository changes",
+    "repo_adapters": "Dyletsky scoring and recovered Fusion software bridge execute; physical acquisition/controller and core repo adapters are unimplemented.",
     "independent_final_review": "Corrected to four-leaf pitch-resisting guide with measured parasitic rotation; scalar q,p Hamiltonian adapter; one exact PerfectPower word cost budget."
   },
   "python": "3.12.14",
@@ -21,5 +21,14 @@
     "maximum_sampled_free_energy_increment_J": -2.6870216758037807e-10,
     "repeat_run_max_state_difference": 0.0,
     "state_space_frequency_law_max_relative_error": 5.832299698089575e-16
+  },
+  "dyletsky_integration": {
+    "strategies_checked": 21,
+    "max_offset_difference_cents": 8.526512829121202e-14,
+    "source_JS_parity": "passed",
+    "generated_events": 68,
+    "archive_Fusion_replay_checks": 600,
+    "mock_audio_graph_oscillators": 311,
+    "actual_browser_audio_tested": false
   }
 }
