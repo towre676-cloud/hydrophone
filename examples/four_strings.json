@@ -1,0 +1,42 @@
+[
+  {
+    "id": "string-1",
+    "pitch_class": "C",
+    "base_frequency_hz": 261.625565,
+    "base_tension_N": 20,
+    "tension_bounds_N": [
+      10,
+      30
+    ]
+  },
+  {
+    "id": "string-2",
+    "pitch_class": "D",
+    "base_frequency_hz": 293.664768,
+    "base_tension_N": 20,
+    "tension_bounds_N": [
+      10,
+      30
+    ]
+  },
+  {
+    "id": "string-3",
+    "pitch_class": "E",
+    "base_frequency_hz": 329.627557,
+    "base_tension_N": 20,
+    "tension_bounds_N": [
+      10,
+      30
+    ]
+  },
+  {
+    "id": "string-4",
+    "pitch_class": "G",
+    "base_frequency_hz": 391.995436,
+    "base_tension_N": 20,
+    "tension_bounds_N": [
+      10,
+      30
+    ]
+  }
+]

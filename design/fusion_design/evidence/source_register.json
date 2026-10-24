@@ -1,0 +1,19 @@
+{
+  "retrieval_date_local": "2026-10-24",
+  "source_policy": "Current selected-file reads and explicit main source reads. Historical assistant claims are proposals unless independently supported.",
+  "library": [
+    {"name":"Claycompute.txt","library_file_id":"libfile_313310e9f8508191841b84e39fe135fa","file_id":"file_00000000cad471fd87fe98022865fa7d","used_lines":[409,508]},
+    {"name":"claycompute_exposition.md.pdf","library_file_id":"libfile_04d86703cf5c819182cea2a372a0f9ae","access":"extracted text; prior proposals not hardware validation"},
+    {"name":"dyle2.txt","library_file_id":"libfile_2f22625157bc819192ee648aac5dc0fb","file_id":"file_00000000a29871fd8d5319e2c318ddff","used_line_windows":[[1,230],[490,679]]},
+    {"name":"dyle3.txt","library_file_id":"libfile_5d6733f555908191a81bd8de72503bf1","file_id":"file_00000000d61071fdad8336f0ebae4b54","used_lines":[1,170]}
+  ],
+  "recovery_gap": "Exact historical hydrophone/string apparatus not recovered; delivered combined mechanical architecture is new.",
+  "hardware_primary_sources": [
+    "https://www.aquarianaudio.com/AqAudDocs/H2dX_manual.pdf",
+    "https://www.aquarianaudio.com/h2d-hydrophone.html",
+    "https://www.behringer.com/en/products/0805-AAN",
+    "https://www.daytonaudio.com/product/1087/daex25-sound-exciter-pair",
+    "https://daytonaudio.vortxhosting.com/images/resources/295-224--dayton-audio-daex25fhe-4-specifications.pdf",
+    "https://www.phidgets.com/?prodid=957"
+  ]
+}

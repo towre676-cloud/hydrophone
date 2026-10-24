@@ -1,0 +1,42 @@
+[
+  {
+    "event_id": "note-1",
+    "spelling": "C",
+    "octave": 4,
+    "voice": 1,
+    "onset_s": "0",
+    "duration_s": "1",
+    "amplitude": "0.2",
+    "tolerance_cents": "5"
+  },
+  {
+    "event_id": "note-2",
+    "spelling": "D",
+    "octave": 4,
+    "voice": 2,
+    "onset_s": "0",
+    "duration_s": "1",
+    "amplitude": "0.2",
+    "tolerance_cents": "5"
+  },
+  {
+    "event_id": "note-3",
+    "spelling": "E",
+    "octave": 4,
+    "voice": 3,
+    "onset_s": "0",
+    "duration_s": "1",
+    "amplitude": "0.2",
+    "tolerance_cents": "5"
+  },
+  {
+    "event_id": "note-4",
+    "spelling": "G",
+    "octave": 4,
+    "voice": 4,
+    "onset_s": "0",
+    "duration_s": "1",
+    "amplitude": "0.2",
+    "tolerance_cents": "5"
+  }
+]

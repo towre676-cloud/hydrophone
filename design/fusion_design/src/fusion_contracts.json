@@ -1,0 +1,174 @@
+{
+  "schema": "fusion.interfaces/1",
+  "implementation_status": "PROPOSED_ADAPTERS_NOT_LIVE_REPOSITORY_INTEGRATION",
+  "physical_model_status": "UNCALIBRATED",
+  "run_contract": {
+    "schema": "fusion.run/1",
+    "data_origin": "physical_measurement OR synthetic; never interchangeable",
+    "identity": [
+      "run_id",
+      "specimen_id",
+      "cartridge_batch",
+      "history_protocol",
+      "operator_id"
+    ],
+    "raw_files": [
+      "multichannel_audio.wav",
+      "slow_force_displacement.csv",
+      "drive_command.wav"
+    ],
+    "audio": [
+      "sample_rate_Hz",
+      "channel_map",
+      "gain_per_channel",
+      "clipping",
+      "missing_samples"
+    ],
+    "slow": [
+      "force_N",
+      "displacement_m",
+      "temperature_C",
+      "logger_time_s"
+    ],
+    "calibration": [
+      "calibration_id",
+      "sensor_units",
+      "uncertainty_and_domain",
+      "measured_drive_transfer"
+    ],
+    "geometry": [
+      "sensor_xyz_m",
+      "orientation",
+      "water_depth_m",
+      "cartridge_dimensions_m",
+      "rod_state"
+    ],
+    "sync": [
+      "offset_s",
+      "drift_rate",
+      "sync_residual_s",
+      "method"
+    ],
+    "environment": [
+      "water_temperature_C",
+      "room_temperature_C",
+      "cartridge_mass_g",
+      "elapsed_since_write_s"
+    ],
+    "provenance": [
+      "code_commit_per_dependency",
+      "model_id",
+      "calibration_run_ids",
+      "validity_domain"
+    ]
+  },
+  "services": [
+    {
+      "owner": "Dyletsky",
+      "input": "labelled interval constraints, weights, gauge and phrase seed",
+      "output_schema": "fusion.score/1",
+      "output": [
+        "spelling",
+        "octave",
+        "target_Hz",
+        "offset_cents",
+        "duration_s",
+        "voice",
+        "amplitude",
+        "tolerance_cents"
+      ],
+      "boundary": "17 software labels, 4 simultaneous physical strings; manual retuning in v1"
+    },
+    {
+      "owner": "DynaComp",
+      "input_schema": "fusion.model/1",
+      "input": [
+        "A_B_C_and_units",
+        "sample_period_s",
+        "initial_and_input_boxes",
+        "physical_validity_domain",
+        "discrepancy_budget"
+      ],
+      "output": [
+        "reduced_plan",
+        "identity_or_residual_packet",
+        "output_error_envelope",
+        "rejection_reason"
+      ],
+      "boundary": "no physical certificate without separate calibration and model discrepancy bounds"
+    },
+    {
+      "owner": "Singularity",
+      "input_schema": "fusion.experiments/1",
+      "input": [
+        "finite_candidate_histories",
+        "candidate_feature_predictions",
+        "noise_bounds",
+        "probe_costs",
+        "reset_and_definedness_guards"
+      ],
+      "output": [
+        "distinguishing_panel",
+        "ambiguous_pairs",
+        "work_limit_status"
+      ],
+      "boundary": "finite hypothesis pool and declared valid reading/noise tables; continuous rheology is not automatic"
+    },
+    {
+      "owner": "PerfectJet",
+      "input_schema": "fusion.decision/1",
+      "input": [
+        "target_rows",
+        "nominal_observation_relation",
+        "observations",
+        "deterministic_error_bounds",
+        "resource_menu"
+      ],
+      "output": [
+        "settled",
+        "exact_tie",
+        "needs_measurement",
+        "needs_tighter_bounds"
+      ],
+      "boundary": "supported linear chart and documented finite size limits; no arbitrary nonlinear noisy-fit solver"
+    },
+    {
+      "owner": "PerfectPower",
+      "input_schema": "fusion.program-menu/1",
+      "input": [
+        "finite_drive_actions_max_16",
+        "chronological_transition_guards",
+        "one_exact_integer_cost_budget_0_to_256",
+        "action_costs_1_to_16",
+        "rational_objectives",
+        "work_budget"
+      ],
+      "output": [
+        "admissible_word_count",
+        "ranked_word",
+        "optimal_words_or_ties",
+        "work_limit_status"
+      ],
+      "boundary": "Current ordered-word cost is one exact integer budget. Multiple physical resource limits need a new guard-state adapter. Upper-bound menus aggregate exact-budget populations or validate padding. Hardware checks remain independent."
+    },
+    {
+      "owner": "nonlinearhamiltonian",
+      "input_schema": "fusion.symbolics/1",
+      "input": [
+        "supported_scalar_H_in_one_canonical_pair_q_p",
+        "target_observables",
+        "explicit_missing_forces"
+      ],
+      "output": [
+        "exact_symbolic_identities",
+        "closure_failure_witnesses"
+      ],
+      "boundary": "Single chosen modal conservative symbolic reference only; no general vector-Hamiltonian adapter, dissipation or plastic history law is supplied."
+    }
+  ],
+  "decision_to_hardware_guard": {
+    "physical_execution_enabled": false,
+    "reason": "No physical drivers, calibration, actuator limits or measured run available in this design packet",
+    "first_allowed_work": "Offline arithmetic and synthetic replay only"
+  }
+}

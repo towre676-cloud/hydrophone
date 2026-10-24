@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-24",
+  "kind": "DESIGN_AND_SYNTHETIC_VERIFICATION_ONLY",
+  "checks": {
+    "design_arithmetic": "passed independent standard-library calculation and invariants",
+    "physical_evidence_gate": "synthetic run rejected",
+    "passive_model": "rerun by primary agent; internal energy, repeat and state-space/FRF assertions passed",
+    "OpenSCAD": "CSG syntax compile passed; no strength, seal or fabrication validation claimed",
+    "PDF": "11 pages rendered; contact sheet inspected; revised pages individually checked",
+    "source_status": "current selected Library reads and explicit repository main source inspections; repo test suites not executed",
+    "hardware": "not assembled, purchased or measured",
+    "repo_adapters": "proposed interfaces; no live integration or repository changes",
+    "independent_final_review": "Corrected to four-leaf pitch-resisting guide with measured parasitic rotation; scalar q,p Hamiltonian adapter; one exact PerfectPower word cost budget."
+  },
+  "python": "3.12.14",
+  "quantitative_model_checks": {
+    "free_initial_energy_J": 6.219426343496253e-05,
+    "free_final_energy_J": 6.575978124294348e-06,
+    "free_max_energy_balance_residual_J": 1.9583401740519424e-18,
+    "forced_max_energy_balance_residual_J": 5.757177063369073e-22,
+    "maximum_sampled_free_energy_increment_J": -2.6870216758037807e-10,
+    "repeat_run_max_state_difference": 0.0,
+    "state_space_frequency_law_max_relative_error": 5.832299698089575e-16
+  }
+}

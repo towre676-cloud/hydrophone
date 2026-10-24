@@ -1,0 +1,30 @@
+Integration handoff for Design Unified Physical Object
+
+Continue the existing proposed600x320x240mm four-string frame, moving
+bridge, replaceable lateral clay pad, dry-rod/diaphragm vented water cell,
+and separate slow plunger. This package supplies the complementary
+mathematical interface; it does not replace your drawings or electronics.
+
+Fill acquisition_contract.json from the actual design: drawing/BOM
+revisions, force/displacement/string/vibration/hydrophone locations and
+quantities, sample clocks/rates/skew, geometry and pressure transfers,
+preparation/reset/excitation protocols, and actuator envelopes. Bind
+repository_handoff.json to real commits and executable entry points only
+after checking the corresponding repositories.
+
+Run python object_adapter.py for the exact synthetic integration replay.
+The adapter groups features from one excitation as one paid acquisition,
+supports native-unit per-hypothesis intervals, and consumes a transcript
+to return common model-acceptable actions or explicit abstention.
+
+Use the first physical experiment to compare repeated prepared histories
+at a declared common geometry, retaining slow force/displacement plus raw
+string/bridge/hydrophone records. Transfer-only features may hide initial
+memory in a linear model. The replay's SLS force difference is not a clay
+measurement; its instant t=0 bounds omit finite-window memory drift.
+
+The fixture actions classify memory and do not drive motors. Metadata
+checks establish identifier consistency only. Physical calibration,
+synchronization, model validity and actuator feasibility remain separate.
+No build or measured advantage is claimed. The two sessions meet at the
+same acquisition contract and first confirmed memory experiment.

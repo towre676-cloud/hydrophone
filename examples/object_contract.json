@@ -1,0 +1,138 @@
+{
+  "schema": "unified-object/fusion-adapter/v1",
+  "evidence_scope": "EXACT_SYNTHETIC_MODEL_NOT_MEASURED",
+  "model": {
+    "name": "passive standard linear solid",
+    "coordinate": "direct clay deformation; ideal single-port replay only",
+    "mapping_to_actual_bridge_and_plunger": "UNIDENTIFIED",
+    "tau_s": "10",
+    "dynamic_angular_frequency_rad_per_s": "1000",
+    "force_evaluation": "instantaneous snapshot at t=0 with stated internal memory",
+    "finite_acquisition_window_and_memory_drift": "NOT_MODELED",
+    "k0_interval_N_per_m": [
+      "99",
+      "101"
+    ],
+    "k1_interval_N_per_m": [
+      "396",
+      "404"
+    ],
+    "hardware_validity": "NOT_ESTABLISHED"
+  },
+  "cost_unit": "DECLARED_PROTOCOL_COST",
+  "uncertainty_geometry": "CONSERVATIVE_OUTER_PRODUCT",
+  "hypotheses": [
+    {
+      "id": "low_memory"
+    },
+    {
+      "id": "high_memory"
+    }
+  ],
+  "actions": [
+    {
+      "id": "report_low_memory",
+      "evaluation": {
+        "low_memory": "PASS_WITH_BOUND",
+        "high_memory": "FAIL_WITH_BOUND"
+      }
+    },
+    {
+      "id": "report_high_memory",
+      "evaluation": {
+        "low_memory": "FAIL_WITH_BOUND",
+        "high_memory": "PASS_WITH_BOUND"
+      }
+    }
+  ],
+  "protocols": [
+    {
+      "id": "dynamic_transfer_acquisition",
+      "cost": "1",
+      "cost_unit": "DECLARED_PROTOCOL_COST",
+      "reset_semantics": "COMMON_RESET",
+      "features": [
+        {
+          "id": "storage_stiffness",
+          "unit": "N/m",
+          "location_id": "clay-plunger",
+          "transfer_path_id": "plunger-to-pad",
+          "calibration_id": "SYNTHETIC_CALIBRATION",
+          "clock_id": "SYNTHETIC_CLOCK",
+          "intervals": {
+            "low_memory": [
+              "494",
+              "506"
+            ],
+            "high_memory": [
+              "494",
+              "506"
+            ]
+          }
+        },
+        {
+          "id": "loss_stiffness",
+          "unit": "N/m",
+          "location_id": "clay-plunger",
+          "transfer_path_id": "plunger-to-pad",
+          "calibration_id": "SYNTHETIC_CALIBRATION",
+          "clock_id": "SYNTHETIC_CLOCK",
+          "intervals": {
+            "low_memory": [
+              "39/1000",
+              "41/1000"
+            ],
+            "high_memory": [
+              "39/1000",
+              "41/1000"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "slow_plunger_acquisition",
+      "cost": "2",
+      "cost_unit": "DECLARED_PROTOCOL_COST",
+      "reset_semantics": "COMMON_RESET",
+      "features": [
+        {
+          "id": "force",
+          "unit": "N",
+          "location_id": "clay-plunger",
+          "transfer_path_id": "plunger-to-pad",
+          "calibration_id": "SYNTHETIC_CALIBRATION",
+          "clock_id": "SYNTHETIC_CLOCK",
+          "intervals": {
+            "low_memory": [
+              "8017/20000",
+              "1757/4000"
+            ],
+            "high_memory": [
+              "653/4000",
+              "3937/20000"
+            ]
+          }
+        },
+        {
+          "id": "displacement",
+          "unit": "m",
+          "location_id": "clay-plunger",
+          "transfer_path_id": "plunger-to-pad",
+          "calibration_id": "SYNTHETIC_CALIBRATION",
+          "clock_id": "SYNTHETIC_CLOCK",
+          "intervals": {
+            "low_memory": [
+              "99/100000",
+              "101/100000"
+            ],
+            "high_memory": [
+              "99/100000",
+              "101/100000"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "schema": "unified-object/repository-handoff/v1",
+  "status": "PROPOSED_ROLES_NOT_EXISTING_VERIFIED_APIS",
+  "repositories": {
+    "nonlinearhamiltonian": {"proposed_responsibility": "energy, conservative dynamics, symmetry reductions and reachable-response checks under the identified object model", "verified_commit": null, "entry_point": null},
+    "PerfectJet": {"proposed_responsibility": "parameter identifiability, calibration strata, reduced models and exact algebraic checks", "verified_commit": null, "entry_point": null},
+    "Singularity": {"proposed_responsibility": "observable closures, probe features, distinguishability and held-out diagnostic evaluation", "verified_commit": null, "entry_point": null},
+    "PerfectPower": {"proposed_responsibility": "exact finite selection and planning for grouped acquisition protocols and feasible actions", "verified_commit": null, "entry_point": null},
+    "Dyletsky": {"proposed_responsibility": "spelled pitch and interval constraints; distinguish requested pitch adjustments from physically feasible string controls", "verified_commit": null, "entry_point": null}
+  },
+  "common_boundaries": {
+    "hardware_to_model": "raw acquisition references, SI-calibrated coordinates, clocks, preparation and reset history",
+    "model_to_decision": "hypothesis population, tri-state action evaluations, per-hypothesis native-unit feature intervals grouped by acquisition",
+    "decision_to_supervisor": "surviving hypotheses, common acceptable actions or abstention, model and evidence scope",
+    "supervisor_to_hardware": "UNBOUND_PENDING_COMMAND_LIMITS_AND_IDENTIFIED_TRANSFER_PATHS"
+  },
+  "next_required_hardware_session_outputs": ["drawing/BOM revision identifiers", "sensor locations and quantity mappings", "clock and sampling design", "reset/preparation/excitation protocols", "actuator travel/force/speed envelopes"],
+  "no_live_cross_session_message_or_repository_update_claimed": true
+}

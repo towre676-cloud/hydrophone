@@ -1,0 +1,20 @@
+{
+  "archives": [
+    {
+      "path": "archives/Fusion_Decision_Engine_20261024.zip",
+      "bytes": 18598,
+      "sha256": "699965824802bb8d4a1157fc5e74255bb4b697c9376a08e1712a056bc66532e2"
+    },
+    {
+      "path": "archives/Fusion_Instrument_Design_Package_20261024.zip",
+      "bytes": 954905,
+      "sha256": "93bb7208da79e2d535ef1443e998ce57f09053c49dad44fab2f6bfaad159ad44"
+    },
+    {
+      "path": "archives/Unified_Object_Integration_Handoff_20261024.zip",
+      "bytes": 24219,
+      "sha256": "da66e60f7eb430d9fd1b8d8504075a03bf43f48009e01d5a5c5894944426fb4f"
+    }
+  ],
+  "source": "Generated deliverables from the coordinated Fusion sessions; originals preserved"
+}

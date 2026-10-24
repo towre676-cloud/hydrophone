@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-24",
+  "scope": "Version references only; no external code was imported or executed by this computing package",
+  "references": [
+    {
+      "repository": "towre676-cloud/perfectpower",
+      "ref": "refs/heads/main",
+      "commit": "fbcf60923237eabd3ab8957d402ece768b59714a",
+      "status": "REFERENCE_PIN_ONLY_NOT_EXECUTED",
+      "runtime_binding": "NOT_IMPLEMENTED"
+    },
+    {
+      "repository": "towre676-cloud/PerfectJet",
+      "ref": "refs/heads/main",
+      "commit": "494caaf6df145175e11ac65c260b39b6e1aa2765",
+      "status": "REFERENCE_PIN_ONLY_NOT_EXECUTED",
+      "runtime_binding": "NOT_IMPLEMENTED"
+    },
+    {
+      "repository": "towre676-cloud/singularity",
+      "ref": "refs/heads/main",
+      "commit": "01d9cba0fe5d42ae9bc4d0c7d05b7b949c188300",
+      "status": "REFERENCE_PIN_ONLY_NOT_EXECUTED",
+      "runtime_binding": "NOT_IMPLEMENTED"
+    },
+    {
+      "repository": "towre676-cloud/DynaComp",
+      "ref": "refs/heads/main",
+      "commit": "cd788c7ac695728e3f5b22056a0f99a2c1e1463c",
+      "status": "REFERENCE_PIN_ONLY_NOT_EXECUTED",
+      "runtime_binding": "NOT_IMPLEMENTED"
+    },
+    {
+      "repository": "towre676-cloud/nonlinearhamiltonian",
+      "ref": "refs/heads/main",
+      "commit": "ddef8b9825b03e3c6eeef79b506bd27399393030",
+      "status": "REFERENCE_PIN_ONLY_NOT_EXECUTED",
+      "runtime_binding": "NOT_IMPLEMENTED"
+    }
+  ]
+}

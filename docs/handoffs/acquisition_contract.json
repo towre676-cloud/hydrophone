@@ -1,0 +1,31 @@
+{
+  "schema": "unified-object/acquisition-draft/v1",
+  "status": "DRAFT_NOT_READY_FOR_PHYSICAL_CERTIFICATION",
+  "design_source": {
+    "session_title": "Design Unified Physical Object",
+    "retrieved_fragment_utc": "2026-10-24T17:59:43Z",
+    "coverage": "PARTIAL_CHAT_RECOVERY",
+    "latest_drawing_revision": null,
+    "latest_bom_revision": null
+  },
+  "proposed_architecture": {
+    "frame_dimensions": {"value": [600, 320, 240], "unit": "mm", "status": "PROPOSED"},
+    "dry_string_count": 4,
+    "bridge": "moving bridge with replaceable clay pad governing lateral motion",
+    "water_interface": "dry rod to diaphragm in vented water cell",
+    "slow_material_input": "separate plunger for slow clay deformation"
+  },
+  "channels": [
+    {"role": "slow_force", "location_id": "clay-plunger", "quantity": "force", "unit_after_calibration": "N", "calibration_id": null, "sample_rate_hz": null, "sensor_model": null},
+    {"role": "slow_displacement", "location_id": "clay-plunger", "quantity": "displacement", "unit_after_calibration": "m", "calibration_id": null, "sample_rate_hz": null, "sensor_model": null},
+    {"role": "string_recording", "location_id": "dry-string-bank", "quantity": "raw transducer output", "unit_before_calibration": "V", "calibration_id": null, "sample_rate_hz": null, "sensor_model": null},
+    {"role": "direct_vibration", "location_id": "bridge", "quantity": "raw transducer output", "unit_before_calibration": "V", "calibration_id": null, "sample_rate_hz": null, "sensor_model": null},
+    {"role": "hydrophone", "location_id": "vented-water-cell", "quantity": "raw transducer output", "unit_before_calibration": "V", "unit_after_qualified_pressure_calibration": "Pa", "calibration_id": null, "sample_rate_hz": null, "sensor_model": null}
+  ],
+  "clock": {"master_id": null, "trigger_definition": null, "resampling_method": null, "cross_channel_skew_bound_s": null, "phase_comparisons_ready": false},
+  "mechanical_mapping": {"plunger_stroke_to_material_deformation": null, "bridge_motion_to_material_deformation": null, "rod_diaphragm_pressure_transfer": null, "preload_to_string_tension_path": null},
+  "raw_record_requirements": {"preserve_unfiltered_waveforms": true, "preserve_slow_baselines": true, "ordered_preparation_history": true, "commanded_and_observed_excitation_separate": true, "record_units_clock_calibration_clipping_missing_samples": true, "sensor_or_sample_settings_are_not_assumed": true},
+  "probe_cost_semantics": {"unit": null, "one_acquisition_all_features_charged_once": true, "reset_and_shared_setup_costs": "MUST_BE_DECLARED_BEFORE_COST_CLAIMS"},
+  "action_output": {"type": "recommendation_only", "executable_command_mapping": null, "travel_force_speed_limits": null, "physical_commands_enabled": false},
+  "physical_rows_acquired_by_this_handoff": 0
+}

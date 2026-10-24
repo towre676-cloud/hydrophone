@@ -1,0 +1,16 @@
+{
+  "slow_plunger_acquisition": {
+    "force": {
+      "value": "0.42",
+      "unit": "N",
+      "calibration_id": "SYNTHETIC_CALIBRATION",
+      "clock_id": "SYNTHETIC_CLOCK"
+    },
+    "displacement": {
+      "value": "0.001",
+      "unit": "m",
+      "calibration_id": "SYNTHETIC_CALIBRATION",
+      "clock_id": "SYNTHETIC_CLOCK"
+    }
+  }
+}

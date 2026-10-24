@@ -1,0 +1,79 @@
+{
+  "status": "DESIGN_ARITHMETIC_NOT_MEASURED",
+  "assumptions": {
+    "speaking_length_m": 0.4,
+    "nylon_diameter_m": 0.0005,
+    "assumed_density_kg_m3": 1150.0,
+    "linear_density_kg_m": 0.00022580197197676635,
+    "warning": "Measure linear density; flexible bridge, stretch and end corrections change pitch."
+  },
+  "spelled_pitch_labels": [
+    "C",
+    "C#",
+    "Db",
+    "D",
+    "D#",
+    "Eb",
+    "E",
+    "F",
+    "F#",
+    "Gb",
+    "G",
+    "G#",
+    "Ab",
+    "A",
+    "A#",
+    "Bb",
+    "B"
+  ],
+  "physical_simultaneous_voices": 4,
+  "notes": [
+    {
+      "spelling": "C4",
+      "equal_temperament_Hz": 261.6255653005986,
+      "ratio_fixture_Hz": 261.6255653005986,
+      "offset_cents": 0.0,
+      "ideal_nylon_tension_N": 9.891634573515784
+    },
+    {
+      "spelling": "D4",
+      "equal_temperament_Hz": 293.6647679174076,
+      "ratio_fixture_Hz": 294.32876096317347,
+      "offset_cents": 3.910001730774752,
+      "ideal_nylon_tension_N": 12.519100007105916
+    },
+    {
+      "spelling": "E4",
+      "equal_temperament_Hz": 329.6275569128699,
+      "ratio_fixture_Hz": 327.0319566257483,
+      "offset_cents": -13.686286135165112,
+      "ideal_nylon_tension_N": 15.455679021118419
+    },
+    {
+      "spelling": "G4",
+      "equal_temperament_Hz": 391.99543598174927,
+      "ratio_fixture_Hz": 392.43834795089793,
+      "offset_cents": 1.9550008653876136,
+      "ideal_nylon_tension_N": 22.25617779041052
+    }
+  ],
+  "clay_nominal_shear_strain_at_0p5_mm": 0.0625,
+  "water_nominal_volume_litre": 1.28,
+  "synthetic_record_gate": {
+    "accepted": false,
+    "reason": "missing_or_invalid_evidence",
+    "fields": [
+      "specimen_id",
+      "raw_audio_path",
+      "slow_csv_path",
+      "calibration_id",
+      "sync_residual_s",
+      "water_temperature_C",
+      "cartridge_mass_g",
+      "history_protocol",
+      "source_refs",
+      "validity_domain",
+      "data_origin=physical_measurement"
+    ]
+  }
+}

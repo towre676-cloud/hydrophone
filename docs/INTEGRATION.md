@@ -1,0 +1,13 @@
+# Shared object and computing boundary
+
+The design session's completed Engineering Design0.1 packet is preserved in `design/fusion_design/`. The current computing session supplies `computing/`, its examples/tests, and the earlier Fusion and object handoff archives. The repository is now the shared durable source for these parallel outputs.
+
+The authoritative current design interface description is `design/fusion_design/src/fusion_contracts.json`. The older `docs/handoffs/acquisition_contract.json` remains a draft checkpoint; the design PDF and CAD now supply geometry that was unavailable when that checkpoint was written. Sensor calibration, synchronization, physical drivers and actuator limits remain unqualified in both.
+
+The design packet assigns DynaComp the measured dynamical-model/reduction role; Singularity finite experiment distinguishability; PerfectJet recoverability and bounded decisions; PerfectPower finite program/resource planning; nonlinearhamiltonian a supported single-modal conservative symbolic reference; and Dyletsky labelled pitch targets and excitation phrases. This local computing layer provides concrete grouped interval and score/run formats for those boundaries. It does not claim that external repository APIs have already been imported or executed.
+
+A joint experiment begins with ordered preparation of the clay cartridge, records a declared geometry and time, and preserves slow force/displacement alongside string, direct-vibration and hydrophone channels. Raw paths, hashes, units, calibration records and clock maps accompany the record. One physical excitation is one acquisition group even if it yields many features. State-changing probes need independent prepared replicates or complete sequence models; merely labeling a probe reset does not prove it leaves the target memory intact.
+
+The first acceptance task is to determine whether prepared history differences are observable under confirmation cartridges or days, and whether a bounded diagnostic decision can be replayed. Dynamic transfer features can identify operators while concealing initial state. Slow force complements them in the illustrative SLS model. The new finite-hold calculation propagates memory relaxation instead of freezing its value throughout a nonzero dwell.
+
+Hardware command readiness remains separate from model decision sufficiency. The physical owner must supply measured travel, force, tension and speed envelopes, calibrated transfer paths, timing and drive limits before any recommendation is mapped to actuation. The existing code records this boundary explicitly and emits zero hardware commands.

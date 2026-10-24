@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-24",
+  "evidence": "OFFLINE_SYNTHETIC_MODELS_AND_BYTE_VALIDATION",
+  "unit_test_methods": 38,
+  "original_interval_panel_comparisons": 600,
+  "original_grouped_panel_comparisons": 16,
+  "planner_seeded_exhaustive_comparisons": 108,
+  "passive_model_replayed": true,
+  "design_arithmetic_replayed": true,
+  "memory_hold_summary": [
+    {
+      "hold_time_s": "0",
+      "separation_lower_bound_N_float_for_display": 0.204,
+      "planner_status": "OPTIMAL_PANEL_FOR_DECLARED_MODEL"
+    },
+    {
+      "hold_time_s": "1",
+      "separation_lower_bound_N_float_for_display": 0.1823029313121218,
+      "planner_status": "OPTIMAL_PANEL_FOR_DECLARED_MODEL"
+    },
+    {
+      "hold_time_s": "10",
+      "separation_lower_bound_N_float_for_display": 0.05987651258701368,
+      "planner_status": "OPTIMAL_PANEL_FOR_DECLARED_MODEL"
+    },
+    {
+      "hold_time_s": "30",
+      "separation_lower_bound_N_float_for_display": -0.01264854841215304,
+      "planner_status": "INFEASIBLE_FOR_COMPLETE_DECLARED_ACTION_TABLE"
+    },
+    {
+      "hold_time_s": "60",
+      "separation_lower_bound_N_float_for_display": -0.02343484450372011,
+      "planner_status": "INFEASIBLE_FOR_COMPLETE_DECLARED_ACTION_TABLE"
+    }
+  ],
+  "core_requires_third_party_packages": false,
+  "physical_trials_acquired": 0,
+  "hardware_commands_issued": 0
+}
