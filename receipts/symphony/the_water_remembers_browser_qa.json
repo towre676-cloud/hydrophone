@@ -1,0 +1,62 @@
+{
+  "status": "PASS",
+  "source": "/workspace/scratch/3d3c71b26aca/hydrophone_repo/music/the_water_remembers/player.html",
+  "initial": {
+    "duration": 183.981375,
+    "readyState": 4,
+    "volume": 0.8,
+    "chapters": 3,
+    "score": 961,
+    "title": "The Water Remembers · Hydrophone",
+    "subtitle": "An original three-movement work · corpus-conditioned themes · expressive sampled orchestra",
+    "sectionNames": [
+      "I · Earth and breath",
+      "II · Water in motion",
+      "III · The returning light"
+    ]
+  },
+  "play": {
+    "paused": false,
+    "currentTime": 3.013546,
+    "label": "Pause"
+  },
+  "pause_delta_s": 0,
+  "seek": 6,
+  "controls": {
+    "volume": 0.35,
+    "speed": 1.1,
+    "loop": true
+  },
+  "sectionSeek": {
+    "actual": 108.927531,
+    "expected": 108.92753172157937
+  },
+  "desktop": {
+    "scroll": 1440,
+    "viewport": 1440
+  },
+  "mobile": {
+    "scroll": 390,
+    "viewport": 390,
+    "controls": 46
+  },
+  "downloads": [
+    {
+      "filename": "performance.mp3",
+      "bytes": 4417677,
+      "sha256": "c96ea1ea2705de2bda3ef179f12fa1cc88efa5fca7b7728a1dd70264bf6172ee",
+      "published_bytes_match": true
+    },
+    {
+      "filename": "performance.mid",
+      "bytes": 66649,
+      "sha256": "368af7cbc6a3a60e65ee2e828ff74a7695ee88746c8893927bdac2398f374b69",
+      "published_bytes_match": true
+    }
+  ],
+  "page_errors": [],
+  "screenshots": [
+    "player_desktop.png",
+    "player_mobile.png"
+  ]
+}

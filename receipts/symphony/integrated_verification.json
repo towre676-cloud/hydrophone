@@ -1,0 +1,35 @@
+{
+  "source_commit": "1478437264b83d2a99a5e11e0159254603fccfb5",
+  "command": "python verify_all.py",
+  "exit_code": 0,
+  "suite_counts": [
+    221,
+    8,
+    12,
+    16,
+    13
+  ],
+  "total_tests": 270,
+  "suite_times_s": [
+    "44.857",
+    "0.003",
+    "0.054",
+    "0.475",
+    "0.024"
+  ],
+  "OK_lines": 5,
+  "staged_overlay_count": 60,
+  "working_files_changed_since_overlay": [],
+  "log_sha256": "0e29fc3207f4b80f8c5c3b8675437d7f25898d23495f31b7face0ae7f8a912f3",
+  "final_result": {
+    "status": "PASS",
+    "imported_payload_hashes": 49,
+    "node_parity_replayed": false,
+    "numerical_replayed": false,
+    "mechanical_generated_files_replayed": 5,
+    "openscad_syntax_checked": true,
+    "M04_generated_files_replayed": 8,
+    "hardware_commands_issued": 0,
+    "physical_measurements_made": 0
+  }
+}

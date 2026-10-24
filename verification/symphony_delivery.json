@@ -1,0 +1,66 @@
+{
+  "schema": "symphony.delivery-verification/1",
+  "verified_utc": "2026-10-24T20:47:54.432790+00:00",
+  "repository_parent": "1478437264b83d2a99a5e11e0159254603fccfb5",
+  "status": "PLAYABLE_MUSIC_AND_REPRODUCIBLE_PIPELINE_DELIVERED",
+  "sources": {
+    "scores": 1474,
+    "score_composers": 136,
+    "notated_noteheads": 2602628,
+    "performed_midi_files": 12741,
+    "named_pianists": 49,
+    "fit_performances": 8064,
+    "holdout_performances": 2393,
+    "completed_performance_notes": 35530748
+  },
+  "tests": {
+    "repository": 221,
+    "calibration": 8,
+    "capture": 12,
+    "writer_readout": 16,
+    "commissioning": 13,
+    "total": 270
+  },
+  "works": [
+    {
+      "id": "the_water_remembers",
+      "title": "The Water Remembers",
+      "duration_s": 183.981375,
+      "events": 961,
+      "audio_sha256": "c96ea1ea2705de2bda3ef179f12fa1cc88efa5fca7b7728a1dd70264bf6172ee",
+      "player_sha256": "0c8a8de18d0db123707fe4a7e269da043b96b6a8f5155d891dbed9fc513dd385",
+      "browser_qa_file": "receipts/symphony/the_water_remembers_browser_qa.json",
+      "physical_hardware_commands_issued": 0
+    },
+    {
+      "id": "clay_and_water",
+      "title": "Clay and Water \u2014 Chamber Symphony No. 1",
+      "duration_s": 360.406375,
+      "events": 1960,
+      "audio_sha256": "b0cac3215442c28538e3fecaba8b0b0426b7bed9d7ef4d7ba26a9fe69d303027",
+      "player_sha256": "dbc1dd322a01303380a5db01d3e6fa4f7db03bd59a77c76ca19a358b0ac37eb9",
+      "browser_qa_file": "receipts/symphony/clay_and_water_browser_qa.json",
+      "physical_hardware_commands_issued": 0
+    }
+  ],
+  "browser_qa": {
+    "actual_audio_playback": true,
+    "play_pause_seek_chapters": true,
+    "downloads_hash_match": true,
+    "desktop_and_mobile": true,
+    "javascript_errors": 0
+  },
+  "audio": "Recorded instrument samples rendered under individually expressive orchestral note control",
+  "model_claim": "Composer-balanced statistical composition priors and measured piano-performance priors; authored form/orchestration and no neural orchestra training claim",
+  "physical_instrument_recorded": false,
+  "hardware_commands_issued": 0,
+  "integration": {
+    "authoritative_M04_plus_music": true,
+    "imported_design_hashes": 49,
+    "original_mechanical_file_replays": 5,
+    "M04_generated_file_replays": 8,
+    "openscad_syntax_checked": true,
+    "archived_Fusion_checks": 600,
+    "log_sha256": "0e29fc3207f4b80f8c5c3b8675437d7f25898d23495f31b7face0ae7f8a912f3"
+  }
+}

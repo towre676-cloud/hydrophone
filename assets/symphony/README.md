@@ -1,0 +1,11 @@
+# Sampled orchestral playback assets
+
+The default renderer uses **GeneralUser GS 2.0.3** by S. Christian Collins through FluidSynth. This is a multisampled General MIDI playback bank with 261 instrument presets and 13 drum kits. It is not a corpus of musician performances and is not a recording of the proposed clay/string/water object. Composition-analysis counts are maintained separately from playback assets.
+
+Run `python assets/symphony/fetch_soundfont.py` to fetch the pinned 32.3 MB bank with a required SHA256 and byte count. The source revision, URL and digest are recorded in `soundfont.json`. The complete upstream license is preserved in `LICENSE-GeneralUserGS.txt`; it permits private/commercial music creation and redistribution, and includes the author's statement about the provenance of contained samples. The bank is fetched rather than committed into this source repository.
+
+Install FluidSynth for your operating system. On a Linux x86_64 host with `dpkg-deb`, `python assets/symphony/fetch_soundfont.py --native-linux` prepares the pinned Ubuntu FluidSynth 2.3.4 library and its missing dependencies in an isolated local directory. It does not install system packages or start an audio device. Source package URLs and byte hashes are recorded in `native_linux.json`; extracted libraries retain the packaged license notices. The renderer can use a system FluidSynth installation instead.
+
+Prepared audio is software-rendered sampled instrumentation. Articulation, phrase timing, expression, pitch and stereo placement come from the performance score. The bank does not by itself establish human-level orchestration or audience preference.
+
+The native renderer uses an explicitly checked 64-channel FluidSynth configuration, reserving the percussion channel and allocating up to 63 independent note channels including release tails. This keeps simultaneous cents, vibrato and expression separate. The pinned native build was unstable at a 256-channel setting in the complete composition-to-audio process; two fresh-process replays of the complete 950-event suite pass with 64 channels. That suite reaches 22 active layered voices. A score exceeding the available channel pool raises an error instead of silently reusing a sounding note's channel.

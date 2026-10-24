@@ -1,0 +1,41 @@
+{
+  "schema": "fusion.music-corpus-ingestion/1",
+  "status": "ALL_PINNED_SCORE_FILES_VERIFIED_AND_PARSED",
+  "sources": {
+    "openscore_lieder": {
+      "scores": 1352,
+      "notehead_count": 1365611,
+      "bytes": 493682625,
+      "composer_count": 107
+    },
+    "openscore_stringquartets": {
+      "scores": 122,
+      "notehead_count": 1237017,
+      "bytes": 1297947546,
+      "composer_count": 47
+    }
+  },
+  "source_file_count": 1474,
+  "unique_raw_score_count": 1474,
+  "parsed_score_count": 1474,
+  "composer_count": 136,
+  "notehead_count": 2602628,
+  "pitched_attack_count": 2491550,
+  "melodic_transition_count": 2048608,
+  "parse_failure_count": 0,
+  "unresolved_duration_count": 0,
+  "source_bytes": 1791630171,
+  "downloaded_archive_bytes": 804951803,
+  "corpus_profile_sha256": "aecaf7f45fcb450ba52ea9b46dc0ddbc2b00571b488966acdebaf76b46d6fe64",
+  "corpus_index_sha256": "18e6d96de12c21faca18cd52a784d8825da64465a83db7facafcfc9e91bd28db",
+  "sources_sha256": "824a385a245e24e805b8753e44f7b61b7fbae69a07addee0ab6e8b93385b3ef1",
+  "source_files_manifest_sha256": "b52027dc2fff786437d3989dd80e9b3133381d278e808a15affe02ca2fbbdb53",
+  "parser_source_sha256": "12f0720b96009bd96404cdf4f02d9ec4ecd17b40aca0acff06b38d5d5fc4c17c",
+  "score_markup_only": true,
+  "recorded_performances_ingested": 0,
+  "neural_model_trained": false,
+  "melodies_copied_into_output_by_ingestion": false,
+  "balance": "equal mixture of normalized composer histograms",
+  "repeat_expansion": false,
+  "composer_identity": "pinned source directory labels, unioned across corpora"
+}

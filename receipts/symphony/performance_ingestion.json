@@ -1,0 +1,21 @@
+{
+  "schema": "symphony.performance-ingestion-receipt/1",
+  "status": "ACTUAL_CORPUS_ANALYZED",
+  "performance_files": 12741,
+  "completed_note_records": 35530748,
+  "named_pianists": 49,
+  "canonical_composers": 27,
+  "fit_performances": 8064,
+  "fit_note_records": 21654108,
+  "held_out_performance_records": 2393,
+  "exact_byte_duplicates_excluded_from_fit": 3,
+  "parse_failures": 0,
+  "analysis_source_sha256": "cc648bf81abeeb9c9a7aceb4f3fbafac520392beb1e6a56e12564ed991b2b37a",
+  "source_manifest_sha256": "1cb7aaa2fa8b237a75eeb51642eab7ed62845650a890b6d6677db705bf167348",
+  "compressed_index_sha256": "34984875a8a3b3d9cdc95c313c5918e28d455033b93ed9b2617302938899db3d",
+  "parser_tests_passed": 7,
+  "orchestral_model_trained": false,
+  "listening_quality_improvement_established": false,
+  "raw_audio_ingested": false,
+  "inputs": "ATEPP automatic MIDI transcriptions; ASAP performed MIDI and aligned beat labels"
+}

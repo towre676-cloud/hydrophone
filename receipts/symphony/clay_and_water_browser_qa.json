@@ -1,0 +1,62 @@
+{
+  "status": "PASS",
+  "source": "/workspace/scratch/3d3c71b26aca/hydrophone_repo/music/clay_and_water/player.html",
+  "initial": {
+    "duration": 360.406375,
+    "readyState": 4,
+    "volume": 0.8,
+    "chapters": 3,
+    "score": 1960,
+    "title": "Clay and Water — Chamber Symphony No. 1 · Hydrophone",
+    "subtitle": "An original three-movement work · corpus-conditioned themes · expressive sampled orchestra",
+    "sectionNames": [
+      "I · Earth and breath",
+      "II · Water in motion",
+      "III · The returning light"
+    ]
+  },
+  "play": {
+    "paused": false,
+    "currentTime": 3.00547,
+    "label": "Pause"
+  },
+  "pause_delta_s": 0,
+  "seek": 6,
+  "controls": {
+    "volume": 0.35,
+    "speed": 1.1,
+    "loop": true
+  },
+  "sectionSeek": {
+    "actual": 213.387843,
+    "expected": 213.38784372030688
+  },
+  "desktop": {
+    "scroll": 1440,
+    "viewport": 1440
+  },
+  "mobile": {
+    "scroll": 390,
+    "viewport": 390,
+    "controls": 46
+  },
+  "downloads": [
+    {
+      "filename": "performance.mp3",
+      "bytes": 8652141,
+      "sha256": "b0cac3215442c28538e3fecaba8b0b0426b7bed9d7ef4d7ba26a9fe69d303027",
+      "published_bytes_match": true
+    },
+    {
+      "filename": "performance.mid",
+      "bytes": 133253,
+      "sha256": "19327146237d8e9caca64100f2d48d04bb7b53eb6e771b2c7edbba77696be990",
+      "published_bytes_match": true
+    }
+  ],
+  "page_errors": [],
+  "screenshots": [
+    "player_desktop.png",
+    "player_mobile.png"
+  ]
+}

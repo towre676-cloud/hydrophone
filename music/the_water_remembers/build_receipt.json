@@ -1,0 +1,182 @@
+{
+  "schema": "symphony.build/1",
+  "title": "The Water Remembers",
+  "seed": 20261024,
+  "build_parameters": {
+    "bars_scale": 1,
+    "tonic_pc": 2,
+    "palette": "all",
+    "sample_rate": 32000,
+    "bitrate": "192k"
+  },
+  "composition": {
+    "events": 961,
+    "instruments": {
+      "oboe": 35,
+      "bass": 88,
+      "cello": 120,
+      "viola": 120,
+      "harp": 36,
+      "violin2": 116,
+      "flute": 128,
+      "violin": 198,
+      "bassoon": 28,
+      "clarinet": 12,
+      "timpani": 7,
+      "horn": 70,
+      "trumpet": 3
+    },
+    "movements": 3,
+    "phrases": 11,
+    "melodic_intervals": {
+      "-5": 13,
+      "-4": 9,
+      "-3": 32,
+      "-2": 86,
+      "-1": 44,
+      "0": 24,
+      "1": 28,
+      "2": 37,
+      "3": 26,
+      "4": 10,
+      "5": 33,
+      "6": 1,
+      "7": 2
+    },
+    "maximum_within_phrase_melodic_leap_semitones": 7,
+    "aesthetic_quality_automatically_proved": false
+  },
+  "render": {
+    "schema": "symphony.render/1",
+    "backend": "sampled_instruments_fluidsynth",
+    "source_score_sha256": "acf71a02b114777b3e42e96a809ed2c337ffcc7d51135364938df205545b67e9",
+    "output_wav": "transient PCM master; reproduce with the recorded build parameters",
+    "sha256": "afd617b1d049e7c27dbd3aa8634bc78e78b81ae232548f9c89e854bb771f48f5",
+    "soundfont_path": "/workspace/scratch/3d3c71b26aca/hydrophone_repo/assets/symphony/GeneralUser-GS.sf2",
+    "soundfont_sha256": "9575028c7a1f589f5770fccc8cff2734566af40cd26ed836944e9a5152688cfe",
+    "sample_rate_Hz": 32000,
+    "channels": 2,
+    "sample_frames": 5887404,
+    "duration_s": 183.981375,
+    "event_count": 961,
+    "instruments": [
+      "bass",
+      "bassoon",
+      "cello",
+      "clarinet",
+      "flute",
+      "harp",
+      "horn",
+      "oboe",
+      "timpani",
+      "trumpet",
+      "viola",
+      "violin"
+    ],
+    "peak_full_scale": 0.89000004529953,
+    "rms_full_scale": 0.08711636949729949,
+    "global_normalization_gain": 5.471523597758583,
+    "clipped_sample_count": 0,
+    "expression_control": "per-note envelope, delayed vibrato, independent cents and layered section players",
+    "logical_midi_channels": 64,
+    "rendered_from_recorded_instrument_samples": true,
+    "live_orchestra_recording": false,
+    "physical_instrument_recorded": false,
+    "hardware_commands_issued": 0,
+    "score_duration_s": 180.9813740844007,
+    "release_tail_s": 3.0,
+    "peak_layered_voices": 21,
+    "control_period_s": 0.01,
+    "pcm_master_preserved": false
+  },
+  "mp3": {
+    "path": "music/the_water_remembers/performance.mp3",
+    "sha256": "c96ea1ea2705de2bda3ef179f12fa1cc88efa5fca7b7728a1dd70264bf6172ee",
+    "bytes": 4417677
+  },
+  "midi": {
+    "schema": "symphony.midi-export/1",
+    "path": "music/the_water_remembers/performance.mid",
+    "format": 1,
+    "tracks": 14,
+    "notes": 961,
+    "tempo_changes": 2638,
+    "duration_s": 180.9813740844007,
+    "ticks_per_quarter": 960,
+    "tuning": "STANDARD_MIDI_NOTES_AUDIO_CENTS_NOT_REPRESENTED",
+    "expression_changes": 8568,
+    "expression_scope": "SHARED_SECTION_CC11_MAXIMUM_OF_ACTIVE_NOTE_ENVELOPES",
+    "performed_timing_preserved": true
+  },
+  "player": {
+    "schema": "symphony.listening-room/1",
+    "path": "music/the_water_remembers/player.html",
+    "self_contained": true,
+    "audio_embedded": true,
+    "audio_sha256": "c96ea1ea2705de2bda3ef179f12fa1cc88efa5fca7b7728a1dd70264bf6172ee",
+    "events": 961,
+    "sections": 13,
+    "duration_s": 184.032,
+    "midi_embedded": true,
+    "controls": [
+      "play_pause",
+      "restart",
+      "seek",
+      "volume",
+      "playback_speed",
+      "loop"
+    ],
+    "physical_hardware_control": false
+  },
+  "corpus_profile_sha256": "aecaf7f45fcb450ba52ea9b46dc0ddbc2b00571b488966acdebaf76b46d6fe64",
+  "performance_profile_sha256": "69b6544a27dbe11ed5818714a31c50f8bbe8f62e7ea7f630b58e95cfe67fe8aa",
+  "corpus": {
+    "source_file_count": 1474,
+    "parsed_score_count": 1474,
+    "composer_count": 136
+  },
+  "performed_data": {
+    "performance_count": 12741,
+    "performer_count": 49,
+    "fit_performances": 8064,
+    "holdout_performances": 2393
+  },
+  "performance": {
+    "schema": "symphony.performance/1",
+    "seed": 20261024,
+    "method": "shared phrase rubato, part-correlated arrival, shaped dynamics and articulation",
+    "parameters": {
+      "rubato_strength": 0.075,
+      "cadence_ritard": 0.11,
+      "ensemble_spread_ms": 5.0,
+      "phrase_dynamic_depth": 0.14,
+      "intonation_drift_cents": 0.28
+    },
+    "lead_in_s": 0.045,
+    "phrase_count": 11,
+    "event_count": 961,
+    "recorded_performer_model_trained": false,
+    "measured_performance_priors": {
+      "schema": "symphony.performance-profile/1",
+      "source_manifest_sha256": "1cb7aaa2fa8b237a75eeb51642eab7ed62845650a890b6d6677db705bf167348",
+      "performance_count": 12741,
+      "performer_count": 49,
+      "tempo_statistic": "median_local_tempo_cv",
+      "used_statistics": {
+        "median_local_tempo_cv": 0.22424192410564905,
+        "median_velocity_iqr": 21.0
+      },
+      "mapping": {
+        "rubato_strength": "clip(0.35 * median_local_tempo_cv, 0.012, 0.075)",
+        "cadence_ritard": "clip(0.55 * median_local_tempo_cv, 0.035, 0.11)",
+        "phrase_dynamic_depth": "clip(median_velocity_iqr / 150, 0.06, 0.20)"
+      },
+      "scope": "Measured piano-performance priors with authored mappings; detrended local tempo CV is preferred, while global CV includes written/form changes. Orchestral bow/breath technique and phrase trajectories remain authored."
+    },
+    "parameter_origin": "measured statistical priors with authored mappings",
+    "symbolic_profile_origin": "symphony.performance-profile/1",
+    "scope": "Expressive rendering model; listening quality requires listening, not a unit-test claim."
+  },
+  "physical_hardware_commands_issued": 0,
+  "quality_scope": "Sampled virtual orchestra with corpus-conditioned composition and performance priors; aesthetic quality requires listening."
+}

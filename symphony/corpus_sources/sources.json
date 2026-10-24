@@ -1,0 +1,31 @@
+{
+  "schema": "fusion.music-corpus-sources/1",
+  "sources": [
+    {
+      "id": "openscore_lieder",
+      "repository": "OpenScore/Lieder",
+      "revision": "38c5db510224d9facdc4b08d741fc788cfb58ea8",
+      "tree_sha": "38c5db510224d9facdc4b08d741fc788cfb58ea8",
+      "url": "https://github.com/OpenScore/Lieder",
+      "archive_url": "https://codeload.github.com/OpenScore/Lieder/zip/38c5db510224d9facdc4b08d741fc788cfb58ea8",
+      "archive_sha256": "51248b7ba04e3ab674532a7f74016e96c1642b4f027622759009a2ff8852b690",
+      "archive_bytes": 192311711,
+      "edition_license": "CC0-1.0",
+      "scope": "notated score editions, no performance recordings",
+      "credit": "OpenScore Lieder"
+    },
+    {
+      "id": "openscore_stringquartets",
+      "repository": "OpenScore/StringQuartets",
+      "revision": "2614b0b2958dd1ce3f52e172a43e5f4d0e29570f",
+      "tree_sha": "2614b0b2958dd1ce3f52e172a43e5f4d0e29570f",
+      "url": "https://github.com/OpenScore/StringQuartets",
+      "archive_url": "https://codeload.github.com/OpenScore/StringQuartets/zip/2614b0b2958dd1ce3f52e172a43e5f4d0e29570f",
+      "archive_sha256": "f1a9d69cd56d1531fae04179e98f3734b03a1f1eec570a91dfaf95ada94ddd50",
+      "archive_bytes": 612640092,
+      "edition_license": "CC0-1.0",
+      "scope": "notated score editions, no performance recordings",
+      "credit": "OpenScore StringQuartets"
+    }
+  ]
+}
