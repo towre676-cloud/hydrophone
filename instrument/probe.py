@@ -81,8 +81,8 @@ def compile_probe(target_path, output_dir, *, sample_rate=48000, peak=.01,
 def load_probe(path):
     path = Path(path).resolve()
     plan = load_json(path)
-    if plan.get('schema') != 'hydrophone.stationary-probe/1':
-        raise ValueError('Expected stationary-probe/1')
+    if plan.get('schema') not in ('hydrophone.stationary-probe/1','hydrophone.episode-command/1'):
+        raise ValueError('Expected stationary-probe/1 or episode-command/1')
     record = plan['drive_command']
     name = record['path']
     if Path(name).is_absolute():
@@ -116,4 +116,7 @@ def load_probe(path):
     on, off = plan['stimulus_dac_window_s']
     if not 0 <= on < a < b < off <= plan['frames']/plan['sample_rate_Hz']:
         raise ValueError('Fit window must be strictly inside stimulus')
+    if plan['schema']=='hydrophone.episode-command/1':
+        from .episode import validate_episode_payload
+        validate_episode_payload(plan,pcm,path.parent)
     return plan, pcm, wav

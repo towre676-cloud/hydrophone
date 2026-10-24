@@ -1,0 +1,195 @@
+{
+  "schema": "hydrophone.motion-qualification/1",
+  "status": "measurements_with_declared_bounds",
+  "evidence_type": "synthetic_demo",
+  "configuration_id": "SYNTHETIC-M03-WET-ONLY",
+  "target_port": "boss_center_axial",
+  "reference_digital_peak": ".01",
+  "boss_motion_limit_m": ".00001",
+  "probe_frequencies_SI_Hz": [
+    261.626,
+    292.39573306577114,
+    326.759563456652,
+    391.1253463782126
+  ],
+  "evidence_files": [
+    {
+      "id": "SYNTHETIC-RAW",
+      "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    },
+    {
+      "id": "SYNTHETIC-CAL",
+      "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+    }
+  ],
+  "conditions": {
+    "wet_equilibrium_id": "SYNTHETIC-WET",
+    "rod_engagement_id": "SYNTHETIC-ROD",
+    "preload_state_id": "SYNTHETIC-PRELOAD",
+    "sensor_mount_id": "SYNTHETIC-MOUNT",
+    "frequency_timebase_calibration_id": "SYNTHETIC-TIMEBASE",
+    "same_waveform_family": true,
+    "same_configuration": true,
+    "stationarity_checked": true,
+    "no_clipping_or_dropout": true,
+    "bounds_include_projection_and_rotation": true,
+    "evidence_ids": [
+      "SYNTHETIC-RAW",
+      "SYNTHETIC-CAL"
+    ],
+    "writer_engagement_id": "SYNTHETIC-WRITER-DISCONNECTED"
+  },
+  "amplitude_scaling": {
+    "mode": "uniform_linear_envelope_declared",
+    "digital_peak_domain": [
+      0,
+      ".02"
+    ],
+    "relative_gain_error_upper": ".05",
+    "covers_waveform_quantization_and_nonlinearity": true,
+    "evidence_ids": [
+      "SYNTHETIC-RAW",
+      "SYNTHETIC-CAL"
+    ]
+  },
+  "tones": [
+    {
+      "frequency_SI_Hz": 261.626,
+      "frequency_error_Hz": ".05",
+      "mode": "bridge_acceleration_with_measured_transfer",
+      "bridge_acceleration_m_per_s2": {
+        "real": "4",
+        "imag": ".3",
+        "error_radius_abs": ".2"
+      },
+      "boss_over_bridge_displacement": {
+        "real": "1.1",
+        "imag": ".2",
+        "error_radius_abs": ".05"
+      },
+      "transfer_domain_covers_frequency_amplitude_preload": true,
+      "evidence_ids": [
+        "SYNTHETIC-RAW"
+      ],
+      "transfer_evidence_ids": [
+        "SYNTHETIC-CAL"
+      ]
+    },
+    {
+      "frequency_SI_Hz": 292.39573306577114,
+      "frequency_error_Hz": ".05",
+      "mode": "bridge_acceleration_with_measured_transfer",
+      "bridge_acceleration_m_per_s2": {
+        "real": "4",
+        "imag": ".3",
+        "error_radius_abs": ".2"
+      },
+      "boss_over_bridge_displacement": {
+        "real": "1.1",
+        "imag": ".2",
+        "error_radius_abs": ".05"
+      },
+      "transfer_domain_covers_frequency_amplitude_preload": true,
+      "evidence_ids": [
+        "SYNTHETIC-RAW"
+      ],
+      "transfer_evidence_ids": [
+        "SYNTHETIC-CAL"
+      ]
+    },
+    {
+      "frequency_SI_Hz": 326.759563456652,
+      "frequency_error_Hz": ".05",
+      "mode": "bridge_acceleration_with_measured_transfer",
+      "bridge_acceleration_m_per_s2": {
+        "real": "4",
+        "imag": ".3",
+        "error_radius_abs": ".2"
+      },
+      "boss_over_bridge_displacement": {
+        "real": "1.1",
+        "imag": ".2",
+        "error_radius_abs": ".05"
+      },
+      "transfer_domain_covers_frequency_amplitude_preload": true,
+      "evidence_ids": [
+        "SYNTHETIC-RAW"
+      ],
+      "transfer_evidence_ids": [
+        "SYNTHETIC-CAL"
+      ]
+    },
+    {
+      "frequency_SI_Hz": 391.1253463782126,
+      "frequency_error_Hz": ".05",
+      "mode": "bridge_acceleration_with_measured_transfer",
+      "bridge_acceleration_m_per_s2": {
+        "real": "4",
+        "imag": ".3",
+        "error_radius_abs": ".2"
+      },
+      "boss_over_bridge_displacement": {
+        "real": "1.1",
+        "imag": ".2",
+        "error_radius_abs": ".05"
+      },
+      "transfer_domain_covers_frequency_amplitude_preload": true,
+      "evidence_ids": [
+        "SYNTHETIC-RAW"
+      ],
+      "transfer_evidence_ids": [
+        "SYNTHETIC-CAL"
+      ]
+    }
+  ],
+  "remainder_bounds": {
+    "in_band_non_tone_peak_m": {
+      "bound_m": ".0000001",
+      "scope": "uniform_over_declared_command_domain",
+      "evidence_ids": [
+        "SYNTHETIC-CAL"
+      ]
+    },
+    "outside_measured_band_peak_m": {
+      "bound_m": ".0000001",
+      "scope": "uniform_over_declared_command_domain",
+      "evidence_ids": [
+        "SYNTHETIC-CAL"
+      ]
+    },
+    "sub_band_and_equilibrium_drift_peak_m": {
+      "bound_m": ".0000001",
+      "scope": "uniform_over_declared_command_domain",
+      "evidence_ids": [
+        "SYNTHETIC-CAL"
+      ]
+    },
+    "drive_on_off_transient_peak_m": {
+      "bound_m": ".0000001",
+      "scope": "uniform_over_declared_command_domain",
+      "evidence_ids": [
+        "SYNTHETIC-CAL"
+      ]
+    },
+    "instrument_head_and_mount_motion_peak_m": {
+      "bound_m": ".0000001",
+      "scope": "uniform_over_declared_command_domain",
+      "evidence_ids": [
+        "SYNTHETIC-CAL"
+      ]
+    }
+  },
+  "observed_motion_band_SI_Hz": [
+    20,
+    2000
+  ],
+  "required_time_interval_SI_s": [
+    0,
+    10
+  ],
+  "measurement_time_interval_SI_s": [
+    "-.1",
+    "10.1"
+  ],
+  "measurement_time_error_s": ".001"
+}

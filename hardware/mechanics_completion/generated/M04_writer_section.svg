@@ -1,0 +1,287 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="2300" viewBox="0 0 1400 2300">
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#425269"/></marker>
+<pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#64748b" stroke-width="1"/></pattern>
+<style>text{font-family:DejaVu Sans,Arial,sans-serif;fill:#15283f}.title{font-size:30px;font-weight:700;fill:white}.sub{font-size:16px;fill:#cbd5e1}.panel{font-size:21px;font-weight:700}.label{font-size:16px}.small{font-size:14px}.tiny{font-size:12px}.mono{font-family:DejaVu Sans Mono,monospace;font-size:14px}.dim{font-size:14px;font-weight:600}.axis{stroke:#2b788c;stroke-width:1.3;stroke-dasharray:9 4 2 4}.measure{stroke:#425269;stroke-width:1;fill:none}.part{stroke:#263d52;stroke-width:1.3}.lead{stroke:#455973;stroke-width:1;fill:none}</style>
+</defs>
+<rect width="1400" height="2300" fill="#f5f7fa"/>
+<rect x="0" y="0" width="1400" height="112" fill="#14283f"/>
+<text x="44" y="48" class="title">M04 · manual writer and aligned catches</text>
+<text x="46" y="80" class="sub">Machining coordinate sheet · dimensions in mm · nominal design, no fabricated validation</text>
+<rect x="30.000" y="132.000" width="1340.000" height="610.000" rx="10" fill="white" stroke="#d3dce6" stroke-width="1.3"/>
+<text x="50.000" y="166.000" class="panel">A  Global Y/Z section · force line X = 460, Z = 92</text>
+<line x1="50.000" y1="179.000" x2="1350.000" y2="179.000" class="measure"/>
+<line x1="221.000" y1="662.000" x2="221.000" y2="186.800" class="lead"/>
+<text x="221.000" y="700.000" class="tiny" text-anchor="middle">-125</text>
+<line x1="311.000" y1="662.000" x2="311.000" y2="186.800" class="lead"/>
+<text x="311.000" y="700.000" class="tiny" text-anchor="middle">-100</text>
+<line x1="401.000" y1="662.000" x2="401.000" y2="186.800" class="lead"/>
+<text x="401.000" y="700.000" class="tiny" text-anchor="middle">-75</text>
+<line x1="491.000" y1="662.000" x2="491.000" y2="186.800" class="lead"/>
+<text x="491.000" y="700.000" class="tiny" text-anchor="middle">-50</text>
+<line x1="581.000" y1="662.000" x2="581.000" y2="186.800" class="lead"/>
+<text x="581.000" y="700.000" class="tiny" text-anchor="middle">-25</text>
+<line x1="671.000" y1="662.000" x2="671.000" y2="186.800" class="lead"/>
+<text x="671.000" y="700.000" class="tiny" text-anchor="middle">0</text>
+<line x1="761.000" y1="662.000" x2="761.000" y2="186.800" class="lead"/>
+<text x="761.000" y="700.000" class="tiny" text-anchor="middle">25</text>
+<line x1="851.000" y1="662.000" x2="851.000" y2="186.800" class="lead"/>
+<text x="851.000" y="700.000" class="tiny" text-anchor="middle">50</text>
+<line x1="941.000" y1="662.000" x2="941.000" y2="186.800" class="lead"/>
+<text x="941.000" y="700.000" class="tiny" text-anchor="middle">75</text>
+<line x1="1031.000" y1="662.000" x2="1031.000" y2="186.800" class="lead"/>
+<text x="1031.000" y="700.000" class="tiny" text-anchor="middle">100</text>
+<line x1="1121.000" y1="662.000" x2="1121.000" y2="186.800" class="lead"/>
+<text x="1121.000" y="700.000" class="tiny" text-anchor="middle">125</text>
+<line x1="203.000" y1="662.000" x2="1175.000" y2="662.000" class="lead"/>
+<text x="193.000" y="666.000" class="tiny" text-anchor="end">0</text>
+<line x1="203.000" y1="518.000" x2="1175.000" y2="518.000" class="lead"/>
+<text x="193.000" y="522.000" class="tiny" text-anchor="end">40</text>
+<line x1="203.000" y1="374.000" x2="1175.000" y2="374.000" class="lead"/>
+<text x="193.000" y="378.000" class="tiny" text-anchor="end">80</text>
+<line x1="203.000" y1="230.000" x2="1175.000" y2="230.000" class="lead"/>
+<text x="193.000" y="234.000" class="tiny" text-anchor="end">120</text>
+<rect x="527.000" y="618.800" width="648.000" height="43.200" rx="0" fill="#d6dce3" stroke="#263d52" stroke-width="1.3"/>
+<rect x="257.000" y="618.800" width="270.000" height="43.200" rx="0" fill="#d6dce3" stroke="#263d52" stroke-width="1.3"/>
+<rect x="257.000" y="662.000" width="342.000" height="21.600" rx="0" fill="#aebbc9" stroke="#263d52" stroke-width="1.3"/>
+<line x1="203.000" y1="330.800" x2="1175.000" y2="330.800" class="axis"/>
+<text x="1173.000" y="320.800" class="small" text-anchor="end">Y →</text>
+<rect x="221.000" y="284.000" width="54.000" height="93.600" rx="0" fill="#62788a" stroke="#263d52" stroke-width="1.3"/>
+<rect x="275.000" y="320.000" width="196.200" height="21.600" rx="0" fill="#87c4cf" stroke="#263d52" stroke-width="1.3"/>
+<rect x="471.200" y="312.800" width="7.200" height="36.000" rx="0" fill="#56a8b8" stroke="#263d52" stroke-width="1.3"/>
+<rect x="478.400" y="320.000" width="54.000" height="21.600" rx="0" fill="#87c4cf" stroke="#263d52" stroke-width="1.3"/>
+<rect x="532.400" y="320.000" width="30.600" height="21.600" rx="0" fill="#87c4cf" stroke="#263d52" stroke-width="1.3"/>
+<rect x="478.400" y="276.800" width="54.000" height="108.000" rx="0" fill="#adb9c7" stroke="#263d52" stroke-width="1.3"/>
+<rect x="478.400" y="319.280" width="54.000" height="23.040" rx="0" fill="white" stroke="#263d52" stroke-width="1.3"/>
+<rect x="478.400" y="309.146" width="16.200" height="43.308" rx="0" fill="white" stroke="#263d52" stroke-width="1.3"/>
+<rect x="478.400" y="309.200" width="16.200" height="43.200" rx="0" fill="#f6d889" stroke="#263d52" stroke-width="1.3"/>
+<rect x="478.400" y="320.000" width="16.200" height="21.600" rx="0" fill="white" stroke="#263d52" stroke-width="1.3"/>
+<circle cx="486.500" cy="314.600" r="5.000" fill="#fff6da" stroke="#263d52" stroke-width="1.3"/>
+<circle cx="486.500" cy="347.000" r="5.000" fill="#fff6da" stroke="#263d52" stroke-width="1.3"/>
+<rect x="516.200" y="309.146" width="16.200" height="43.308" rx="0" fill="white" stroke="#263d52" stroke-width="1.3"/>
+<rect x="516.200" y="309.200" width="16.200" height="43.200" rx="0" fill="#f6d889" stroke="#263d52" stroke-width="1.3"/>
+<rect x="516.200" y="320.000" width="16.200" height="21.600" rx="0" fill="white" stroke="#263d52" stroke-width="1.3"/>
+<circle cx="524.300" cy="314.600" r="5.000" fill="#fff6da" stroke="#263d52" stroke-width="1.3"/>
+<circle cx="524.300" cy="347.000" r="5.000" fill="#fff6da" stroke="#263d52" stroke-width="1.3"/>
+<rect x="478.400" y="320.011" width="84.600" height="21.578" rx="0" fill="#87c4cf" stroke="#263d52" stroke-width="1.3"/>
+<rect x="532.400" y="312.800" width="3.600" height="36.000" rx="0" fill="#e1bd79" stroke="#263d52" stroke-width="1.3"/>
+<rect x="536.000" y="312.800" width="11.520" height="36.000" rx="0" fill="#a993b8" stroke="#263d52" stroke-width="1.3"/>
+<rect x="547.520" y="312.800" width="11.520" height="36.000" rx="0" fill="#a993b8" stroke="#263d52" stroke-width="1.3"/>
+<rect x="311.000" y="294.800" width="54.000" height="72.000" rx="0" fill="#e0c499" stroke="#263d52" stroke-width="1.3"/>
+<rect x="473.000" y="233.600" width="252.000" height="21.600" rx="0" fill="#c1cbd6" stroke="#263d52" stroke-width="1.3" stroke-dasharray="5 3"/>
+<rect x="653.000" y="359.600" width="72.000" height="64.800" rx="0" fill="#b1becd" stroke="#263d52" stroke-width="1.3"/>
+<rect x="563.000" y="392.000" width="234.000" height="21.600" rx="0" fill="#8eabb9" stroke="#263d52" stroke-width="1.3"/>
+<rect x="689.000" y="316.400" width="68.760" height="28.800" rx="0" fill="#fee2e2" stroke="#263d52" stroke-width="1.3" stroke-dasharray="4 2"/>
+<rect x="649.760" y="325.400" width="47.160" height="10.800" rx="0" fill="#b7cbd9" stroke="#263d52" stroke-width="1.3"/>
+<rect x="749.840" y="325.400" width="47.160" height="10.800" rx="0" fill="#b7cbd9" stroke="#263d52" stroke-width="1.3"/>
+<rect x="626.360" y="319.100" width="43.200" height="23.400" rx="0" fill="#d7e6ee" stroke="#263d52" stroke-width="1.3"/>
+<circle cx="602.960" cy="330.800" r="23.400" fill="#d7e6ee" stroke="#263d52" stroke-width="1.3"/>
+<circle cx="602.960" cy="330.800" r="14.400" fill="#a7c4d4" stroke="#263d52" stroke-width="1.3"/>
+<circle cx="602.960" cy="330.800" r="5.400" fill="white" stroke="#263d52" stroke-width="1.3"/>
+<rect x="777.200" y="319.100" width="43.200" height="23.400" rx="0" fill="#d7e6ee" stroke="#263d52" stroke-width="1.3"/>
+<circle cx="843.800" cy="330.800" r="23.400" fill="#d7e6ee" stroke="#263d52" stroke-width="1.3"/>
+<circle cx="843.800" cy="330.800" r="14.400" fill="#a7c4d4" stroke="#263d52" stroke-width="1.3"/>
+<circle cx="843.800" cy="330.800" r="5.400" fill="white" stroke="#263d52" stroke-width="1.3"/>
+<rect x="1005.800" y="309.200" width="36.000" height="309.600" rx="0" fill="#aebbc9" stroke="#263d52" stroke-width="1.3"/>
+<rect x="1005.800" y="317.300" width="36.000" height="27.000" rx="0" fill="white" stroke="#263d52" stroke-width="1.3"/>
+<rect x="1103.000" y="309.200" width="36.000" height="309.600" rx="0" fill="#aebbc9" stroke="#263d52" stroke-width="1.3"/>
+<rect x="1103.000" y="317.300" width="36.000" height="27.000" rx="0" fill="white" stroke="#263d52" stroke-width="1.3"/>
+<rect x="1009.400" y="316.400" width="45.720" height="28.800" rx="0" fill="#e1bd79" stroke="#263d52" stroke-width="1.3"/>
+<rect x="1009.400" y="324.500" width="45.720" height="12.600" rx="0" fill="white" stroke="#263d52" stroke-width="1.3"/>
+<rect x="1078.880" y="316.400" width="45.720" height="28.800" rx="0" fill="#e1bd79" stroke="#263d52" stroke-width="1.3"/>
+<rect x="1078.880" y="324.500" width="45.720" height="12.600" rx="0" fill="white" stroke="#263d52" stroke-width="1.3"/>
+<rect x="1056.200" y="320.000" width="21.600" height="21.600" rx="0" fill="#dca96d" stroke="#263d52" stroke-width="1.3"/>
+<circle cx="1067.000" cy="330.800" r="5.580" fill="white" stroke="#263d52" stroke-width="1.3"/>
+<text x="221.000" y="262.400" class="tiny">hand knob</text>
+<text x="282.200" y="273.200" class="small" text-anchor="start">M6 × 0.5 lead</text>
+<line x1="282.200" y1="278.200" x2="325.400" y2="320.000" class="lead"/>
+<circle cx="325.400" cy="320.000" r="2.000" fill="#425269" stroke="#425269" stroke-width="0.5"/>
+<text x="429.800" y="208.400" class="small" text-anchor="start">opposed thrust stack</text>
+<line x1="429.800" y1="213.400" x2="505.400" y2="298.400" class="lead"/>
+<circle cx="505.400" cy="298.400" r="2.000" fill="#425269" stroke="#425269" stroke-width="0.5"/>
+<text x="750.200" y="226.400" class="small" text-anchor="middle">FSH00103 body keepout · no clamping</text>
+<line x1="750.200" y1="231.400" x2="721.400" y2="316.400" class="lead"/>
+<circle cx="721.400" cy="316.400" r="2.000" fill="#425269" stroke="#425269" stroke-width="0.5"/>
+<text x="901.400" y="273.200" class="small" text-anchor="start">front pin Y48</text>
+<line x1="901.400" y1="278.200" x2="843.800" y2="307.400" class="lead"/>
+<circle cx="843.800" cy="307.400" r="2.000" fill="#425269" stroke="#425269" stroke-width="0.5"/>
+<text x="969.800" y="467.600" class="small" text-anchor="start">aligned catch pair</text>
+<line x1="969.800" y1="472.600" x2="1023.800" y2="410.000" class="lead"/>
+<circle cx="1023.800" cy="410.000" r="2.000" fill="#425269" stroke="#425269" stroke-width="0.5"/>
+<text x="203.000" y="725.000" class="small">Global Y stations; Z increases upward. Parked knob reaches Y−140. Commercial outlines are envelopes.</text>
+<line x1="602.960" y1="356.000" x2="602.960" y2="494.200" class="measure"/>
+<line x1="843.800" y1="356.000" x2="843.800" y2="494.200" class="measure"/>
+<line x1="602.960" y1="489.200" x2="843.800" y2="489.200" class="measure" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+<rect x="659.630" y="471.200" width="127.500" height="20.000" rx="0" fill="white" stroke="white" stroke-width="1.3"/>
+<text x="723.380" y="486.200" class="dim" text-anchor="middle">pin-to-pin 66.9</text>
+<rect x="30.000" y="768.000" width="650.000" height="542.000" rx="10" fill="white" stroke="#d3dce6" stroke-width="1.3"/>
+<text x="50.000" y="802.000" class="panel">B  Captive lead: opposed axial bearings</text>
+<line x1="50.000" y1="815.000" x2="660.000" y2="815.000" class="measure"/>
+<line x1="225.000" y1="963.500" x2="514.000" y2="963.500" class="axis"/>
+<rect x="225.000" y="938.000" width="38.250" height="51.000" rx="0" fill="#87c4cf" stroke="#263d52" stroke-width="1.3"/>
+<rect x="263.250" y="921.000" width="17.000" height="85.000" rx="0" fill="#56a8b8" stroke="#263d52" stroke-width="1.3"/>
+<rect x="280.250" y="938.000" width="127.500" height="51.000" rx="0" fill="#87c4cf" stroke="#263d52" stroke-width="1.3"/>
+<rect x="407.750" y="938.000" width="72.250" height="51.000" rx="0" fill="#87c4cf" stroke="#263d52" stroke-width="1.3"/>
+<rect x="280.250" y="836.000" width="127.500" height="255.000" rx="0" fill="#adb9c7" stroke="#263d52" stroke-width="1.3"/>
+<rect x="280.250" y="936.300" width="127.500" height="54.400" rx="0" fill="white" stroke="#263d52" stroke-width="1.3"/>
+<rect x="280.250" y="912.372" width="38.250" height="102.255" rx="0" fill="white" stroke="#263d52" stroke-width="1.3"/>
+<rect x="280.250" y="912.500" width="38.250" height="102.000" rx="0" fill="#f6d889" stroke="#263d52" stroke-width="1.3"/>
+<rect x="280.250" y="938.000" width="38.250" height="51.000" rx="0" fill="white" stroke="#263d52" stroke-width="1.3"/>
+<circle cx="299.375" cy="925.250" r="5.000" fill="#fff6da" stroke="#263d52" stroke-width="1.3"/>
+<circle cx="299.375" cy="1001.750" r="5.000" fill="#fff6da" stroke="#263d52" stroke-width="1.3"/>
+<rect x="369.500" y="912.372" width="38.250" height="102.255" rx="0" fill="white" stroke="#263d52" stroke-width="1.3"/>
+<rect x="369.500" y="912.500" width="38.250" height="102.000" rx="0" fill="#f6d889" stroke="#263d52" stroke-width="1.3"/>
+<rect x="369.500" y="938.000" width="38.250" height="51.000" rx="0" fill="white" stroke="#263d52" stroke-width="1.3"/>
+<circle cx="388.625" cy="925.250" r="5.000" fill="#fff6da" stroke="#263d52" stroke-width="1.3"/>
+<circle cx="388.625" cy="1001.750" r="5.000" fill="#fff6da" stroke="#263d52" stroke-width="1.3"/>
+<rect x="280.250" y="938.025" width="199.750" height="50.949" rx="0" fill="#87c4cf" stroke="#263d52" stroke-width="1.3"/>
+<rect x="407.750" y="921.000" width="8.500" height="85.000" rx="0" fill="#e1bd79" stroke="#263d52" stroke-width="1.3"/>
+<rect x="416.250" y="921.000" width="27.200" height="85.000" rx="0" fill="#a993b8" stroke="#263d52" stroke-width="1.3"/>
+<rect x="443.450" y="921.000" width="27.200" height="85.000" rx="0" fill="#a993b8" stroke="#263d52" stroke-width="1.3"/>
+<line x1="280.250" y1="1014.500" x2="280.250" y2="1121.500" class="measure"/>
+<line x1="318.500" y1="1014.500" x2="318.500" y2="1121.500" class="measure"/>
+<line x1="280.250" y1="1116.500" x2="318.500" y2="1116.500" class="measure" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+<rect x="283.375" y="1098.500" width="32.000" height="20.000" rx="0" fill="white" stroke="white" stroke-width="1.3"/>
+<text x="299.375" y="1113.500" class="dim" text-anchor="middle">4.5</text>
+<line x1="318.500" y1="1065.500" x2="318.500" y2="1155.500" class="measure"/>
+<line x1="369.500" y1="1065.500" x2="369.500" y2="1155.500" class="measure"/>
+<line x1="318.500" y1="1150.500" x2="369.500" y2="1150.500" class="measure" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+<rect x="310.000" y="1132.500" width="68.000" height="20.000" rx="0" fill="white" stroke="white" stroke-width="1.3"/>
+<text x="344.000" y="1147.500" class="dim" text-anchor="middle">6.0 wall</text>
+<line x1="369.500" y1="1014.500" x2="369.500" y2="1121.500" class="measure"/>
+<line x1="407.750" y1="1014.500" x2="407.750" y2="1121.500" class="measure"/>
+<line x1="369.500" y1="1116.500" x2="407.750" y2="1116.500" class="measure" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+<rect x="372.625" y="1098.500" width="32.000" height="20.000" rx="0" fill="white" stroke="white" stroke-width="1.3"/>
+<text x="388.625" y="1113.500" class="dim" text-anchor="middle">4.5</text>
+<line x1="280.250" y1="989.000" x2="280.250" y2="1189.500" class="measure"/>
+<line x1="407.750" y1="989.000" x2="407.750" y2="1189.500" class="measure"/>
+<line x1="280.250" y1="1184.500" x2="407.750" y2="1184.500" class="measure" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+<rect x="263.250" y="1166.500" width="161.500" height="20.000" rx="0" fill="white" stroke="white" stroke-width="1.3"/>
+<text x="344.000" y="1181.500" class="dim" text-anchor="middle">journal length 15.0</text>
+<text x="58.000" y="1220.000" class="small">Purchased: 2 × EZO F6-12M, Ø6 / Ø12 × 4.5.</text>
+<text x="58.000" y="1244.000" class="small">Ø10 shoulder ≥ maker 9.6 abutment; fillet ≤0.2.</text>
+<text x="58.000" y="1268.000" class="small">Journal Ø5.990–5.998; Ø6.4 bore; Ø12.03 wells.</text>
+<text x="58.000" y="1292.000" class="small">Screw rotates; housing washers and carriage do not.</text>
+<rect x="704.000" y="768.000" width="666.000" height="542.000" rx="10" fill="white" stroke="#d3dce6" stroke-width="1.3"/>
+<text x="724.000" y="802.000" class="panel">C  Cell stud and spherical end · front</text>
+<line x1="724.000" y1="815.000" x2="1350.000" y2="815.000" class="measure"/>
+<line x1="750.000" y1="1005.000" x2="1296.000" y2="1005.000" class="axis"/>
+<rect x="750.000" y="949.000" width="71.400" height="112.000" rx="0" fill="#fee2e2" stroke="#263d52" stroke-width="1.3" stroke-dasharray="4 2"/>
+<rect x="790.600" y="984.000" width="30.800" height="42.000" rx="0" fill="#87c4cf" stroke="#263d52" stroke-width="1.3"/>
+<rect x="821.400" y="970.000" width="33.600" height="70.000" rx="0" fill="#56a8b8" stroke="#263d52" stroke-width="1.3"/>
+<rect x="855.000" y="984.000" width="119.000" height="42.000" rx="0" fill="#87c4cf" stroke="#263d52" stroke-width="1.3"/>
+<rect x="897.000" y="959.500" width="168.000" height="91.000" rx="0" fill="#d7e6ee" stroke="#263d52" stroke-width="1.3"/>
+<circle cx="1156.000" cy="1005.000" r="91.000" fill="#d7e6ee" stroke="#263d52" stroke-width="1.3"/>
+<circle cx="1156.000" cy="1005.000" r="56.000" fill="#a7c4d4" stroke="#263d52" stroke-width="1.3"/>
+<circle cx="1156.000" cy="1005.000" r="21.000" fill="white" stroke="#263d52" stroke-width="1.3"/>
+<rect x="897.000" y="984.000" width="77.000" height="42.000" rx="0" fill="#87c4cf" stroke="#263d52" stroke-width="1.3"/>
+<rect x="863.400" y="966.500" width="33.600" height="77.000" rx="0" fill="#a993b8" stroke="#263d52" stroke-width="1.3"/>
+<line x1="821.400" y1="949.000" x2="821.400" y2="842.000" class="measure"/>
+<line x1="897.000" y1="949.000" x2="897.000" y2="842.000" class="measure"/>
+<line x1="821.400" y1="837.000" x2="897.000" y2="837.000" class="measure" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+<rect x="791.200" y="819.000" width="136.000" height="20.000" rx="0" fill="white" stroke="white" stroke-width="1.3"/>
+<text x="859.200" y="834.000" class="dim" text-anchor="middle">external gap 5.4</text>
+<line x1="790.600" y1="1026.000" x2="790.600" y2="1150.000" class="measure"/>
+<line x1="821.400" y1="1026.000" x2="821.400" y2="1150.000" class="measure"/>
+<line x1="790.600" y1="1145.000" x2="821.400" y2="1145.000" class="measure" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+<rect x="790.000" y="1127.000" width="32.000" height="20.000" rx="0" fill="white" stroke="white" stroke-width="1.3"/>
+<text x="806.000" y="1142.000" class="dim" text-anchor="middle">2.2</text>
+<line x1="897.000" y1="1026.000" x2="897.000" y2="1150.000" class="measure"/>
+<line x1="974.000" y1="1026.000" x2="974.000" y2="1150.000" class="measure"/>
+<line x1="897.000" y1="1145.000" x2="974.000" y2="1145.000" class="measure" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+<rect x="888.750" y="1127.000" width="93.500" height="20.000" rx="0" fill="white" stroke="white" stroke-width="1.3"/>
+<text x="935.500" y="1142.000" class="dim" text-anchor="middle">5.5 nominal</text>
+<line x1="897.000" y1="1096.000" x2="897.000" y2="1206.000" class="measure"/>
+<line x1="1156.000" y1="1096.000" x2="1156.000" y2="1206.000" class="measure"/>
+<line x1="897.000" y1="1201.000" x2="1156.000" y2="1201.000" class="measure" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+<rect x="988.250" y="1183.000" width="76.500" height="20.000" rx="0" fill="white" stroke="white" stroke-width="1.3"/>
+<text x="1026.500" y="1198.000" class="dim" text-anchor="middle">h1 = 18.5</text>
+<text x="730.000" y="1220.000" class="small">Cell blind thread: M3 × 0.5, maximum depth 2.8.</text>
+<text x="730.000" y="1244.000" class="small">Stud: 2.2 tip + 2.4 collar + 8.5 thread = 13.1.</text>
+<text x="730.000" y="1268.000" class="small">Rear mirrors this: face 5.0 / mouth −0.4 / pin −18.9.</text>
+<text x="730.000" y="1292.000" class="small">Cell clevis: ball 6 + 2 × spacer 2.1 = gap 10.2.</text>
+<rect x="30.000" y="1336.000" width="1340.000" height="506.000" rx="10" fill="white" stroke="#d3dce6" stroke-width="1.3"/>
+<text x="50.000" y="1370.000" class="panel">D  Central catches at the rear port · all axes X460, Z92</text>
+<line x1="50.000" y1="1383.000" x2="1350.000" y2="1383.000" class="measure"/>
+<line x1="340.000" y1="1558.500" x2="926.500" y2="1558.500" class="axis"/>
+<rect x="409.000" y="1489.500" width="115.000" height="172.500" rx="0" fill="#adb9c7" stroke="#263d52" stroke-width="1.3"/>
+<rect x="409.000" y="1515.375" width="115.000" height="86.250" rx="0" fill="white" stroke="#263d52" stroke-width="1.3"/>
+<line x1="409.000" y1="1662.000" x2="432.000" y2="1673.500" class="lead"/>
+<line x1="432.000" y1="1673.500" x2="455.000" y2="1662.000" class="lead"/>
+<rect x="719.500" y="1489.500" width="115.000" height="172.500" rx="0" fill="#adb9c7" stroke="#263d52" stroke-width="1.3"/>
+<rect x="719.500" y="1515.375" width="115.000" height="86.250" rx="0" fill="white" stroke="#263d52" stroke-width="1.3"/>
+<line x1="719.500" y1="1662.000" x2="742.500" y2="1673.500" class="lead"/>
+<line x1="742.500" y1="1673.500" x2="765.500" y2="1662.000" class="lead"/>
+<rect x="420.500" y="1512.500" width="146.050" height="92.000" rx="0" fill="#e1bd79" stroke="#263d52" stroke-width="1.3"/>
+<rect x="420.500" y="1538.375" width="146.050" height="40.250" rx="0" fill="white" stroke="#263d52" stroke-width="1.3"/>
+<rect x="642.450" y="1512.500" width="146.050" height="92.000" rx="0" fill="#e1bd79" stroke="#263d52" stroke-width="1.3"/>
+<rect x="642.450" y="1538.375" width="146.050" height="40.250" rx="0" fill="white" stroke="#263d52" stroke-width="1.3"/>
+<rect x="639.000" y="1541.250" width="287.500" height="34.500" rx="0" fill="#87c4cf" stroke="#263d52" stroke-width="1.3"/>
+<rect x="570.000" y="1524.000" width="69.000" height="69.000" rx="0" fill="#dca96d" stroke="#263d52" stroke-width="1.3"/>
+<circle cx="604.500" cy="1558.500" r="17.825" fill="white" stroke="#263d52" stroke-width="1.3"/>
+<text x="1010.000" y="1485.000" class="small" text-anchor="end">6 × 6 flat catch target</text>
+<line x1="1010.000" y1="1492.000" x2="604.500" y2="1524.000" class="lead"/>
+<text x="1152.000" y="1540.000" class="small" text-anchor="middle">M8 × 0.5 end drive</text>
+<circle cx="1152.000" cy="1620.000" r="60.000" fill="#e1bd79" stroke="#263d52" stroke-width="1.3"/>
+<circle cx="1152.000" cy="1620.000" r="26.250" fill="white" stroke="#263d52" stroke-width="1.3"/>
+<circle cx="1110.000" cy="1620.000" r="7.500" fill="white" stroke="#263d52" stroke-width="1.3"/>
+<circle cx="1194.000" cy="1620.000" r="7.500" fill="white" stroke="#263d52" stroke-width="1.3"/>
+<text x="1152.000" y="1710.000" class="small" text-anchor="middle">Ø8 / Ø3.5 bore</text>
+<text x="1152.000" y="1733.000" class="small" text-anchor="middle">2 × Ø1 at R2.8</text>
+<text x="560.000" y="1453.000" class="small" text-anchor="middle">0.30 initial gap</text>
+<line x1="560.000" y1="1458.000" x2="568.275" y2="1558.500" class="lead"/>
+<circle cx="568.275" cy="1558.500" r="2.000" fill="#425269" stroke="#425269" stroke-width="0.5"/>
+<text x="675.000" y="1453.000" class="small" text-anchor="middle">0.30 initial gap</text>
+<line x1="675.000" y1="1458.000" x2="640.725" y2="1558.500" class="lead"/>
+<circle cx="640.725" cy="1558.500" r="2.000" fill="#425269" stroke="#425269" stroke-width="0.5"/>
+<line x1="409.000" y1="1662.000" x2="409.000" y2="1701.500" class="measure"/>
+<line x1="524.000" y1="1662.000" x2="524.000" y2="1701.500" class="measure"/>
+<line x1="409.000" y1="1696.500" x2="524.000" y2="1696.500" class="measure" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+<rect x="415.500" y="1678.500" width="102.000" height="20.000" rx="0" fill="white" stroke="white" stroke-width="1.3"/>
+<text x="466.500" y="1693.500" class="dim" text-anchor="middle">front post10</text>
+<line x1="719.500" y1="1662.000" x2="719.500" y2="1701.500" class="measure"/>
+<line x1="834.500" y1="1662.000" x2="834.500" y2="1701.500" class="measure"/>
+<line x1="719.500" y1="1696.500" x2="834.500" y2="1696.500" class="measure" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+<rect x="730.250" y="1678.500" width="93.500" height="20.000" rx="0" fill="white" stroke="white" stroke-width="1.3"/>
+<text x="777.000" y="1693.500" class="dim" text-anchor="middle">rear post10</text>
+<line x1="566.550" y1="1593.000" x2="566.550" y2="1736.000" class="measure"/>
+<line x1="642.450" y1="1593.000" x2="642.450" y2="1736.000" class="measure"/>
+<line x1="566.550" y1="1731.000" x2="642.450" y2="1731.000" class="measure" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+<rect x="545.000" y="1713.000" width="119.000" height="20.000" rx="0" fill="white" stroke="white" stroke-width="1.3"/>
+<text x="604.500" y="1728.000" class="dim" text-anchor="middle">tip spacing6.6</text>
+<text x="62.000" y="1752.000" class="small">Initial tips: Y106.70 / Y113.30. Conditional 0.55 gaps: Y106.45 / Y113.55.</text>
+<text x="62.000" y="1776.000" class="small">Hollow M8 × 0.5 stops: Ø3.5 bore for Ø3 water rod; post tap drill Ø7.5. Qualify installed clearance.</text>
+<text x="62.000" y="1800.000" class="small">Catches are overtravel stops; any contact ends the run. They do not enforce the ±5 N force limit.</text>
+<text x="62.000" y="1824.000" class="small">No claim of impact rating, side-load allowance, calibration or completed physical operation.</text>
+<rect x="30.000" y="1868.000" width="1340.000" height="346.000" rx="10" fill="white" stroke="#d3dce6" stroke-width="1.3"/>
+<text x="50.000" y="1902.000" class="panel">E  Turning stations and release checks</text>
+<line x1="50.000" y1="1915.000" x2="1350.000" y2="1915.000" class="measure"/>
+<text x="62.000" y="1940.000" class="small">Feature</text>
+<text x="370.000" y="1940.000" class="small">Global Y interval / station</text>
+<text x="670.000" y="1940.000" class="small">Nominal machining or assembly value</text>
+<line x1="60.000" y1="1952.000" x2="1335.000" y2="1952.000" class="measure"/>
+<text x="62.000" y="1980.000" class="small">Lead working thread</text>
+<text x="370.000" y="1980.000" class="small">−110 … −55.5</text>
+<text x="670.000" y="1980.000" class="small">M6 × 0.5; match fixed brass nut</text>
+<text x="62.000" y="2009.000" class="small">Shoulder / journal</text>
+<text x="370.000" y="2009.000" class="small">−55.5 … −53.5 / −53.5 … −38.5</text>
+<text x="670.000" y="2009.000" class="small">Ø10 × 2.0 / Ø5.990–5.998 × 15.0</text>
+<text x="62.000" y="2038.000" class="small">Retaining thread / end</text>
+<text x="370.000" y="2038.000" class="small">−38.5 … −30.0</text>
+<text x="670.000" y="2038.000" class="small">M6 × 0.5; washer1.0 + 2 × nut3.2</text>
+<text x="62.000" y="2067.000" class="small">Cell load ports</text>
+<text x="370.000" y="2067.000" class="small">5.0 / 24.1</text>
+<text x="670.000" y="2067.000" class="small">M3 × 0.5; 2.2 engagement; never bottom</text>
+<text x="62.000" y="2096.000" class="small">Spherical pins</text>
+<text x="370.000" y="2096.000" class="small">−18.9 / 48.0</text>
+<text x="670.000" y="2096.000" class="small">Ø3; clamp ball through two 2.1 spacers</text>
+<text x="62.000" y="2125.000" class="small">Catch centre / tips</text>
+<text x="370.000" y="2125.000" class="small">110.0 / 106.7 and113.3</text>
+<text x="670.000" y="2125.000" class="small">6mm flat target; 0.30 gaps; contacts axial</text>
+<text x="62.000" y="2154.000" class="small">Operating evidence</text>
+<text x="370.000" y="2154.000" class="small">after-cell displacement and live force</text>
+<text x="670.000" y="2154.000" class="small">10µm diaphragm limit needs high-rate qualification</text>
+<text x="45.000" y="2242.000" class="tiny">M04 drawing source: f2e2986a96eb9df31a3fce585c58b564d4ee826e0d2eca6051fc88e43ddfe5eb</text>
+<text x="45.000" y="2264.000" class="tiny">Purchased-part internal geometry is governed by EZO F6-12M, FUTEK FI1041-G and igus KBRM-03 source drawings.</text>
+<text x="45.000" y="2286.000" class="tiny">This section sheet accompanies the complete cut/drill table and assembly notes; it is not a standalone operating authorization.</text>
+</svg>

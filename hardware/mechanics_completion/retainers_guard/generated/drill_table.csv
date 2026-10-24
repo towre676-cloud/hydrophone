@@ -1,0 +1,132 @@
+part,axis,local_X_mm,local_Y_mm,local_Z_mm,diameter_or_tap_drill_mm,operation,depth_mm,notes
+RG01L,Y,7,0,13,6.05,REAM,16,
+RG01L,X,0,8,4,4.5,THRU,15,M4mount
+RG01L,X,0,13,4,2,REAM,15,locatingdowel
+RG01L,X,0,8,19,3.2,CLEARANCE,7,pinchbolt entry
+RG01L,X,7,8,19,2.5,TAP M3x0.5,8,opposingjaw
+RG01R,Y,10,0,13,6.05,REAM,16,
+RG01R,X,0,8,4,4.5,THRU,15,M4mount
+RG01R,X,0,13,4,2,REAM,15,locatingdowel
+RG01R,X,0,8,19,3.2,CLEARANCE,10,pinchbolt entry
+RG01R,X,10,8,19,2.5,TAP M3x0.5,5,opposingjaw
+RG03,Z,8,2.75,12,2.5,TAP M3x0.5,4,topdowncapstan
+RG03,X,0,3.75,4,2.4,THRU,18,M2fixedwebmount
+RG03,X,0,7.75,4,2.4,THRU,18,M2fixedwebmount
+RG04,Z,8,2.75,18,2.5,TAP M3x0.5,4,topdowncapstan
+RG04,X,0,5.75,6,3.3,TAP M4x0.7,10,tensionstud;10engagement
+RG04,X,0,5.75,12,3,REAMH7,8,3m6guidepin;8pressengagement
+RG03,Z,15,2.75,12,1.25,TAP M1.6x0.35,5,shoe
+RG03,Z,15,8.75,12,1.25,TAP M1.6x0.35,5,shoe
+RG04,Z,15,2.75,18,1.25,TAP M1.6x0.35,5,shoe
+RG04,Z,15,8.75,18,1.25,TAP M1.6x0.35,5,shoe
+RG06,Z,3,2,0,1.8,THRU,2,
+RG06,Z,3,8,0,1.8,THRU,2,
+M03_A02_left,X,0,22,100,4.5,VERTICALSLOT,20,centreslocalZ100/104;tailpassglobalZ120/124;4.5wide8.5high
+M03_A02_left,X,0,20,88,1.6,TAP M2x0.4,7,entryglobalX35
+M03_A02_left,X,0,24,88,1.6,TAP M2x0.4,7,entryglobalX35
+M03_A02_left,X,0,34,100,4.5,VERTICALSLOT,20,centreslocalZ100/104;tailpassglobalZ120/124;4.5wide8.5high
+M03_A02_left,X,0,32,88,1.6,TAP M2x0.4,7,entryglobalX35
+M03_A02_left,X,0,36,88,1.6,TAP M2x0.4,7,entryglobalX35
+M03_A02_left,X,0,46,100,4.5,VERTICALSLOT,20,centreslocalZ100/104;tailpassglobalZ120/124;4.5wide8.5high
+M03_A02_left,X,0,44,88,1.6,TAP M2x0.4,7,entryglobalX35
+M03_A02_left,X,0,48,88,1.6,TAP M2x0.4,7,entryglobalX35
+M03_A02_left,X,0,58,100,4.5,VERTICALSLOT,20,centreslocalZ100/104;tailpassglobalZ120/124;4.5wide8.5high
+M03_A02_left,X,0,56,88,1.6,TAP M2x0.4,7,entryglobalX35
+M03_A02_left,X,0,60,88,1.6,TAP M2x0.4,7,entryglobalX35
+M03_A02_left,X,18,10,92,3.3,TAP M4x0.7,10,"afterholderpocket;leftdrilltoward-X,righttoward+X"
+M03_A02_left,X,18,15,92,2,REAM,6,locatingdowel
+M03_A02_left,X,18,70,92,3.3,TAP M4x0.7,10,"afterholderpocket;leftdrilltoward-X,righttoward+X"
+M03_A02_left,X,18,75,92,2,REAM,6,locatingdowel
+M03_A02_right,X,0,22,100,4.5,VERTICALSLOT,20,centreslocalZ100/104;tailpassglobalZ120/124;4.5wide8.5high
+M03_A02_right,X,0,22,84,4.5,THRU,20,globalZ104tensionstud
+M03_A02_right,X,0,22,90,3.1,REAM,20,globalZ110guide
+M03_A02_right,X,0,34,100,4.5,VERTICALSLOT,20,centreslocalZ100/104;tailpassglobalZ120/124;4.5wide8.5high
+M03_A02_right,X,0,34,84,4.5,THRU,20,globalZ104tensionstud
+M03_A02_right,X,0,34,90,3.1,REAM,20,globalZ110guide
+M03_A02_right,X,0,46,100,4.5,VERTICALSLOT,20,centreslocalZ100/104;tailpassglobalZ120/124;4.5wide8.5high
+M03_A02_right,X,0,46,84,4.5,THRU,20,globalZ104tensionstud
+M03_A02_right,X,0,46,90,3.1,REAM,20,globalZ110guide
+M03_A02_right,X,0,58,100,4.5,VERTICALSLOT,20,centreslocalZ100/104;tailpassglobalZ120/124;4.5wide8.5high
+M03_A02_right,X,0,58,84,4.5,THRU,20,globalZ104tensionstud
+M03_A02_right,X,0,58,90,3.1,REAM,20,globalZ110guide
+M03_A02_right,X,5,10,92,3.3,TAP M4x0.7,10,"afterholderpocket;leftdrilltoward-X,righttoward+X"
+M03_A02_right,X,5,15,92,2,REAM,6,locatingdowel
+M03_A02_right,X,5,70,92,3.3,TAP M4x0.7,10,"afterholderpocket;leftdrilltoward-X,righttoward+X"
+M03_A02_right,X,5,75,92,2,REAM,6,locatingdowel
+RG11,Z,10,10,0,3.4,THRU,6,
+RG12,Z,5,5,0,2.5,TAP M3x0.5,12,bottomup/topdown
+RG12,Z,5,5,147,2.5,TAP M3x0.5,12,bottomup/topdown
+RG12,Y,5,0,99,2.5,TAP M3x0.5,10,throughpanelmount
+RG12,Y,5,0,139,2.5,TAP M3x0.5,10,throughpanelmount
+RG13,Z,10,5,0,3.4,THRU,5,
+RG13,Z,280,5,0,3.4,THRU,5,
+RG13,Z,560,5,0,3.4,THRU,5,
+RG13-rear,Z,84,5,5,2.5,TAP M3x0.5,5,topdownthroughhingemount
+RG13-rear,Z,106,5,5,2.5,TAP M3x0.5,5,topdownthroughhingemount
+RG13-rear,Z,484,5,5,2.5,TAP M3x0.5,5,topdownthroughhingemount
+RG13-rear,Z,506,5,5,2.5,TAP M3x0.5,5,topdownthroughhingemount
+RG14F,Y,30,0,12,4.2,THRU,3,sleeveOD4ID3.2L3;washerOD9
+RG14F,Y,30,0,52,4.2,THRU,3,sleeveOD4ID3.2L3;washerOD9
+RG14F,Y,300,0,12,4.2,THRU,3,sleeveOD4ID3.2L3;washerOD9
+RG14F,Y,300,0,52,4.2,THRU,3,sleeveOD4ID3.2L3;washerOD9
+RG14F,Y,580,0,12,4.2,THRU,3,sleeveOD4ID3.2L3;washerOD9
+RG14F,Y,580,0,52,4.2,THRU,3,sleeveOD4ID3.2L3;washerOD9
+RG14F,Y,10,0,10,3.2,THRU,3,cornerangle
+RG14F,Y,10,0,55,3.2,THRU,3,cornerangle
+RG14F,Y,615,0,10,3.2,THRU,3,cornerangle
+RG14F,Y,615,0,55,3.2,THRU,3,cornerangle
+RG14R,Y,30,0,12,4.2,THRU,3,sleeveOD4ID3.2L3;washerOD9
+RG14R,Y,30,0,52,4.2,THRU,3,sleeveOD4ID3.2L3;washerOD9
+RG14R,Y,300,0,12,4.2,THRU,3,sleeveOD4ID3.2L3;washerOD9
+RG14R,Y,300,0,52,4.2,THRU,3,sleeveOD4ID3.2L3;washerOD9
+RG14R,Y,580,0,12,4.2,THRU,3,sleeveOD4ID3.2L3;washerOD9
+RG14R,Y,580,0,52,4.2,THRU,3,sleeveOD4ID3.2L3;washerOD9
+RG14R,Y,10,0,10,3.2,THRU,3,cornerangle
+RG14R,Y,10,0,55,3.2,THRU,3,cornerangle
+RG14R,Y,615,0,10,3.2,THRU,3,cornerangle
+RG14R,Y,615,0,55,3.2,THRU,3,cornerangle
+RG14F,Y,105,0,50,3.2,THRU,3,latchbracket
+RG14F,Y,115,0,50,3.2,THRU,3,latchbracket
+RG14F,Y,505,0,50,3.2,THRU,3,latchbracket
+RG14F,Y,515,0,50,3.2,THRU,3,latchbracket
+RG15,X,0,7,10,3.2,THRU,3,
+RG15,X,0,7,55,3.2,THRU,3,
+RG15,X,0,112,10,3.2,THRU,3,
+RG15,X,0,112,55,3.2,THRU,3,
+RG16,Z,104,118,0,3.4,THRU,3,upperhingeleaf
+RG16,Z,126,118,0,3.4,THRU,3,upperhingeleaf
+RG16,Z,504,118,0,3.4,THRU,3,upperhingeleaf
+RG16,Z,526,118,0,3.4,THRU,3,upperhingeleaf
+RG16,Z,110,13,0,4.5,SLOTY6.5,3,Ycentres12/14
+RG16,Z,510,13,0,4.5,SLOTY6.5,3,Ycentres12/14
+RG17,Y,7,0,10,3.2,THRU,2,
+RG17,X,0,7,10,3.2,THRU,2,
+RG17,Y,7,0,55,3.2,THRU,2,
+RG17,X,0,7,55,3.2,THRU,2,
+RG18,Z,6,14,0,3.2,THRU,4,M3into rearrail
+RG18,Z,28,14,0,3.2,THRU,4,M3into rearrail
+RG18,X,5,10,11,4.05,REAM,24,bothforkears
+RG19,Z,4,8,0,3.2,THRU,3,
+RG19,Z,26,8,0,3.2,THRU,3,
+RG19,X,9,22,8,4.05,REAM,12,
+RG20,Z,1.5,2,0,1.5,THRU,4,keeper
+RG20,Z,28.5,2,0,1.5,THRU,4,keeper
+RG21,Y,5,0,5,2.5,TAP M3x0.5,4,
+RG21,Y,15,0,5,2.5,TAP M3x0.5,4,
+RG21,Z,10,10,20,3.3,TAP M4x0.7,4,topdown;through4flange
+RG22,Z,8,0,0,6.2,EDGE_RELIEF_THRU,46,semicircularfrontedgeclearanceforM3rearclevishead;intentionalY0edgecentre;clipslowerfrontgussetonly
+RG22,Z,24,0,0,6.2,EDGE_RELIEF_THRU,46,semicircularfrontedgeclearanceforM3rearclevishead;intentionalY0edgecentre;clipslowerfrontgussetonly
+RG22,Z,13,3.6,0,2.4,THRU,3,M2headOD<=3.8;M2x6screw;nowasher
+RG22,Z,19,3.6,0,2.4,THRU,3,M2headOD<=3.8;M2x6screw;nowasher
+RG22,Y,2,7,42,2,THRU,3,cableearoutsideentiremotorbody
+RG22,Y,30,7,42,2,THRU,3,cableearoutsideentiremotorbody
+M03_C01,Z,73,73.6,6,1.6,FLAT-BOTTOM BORE MAX,5,topdown;totaldepth<=5;>=1mmbottomland
+M03_C01,Z,73,73.6,6,1.6,BOTTOM TAP M2x0.4 FULLTHREAD,3.5,>=3.5fullthread;M2x6engagement3;1.5mmrunoutreserve;M3centresep6.16mm
+M03_C01,Z,79,73.6,6,1.6,FLAT-BOTTOM BORE MAX,5,topdown;totaldepth<=5;>=1mmbottomland
+M03_C01,Z,79,73.6,6,1.6,BOTTOM TAP M2x0.4 FULLTHREAD,3.5,>=3.5fullthread;M2x6engagement3;1.5mmrunoutreserve;M3centresep6.16mm
+M03_B01,Z,30,48,0,3.4,THRU,12,newguardpostcentres
+M03_B01,Z,30,194,0,3.4,THRU,12,newguardpostcentres
+M03_B01,Z,300,48,0,3.4,THRU,12,newguardpostcentres
+M03_B01,Z,300,194,0,3.4,THRU,12,newguardpostcentres
+M03_B01,Z,580,48,0,3.4,THRU,12,newguardpostcentres
+M03_B01,Z,580,194,0,3.4,THRU,12,newguardpostcentres

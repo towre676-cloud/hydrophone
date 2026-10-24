@@ -1,0 +1,818 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "hydrophone.writer-calibration/1",
+  "title": "Writer calibration declaration and blocked template shape",
+  "description": "Nullable fields permit blocked proposals/templates. writer_display.validate_calibration is the stricter enabled-run validator; schema conformance alone never enables physical readout. Additional calibration-fit evidence is retained.",
+  "type": "object",
+  "required": [
+    "schema",
+    "status",
+    "evidence_type",
+    "calibration_id",
+    "reference_evidence_ids",
+    "created_utc",
+    "valid_until_utc",
+    "scope",
+    "channels",
+    "timing"
+  ],
+  "properties": {
+    "schema": {
+      "const": "hydrophone.writer-calibration/1"
+    },
+    "status": {
+      "type": "string"
+    },
+    "evidence_type": {
+      "enum": [
+        "unavailable",
+        "synthetic_demo",
+        "physical_calibration_declared"
+      ]
+    },
+    "calibration_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "reference_evidence_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "created_utc": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "valid_until_utc": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "scope": {
+      "type": "object",
+      "required": [
+        "configuration_id",
+        "adc_serial",
+        "force_sensor_serial",
+        "position_sensor_serial",
+        "filter_configuration_id",
+        "mechanics_revision",
+        "wiring_profile",
+        "scan_list",
+        "sample_rate_Hz_interval",
+        "resolution_index",
+        "range_V",
+        "scans_per_read",
+        "valid_temperature_C",
+        "valid_excitation_V",
+        "environment_valid_for_s",
+        "operation",
+        "qualified_direction_scope"
+      ],
+      "properties": {
+        "configuration_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "adc_serial": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "force_sensor_serial": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "position_sensor_serial": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "filter_configuration_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "mechanics_revision": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "wiring_profile": {
+          "enum": [
+            "E01",
+            "E02"
+          ]
+        },
+        "scan_list": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "sample_rate_Hz_interval": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "pattern": "^[+-]?(?:(?:\\d+\\.?\\d*)|(?:\\.\\d+))(?:[eE][+-]?\\d+)?$"
+              }
+            ]
+          }
+        },
+        "resolution_index": {
+          "const": 7
+        },
+        "range_V": {
+          "const": 10
+        },
+        "scans_per_read": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10
+        },
+        "valid_temperature_C": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "pattern": "^[+-]?(?:(?:\\d+\\.?\\d*)|(?:\\.\\d+))(?:[eE][+-]?\\d+)?$"
+              }
+            ]
+          }
+        },
+        "valid_excitation_V": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "pattern": "^[+-]?(?:(?:\\d+\\.?\\d*)|(?:\\.\\d+))(?:[eE][+-]?\\d+)?$"
+              }
+            ]
+          }
+        },
+        "environment_valid_for_s": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[+-]?(?:(?:\\d+\\.?\\d*)|(?:\\.\\d+))(?:[eE][+-]?\\d+)?$"
+            }
+          ]
+        },
+        "operation": {
+          "const": "bidirectional_quasistatic"
+        },
+        "qualified_direction_scope": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "positive",
+              "negative"
+            ]
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "channels": {
+      "type": "object",
+      "required": [
+        "force",
+        "position"
+      ],
+      "properties": {
+        "force": {
+          "type": "object",
+          "required": [
+            "raw_column",
+            "SI_unit",
+            "sensor_serial",
+            "chain_id",
+            "sign_convention",
+            "uniform_bound_justification_id",
+            "zero_raw_V",
+            "scale_SI_per_V",
+            "raw_error_bound_V",
+            "total_error_SI",
+            "raw_valid_V",
+            "valid_SI",
+            "uncertainty_kind",
+            "reference_evidence_ids"
+          ],
+          "properties": {
+            "raw_column": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "SI_unit": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "sensor_serial": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "chain_id": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "sign_convention": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "uniform_bound_justification_id": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "zero_raw_V": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "string",
+                  "pattern": "^[+-]?(?:(?:\\d+\\.?\\d*)|(?:\\.\\d+))(?:[eE][+-]?\\d+)?$"
+                }
+              ]
+            },
+            "scale_SI_per_V": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "string",
+                  "pattern": "^[+-]?(?:(?:\\d+\\.?\\d*)|(?:\\.\\d+))(?:[eE][+-]?\\d+)?$"
+                }
+              ]
+            },
+            "raw_error_bound_V": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "string",
+                  "pattern": "^[+-]?(?:(?:\\d+\\.?\\d*)|(?:\\.\\d+))(?:[eE][+-]?\\d+)?$"
+                }
+              ]
+            },
+            "total_error_SI": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "string",
+                  "pattern": "^[+-]?(?:(?:\\d+\\.?\\d*)|(?:\\.\\d+))(?:[eE][+-]?\\d+)?$"
+                }
+              ]
+            },
+            "raw_valid_V": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "string",
+                    "pattern": "^[+-]?(?:(?:\\d+\\.?\\d*)|(?:\\.\\d+))(?:[eE][+-]?\\d+)?$"
+                  }
+                ]
+              }
+            },
+            "valid_SI": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "string",
+                    "pattern": "^[+-]?(?:(?:\\d+\\.?\\d*)|(?:\\.\\d+))(?:[eE][+-]?\\d+)?$"
+                  }
+                ]
+              }
+            },
+            "uncertainty_kind": {
+              "const": "deterministic_bound_declared"
+            },
+            "reference_evidence_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": true
+        },
+        "position": {
+          "type": "object",
+          "required": [
+            "raw_column",
+            "SI_unit",
+            "sensor_serial",
+            "chain_id",
+            "sign_convention",
+            "uniform_bound_justification_id",
+            "zero_raw_V",
+            "scale_SI_per_V",
+            "raw_error_bound_V",
+            "total_error_SI",
+            "raw_valid_V",
+            "valid_SI",
+            "uncertainty_kind",
+            "reference_evidence_ids"
+          ],
+          "properties": {
+            "raw_column": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "SI_unit": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "sensor_serial": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "chain_id": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "sign_convention": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "uniform_bound_justification_id": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "zero_raw_V": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "string",
+                  "pattern": "^[+-]?(?:(?:\\d+\\.?\\d*)|(?:\\.\\d+))(?:[eE][+-]?\\d+)?$"
+                }
+              ]
+            },
+            "scale_SI_per_V": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "string",
+                  "pattern": "^[+-]?(?:(?:\\d+\\.?\\d*)|(?:\\.\\d+))(?:[eE][+-]?\\d+)?$"
+                }
+              ]
+            },
+            "raw_error_bound_V": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "string",
+                  "pattern": "^[+-]?(?:(?:\\d+\\.?\\d*)|(?:\\.\\d+))(?:[eE][+-]?\\d+)?$"
+                }
+              ]
+            },
+            "total_error_SI": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "string",
+                  "pattern": "^[+-]?(?:(?:\\d+\\.?\\d*)|(?:\\.\\d+))(?:[eE][+-]?\\d+)?$"
+                }
+              ]
+            },
+            "raw_valid_V": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "string",
+                    "pattern": "^[+-]?(?:(?:\\d+\\.?\\d*)|(?:\\.\\d+))(?:[eE][+-]?\\d+)?$"
+                  }
+                ]
+              }
+            },
+            "valid_SI": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "string",
+                    "pattern": "^[+-]?(?:(?:\\d+\\.?\\d*)|(?:\\.\\d+))(?:[eE][+-]?\\d+)?$"
+                  }
+                ]
+              }
+            },
+            "uncertainty_kind": {
+              "const": "deterministic_bound_declared"
+            },
+            "reference_evidence_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "timing": {
+      "type": "object",
+      "required": [
+        "pairing_id",
+        "clock_origin_evidence_id",
+        "scope",
+        "first_scan_offset_from_call_interval_s",
+        "host_seconds_per_logger_nominal_second_interval",
+        "maximum_observation_age_s",
+        "per_channel"
+      ],
+      "properties": {
+        "pairing_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "clock_origin_evidence_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "scope": {
+          "const": "native_scan_clock_filtered_channels_not_simultaneous"
+        },
+        "first_scan_offset_from_call_interval_s": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "pattern": "^[+-]?(?:(?:\\d+\\.?\\d*)|(?:\\.\\d+))(?:[eE][+-]?\\d+)?$"
+              }
+            ]
+          }
+        },
+        "host_seconds_per_logger_nominal_second_interval": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "pattern": "^[+-]?(?:(?:\\d+\\.?\\d*)|(?:\\.\\d+))(?:[eE][+-]?\\d+)?$"
+              }
+            ]
+          }
+        },
+        "maximum_observation_age_s": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[+-]?(?:(?:\\d+\\.?\\d*)|(?:\\.\\d+))(?:[eE][+-]?\\d+)?$"
+            }
+          ]
+        },
+        "per_channel": {
+          "type": "object",
+          "required": [
+            "force",
+            "position"
+          ],
+          "properties": {
+            "force": {
+              "type": "object",
+              "required": [
+                "sample_offset_s",
+                "sample_offset_error_s",
+                "filter_lag_bound_s",
+                "max_abs_slew_SI_per_s",
+                "filter_bound_evidence_id",
+                "slew_bound_evidence_id"
+              ],
+              "properties": {
+                "sample_offset_s": {
+                  "anyOf": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "type": "string",
+                      "pattern": "^[+-]?(?:(?:\\d+\\.?\\d*)|(?:\\.\\d+))(?:[eE][+-]?\\d+)?$"
+                    }
+                  ]
+                },
+                "sample_offset_error_s": {
+                  "anyOf": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "type": "string",
+                      "pattern": "^[+-]?(?:(?:\\d+\\.?\\d*)|(?:\\.\\d+))(?:[eE][+-]?\\d+)?$"
+                    }
+                  ]
+                },
+                "filter_lag_bound_s": {
+                  "anyOf": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "type": "string",
+                      "pattern": "^[+-]?(?:(?:\\d+\\.?\\d*)|(?:\\.\\d+))(?:[eE][+-]?\\d+)?$"
+                    }
+                  ]
+                },
+                "max_abs_slew_SI_per_s": {
+                  "anyOf": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "type": "string",
+                      "pattern": "^[+-]?(?:(?:\\d+\\.?\\d*)|(?:\\.\\d+))(?:[eE][+-]?\\d+)?$"
+                    }
+                  ]
+                },
+                "filter_bound_evidence_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "slew_bound_evidence_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "additionalProperties": true
+            },
+            "position": {
+              "type": "object",
+              "required": [
+                "sample_offset_s",
+                "sample_offset_error_s",
+                "filter_lag_bound_s",
+                "max_abs_slew_SI_per_s",
+                "filter_bound_evidence_id",
+                "slew_bound_evidence_id"
+              ],
+              "properties": {
+                "sample_offset_s": {
+                  "anyOf": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "type": "string",
+                      "pattern": "^[+-]?(?:(?:\\d+\\.?\\d*)|(?:\\.\\d+))(?:[eE][+-]?\\d+)?$"
+                    }
+                  ]
+                },
+                "sample_offset_error_s": {
+                  "anyOf": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "type": "string",
+                      "pattern": "^[+-]?(?:(?:\\d+\\.?\\d*)|(?:\\.\\d+))(?:[eE][+-]?\\d+)?$"
+                    }
+                  ]
+                },
+                "filter_lag_bound_s": {
+                  "anyOf": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "type": "string",
+                      "pattern": "^[+-]?(?:(?:\\d+\\.?\\d*)|(?:\\.\\d+))(?:[eE][+-]?\\d+)?$"
+                    }
+                  ]
+                },
+                "max_abs_slew_SI_per_s": {
+                  "anyOf": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "type": "string",
+                      "pattern": "^[+-]?(?:(?:\\d+\\.?\\d*)|(?:\\.\\d+))(?:[eE][+-]?\\d+)?$"
+                    }
+                  ]
+                },
+                "filter_bound_evidence_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "slew_bound_evidence_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "additionalProperties": true
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "warning": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}

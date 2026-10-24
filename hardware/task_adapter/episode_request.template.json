@@ -1,0 +1,20 @@
+{
+  "schema": "hydrophone.task-episode-request/1",
+  "data_origin": "physical_measurement",
+  "run_id": null,
+  "condition": "connected_clay",
+  "write_protocol": "H0",
+  "policy_arm": "fusion_full",
+  "decision_time_s": null,
+  "cost_s": {
+    "preparation_s": null,
+    "reset_s": null,
+    "calibration_share_s": null,
+    "acquisition_s": null,
+    "waiting_s": null,
+    "compute_s": null,
+    "retune_s": null,
+    "verification_s": null
+  },
+  "note": "Fill the actual prospective decision event; offline replay does not prove online timing."
+}

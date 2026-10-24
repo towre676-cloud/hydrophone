@@ -1,0 +1,84 @@
+{
+  "schema": "fusion.RG04.screen/1",
+  "status": "NOMINAL_DIMENSIONAL_AND_STATIC_SCREEN_NOT_FABRICATED",
+  "caps": {
+    "tension_per_string_N": 25,
+    "total_tension_N": 100,
+    "retainer_coupon_proof_target_N": 37.5
+  },
+  "fixed_bar_assumed_simply_supported_span_mm": 60,
+  "fixed_bar_nominal_downward_load_N": {
+    "left": 11.104659897319529,
+    "right": 10.043202603734967
+  },
+  "fixed_bar_deflection_um_conservative_centre_force": 4.069917130714431,
+  "fixed_bar_bending_stress_MPa": 7.854940062278851,
+  "capstan_stem_von_mises_MPa": {
+    "25N": 89.36068694554274,
+    "37p5N_proof": 134.0410304183141
+  },
+  "capstan_stem_material_required_minimum_yield_MPa": 600,
+  "capstan_retention_not_identified_from_torque": true,
+  "illustrative_two_turn_tail_force_N": {
+    "0.05": 13.337202277277582,
+    "0.1": 7.115238583400732,
+    "0.15": 3.795895049516222
+  },
+  "friction_values_are_assumptions_not_validated_bounds": true,
+  "retainer_strength_and_slip_qualified": false,
+  "nylon_candidate": {
+    "manufacturer": "Sufix/Rapala",
+    "item": "SUFML30100C",
+    "nominal_diameter_mm": 0.5,
+    "label_strength_lb": 30,
+    "label_force_N": 133.446648457815,
+    "label_is_not_installed_assembly_rating": true
+  },
+  "moving_drive_addition": {
+    "bracket_upper_geometry_mass_g": 12.8061,
+    "motor_budget_g": 10,
+    "screws_washers_cable_budget_g": 2,
+    "total_budget_g": 24.8061,
+    "installed_moving_mass_must_be_weighed": true
+  },
+  "exciter": {
+    "model": "DAEX-13-4SM",
+    "nominal_impedance_ohm": 4,
+    "catalogue_RMS_rating_W": 3,
+    "manufacturer_drawing_max_body_mm": [
+      20.2,
+      41,
+      9
+    ],
+    "free_Fs_Hz": 950,
+    "useful_low_note_force_or_displacement_not_established": true
+  },
+  "checks": {
+    "right_body_gap_between_12mm_string_centres_mm": 0.5,
+    "right_min_jamnut_to_body_clearance_mm": 0.8000000000000682,
+    "right_max_body_x_mm": 614,
+    "guard_right_end_inside_x_mm": 622,
+    "guard_to_motor_clearance_mm": 11,
+    "motor_land_width_clearance_each_mm": 1.9000000000000004,
+    "motor_land_height_clearance_each_mm": 2.5,
+    "drive_M2_head_to_gusset_clearance_mm": 4.1,
+    "drive_M2_head_to_M3_relief_clearance_mm": 1.1611687202997452,
+    "drive_M2_hole_to_M3_relief_ligament_mm": 1.8611687202997451,
+    "drive_adjacent_M2_head_clearance_mm": 2.2,
+    "drive_continuous_foot_and_gusset_depth_before_vane_mm": 3.9,
+    "cable_ear_hole_to_motor_keepout_clearance_mm": 2.8999999999999773,
+    "guide_min_web_engagement_through_stroke_mm": 20,
+    "guard_corner_mounts_clear_post_mounts_mm": 20
+  },
+  "guard": {
+    "material": "3mm solid polycarbonate",
+    "closed_max_z_mm": 188,
+    "approx_90deg_open_front_max_z_mm": 313,
+    "interlock": false,
+    "impact_or_reach_compliance_tested": false,
+    "purpose": "projectile/splashhood;stoppedserviceonly;nohandsduringtension/excitation"
+  },
+  "physical_readiness": false,
+  "own_part_hole_operations_checked_in_stock": 89,
+  "parts_scad_sha256": "247184863e458e536ffcbd3af54ea8573e392afe324f7a97afeab75a4d7a0a80"
+}

@@ -1,0 +1,154 @@
+{
+  "schema": "hydrophone.motion-qualification/1",
+  "status": "not_measured",
+  "evidence_type": "unavailable",
+  "configuration_id": null,
+  "target_port": "boss_center_axial",
+  "reference_digital_peak": null,
+  "boss_motion_limit_m": ".00001",
+  "probe_frequencies_SI_Hz": [
+    261.626,
+    292.39573306577114,
+    326.759563456652,
+    391.1253463782126
+  ],
+  "evidence_files": [],
+  "conditions": {
+    "wet_equilibrium_id": null,
+    "rod_engagement_id": null,
+    "preload_state_id": null,
+    "sensor_mount_id": null,
+    "frequency_timebase_calibration_id": null,
+    "same_waveform_family": null,
+    "same_configuration": null,
+    "stationarity_checked": null,
+    "no_clipping_or_dropout": null,
+    "bounds_include_projection_and_rotation": null,
+    "evidence_ids": [],
+    "writer_engagement_id": null
+  },
+  "amplitude_scaling": {
+    "mode": "measured_reference_only",
+    "digital_peak_domain": [
+      null,
+      null
+    ],
+    "relative_gain_error_upper": null,
+    "covers_waveform_quantization_and_nonlinearity": false,
+    "evidence_ids": []
+  },
+  "tones": [
+    {
+      "frequency_SI_Hz": 261.626,
+      "frequency_error_Hz": null,
+      "mode": "bridge_acceleration_with_measured_transfer",
+      "bridge_acceleration_m_per_s2": {
+        "real": null,
+        "imag": null,
+        "error_radius_abs": null
+      },
+      "boss_over_bridge_displacement": {
+        "real": null,
+        "imag": null,
+        "error_radius_abs": null
+      },
+      "transfer_domain_covers_frequency_amplitude_preload": false,
+      "evidence_ids": [],
+      "transfer_evidence_ids": []
+    },
+    {
+      "frequency_SI_Hz": 292.39573306577114,
+      "frequency_error_Hz": null,
+      "mode": "bridge_acceleration_with_measured_transfer",
+      "bridge_acceleration_m_per_s2": {
+        "real": null,
+        "imag": null,
+        "error_radius_abs": null
+      },
+      "boss_over_bridge_displacement": {
+        "real": null,
+        "imag": null,
+        "error_radius_abs": null
+      },
+      "transfer_domain_covers_frequency_amplitude_preload": false,
+      "evidence_ids": [],
+      "transfer_evidence_ids": []
+    },
+    {
+      "frequency_SI_Hz": 326.759563456652,
+      "frequency_error_Hz": null,
+      "mode": "bridge_acceleration_with_measured_transfer",
+      "bridge_acceleration_m_per_s2": {
+        "real": null,
+        "imag": null,
+        "error_radius_abs": null
+      },
+      "boss_over_bridge_displacement": {
+        "real": null,
+        "imag": null,
+        "error_radius_abs": null
+      },
+      "transfer_domain_covers_frequency_amplitude_preload": false,
+      "evidence_ids": [],
+      "transfer_evidence_ids": []
+    },
+    {
+      "frequency_SI_Hz": 391.1253463782126,
+      "frequency_error_Hz": null,
+      "mode": "bridge_acceleration_with_measured_transfer",
+      "bridge_acceleration_m_per_s2": {
+        "real": null,
+        "imag": null,
+        "error_radius_abs": null
+      },
+      "boss_over_bridge_displacement": {
+        "real": null,
+        "imag": null,
+        "error_radius_abs": null
+      },
+      "transfer_domain_covers_frequency_amplitude_preload": false,
+      "evidence_ids": [],
+      "transfer_evidence_ids": []
+    }
+  ],
+  "remainder_bounds": {
+    "in_band_non_tone_peak_m": {
+      "bound_m": null,
+      "scope": "uniform_over_declared_command_domain",
+      "evidence_ids": []
+    },
+    "outside_measured_band_peak_m": {
+      "bound_m": null,
+      "scope": "uniform_over_declared_command_domain",
+      "evidence_ids": []
+    },
+    "sub_band_and_equilibrium_drift_peak_m": {
+      "bound_m": null,
+      "scope": "uniform_over_declared_command_domain",
+      "evidence_ids": []
+    },
+    "drive_on_off_transient_peak_m": {
+      "bound_m": null,
+      "scope": "uniform_over_declared_command_domain",
+      "evidence_ids": []
+    },
+    "instrument_head_and_mount_motion_peak_m": {
+      "bound_m": null,
+      "scope": "uniform_over_declared_command_domain",
+      "evidence_ids": []
+    }
+  },
+  "observed_motion_band_SI_Hz": [
+    null,
+    null
+  ],
+  "required_time_interval_SI_s": [
+    0,
+    10
+  ],
+  "measurement_time_interval_SI_s": [
+    null,
+    null
+  ],
+  "measurement_time_error_s": null
+}

@@ -1,0 +1,88 @@
+part,axis,direction,local_X,local_Y,local_Z,diameter_mm,operation,depth_mm,notes
+L02,Y,1,13,0,13,6.02,REAM,15,
+L02,X,-1,26,7.5,13,2.5,TAP M3x0.5,10,doesnotdrivetheforcecell
+L03,Y,1,15,0,15,6.4,THRU,15,
+L03,Y,1,15,0,15,12.03,BORE12.03..12.05,4.5,leftbearingwell
+L03,Y,-1,15,15,15,12.03,BORE12.03..12.05,4.5,rightbearingwell
+L03,Z,-1,5,7.5,30,2.5,TAP M3x0.5,6,
+L03,Z,-1,25,7.5,30,2.5,TAP M3x0.5,6,
+L04,Y,1,5,0,5,6.1,THRU,1,
+L05,Y,1,5.7735,0,5.7735,5.5,TAP M6x0.5,3.2,
+L06,Y,1,7,0,7,5.5,TAP M6x0.5,22,6H;pitchgauge;deburrfirst/lastthread
+L07,Y,1,8.083,0,8.083,9.25,TAP M10x0.75,4,
+L08,Y,1,25,0,10,10.02,REAM10.02..10.04,15,
+L08,Z,1,4,7.5,0,3.4,THRU,20,legbolt
+L08,Z,1,46,7.5,0,3.4,THRU,20,legbolt
+L08,X,-1,50,5,10,2.5,TAP M3x0.5,20.5,softpadagainstnutindexflat
+L08,X,-1,50,10,10,2.5,TAP M3x0.5,20.5,softpadagainstnutindexflat
+L09,Z,1,4,7.5,0,2.5,TAP M3x0.5,10,
+L09,Z,-1,4,7.5,70,2.5,TAP M3x0.5,8,
+S01,Y,1,8,0,6,6.015,LINE REAM6.010..6.020,20,
+S01,Y,1,28,0,6,6.015,LINE REAM6.010..6.020,20,
+S01,Z,-1,14,6,18,2.5,TAP M3x0.5,11,clearshaftboresbyXseparation
+S01,Z,-1,14,14,18,2.5,TAP M3x0.5,11,clearshaftboresbyXseparation
+S01,Z,-1,22,6,18,2.5,TAP M3x0.5,11,clearshaftboresbyXseparation
+S01,Z,-1,22,14,18,2.5,TAP M3x0.5,11,clearshaftboresbyXseparation
+S02,Z,1,22,56,0,3.4,THRU,6,29mmspacerM3x45
+S02,Z,1,22,64,0,3.4,THRU,6,29mmspacerM3x45
+S02,Z,1,30,56,0,3.4,THRU,6,29mmspacerM3x45
+S02,Z,1,30,64,0,3.4,THRU,6,29mmspacerM3x45
+S02,Z,1,16,9,0,3.4,THRU,6,6mmspacerM3x16tohousing
+S02,Z,1,36,9,0,3.4,THRU,6,6mmspacerM3x16tohousing
+S02,Z,1,18,34.1,0,3.4,THRU,6,rearforkM3x12
+S02,Z,1,34,34.1,0,3.4,THRU,6,rearforkM3x12
+S03,Z,1,3,3,0,3.2,THRU,29,
+S04,Z,1,3,3,0,3.2,THRU,6,
+S05,X,1,0,8,5,3.1,REAM,26,Ø3pin;ballB6+2×2.1spacers
+S05,Z,-1,5,6,26,2.5,TAP M3x0.5,8,
+S05,Z,-1,21,6,26,2.5,TAP M3x0.5,8,
+C02,Z,1,2.75,2.75,0,3.1,THRU,2.1,stockaxisZ;rotateXaftermanufacture
+C04,Y,1,2.75,0,2.75,3.2,THRU,0.5,
+C05R,Y,1,2.887,0,2.887,2.5,TAP M3x0.5 RH,2.4,
+C05L,Y,1,2.887,0,2.887,2.5,TAP M3x0.5 LH,2.4,
+T01,Y,1,10,0,80,7.5,TAP M8x0.5,10,
+T01,Z,1,10,5,0,4.2,TAP M5x0.8,18,basebolt
+T01,Z,1,16,5,0,2,REAM2H7,8,antiyawdowel
+T01,X,1,0,5,80,2.5,TAP M3x0.5,6.5,retainedsofttipgrub;inspectboreafterlocking
+T02,Y,1,4,0,4,3.5,THRU,12.7,deburrinside;3.3gaugeafterlocking
+T02,Y,1,1.2,0,4,1,DRILL,1.5,pinspannerinputface;nodrivepinleftinstalled
+T02,Y,1,6.8,0,4,1,DRILL,1.5,pinspannerinputface;nodrivepinleftinstalled
+T03,X,1,0,3,3,3.1,REAM,6,
+T05,Y,1,17.2,0,4,0.98,REAM0.980..0.985,1,"presspinsØ0.994..1.000,L2.5,1.5protrusion;removebeforeoperation"
+T05,Y,1,22.8,0,4,0.98,REAM0.980..0.985,1,"presspinsØ0.994..1.000,L2.5,1.5protrusion;removebeforeoperation"
+R01,X,1,0,3,3,3.1,REAM,6,headcrosspin
+R02,Y,1,2.887,0,2.887,2.5,FLAT-BOTTOM BORE,6.6,0.6runoutbeyond6mmfullthread;solidweb0.8
+R02,Y,-1,2.887,14,2.887,2.5,FLAT-BOTTOM BORE,6.6,noextraunrecordeddrillpoint
+R02,Y,1,2.887,0,2.887,2.5,BOTTOM TAP M3x0.5 RH FULLTHREAD,6,
+R02,Y,-1,2.887,14,2.887,2.5,BOTTOM TAP M3x0.5 LH FULLTHREAD,6,
+R04,Y,1,4,0,4,2.5,FLAT-BOTTOM BORE,3.3,doNOTusetwistdrillpointasextraunrecordeddepth
+R04,Y,1,4,0,4,2.5,BOTTOM TAP M3x0.5 LH FULLTHREAD,2.5,0.8runoutallowancebeyondfullthread
+R05,Z,1,2.75,2.75,0,3.1,THRU,2.1,
+S06,X,1,0,6,5,3.1,REAM,26,
+S06,Z,-1,5,6,26,2.5,TAP M3x0.5,8,
+S06,Z,-1,21,6,26,2.5,TAP M3x0.5,8,
+O01,Z,1,10,25,0,5.5,THRU,12,M5x30washer/nut
+O01,Z,1,10,55,0,5.5,THRU,12,M5x30washer/nut
+O01,Z,1,70,25,0,5.5,THRU,12,M5x30washer/nut
+O01,Z,1,70,55,0,5.5,THRU,12,M5x30washer/nut
+O02,Z,1,10,25,0,5.5,THRU,6,M5x30washer/nut
+O02,Z,1,10,55,0,5.5,THRU,6,M5x30washer/nut
+O02,Z,1,10,85,0,5.5,THRU,6,M5x30washer/nut
+O02,Z,1,70,25,0,5.5,THRU,6,M5x30washer/nut
+O02,Z,1,70,55,0,5.5,THRU,6,M5x30washer/nut
+O02,Z,1,70,85,0,5.5,THRU,6,M5x30washer/nut
+O01,Z,1,19,22.5,0,3.4,THRU,12,fixednutlegM3x25
+O01,Z,1,61,22.5,0,3.4,THRU,12,fixednutlegM3x25
+O02,Z,1,19,22.5,0,3.4,THRU,6,fixednutlegM3x25
+O02,Z,1,61,22.5,0,3.4,THRU,6,fixednutlegM3x25
+O03,Z,-1,12.5,12.5,20,4.2,TAP M5x0.8,10,
+BASE-OVERLAY,Z,1,430,10,0,5.5,THRU,12,braceglobalY−30
+BASE-OVERLAY,Z,1,490,10,0,5.5,THRU,12,braceglobalY−30
+BASE-OVERLAY,Z,1,20,20,0,5.5,THRU,12,footM5x20
+BASE-OVERLAY,Z,1,580,20,0,5.5,THRU,12,footM5x20
+BASE-OVERLAY,Z,1,20,340,0,5.5,THRU,12,footM5x20
+BASE-OVERLAY,Z,1,580,340,0,5.5,THRU,12,footM5x20
+BASE-OVERLAY,Z,1,460,138,0,5.5,THRU,12,catchM5x25
+BASE-OVERLAY,Z,1,466,138,0,2,REAM2H7,6,catchantiyawdowel
+BASE-OVERLAY,Z,1,460,165,0,5.5,THRU,12,catchM5x25
+BASE-OVERLAY,Z,1,466,165,0,2,REAM2H7,6,catchantiyawdowel

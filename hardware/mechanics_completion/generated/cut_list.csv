@@ -1,0 +1,36 @@
+part,qty,material,stock_X_mm,stock_Y_mm,stock_Z_mm,operation
+L01,1,303stainless;certify,12,95,12,turnedshaft;localY0=global−125;allstations inturningtable
+L02,1,6061T6,26,15,26,knobOD26;6.02bore;radialM3setonshaftflat
+L03,1,6061T6,30,15,30,opposedbearinghousing;notadummyblock;flat6mmwebbetweenwells
+L04,1,hardened/groundsteel,10,1,10,rotatingabutmentwasherOD10;ID6.1;parallelwithin0.01
+L05,2,steel,11.547,3.2,11.547,hexAF10;M6x0.5through;customthinjamnuts
+L06,1,bearingbronze,14,22,14,"nutbushOD10L15,frontflange14x2,rearthreadM10x.75L5;localY0global−102"
+L07,1,steel,16.166,4,16.166,AF14M10x.75retainingnut
+L08,1,6061T6,50,15,20,fixednutbeam;noanalogueofblindball-endmicrometer
+L09,2,6061T6,8,15,70,fixednutlegs;M3topandbottom
+S01,1,6061T6,36,20,18,replacementslider;guides5.994..6.000;linebores6.010..6.020
+S02,1,6061T6,52,70,6,"writerroof;origin434,−55,113;detachfrominstrumentreadmode"
+S03,4,6061tube,6,6,29,OD6 ID3.2 spacerL29;axisZ;match±0.02
+S04,2,6061tube,6,6,6,OD6 ID3.2 spacerL6;axisZ;match±0.02
+S05,2,6061T6,26,14,26,cellclevisfrontreplacement+rearfork;10.2slotcenteredX;low13mm;front2mmrelief
+C01,2,303stainless;certify,6,13.1,6,"customcontrolledengagementstud;cellspigot2.2,hexAF5x2.4,externalM3x8.5"
+C02,4,groundsteel,5.5,5.5,2.1,ballspacers;axisXonassembly;ID3.1;length2.10±0.01
+C03,2,groundsteel;certify,33.2,5,5,"pinaxisX;head5x2,Ø2.994..3.000shoulder26.2,M2x.4tip5"
+C04,2,steel,5.5,0.5,5.5,pinwasherOD5.5ID3.2;axisXassembled
+C05R,3,steel,5.774,2.4,5.774,M3RHhexAF5jamnut;2celllinks+waterrodfront
+C05L,1,steel,5.774,2.4,5.774,M3LHhexAF5jamnut;waterrodrear
+T01,2,6061T6,20,10,86,"catchposts;front450,93,12;rear450,120,12"
+T02,2,303stainless;certify,8,12.7,8,headlessM8x.5hollowcatch;bore3.5;front/rearmirror;twoaxial1mmpinspannerholesr2.8
+T03,1,steel,6,6,6,"flatwritecatchtarget;centre460,110,92;replaceswaterrodeyeduringwrite"
+T04,2,steel+retainedbrassnose,3,8,3,M3grubL8;retainednoseØ2.45x1onØ2.00x2pressstem;bodyblindØ1.98x2
+T05,1,springsteel,40,1,8,Lpinspannerstrap;two1mmpinscentrespacing4.6;tips1.5long;removebeforeoperation
+R01,1,303stainless;certify,6,30.5,6,waterrodeye6cube atY107..113;stemØ3to137.5;RHthread129.6..137.5;headfaceclampedforzerobacklash
+R02,1,303stainless;certify,5.774,14,5.774,turnbuckleAF5atY132..146;RHtap6mmfromfront;LHtap6mmfromrear;2mmcentralweb
+R03,1,303stainless;certify,3,11.3984,3,M3x.5LHdoubleendstud;Y140.5..151.8984;turnfrom4mmstock;slot0.5x0.5atoneend
+R04,1,aluminium;bondqualified,8,4,8,drybossOD8t4;LH M3fullthread2.5;flatbottomhole3.3;solidbondland≥0.7
+R05,2,groundsteel,5.5,5.5,2.1,waterhead/catchtargetspacersinM04replacement10.2waterclevis
+S06,1,6061T6,26,14,26,replacementwaterclevis;10.2slot;pinlocalY6;topmountlocalY6
+O01,1,6061T6,80,75,12,"frontbaseextension;origin420,−115,0"
+O02,1,6061T6,80,95,6,"underlapbrace;origin420,−115,−6"
+O03,4,6061orcompatiblefoot,25,25,20,footOD25H20;topM5tap10;feltpad1mmoptionalbutrecord
+BASE-OVERLAY,1,retainedM03base,600,360,12,newholesonly;localY=globalY+40;M03itselfunchanged

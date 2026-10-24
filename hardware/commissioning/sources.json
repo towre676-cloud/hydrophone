@@ -1,0 +1,30 @@
+{
+  "retrieved_date": "2026-10-24",
+  "physical_measurements_performed": false,
+  "sources": [
+    {
+      "id": "POLYTEC-VIBROGO",
+      "url": "https://www.polytec.com/en/vibrometry/products/single-point-vibrometers/vibrogo",
+      "title": "Polytec VibroGo primary product page",
+      "verified_scope": "Family supports up to320kHz, optional displacement/acceleration outputs, analog/digital signal output, tripod/pan-tilt accessories and measurement/rental enquiry. Actual configuration/calibration/range/error scope and price must be obtained for the unit used.",
+      "purchase_or_rental_arranged": false
+    },
+    {
+      "id": "PUBLIC-BASELINE",
+      "repository_commit": "4ed13aa",
+      "paths": [
+        "hardware/calibration/README.md",
+        "hardware/readout/writer_calibration.template.json",
+        "hardware/electronics/README.md",
+        "hardware/mechanics/README.md"
+      ],
+      "scope": "Earlier public mechanical/electrical baseline and current readout record interface. This new folder supplies executable commissioning arithmetic, not fabrication qualification."
+    },
+    {
+      "id": "POLYTEC-VIBROGO-BROCHURE",
+      "url": "https://www.polytec.com/_Resources/Persistent/5/f/4/9/5f492436d744651f1764a4d676c9ec5f43b665e1/OM_PB_VibroGo_E_52042.pdf",
+      "title": "Polytec VibroGo official product brochure, OM_PB_VibroGo_E_52042",
+      "verified_scope": "Analog BNC use and stand-alone digital export are manufacturer-described options. No unit-specific decoder accuracy or purchase configuration is supplied here."
+    }
+  ]
+}

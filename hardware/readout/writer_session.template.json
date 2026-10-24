@@ -1,0 +1,16 @@
+{
+  "schema": "hydrophone.writer-session/1",
+  "run_id": null,
+  "operator_id": null,
+  "configuration_id": null,
+  "adc_serial": null,
+  "force_sensor_serial": null,
+  "position_sensor_serial": null,
+  "filter_configuration_id": null,
+  "mechanics_revision": null,
+  "operation": "bidirectional_quasistatic",
+  "temperature_C": null,
+  "temperature_error_C": null,
+  "temperature_observed_utc": null,
+  "identity_check_evidence_ids": []
+}

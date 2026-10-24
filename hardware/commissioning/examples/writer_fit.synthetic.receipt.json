@@ -1,0 +1,599 @@
+{
+  "schema": "hydrophone.writer-calibration-fit-result/1",
+  "status": "FINITE_REFERENCE_FIT_AND_HOLDOUT_CHECKED_NOT_UNIFORM_QUALIFICATION",
+  "source_csv_sha256": "1f67f1bbf840ef357f5d8b4b75ddfd13264d9051355c44f9c55e1038d9f52fed",
+  "evidence_type": "synthetic_demo",
+  "fit_channels": {
+    "force": {
+      "channel": "force",
+      "SI_unit": "N",
+      "model": "SI=(raw_V-zero_raw_V)*scale_SI_per_V",
+      "reference_error_semantics": "exact-decimal serialized coefficient model; computational runtime rounding is a separate error-budget term",
+      "scale_SI_per_V": 22.079998376470705,
+      "zero_raw_V": 1.25,
+      "exact_decimal_fit": {
+        "scale_SI_per_V": "61594202898550732000000000000000/2789592727696387980432157109851",
+        "intercept_SI": "-76992753623188415000000000000000/2789592727696387980432157109851",
+        "zero_raw_V": "5/4"
+      },
+      "development_rows": 10,
+      "held_out_rows": 8,
+      "development_point_error_upper_SI": "513045936540749877495647911/125000000000000000000000000000",
+      "held_out_point_error_upper_SI": "328343517033794765638056267/80000000000000000000000000000",
+      "finite_point_error_upper_SI": "513045936540749877495647911/125000000000000000000000000000",
+      "observed_raw_span_V": [
+        "10235054347826087/10000000000000000",
+        "14764945652173913/10000000000000000"
+      ],
+      "observed_reference_span_SI": [
+        "-5",
+        "5"
+      ],
+      "observed_temperature_C": [
+        "20",
+        "20"
+      ],
+      "observed_excitation_V": [
+        "5/2",
+        "5/2"
+      ],
+      "reference_evidence_ids": [
+        "SYNTHETIC-REF"
+      ],
+      "rows": [
+        {
+          "source_line": 2,
+          "split": "development",
+          "level_id": "development--5",
+          "reference_SI": "-5",
+          "raw_V": "639747509057971/625000000000000",
+          "prediction_SI": "-624874954053312192028754352089/125000000000000000000000000000",
+          "signed_residual_SI": "125045946687807971245647911/125000000000000000000000000000",
+          "conditional_point_error_upper_SI": "513045936540749877495647911/125000000000000000000000000000"
+        },
+        {
+          "source_line": 3,
+          "split": "development",
+          "level_id": "development--5",
+          "reference_SI": "-5",
+          "raw_V": "10235054347826087/10000000000000000",
+          "prediction_SI": "-10001999264558876230554361943733/2000000000000000000000000000000",
+          "signed_residual_SI": "-1999264558876230554361943733/2000000000000000000000000000000",
+          "conditional_point_error_upper_SI": "8207264396523301054361943733/2000000000000000000000000000000"
+        },
+        {
+          "source_line": 4,
+          "split": "development",
+          "level_id": "development--3",
+          "reference_SI": "-3",
+          "raw_V": "11141757246376811/10000000000000000",
+          "prediction_SI": "-5997999558970622578257053435649/2000000000000000000000000000000",
+          "signed_residual_SI": "2000441029377421742946564351/2000000000000000000000000000000",
+          "conditional_point_error_upper_SI": "8208440867024492242946564351/2000000000000000000000000000000"
+        },
+        {
+          "source_line": 5,
+          "split": "development",
+          "level_id": "development--3",
+          "reference_SI": "-3",
+          "raw_V": "5570425724637681/5000000000000000",
+          "prediction_SI": "-3000999779338251868175672872979/1000000000000000000000000000000",
+          "signed_residual_SI": "-999779338251868175672872979/1000000000000000000000000000000",
+          "conditional_point_error_upper_SI": "4103779257075403425672872979/1000000000000000000000000000000"
+        },
+        {
+          "source_line": 6,
+          "split": "development",
+          "level_id": "development-0",
+          "reference_SI": "0",
+          "raw_V": "500018115942029/400000000000000",
+          "prediction_SI": "79999994117711481879352089/80000000000000000000000000000",
+          "signed_residual_SI": "79999994117711481879352089/80000000000000000000000000000",
+          "conditional_point_error_upper_SI": "328319987623594301879352089/80000000000000000000000000000"
+        },
+        {
+          "source_line": 7,
+          "split": "development",
+          "level_id": "development-0",
+          "reference_SI": "0",
+          "raw_V": "499981884057971/400000000000000",
+          "prediction_SI": "-79999994117711481879352089/80000000000000000000000000000",
+          "signed_residual_SI": "-79999994117711481879352089/80000000000000000000000000000",
+          "conditional_point_error_upper_SI": "328319987623594301879352089/80000000000000000000000000000"
+        },
+        {
+          "source_line": 8,
+          "split": "development",
+          "level_id": "development-3",
+          "reference_SI": "3",
+          "raw_V": "6929574275362319/5000000000000000",
+          "prediction_SI": "3000999779338251868175672872979/1000000000000000000000000000000",
+          "signed_residual_SI": "999779338251868175672872979/1000000000000000000000000000000",
+          "conditional_point_error_upper_SI": "4103779257075403425672872979/1000000000000000000000000000000"
+        },
+        {
+          "source_line": 9,
+          "split": "development",
+          "level_id": "development-3",
+          "reference_SI": "3",
+          "raw_V": "13858242753623189/10000000000000000",
+          "prediction_SI": "5997999558970622578257053435649/2000000000000000000000000000000",
+          "signed_residual_SI": "-2000441029377421742946564351/2000000000000000000000000000000",
+          "conditional_point_error_upper_SI": "8208440867024492242946564351/2000000000000000000000000000000"
+        },
+        {
+          "source_line": 10,
+          "split": "development",
+          "level_id": "development-5",
+          "reference_SI": "5",
+          "raw_V": "14764945652173913/10000000000000000",
+          "prediction_SI": "10001999264558876230554361943733/2000000000000000000000000000000",
+          "signed_residual_SI": "1999264558876230554361943733/2000000000000000000000000000000",
+          "conditional_point_error_upper_SI": "8207264396523301054361943733/2000000000000000000000000000000"
+        },
+        {
+          "source_line": 11,
+          "split": "development",
+          "level_id": "development-5",
+          "reference_SI": "5",
+          "raw_V": "922752490942029/625000000000000",
+          "prediction_SI": "624874954053312192028754352089/125000000000000000000000000000",
+          "signed_residual_SI": "-125045946687807971245647911/125000000000000000000000000000",
+          "conditional_point_error_upper_SI": "513045936540749877495647911/125000000000000000000000000000"
+        },
+        {
+          "source_line": 12,
+          "split": "validation",
+          "level_id": "validation--4",
+          "reference_SI": "-4",
+          "raw_V": "427554347826087/400000000000000",
+          "prediction_SI": "-319919976476472088054361943733/80000000000000000000000000000",
+          "signed_residual_SI": "80023523527911945638056267/80000000000000000000000000000",
+          "conditional_point_error_upper_SI": "328343517033794765638056267/80000000000000000000000000000"
+        },
+        {
+          "source_line": 13,
+          "split": "validation",
+          "level_id": "validation--4",
+          "reference_SI": "-4",
+          "raw_V": "5343976449275363/5000000000000000",
+          "prediction_SI": "-4000999705808841679726670451817/1000000000000000000000000000000",
+          "signed_residual_SI": "-999705808841679726670451817/1000000000000000000000000000000",
+          "conditional_point_error_upper_SI": "4103705727665214976670451817/1000000000000000000000000000000"
+        },
+        {
+          "source_line": 14,
+          "split": "validation",
+          "level_id": "validation--1",
+          "reference_SI": "-1",
+          "raw_V": "6023777173913043/5000000000000000",
+          "prediction_SI": "-998999926544125042027018618937/1000000000000000000000000000000",
+          "signed_residual_SI": "1000073455874957972981381063/1000000000000000000000000000000",
+          "conditional_point_error_upper_SI": "4104073374698493222981381063/1000000000000000000000000000000"
+        },
+        {
+          "source_line": 15,
+          "split": "validation",
+          "level_id": "validation--1",
+          "reference_SI": "-1",
+          "raw_V": "12046648550724637/10000000000000000",
+          "prediction_SI": "-2001999852794131242148329548183/2000000000000000000000000000000",
+          "signed_residual_SI": "-1999852794131242148329548183/2000000000000000000000000000000",
+          "conditional_point_error_upper_SI": "8207852631778312648329548183/2000000000000000000000000000000"
+        },
+        {
+          "source_line": 16,
+          "split": "validation",
+          "level_id": "validation-1",
+          "reference_SI": "1",
+          "raw_V": "12953351449275363/10000000000000000",
+          "prediction_SI": "2001999852794131242148329548183/2000000000000000000000000000000",
+          "signed_residual_SI": "1999852794131242148329548183/2000000000000000000000000000000",
+          "conditional_point_error_upper_SI": "8207852631778312648329548183/2000000000000000000000000000000"
+        },
+        {
+          "source_line": 17,
+          "split": "validation",
+          "level_id": "validation-1",
+          "reference_SI": "1",
+          "raw_V": "6476222826086957/5000000000000000",
+          "prediction_SI": "998999926544125042027018618937/1000000000000000000000000000000",
+          "signed_residual_SI": "-1000073455874957972981381063/1000000000000000000000000000000",
+          "conditional_point_error_upper_SI": "4104073374698493222981381063/1000000000000000000000000000000"
+        },
+        {
+          "source_line": 18,
+          "split": "validation",
+          "level_id": "validation-4",
+          "reference_SI": "4",
+          "raw_V": "7156023550724637/5000000000000000",
+          "prediction_SI": "4000999705808841679726670451817/1000000000000000000000000000000",
+          "signed_residual_SI": "999705808841679726670451817/1000000000000000000000000000000",
+          "conditional_point_error_upper_SI": "4103705727665214976670451817/1000000000000000000000000000000"
+        },
+        {
+          "source_line": 19,
+          "split": "validation",
+          "level_id": "validation-4",
+          "reference_SI": "4",
+          "raw_V": "572445652173913/400000000000000",
+          "prediction_SI": "319919976476472088054361943733/80000000000000000000000000000",
+          "signed_residual_SI": "-80023523527911945638056267/80000000000000000000000000000",
+          "conditional_point_error_upper_SI": "328343517033794765638056267/80000000000000000000000000000"
+        }
+      ]
+    },
+    "position": {
+      "channel": "position",
+      "SI_unit": "m",
+      "model": "SI=(raw_V-zero_raw_V)*scale_SI_per_V",
+      "reference_error_semantics": "exact-decimal serialized coefficient model; computational runtime rounding is a separate error-budget term",
+      "scale_SI_per_V": 0.002499999264706103,
+      "zero_raw_V": 3.0,
+      "exact_decimal_fit": {
+        "scale_SI_per_V": "1999999999999996564705882352941/800000235294114823529411764710000",
+        "intercept_SI": "-1999999999999996564705882352941/266666745098038274509803921570000",
+        "zero_raw_V": "3"
+      },
+      "development_rows": 10,
+      "held_out_rows": 8,
+      "development_point_error_upper_SI": "3625367316068796349264706103/5000000000000000000000000000000000",
+      "held_out_point_error_upper_SI": "3625293786679096349264706103/5000000000000000000000000000000000",
+      "finite_point_error_upper_SI": "3625367316068796349264706103/5000000000000000000000000000000000",
+      "observed_raw_span_V": [
+        "28999600000000001/10000000000000000",
+        "31000399999999999/10000000000000000"
+      ],
+      "observed_reference_span_SI": [
+        "-25000000000000001/100000000000000000000",
+        "25000000000000001/100000000000000000000"
+      ],
+      "observed_temperature_C": [
+        "20",
+        "20"
+      ],
+      "observed_excitation_V": [
+        "5/2",
+        "5/2"
+      ],
+      "reference_evidence_ids": [
+        "SYNTHETIC-REF"
+      ],
+      "rows": [
+        {
+          "source_line": 20,
+          "split": "development",
+          "level_id": "development--5",
+          "reference_SI": "-25000000000000001/100000000000000000000",
+          "raw_V": "14500200000000001/5000000000000000",
+          "prediction_SI": "-1249499632500107779400735293897/5000000000000000000000000000000000",
+          "signed_residual_SI": "500367499892270599264706103/5000000000000000000000000000000000",
+          "conditional_point_error_upper_SI": "3625367316068796349264706103/5000000000000000000000000000000000"
+        },
+        {
+          "source_line": 21,
+          "split": "development",
+          "level_id": "development--5",
+          "reference_SI": "-25000000000000001/100000000000000000000",
+          "raw_V": "28999600000000001/10000000000000000",
+          "prediction_SI": "-2500999264411982941200735293897/10000000000000000000000000000000000",
+          "signed_residual_SI": "-999264411982841200735293897/10000000000000000000000000000000000",
+          "conditional_point_error_upper_SI": "7249264044335892700735293897/10000000000000000000000000000000000"
+        },
+        {
+          "source_line": 22,
+          "split": "development",
+          "level_id": "development--3",
+          "reference_SI": "-15000000000000001/100000000000000000000",
+          "raw_V": "14700200000000001/5000000000000000",
+          "prediction_SI": "-749499779558887179400735293897/5000000000000000000000000000000000",
+          "signed_residual_SI": "500220441112870599264706103/5000000000000000000000000000000000",
+          "conditional_point_error_upper_SI": "3625220257289396349264706103/5000000000000000000000000000000000"
+        },
+        {
+          "source_line": 23,
+          "split": "development",
+          "level_id": "development--3",
+          "reference_SI": "-15000000000000001/100000000000000000000",
+          "raw_V": "29399600000000001/10000000000000000",
+          "prediction_SI": "-1500999558529541741200735293897/10000000000000000000000000000000000",
+          "signed_residual_SI": "-999558529541641200735293897/10000000000000000000000000000000000",
+          "conditional_point_error_upper_SI": "7249558161894692700735293897/10000000000000000000000000000000000"
+        },
+        {
+          "source_line": 24,
+          "split": "development",
+          "level_id": "development-0",
+          "reference_SI": "0",
+          "raw_V": "15000199999999999/5000000000000000",
+          "prediction_SI": "499999852938720600735293897/5000000000000000000000000000000000",
+          "signed_residual_SI": "499999852938720600735293897/5000000000000000000000000000000000",
+          "conditional_point_error_upper_SI": "3624999669115246350735293897/5000000000000000000000000000000000"
+        },
+        {
+          "source_line": 25,
+          "split": "development",
+          "level_id": "development-0",
+          "reference_SI": "0",
+          "raw_V": "14999800000000001/5000000000000000",
+          "prediction_SI": "-499999852938720600735293897/5000000000000000000000000000000000",
+          "signed_residual_SI": "-499999852938720600735293897/5000000000000000000000000000000000",
+          "conditional_point_error_upper_SI": "3624999669115246350735293897/5000000000000000000000000000000000"
+        },
+        {
+          "source_line": 26,
+          "split": "development",
+          "level_id": "development-3",
+          "reference_SI": "15000000000000001/100000000000000000000",
+          "raw_V": "30600399999999999/10000000000000000",
+          "prediction_SI": "1500999558529541741200735293897/10000000000000000000000000000000000",
+          "signed_residual_SI": "999558529541641200735293897/10000000000000000000000000000000000",
+          "conditional_point_error_upper_SI": "7249558161894692700735293897/10000000000000000000000000000000000"
+        },
+        {
+          "source_line": 27,
+          "split": "development",
+          "level_id": "development-3",
+          "reference_SI": "15000000000000001/100000000000000000000",
+          "raw_V": "15299799999999999/5000000000000000",
+          "prediction_SI": "749499779558887179400735293897/5000000000000000000000000000000000",
+          "signed_residual_SI": "-500220441112870599264706103/5000000000000000000000000000000000",
+          "conditional_point_error_upper_SI": "3625220257289396349264706103/5000000000000000000000000000000000"
+        },
+        {
+          "source_line": 28,
+          "split": "development",
+          "level_id": "development-5",
+          "reference_SI": "25000000000000001/100000000000000000000",
+          "raw_V": "31000399999999999/10000000000000000",
+          "prediction_SI": "2500999264411982941200735293897/10000000000000000000000000000000000",
+          "signed_residual_SI": "999264411982841200735293897/10000000000000000000000000000000000",
+          "conditional_point_error_upper_SI": "7249264044335892700735293897/10000000000000000000000000000000000"
+        },
+        {
+          "source_line": 29,
+          "split": "development",
+          "level_id": "development-5",
+          "reference_SI": "25000000000000001/100000000000000000000",
+          "raw_V": "15499799999999999/5000000000000000",
+          "prediction_SI": "1249499632500107779400735293897/5000000000000000000000000000000000",
+          "signed_residual_SI": "-500367499892270599264706103/5000000000000000000000000000000000",
+          "conditional_point_error_upper_SI": "3625367316068796349264706103/5000000000000000000000000000000000"
+        },
+        {
+          "source_line": 30,
+          "split": "validation",
+          "level_id": "validation--4",
+          "reference_SI": "-20000000000000001/100000000000000000000",
+          "raw_V": "14600200000000001/5000000000000000",
+          "prediction_SI": "-999499706029497479400735293897/5000000000000000000000000000000000",
+          "signed_residual_SI": "500293970502570599264706103/5000000000000000000000000000000000",
+          "conditional_point_error_upper_SI": "3625293786679096349264706103/5000000000000000000000000000000000"
+        },
+        {
+          "source_line": 31,
+          "split": "validation",
+          "level_id": "validation--4",
+          "reference_SI": "-20000000000000001/100000000000000000000",
+          "raw_V": "29199600000000001/10000000000000000",
+          "prediction_SI": "-2000999411470762341200735293897/10000000000000000000000000000000000",
+          "signed_residual_SI": "-999411470762241200735293897/10000000000000000000000000000000000",
+          "conditional_point_error_upper_SI": "7249411103115292700735293897/10000000000000000000000000000000000"
+        },
+        {
+          "source_line": 32,
+          "split": "validation",
+          "level_id": "validation--1",
+          "reference_SI": "-25000000000000001/500000000000000000000",
+          "raw_V": "14900199999999999/5000000000000000",
+          "prediction_SI": "-249499926617671579399264706103/5000000000000000000000000000000000",
+          "signed_residual_SI": "500073382328430600735293897/5000000000000000000000000000000000",
+          "conditional_point_error_upper_SI": "3625073198504956350735293897/5000000000000000000000000000000000"
+        },
+        {
+          "source_line": 33,
+          "split": "validation",
+          "level_id": "validation--1",
+          "reference_SI": "-25000000000000001/500000000000000000000",
+          "raw_V": "14899800000000001/5000000000000000",
+          "prediction_SI": "-250499926323549020600735293897/5000000000000000000000000000000000",
+          "signed_residual_SI": "-499926323549010600735293897/5000000000000000000000000000000000",
+          "conditional_point_error_upper_SI": "3624926139725536350735293897/5000000000000000000000000000000000"
+        },
+        {
+          "source_line": 34,
+          "split": "validation",
+          "level_id": "validation-1",
+          "reference_SI": "25000000000000001/500000000000000000000",
+          "raw_V": "15100199999999999/5000000000000000",
+          "prediction_SI": "250499926323549020600735293897/5000000000000000000000000000000000",
+          "signed_residual_SI": "499926323549010600735293897/5000000000000000000000000000000000",
+          "conditional_point_error_upper_SI": "3624926139725536350735293897/5000000000000000000000000000000000"
+        },
+        {
+          "source_line": 35,
+          "split": "validation",
+          "level_id": "validation-1",
+          "reference_SI": "25000000000000001/500000000000000000000",
+          "raw_V": "15099800000000001/5000000000000000",
+          "prediction_SI": "249499926617671579399264706103/5000000000000000000000000000000000",
+          "signed_residual_SI": "-500073382328430600735293897/5000000000000000000000000000000000",
+          "conditional_point_error_upper_SI": "3625073198504956350735293897/5000000000000000000000000000000000"
+        },
+        {
+          "source_line": 36,
+          "split": "validation",
+          "level_id": "validation-4",
+          "reference_SI": "20000000000000001/100000000000000000000",
+          "raw_V": "30800399999999999/10000000000000000",
+          "prediction_SI": "2000999411470762341200735293897/10000000000000000000000000000000000",
+          "signed_residual_SI": "999411470762241200735293897/10000000000000000000000000000000000",
+          "conditional_point_error_upper_SI": "7249411103115292700735293897/10000000000000000000000000000000000"
+        },
+        {
+          "source_line": 37,
+          "split": "validation",
+          "level_id": "validation-4",
+          "reference_SI": "20000000000000001/100000000000000000000",
+          "raw_V": "15399799999999999/5000000000000000",
+          "prediction_SI": "999499706029497479400735293897/5000000000000000000000000000000000",
+          "signed_residual_SI": "-500293970502570599264706103/5000000000000000000000000000000000",
+          "conditional_point_error_upper_SI": "3625293786679096349264706103/5000000000000000000000000000000000"
+        }
+      ]
+    },
+    "temperature_C": {
+      "channel": "temperature_C",
+      "SI_unit": "degC",
+      "model": "SI=(raw_V-zero_raw_V)*scale_SI_per_V",
+      "reference_error_semantics": "exact-decimal serialized coefficient model; computational runtime rounding is a separate error-budget term",
+      "scale_SI_per_V": 97.49941500350995,
+      "zero_raw_V": 0.5099987692307691,
+      "exact_decimal_fit": {
+        "scale_SI_per_V": "246153846153846216000000000000000000/2524669980276135395250493096647413",
+        "intercept_SI": "-125538158579881680748086785009853780/2524669980276135395250493096647413",
+        "zero_raw_V": "2092302642998028012468113083497563/4102564102564103600000000000000000"
+      },
+      "development_rows": 6,
+      "held_out_rows": 4,
+      "development_point_error_upper_SI": "149869700781807207846746796437/2000000000000000000000000000000",
+      "held_out_point_error_upper_SI": "29961940228361895919443771541/400000000000000000000000000000",
+      "finite_point_error_upper_SI": "149869700781807207846746796437/2000000000000000000000000000000",
+      "observed_raw_span_V": [
+        "12247179487179487/20000000000000000",
+        "81789743589743591/100000000000000000"
+      ],
+      "observed_reference_span_SI": [
+        "10",
+        "30"
+      ],
+      "observed_temperature_C": [
+        "10",
+        "30"
+      ],
+      "observed_excitation_V": [
+        "5/2",
+        "5/2"
+      ],
+      "reference_evidence_ids": [
+        "SYNTHETIC-TEMP-REF"
+      ],
+      "rows": [
+        {
+          "source_line": 38,
+          "split": "development",
+          "level_id": "temp-development-10",
+          "reference_SI": "10",
+          "raw_V": "61276923076923073/100000000000000000",
+          "prediction_SI": "20040119759281456212846746796437/2000000000000000000000000000000",
+          "signed_residual_SI": "40119759281456212846746796437/2000000000000000000000000000000",
+          "conditional_point_error_upper_SI": "149869700781807207846746796437/2000000000000000000000000000000"
+        },
+        {
+          "source_line": 39,
+          "split": "development",
+          "level_id": "temp-development-10",
+          "reference_SI": "10",
+          "raw_V": "12247179487179487/20000000000000000",
+          "prediction_SI": "798404809571143286153479521379/80000000000000000000000000000",
+          "signed_residual_SI": "-1595190428856713846520478621/80000000000000000000000000000",
+          "conditional_point_error_upper_SI": "5985188088870753646520478621/80000000000000000000000000000"
+        },
+        {
+          "source_line": 40,
+          "split": "development",
+          "level_id": "temp-development-20",
+          "reference_SI": "20",
+          "raw_V": "35766666666666669/50000000000000000",
+          "prediction_SI": "10009999940000365676583997747293/500000000000000000000000000000",
+          "signed_residual_SI": "9999940000365676583997747293/500000000000000000000000000000",
+          "conditional_point_error_upper_SI": "37437425375453425333997747293/500000000000000000000000000000"
+        },
+        {
+          "source_line": 41,
+          "split": "development",
+          "level_id": "temp-development-20",
+          "reference_SI": "20",
+          "raw_V": "71492307692307699/100000000000000000",
+          "prediction_SI": "39960000239998586697337932157011/2000000000000000000000000000000",
+          "signed_residual_SI": "-39999760001413302662067842989/2000000000000000000000000000000",
+          "conditional_point_error_upper_SI": "149749701501764297662067842989/2000000000000000000000000000000"
+        },
+        {
+          "source_line": 42,
+          "split": "development",
+          "level_id": "temp-development-30",
+          "reference_SI": "30",
+          "raw_V": "81789743589743591/100000000000000000",
+          "prediction_SI": "60039879760721445799965634339519/2000000000000000000000000000000",
+          "signed_residual_SI": "39879760721445799965634339519/2000000000000000000000000000000",
+          "conditional_point_error_upper_SI": "149629702221796794965634339519/2000000000000000000000000000000"
+        },
+        {
+          "source_line": 43,
+          "split": "development",
+          "level_id": "temp-development-30",
+          "reference_SI": "30",
+          "raw_V": "81748717948717953/100000000000000000",
+          "prediction_SI": "59959880240718571740955875577557/2000000000000000000000000000000",
+          "signed_residual_SI": "-40119759281428259044124422443/2000000000000000000000000000000",
+          "conditional_point_error_upper_SI": "149869700781779254044124422443/2000000000000000000000000000000"
+        },
+        {
+          "source_line": 44,
+          "split": "validation",
+          "level_id": "temp-validation-15",
+          "reference_SI": "15",
+          "raw_V": "13281025641025641/20000000000000000",
+          "prediction_SI": "6008011951928291696919443771541/400000000000000000000000000000",
+          "signed_residual_SI": "8011951928291696919443771541/400000000000000000000000000000",
+          "conditional_point_error_upper_SI": "29961940228361895919443771541/400000000000000000000000000000"
+        },
+        {
+          "source_line": 45,
+          "split": "validation",
+          "level_id": "temp-validation-15",
+          "reference_SI": "15",
+          "raw_V": "66364102564102567/100000000000000000",
+          "prediction_SI": "29960060239638584425587460095743/2000000000000000000000000000000",
+          "signed_residual_SI": "-39939760361415574412539904257/2000000000000000000000000000000",
+          "conditional_point_error_upper_SI": "149689701861766569412539904257/2000000000000000000000000000000"
+        },
+        {
+          "source_line": 46,
+          "split": "validation",
+          "level_id": "temp-validation-25",
+          "reference_SI": "25",
+          "raw_V": "7666153846153847/10000000000000000",
+          "prediction_SI": "1250998494009036624452161576261/50000000000000000000000000000",
+          "signed_residual_SI": "998494009036624452161576261/50000000000000000000000000000",
+          "conditional_point_error_upper_SI": "3742242546545399327161576261/50000000000000000000000000000"
+        },
+        {
+          "source_line": 47,
+          "split": "validation",
+          "level_id": "temp-validation-25",
+          "reference_SI": "25",
+          "raw_V": "76620512820512821/100000000000000000",
+          "prediction_SI": "49959940240358569469205403516289/2000000000000000000000000000000",
+          "signed_residual_SI": "-40059759641430530794596483711/2000000000000000000000000000000",
+          "conditional_point_error_upper_SI": "149809701141781525794596483711/2000000000000000000000000000000"
+        }
+      ]
+    }
+  },
+  "review_obligations": [
+    "force: independent uniform total_error_SI/domain justification missing",
+    "position: independent uniform total_error_SI/domain justification missing",
+    "temperature_C: independent uniform total_error_SI/domain justification missing"
+  ],
+  "hardware_execution_enabled": false,
+  "calibration_authenticity_verified": false,
+  "limitations": [
+    "Reference/raw error terms are supplied bounds, not inferred certificates.",
+    "Held-out levels were not used to fit coefficients; the file split still needs independent freezing/provenance.",
+    "Finite checks do not bound unseen loads, temperature, excitation, drift, hysteresis or dynamics.",
+    "Readout's total_error_SI must include raw ADC uncertainty once; it must not be double counted.",
+    "No timing, slew, paired epoch, or full uniform calibration bound is manufactured by this fitter."
+  ]
+}

@@ -24,7 +24,7 @@
   },
   "channels": [
     {
-      "analysis_channel": 0,
+      "analysis_channel": 2,
       "role": "drive_loopback",
       "quantity": "voltage",
       "SI_unit": "V",
@@ -37,7 +37,7 @@
       "points": []
     },
     {
-      "analysis_channel": 1,
+      "analysis_channel": 0,
       "role": "hydrophone",
       "quantity": "pressure",
       "SI_unit": "Pa",
@@ -50,7 +50,7 @@
       "points": []
     },
     {
-      "analysis_channel": 2,
+      "analysis_channel": 1,
       "role": "bridge_acceleration",
       "quantity": "acceleration",
       "SI_unit": "m/s^2",
@@ -106,5 +106,6 @@
     }
   ],
   "uncertainty_warning": "BLOCKED TEMPLATE. Complete calibration against independent references before changing status. Nominal manufacturer sensitivity is not a measured chain calibration.",
-  "frequency_axis": "SI_Hz"
+  "frequency_axis": "SI_Hz",
+  "channel_map_note": "Disabled template indices follow E01/E02: IN1 hydrophone, IN2 bridge acceleration, IN3 electrical loopback. Physical setup and calibration still required."
 }

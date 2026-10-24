@@ -44,7 +44,11 @@ LOW, HIGH = 0.05, 1.0
 DUMMY = -9999.0
 
 
-def configuration_plan(duration_s=30.0, scans_per_read=5):
+def configuration_plan(duration_s=30.0, scans_per_read=5, profile='E01'):
+    if profile not in ('E01','E02'):
+        raise ValueError('Unknown slow logger wiring profile')
+    channels=CHANNELS+(('AIN8',) if profile=='E02' else ())
+    columns=COLUMNS+(('raw_temperature_V',) if profile=='E02' else ())
     if isinstance(duration_s, bool):
         raise ValueError("duration must be finite seconds between 12 and 7200")
     duration = float(duration_s)
@@ -79,8 +83,8 @@ def configuration_plan(duration_s=30.0, scans_per_read=5):
               for t,w in sequence]
     maximum_gap = max((b[0]-a[0])/1000 for a,b in zip(sequence,sequence[1:]))
     return {"schema":"hydrophone.t7-capture-plan/1", "mode":"DRY_RUN",
-            "hardware_accessed":False, "scan_list":list(CHANNELS),
-            "raw_voltage_columns":list(COLUMNS), "range_V":10.0,
+            "hardware_accessed":False, "wiring_profile":profile, "scan_list":list(channels),
+            "raw_voltage_columns":list(columns), "range_V":10.0,
             "negative_channel":199, "stream_resolution_index":7,
             "stream_settling_us":0, "stream_clock_source":0,
             "stream_trigger_index":0, "requested_scan_rate_Hz":REQUESTED_RATE,
@@ -113,14 +117,16 @@ def _digest(path):
 
 
 def capture(output_dir, *, identifier=None, execute=False, duration_s=30.0,
-            scans_per_read=5, ljm_module=None, clock=time.monotonic, sleep=time.sleep):
+            scans_per_read=5, ljm_module=None, clock=time.monotonic, sleep=time.sleep,
+            observer=None, profile='E01'):
     """Return a plan unless execute=True; tests may inject a mock LJM and clock.
 
     Live capture writes every returned scan, including dummy values, without
     compressing the sample-index time axis. Backlog is reported independently
     from skipped samples: a nonzero buffer does not prove data loss.
     """
-    plan = configuration_plan(duration_s, scans_per_read)
+    plan = configuration_plan(duration_s, scans_per_read, profile)
+    channels=tuple(plan['scan_list']);columns=tuple(plan['raw_voltage_columns'])
     if not execute:
         return plan
     if not isinstance(identifier, str) or not identifier.isdigit() or int(identifier) <= 0:
@@ -151,6 +157,16 @@ def capture(output_dir, *, identifier=None, execute=False, duration_s=30.0,
     low_since = None
     last_backlogs = (0,0)
     raw_path, blocks_path = out/names[0], out/names[2]
+
+    def notify(kind, **data):
+        if observer is not None:
+            event={'schema':'hydrophone.t7-observation/1','kind':kind,
+                   'host_monotonic_s':clock(),**data}
+            try:
+                observer(event)
+            except Exception as exc:
+                receipt.setdefault('observer_errors',[]).append(str(exc))
+                raise RuntimeError('Live observer failed: '+str(exc)) from exc
 
     def marker(volts, reason):
         ljm.eWriteName(handle, 'DAC0', volts)
@@ -192,33 +208,40 @@ def capture(output_dir, *, identifier=None, execute=False, duration_s=30.0,
         if info[0] != 7 or str(info[2]) != identifier:
             raise ValueError("opened device type/serial does not match explicit T7 selection")
         verified_target = True
-        scan_addresses = ljm.namesToAddresses(len(CHANNELS), list(CHANNELS))[0]
+        scan_addresses = ljm.namesToAddresses(len(channels), list(channels))[0]
         config_names = ['STREAM_TRIGGER_INDEX','STREAM_CLOCK_SOURCE',
                         'STREAM_RESOLUTION_INDEX','STREAM_SETTLING_US']
         config_values = [0,0,7,0]
-        for name in CHANNELS:
+        for name in channels:
             config_names.extend([name+'_RANGE', name+'_NEGATIVE_CH'])
             config_values.extend([10.0,199])
         ljm.eWriteNames(handle,len(config_names),config_names,config_values)
         marker(LOW, 'initial_low')
         low_since = clock()
-        actual = ljm.eStreamStart(handle, scans_per_read, len(CHANNELS), scan_addresses, REQUESTED_RATE)
+        start_before=clock()
+        actual = ljm.eStreamStart(handle, scans_per_read, len(channels), scan_addresses, REQUESTED_RATE)
+        start_after=clock()
         active = True
         if not math.isfinite(actual) or actual <= 0:
             raise ValueError("LJM returned an invalid actual scan rate")
         receipt['actual_scan_rate_Hz'] = actual
+        receipt['stream_start_host_before_s']=start_before
+        receipt['stream_start_host_after_s']=start_after
         epoch = clock()
         target_rows = math.ceil(plan['duration_s']*actual)
         receipt['target_minimum_rows'] = target_rows
+        notify('start',device_info=list(info),identifier=identifier,configuration=plan,
+            actual_scan_rate_Hz=actual,stream_start_host_before_s=start_before,
+            stream_start_host_after_s=start_after)
         with raw_path.open('w',newline='',encoding='utf-8') as raw, blocks_path.open('w',encoding='utf-8') as blocks:
             writer = csv.writer(raw)
-            writer.writerow(['sample_index','time_s',*COLUMNS,'row_has_gap','gap_channels',
+            writer.writerow(['sample_index','time_s',*columns,'row_has_gap','gap_channels',
                              'invalid_channels','read_index','device_scan_backlog','ljm_scan_backlog'])
             read_index = 0
             while receipt['rows'] < target_rows:
                 service_marker()
                 data, device_backlog, library_backlog = ljm.eStreamRead(handle)
-                if len(data)%len(CHANNELS) or not data:
+                if len(data)%len(channels) or not data:
                     raise ValueError("LJM returned an empty or incomplete interleaved scan block")
                 backlogs = (int(device_backlog), int(library_backlog))
                 if min(backlogs) < 0:
@@ -229,10 +252,11 @@ def capture(output_dir, *, identifier=None, execute=False, duration_s=30.0,
                 receipt['max_ljm_scan_backlog'] = max(receipt['max_ljm_scan_backlog'],backlogs[1])
                 first_index = receipt['rows']
                 dummy_count = 0
-                for at in range(0,len(data),len(CHANNELS)):
-                    values = [float(v) for v in data[at:at+len(CHANNELS)]]
-                    gaps = [name for name,v in zip(CHANNELS,values) if v==DUMMY]
-                    invalid = [name for name,v in zip(CHANNELS,values) if not math.isfinite(v)]
+                observed_rows=[]
+                for at in range(0,len(data),len(channels)):
+                    values = [float(v) for v in data[at:at+len(channels)]]
+                    gaps = [name for name,v in zip(channels,values) if v==DUMMY]
+                    invalid = [name for name,v in zip(channels,values) if not math.isfinite(v)]
                     index = receipt['rows']
                     writer.writerow([index,format(index/actual,'.17g'),
                                      *[format(v,'.17g') for v in values],int(bool(gaps)),
@@ -242,12 +266,18 @@ def capture(output_dir, *, identifier=None, execute=False, duration_s=30.0,
                     dummy_count += len(gaps)
                     receipt['rows_with_gaps'] += bool(gaps)
                     receipt['nonfinite_values'] += len(invalid)
+                    if observer is not None:
+                        observed_rows.append({'sample_index':index,'time_s':index/actual,
+                            **dict(zip(columns,values)),'row_has_gap':bool(gaps),
+                            'gap_channels':gaps,'invalid_channels':invalid})
                 blocks.write(json.dumps({'read_index':read_index,'first_sample_index':first_index,
-                    'scans_returned':len(data)//len(CHANNELS),'dummy_values':dummy_count,
+                    'scans_returned':len(data)//len(channels),'dummy_values':dummy_count,
                     'device_scan_backlog':backlogs[0],'ljm_scan_backlog':backlogs[1],
                     'host_read_return_s':clock()-epoch,'host_time_is_sample_timestamp':False})+'\n')
                 raw.flush()
                 blocks.flush()
+                notify('block',rows=observed_rows,device_scan_backlog=backlogs[0],
+                    ljm_scan_backlog=backlogs[1])
                 last_backlogs = backlogs
                 read_index += 1
         receipt['status'] = 'CAPTURE_COMPLETED'
@@ -286,6 +316,11 @@ def capture(output_dir, *, identifier=None, execute=False, duration_s=30.0,
     receipt['timing_scope'] = 'Index/accepted nominal device scan rate; oscillator error, scan skew and marker/path delays remain to be bounded'
     receipt['physical_readiness'] = False
     (out/names[1]).write_text(json.dumps(receipt,indent=2,allow_nan=False)+'\n',encoding='utf-8')
+    try:
+        notify('end',status=receipt['status'],receipt=receipt)
+    except RuntimeError:
+        receipt['quality_requires_review']=True
+        (out/names[1]).write_text(json.dumps(receipt,indent=2,allow_nan=False)+'\n',encoding='utf-8')
     return receipt
 
 
@@ -295,11 +330,12 @@ def main(argv=None):
     parser.add_argument('--identifier',help='Exact numeric T7 serial; required with --execute')
     parser.add_argument('--duration',type=float,default=30.0)
     parser.add_argument('--scans-per-read',type=int,default=5)
+    parser.add_argument('--profile',choices=['E01','E02'],default='E01')
     parser.add_argument('--output-dir',type=Path,default=Path('results/t7_slow_run'))
     args = parser.parse_args(argv)
     try:
         result = capture(args.output_dir,identifier=args.identifier,execute=args.execute,
-                         duration_s=args.duration,scans_per_read=args.scans_per_read)
+                         duration_s=args.duration,scans_per_read=args.scans_per_read,profile=args.profile)
         print(json.dumps(result,indent=2,allow_nan=False))
         return 2 if result.get('status') in ('CAPTURE_FAILED','CAPTURE_INTERRUPTED') else 0
     except (ValueError,OSError,ImportError) as exc:

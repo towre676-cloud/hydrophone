@@ -1,0 +1,47 @@
+{
+  "schema": "hydrophone.M04-verification/1",
+  "status": "PASS",
+  "date": "2026-10-24",
+  "base_commit": "0fa637cbdf17f4747b166e1595691be946ec377d",
+  "command": "python verify_all.py --node <Node executable> --numerical",
+  "python_test_counts": {
+    "root": 183,
+    "calibration": 8,
+    "T7_and_observer_mock": 12,
+    "live_readout": 16,
+    "commissioning": 13
+  },
+  "python_tests_total": 232,
+  "M04_nominal_geometry_and_static_screens": 29,
+  "retainer_nominal_screen_fields": 15,
+  "M03_generated_files_byte_replayed": 5,
+  "M04_generated_files_byte_replayed": 8,
+  "OpenSCAD_compiled_without_warnings": true,
+  "individual_CGAL_simple_solid_exports": [
+    "bearing_housing",
+    "port_stud",
+    "cell_fork",
+    "hollow_catch",
+    "turnbuckle"
+  ],
+  "recovered_Dyletsky_static_strategy_checks": 21,
+  "archived_Fusion_replay_checks": 600,
+  "passive_reference_model_replayed": true,
+  "source_packet_payload_hashes_checked": 49,
+  "hardware_commands_issued": 0,
+  "physical_measurements_made": 0,
+  "physical_calibration_completed": false,
+  "nominal_custom_part_dimensions_complete": true,
+  "physical_readiness": false,
+  "physical_v1_binding_for_M04": "BLOCKED_REMOVABLE_WRITER_IS_NOT_PERMANENT_CLAY_REACTION_SENSOR",
+  "protocol_amendment": "experiments/M04_PROTOCOL_AMENDMENT_DRAFT.json",
+  "protocol_amendment_registered_or_implemented": false,
+  "task_adapter_execution_scope": "OFFLINE_REPLAY_NOT_PROOF_OF_ONLINE_DECISION",
+  "full_system_cost_quoted": false,
+  "remaining_physical_work": [
+    "Fabricate and inspect sourced revisions, fits, grip/guard, bonds/seals, joints and installed moving mass.",
+    "Perform installed force/position/temperature, clock/filter/age and natural-pitch calibration/qualification.",
+    "Measure actual dynamic boss/diaphragm motion over the declared complete command domain.",
+    "Measure manual mode-change timing and adopt/register a physically consistent task before confirmation."
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "schema": "hydrophone.task-feature-qualification/1",
+  "status": "not_qualified",
+  "data_origin": "unavailable",
+  "run_id": null,
+  "raw_run_sha256": null,
+  "configuration_id": null,
+  "mechanics_revision": null,
+  "electronics_revision": null,
+  "experiment_core_sha256": null,
+  "binding": {
+    "calibration_id": null,
+    "pitch_bound_validation_id": null,
+    "synchronization_validation_id": null,
+    "write_stroke_m": null,
+    "force_limit_N": null,
+    "drive_transfer_validation_id": null,
+    "raw_feature_extractor_revision": null,
+    "rod_reference_matching_id": null,
+    "action_qualification_id": null,
+    "clock_error_bound_s": null,
+    "drive_waveform_sha256": null,
+    "reduced_drive_waveform_sha256": null,
+    "dynamic_read_validation_id": null,
+    "pitch_probe_qualification_id": null
+  },
+  "evidence_files": [],
+  "episode_epoch": {
+    "audio_time_at_write_end_s": null,
+    "adc_nominal_seconds_per_episode_second": null,
+    "total_episode_time_error_bound_s": null,
+    "qualified_episode_interval_s": [
+      null,
+      null
+    ],
+    "validation_id": null
+  },
+  "channels": {
+    "hydrophone": 0,
+    "bridge": 1,
+    "drive": 2,
+    "pitch": 1
+  },
+  "mode_transition": {
+    "validation_id": null,
+    "before_first_pluck_complete": false,
+    "scope": "not_qualified",
+    "completion_including_settling_upper_s": null,
+    "writer_state_after": null,
+    "rod_state_after": null,
+    "actual_event_records": []
+  },
+  "slow": {
+    "force_port": {
+      "measurement_role": null,
+      "port_validation_id": null,
+      "physical_sensor_serial": null,
+      "mount_id": null,
+      "connection_state_during_1_2_s": null,
+      "evidence_ids": []
+    },
+    "time_pairing_validation_id": null,
+    "slow_calibration_validation_id": null,
+    "temperature_validation_id": null,
+    "alignment_scope": "not_qualified",
+    "max_sample_gap_s": null,
+    "channel_time_correction_s": {
+      "force_N": null,
+      "displacement_m": null,
+      "temperature_C": null
+    },
+    "channel_time_error_bound_s": {
+      "force_N": null,
+      "displacement_m": null,
+      "temperature_C": null
+    }
+  },
+  "probe_detection": {
+    "validation_id": null,
+    "drive_phasor_error_full_scale": null,
+    "full_min_full_scale": {
+      "261.626": null,
+      "292.39573306577114": null,
+      "326.759563456652": null,
+      "391.1253463782126": null
+    },
+    "reduced_max_full_scale": {
+      "261.626": null,
+      "292.39573306577114": null,
+      "326.759563456652": null,
+      "391.1253463782126": null
+    }
+  },
+  "note": "Disabled physical template. Declare only independently supported installed bounds and hash-bound evidence. No synthetic IDs or nominal sensitivities unlock a physical claim."
+}

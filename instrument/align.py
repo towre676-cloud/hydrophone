@@ -64,6 +64,8 @@ def align_drive(probe_path, recorded_wav, output_dir, *, loopback_channel=2,
     clock calibration remain separate physical obligations.
     """
     plan, command_pcm, command_path = load_probe(probe_path)
+    if plan.get('protocol_arm')=='reduced':
+        raise ValueError('Reduced silent command has no waveform timing anchors; supply independently qualified clock evidence')
     root = Path(output_dir)
     if root.exists():
         raise ValueError('Alignment output directory must be new')

@@ -1,0 +1,63 @@
+{
+  "schema": "hydrophone.boss-bridge-transfer-input/1",
+  "evidence_type": "unavailable",
+  "configuration_id": null,
+  "points": [
+    {
+      "frequency_SI_Hz": 261.626,
+      "frequency_error_Hz": null,
+      "boss_displacement_m": {
+        "real": null,
+        "imag": null,
+        "error_radius_abs": null
+      },
+      "bridge_acceleration_m_per_s2": {
+        "real": null,
+        "imag": null,
+        "error_radius_abs": null
+      }
+    },
+    {
+      "frequency_SI_Hz": 292.39573306577114,
+      "frequency_error_Hz": null,
+      "boss_displacement_m": {
+        "real": null,
+        "imag": null,
+        "error_radius_abs": null
+      },
+      "bridge_acceleration_m_per_s2": {
+        "real": null,
+        "imag": null,
+        "error_radius_abs": null
+      }
+    },
+    {
+      "frequency_SI_Hz": 326.759563456652,
+      "frequency_error_Hz": null,
+      "boss_displacement_m": {
+        "real": null,
+        "imag": null,
+        "error_radius_abs": null
+      },
+      "bridge_acceleration_m_per_s2": {
+        "real": null,
+        "imag": null,
+        "error_radius_abs": null
+      }
+    },
+    {
+      "frequency_SI_Hz": 391.1253463782126,
+      "frequency_error_Hz": null,
+      "boss_displacement_m": {
+        "real": null,
+        "imag": null,
+        "error_radius_abs": null
+      },
+      "bridge_acceleration_m_per_s2": {
+        "real": null,
+        "imag": null,
+        "error_radius_abs": null
+      }
+    }
+  ]
+}

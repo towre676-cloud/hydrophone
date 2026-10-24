@@ -1,0 +1,512 @@
+{
+  "schema": "fusion.mechanics-completion/4",
+  "revision": "M04-manual-completion",
+  "basis": "M03-manual-coupon-build retained unchanged",
+  "status": "NOMINAL_MANUFACTURING_DESIGN_NOT_FABRICATED_OR_QUALIFIED",
+  "units": "mm",
+  "force_axis": {
+    "x": 460,
+    "z": 92
+  },
+  "lead": {
+    "knob_y": [
+      -125,
+      -110
+    ],
+    "knob_diameter": 26,
+    "thread_y": [
+      -110,
+      -55.5
+    ],
+    "thread": "M6x0.5-6g",
+    "shoulder_y": [
+      -55.5,
+      -53.5
+    ],
+    "shoulder_diameter": 10,
+    "journal_y": [
+      -53.5,
+      -38.5
+    ],
+    "journal_diameter_limits": [
+      5.99,
+      5.998
+    ],
+    "end_thread_y": [
+      -38.5,
+      -30
+    ],
+    "end_thread": "M6x0.5-6g",
+    "washer_y": [
+      -38.5,
+      -37.5
+    ],
+    "washer_od": 10,
+    "washer_id": 6.1,
+    "locknut_y": [
+      [
+        -37.5,
+        -34.3
+      ],
+      [
+        -34.3,
+        -31.1
+      ]
+    ],
+    "locknut_AF": 10,
+    "bearing": "EZO F6-12M",
+    "bearing_y": [
+      [
+        -53.5,
+        -49
+      ],
+      [
+        -43,
+        -38.5
+      ]
+    ],
+    "bearing_ID": 6,
+    "bearing_OD": 12,
+    "bearing_height": 4.5,
+    "housing_origin": [
+      445,
+      -53.5,
+      77
+    ],
+    "housing_size": [
+      30,
+      15,
+      30
+    ],
+    "housing_through_bore": 6.4,
+    "housing_well_diameter": 12.03,
+    "housing_well_depth": 4.5
+  },
+  "fixed_nut": {
+    "beam_origin": [
+      435,
+      -100,
+      82
+    ],
+    "beam_size": [
+      50,
+      15,
+      20
+    ],
+    "leg_origins": [
+      [
+        435,
+        -100,
+        12
+      ],
+      [
+        477,
+        -100,
+        12
+      ]
+    ],
+    "leg_size": [
+      8,
+      15,
+      70
+    ],
+    "bush_axis_y": [
+      -102,
+      -80
+    ],
+    "bush_main_y": [
+      -100,
+      -85
+    ],
+    "bush_main_OD": 10,
+    "bush_flange_y": [
+      -102,
+      -100
+    ],
+    "bush_flange_OD": 14,
+    "bush_rear_thread_y": [
+      -85,
+      -80
+    ],
+    "bush_rear_thread": "M10x0.75",
+    "bush_internal_thread": "M6x0.5",
+    "bush_index_flat_x": 464.5
+  },
+  "stage": {
+    "roof_origin": [
+      434,
+      -55,
+      113
+    ],
+    "roof_size": [
+      52,
+      70,
+      6
+    ],
+    "spacer_centres": [
+      [
+        456,
+        1
+      ],
+      [
+        456,
+        9
+      ],
+      [
+        464,
+        1
+      ],
+      [
+        464,
+        9
+      ]
+    ],
+    "spacer_bottom_z": 84,
+    "spacer_length": 29,
+    "spacer_od": 6,
+    "spacer_id": 3.2,
+    "rear_fork_origin": [
+      447,
+      -26.9,
+      87
+    ],
+    "rear_fork_size": [
+      26,
+      14,
+      26
+    ],
+    "rear_fork_pin": [
+      460,
+      -18.9,
+      92
+    ],
+    "bearing_spacer_centres": [
+      [
+        450,
+        -46
+      ],
+      [
+        470,
+        -46
+      ]
+    ],
+    "bearing_spacer_bottom_z": 107,
+    "bearing_spacer_length": 6,
+    "park_translation_y": -15,
+    "guide_bore_limits": [
+      6.01,
+      6.02
+    ],
+    "guide_shaft_limits": [
+      5.994,
+      6.0
+    ]
+  },
+  "cell": {
+    "model": "FUTEK LSB200 FSH00103",
+    "rear_face_y": 5,
+    "front_face_y": 24.1,
+    "keepout_origin": [
+      450.5,
+      5,
+      88
+    ],
+    "keepout_size": [
+      17.5,
+      19.1,
+      8
+    ],
+    "thread_max_depth": 2.8,
+    "rated_load_N": 22.2
+  },
+  "connectors": {
+    "rod_end": "igus KBRM-03 without MH",
+    "pin_to_mouth": 18.5,
+    "head_OD": 13,
+    "head_housing_width": 4.5,
+    "ball_width": 6,
+    "pin_bore_nominal": 3,
+    "minimum_internal_thread_engagement": 5,
+    "internal_thread_available": 8,
+    "clevis_inside_width": 10.2,
+    "spacer_length_each": 2.1,
+    "spacer_ID": 3.1,
+    "spacer_OD": 5.5,
+    "front_pin_y": 48,
+    "rear_pin_y": -18.9,
+    "front_mouth_y": 29.5,
+    "rear_mouth_y": -0.4,
+    "stud_cell_spigot_length": 2.2,
+    "stud_collar_length": 2.4,
+    "stud_collar_AF": 5,
+    "stud_outer_thread_length": 8.5,
+    "stud_overall_length": 13.1,
+    "stud_thread": "M3x0.5",
+    "stud_rod_end_engagement": 5.5,
+    "rod_end_jamnut_thickness": 2.4,
+    "pin_shoulder_diameter_limits": [
+      2.994,
+      3.0
+    ],
+    "pin_shoulder_length": 26.2,
+    "pin_head_diameter": 5,
+    "pin_head_length": 2,
+    "pin_end_thread": "M2x0.4",
+    "pin_end_thread_length": 5
+  },
+  "catches": {
+    "target_centre": [
+      460,
+      110,
+      92
+    ],
+    "roller_OD": 6,
+    "roller_width": 6,
+    "roller_bore": 3.1,
+    "front_post_origin": [
+      450,
+      93,
+      12
+    ],
+    "rear_post_origin": [
+      450,
+      120,
+      12
+    ],
+    "post_size": [
+      20,
+      10,
+      86
+    ],
+    "thread": "M8x0.5",
+    "hollow_bore": 3.5,
+    "front_screw_y": [
+      94,
+      106.7
+    ],
+    "rear_screw_y": [
+      113.3,
+      126
+    ],
+    "initial_gap_each": 0.3,
+    "conditional_gap_each": 0.55,
+    "gap_setting_tolerance": 0.02,
+    "locking_grub": "M3x0.5 with brass pad",
+    "water_rod_diameter": 3,
+    "target_shape": "6x6x6 flat target block, bore along X",
+    "screw_outer_diameter": 8,
+    "end_drive_hole_diameter": 1,
+    "end_drive_hole_radius": 2.8,
+    "water_clevis_inside_width": 10.2,
+    "water_spacer_length_each": 2.1
+  },
+  "water_rod": {
+    "head_centre": [
+      460,
+      110,
+      92
+    ],
+    "head_size": [
+      6,
+      6,
+      6
+    ],
+    "head_pin_bore": 3.1,
+    "front_stem_y": [
+      113,
+      137.5
+    ],
+    "front_thread_y": [
+      129.6,
+      137.5
+    ],
+    "front_thread": "M3x0.5 RH",
+    "turnbuckle_y": [
+      132,
+      146
+    ],
+    "turnbuckle_AF": 5,
+    "turnbuckle_front_tap_y": [
+      132,
+      138
+    ],
+    "turnbuckle_rear_tap_y": [
+      140,
+      146
+    ],
+    "turnbuckle_rear_thread": "M3x0.5 LH",
+    "rear_stud_y": [
+      140.5,
+      151.8984
+    ],
+    "rear_stud_thread": "M3x0.5 LH",
+    "front_locknut_y": [
+      129.6,
+      132
+    ],
+    "rear_locknut_y": [
+      146,
+      148.4
+    ],
+    "boss_front_y": 149.3984,
+    "boss_back_y": 153.3984,
+    "boss_OD": 8,
+    "boss_tap_depth": 2.5,
+    "boss_thread": "M3x0.5 LH",
+    "rod_end_engagement_nominal": 5.5,
+    "adjustment_range_abs": 0.25,
+    "boss_bore_depth": 3.3,
+    "turnbuckle_bore_depth": 6.6
+  },
+  "outrigger": {
+    "extension_origin": [
+      420,
+      -115,
+      0
+    ],
+    "extension_size": [
+      80,
+      75,
+      12
+    ],
+    "brace_origin": [
+      420,
+      -115,
+      -6
+    ],
+    "brace_size": [
+      80,
+      95,
+      6
+    ],
+    "bolt_x": [
+      430,
+      490
+    ],
+    "bolt_y": [
+      -90,
+      -60,
+      -30
+    ],
+    "feet_centres": [
+      [
+        20,
+        -20
+      ],
+      [
+        580,
+        -20
+      ],
+      [
+        20,
+        300
+      ],
+      [
+        580,
+        300
+      ]
+    ],
+    "feet_diameter": 25,
+    "feet_height": 20
+  },
+  "operating": {
+    "initial_force_abs_N": 5,
+    "initial_displacement_abs": 0.25,
+    "conditional_force_abs_N": 20,
+    "conditional_displacement_abs": 0.5,
+    "read_dynamic_diaphragm_abs": 0.01,
+    "maximum_angle_from_nominal_deg": 2,
+    "physical_execution_enabled": false
+  },
+  "drawing_geometry": {
+    "axis_x": 460,
+    "axis_z": 92,
+    "knob_y": [
+      -125,
+      -110
+    ],
+    "lead_thread_y": [
+      -110,
+      -55.5
+    ],
+    "shoulder_y": [
+      -55.5,
+      -53.5
+    ],
+    "shoulder_diameter": 10,
+    "journal_y": [
+      -53.5,
+      -38.5
+    ],
+    "journal_diameter_limits": [
+      5.99,
+      5.998
+    ],
+    "bearing_y": [
+      [
+        -53.5,
+        -49
+      ],
+      [
+        -43,
+        -38.5
+      ]
+    ],
+    "bearing_ID": 6,
+    "bearing_OD": 12,
+    "bearing_H": 4.5,
+    "yoke_y": [
+      -49,
+      -43
+    ],
+    "through_bore": 6.4,
+    "housing_y": [
+      -53.5,
+      -38.5
+    ],
+    "housing_well_diameter": 12.03,
+    "fixed_nut_y": [
+      -100,
+      -85
+    ],
+    "cell_y": [
+      5,
+      24.1
+    ],
+    "front_pin_y": 48,
+    "rear_pin_y": -18.9,
+    "pin_to_mouth": 18.5,
+    "front_mouth_y": 29.5,
+    "rear_mouth_y": -0.4,
+    "stud_spigot": 2.2,
+    "stud_collar": 2.4,
+    "stud_outer_thread": 8.5,
+    "rod_end_engagement": 5.5,
+    "catch_centre_y": 110,
+    "catch_roller_OD": 6,
+    "front_catch_post_y": [
+      93,
+      103
+    ],
+    "rear_catch_post_y": [
+      120,
+      130
+    ],
+    "front_catch_tip_y": 106.7,
+    "rear_catch_tip_y": 113.3,
+    "catch_hollow_bore": 3.5,
+    "park_translation_y": -15
+  },
+  "assumed_materials": {
+    "steel_E_Pa": 200000000000,
+    "aluminium_E_Pa": 69000000000,
+    "steel_static_stress_screen_MPa": 80,
+    "aluminium_static_stress_screen_MPa": 50
+  },
+  "evidence_limits": [
+    "M04 completes nominal custom machining dimensions, not manufacture, calibration, fatigue validation or safe operation.",
+    "Commercial components must match the cited maker revision; manufacturer dimensions govern their bodies.",
+    "Stop contact terminates a run; catches are not a force limiter or a substitute for live calibrated readout.",
+    "A built device still requires the mechanical, electrical and metrology acceptance tests."
+  ]
+}

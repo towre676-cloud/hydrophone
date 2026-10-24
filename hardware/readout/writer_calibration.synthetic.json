@@ -1,0 +1,130 @@
+{
+  "schema": "hydrophone.writer-calibration/1",
+  "status": "measured_with_declared_scope",
+  "evidence_type": "synthetic_demo",
+  "calibration_id": "SYNTHETIC_WRITER_CAL_ONLY",
+  "reference_evidence_ids": [
+    "SYNTHETIC_NO_PHYSICAL_REFERENCE"
+  ],
+  "created_utc": "2026-01-01T00:00:00Z",
+  "valid_until_utc": "2099-01-01T00:00:00Z",
+  "scope": {
+    "configuration_id": "SYNTHETIC_CONFIG",
+    "adc_serial": "SYNTHETIC_T7",
+    "force_sensor_serial": "SYNTHETIC_FORCE",
+    "position_sensor_serial": "SYNTHETIC_POSITION",
+    "filter_configuration_id": "SYNTHETIC_5HZ",
+    "mechanics_revision": "SYNTHETIC_M04",
+    "scan_list": [
+      "AIN0",
+      "AIN2",
+      "AIN4",
+      "AIN6"
+    ],
+    "sample_rate_Hz_interval": [
+      49,
+      51
+    ],
+    "resolution_index": 7,
+    "range_V": 10,
+    "scans_per_read": 5,
+    "valid_temperature_C": [
+      18,
+      24
+    ],
+    "valid_excitation_V": [
+      2.4,
+      2.6
+    ],
+    "environment_valid_for_s": 3600,
+    "operation": "bidirectional_quasistatic",
+    "qualified_direction_scope": [
+      "positive",
+      "negative"
+    ],
+    "wiring_profile": "E01"
+  },
+  "channels": {
+    "force": {
+      "raw_column": "raw_force_V",
+      "SI_unit": "N",
+      "sensor_serial": "SYNTHETIC_FORCE",
+      "chain_id": "SYNTHETIC_force",
+      "sign_convention": "Synthetic positive raw slope; both signed directions",
+      "zero_raw_V": 1.25,
+      "scale_SI_per_V": 20,
+      "raw_valid_V": [
+        0.9,
+        1.6
+      ],
+      "raw_error_bound_V": 0.0001,
+      "valid_SI": [
+        -6,
+        6
+      ],
+      "total_error_SI": 0.05,
+      "uncertainty_kind": "deterministic_bound_declared",
+      "uniform_bound_justification_id": "SYNTHETIC_UNIFORM_MODEL_NOT_EVIDENCE",
+      "reference_evidence_ids": [
+        "SYNTHETIC_NO_PHYSICAL_REFERENCE"
+      ]
+    },
+    "position": {
+      "raw_column": "raw_displacement_V",
+      "SI_unit": "m",
+      "sensor_serial": "SYNTHETIC_POSITION",
+      "chain_id": "SYNTHETIC_position",
+      "sign_convention": "Synthetic positive raw slope; both signed directions",
+      "zero_raw_V": 3,
+      "scale_SI_per_V": 0.001,
+      "raw_valid_V": [
+        2.5,
+        3.5
+      ],
+      "raw_error_bound_V": 0.0001,
+      "valid_SI": [
+        -0.0004,
+        0.0004
+      ],
+      "total_error_SI": 2e-06,
+      "uncertainty_kind": "deterministic_bound_declared",
+      "uniform_bound_justification_id": "SYNTHETIC_UNIFORM_MODEL_NOT_EVIDENCE",
+      "reference_evidence_ids": [
+        "SYNTHETIC_NO_PHYSICAL_REFERENCE"
+      ]
+    }
+  },
+  "timing": {
+    "pairing_id": "SYNTHETIC_NATIVE_PAIRING",
+    "scope": "native_scan_clock_filtered_channels_not_simultaneous",
+    "clock_origin_evidence_id": "SYNTHETIC_CLOCK_BOUND",
+    "first_scan_offset_from_call_interval_s": [
+      0,
+      0.02
+    ],
+    "host_seconds_per_logger_nominal_second_interval": [
+      0.9999,
+      1.0001
+    ],
+    "maximum_observation_age_s": 0.5,
+    "per_channel": {
+      "force": {
+        "sample_offset_s": 0,
+        "sample_offset_error_s": 1e-05,
+        "filter_lag_bound_s": 0.1,
+        "filter_bound_evidence_id": "SYNTHETIC_FILTER_BOUND",
+        "max_abs_slew_SI_per_s": 0.2,
+        "slew_bound_evidence_id": "SYNTHETIC_SLEW_BOUND"
+      },
+      "position": {
+        "sample_offset_s": 0.00067,
+        "sample_offset_error_s": 1e-05,
+        "filter_lag_bound_s": 0.1,
+        "filter_bound_evidence_id": "SYNTHETIC_FILTER_BOUND",
+        "max_abs_slew_SI_per_s": 5e-06,
+        "slew_bound_evidence_id": "SYNTHETIC_SLEW_BOUND"
+      }
+    }
+  },
+  "warning": "SYNTHETIC DEMO ONLY. These invented example coefficients and bounds must never enable physical writing."
+}

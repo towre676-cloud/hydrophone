@@ -1,0 +1,11 @@
+# RG04 completion modules
+
+This folder supplies dimensioned string retainers and manual tensioners, a pinned/latching polycarbonate hood, and the small4Ω shared-exciter mount. It leaves the old M03 package unchanged. Read [ASSEMBLY.md](ASSEMBLY.md) with the cut/drill tables before using the modules.
+
+Regenerate with `python hardware/mechanics_completion/retainers_guard/build.py`. The outputs are `generated/cut_list.csv`, `generated/drill_table.csv` and `generated/screening_receipt.json`. The receipt reports24part types, nominal clearances and conditional static loads. It does not certify retention, friction, impact containment or any physical instrument.
+
+In OpenSCAD, use `use <retainers_guard/parts.scad>` and call `rg04_retainer_assembly(show_line=false)`, `rg04_guard(lid_angle=0)` and `rg04_drive_mount(show_motor=true)`. Apply `rg_web_machining("left")` / `("right")` inside a `difference()` against each globally placed original anchor web. Replace the old visual eye/retainer cylinders, rather than drawing both. The original4.5mm retainer bores become tail-pass slots; the completed bearing datums are the two polishedØ6 bars.
+
+The four tuner bodies have0…8mm manual X travel and remain insideX614. The hood extends toX625, rearY143, and is188mm high closed; its approximately313mm open service height must remain clear. New guard base holes are atX30/300/580,Y8/154. The exciter mount uses new **M2×0.4 blind taps atX457/463,Y113.6:at least3.5mm full thread, maximum5mm total bore/runout depth fromZ119 and at least1mm bottom land**. Two Ø6.2 through edge reliefs at global X452/468,Y110 clear the rear-clevis M3 heads. Use M2 heads no larger than Ø3.8, M2×6 screws and no washers. The cable ears and motor position are unchanged. All sheet and screw coordinates are in the tables; lower panel mount heights are117/157, which clears the tuning-access notch.
+
+The exciter is DAEX-13-4SM,3W nominal4Ω, using the larger20.2×41×9mm drawing keepout. Its moving addition is budgeted at24.8g including the bracket,10g motor allowance and2g hardware/cable. Reweigh the entire M04 carrier; the old350g screening cap does not automatically accommodate additions. A source thermal rating and free950Hz resonance do not establish useful low-frequency forcing or a safe wet diaphragm stroke.

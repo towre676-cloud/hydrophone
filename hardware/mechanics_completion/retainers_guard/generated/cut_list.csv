@@ -1,0 +1,25 @@
+part,qty,material,stock_X_mm,stock_Y_mm,stock_Z_mm,machining
+RG01L,2,6061-T6,15,16,24,leftbarholder;pincentreX7/Z13;0.6slitfrompinZ13totop24
+RG01R,2,6061-T6,15,16,24,rightbarholder;pincentreX10/Z13;0.6pinchslit
+RG02,2,polished304orcertifiedsteel,6,76,6,nut/saddlebar;radius3;endR0.5;Ra<=0.8um requested
+RG03,4,6061-T6,18,11.5,12,"leftfixedclamp;originX17,Yyc-5.75,Z104"
+RG04,4,6061-T6,18,11.5,18,"rightmovingclamp;originX588+tune,Yyc-5.75,Z98;tune0..8"
+RG05,8,certified17-4PHH900ormin600MPayield,8,8,14,turnM3x0.5stem4long;D6barrel9long;D8flange1;R0.5lineedges
+RG06,8,POM,6,10,2,tailshoe;alllinecontactedgesR0.5
+RG07,16,stainlessshim,6,2,0.35,twostops/shoe;0.35gapcompressesnominal0.50lineby0.15;actualgriptest
+RG08,4,M4x0.7steelstud,50,4,4,axisX;10mmengagedinmovingbody;8mmmanualtuningstroke
+RG09,4,3m6groundsteelpin,48,3,3,axisX;8mmbodyengagement;20mmwebguideengagementthroughtravel
+RG10,8,standardsteelM4nutAF7,3.2,8.083,8.083,twojamnuts/string;washerOD9ID4.3x0.8;turnfixednutnotbody
+RG11,6,6061-T6,20,20,6,"guardfoot;globalcentresX30/300/580,Y8/154,Z12"
+RG12,6,6061-T6,10,10,147,guardpost;globalZ18..165
+RG13,2,6061-T6,605,10,5,"guardrailX20..625;frontY3,rearY149,Z165"
+RG14F,1,solidpolycarbonate,625,3,65,"frontpanelX0,Y18,Z105;loweredgeaccessnotchX576..590,Z0..5for7AFspanner"
+RG14R,1,solidpolycarbonate,625,3,65,"rearpanelX0,Y140,Z105"
+RG15,2,solidpolycarbonate,3,119,65,"endpanelsX0/622,Y21,Z105"
+RG16,1,solidpolycarbonate,625,125,3,"lidX0,Y18,Z170;frontlatchslots4.5x6.5"
+RG17,4,aluminiumangle15x15x2,15,15,65,insidecorner;mirrorX/Yasdrawing
+RG18,2,6061-T6,34,20,18,"fixedhingefork;base4;earsX5..10/24..29,Y4..16,Z4..18"
+RG19,2,6061-T6,30,30,14,"lidhingebase3;earX9..21,Y17..27,Z2..14"
+RG20,2,groundsteelpin4h6,30,4,4,hingepin;crossholesD1.5at1.5/28.5forretainers
+RG21,2,6061-T6,20,20,20,latchangle4thick;M4screw8longwithwasher
+RG22,1,6061-T6,32,10,46,footX4..28Y0..10Z0..3;vaneX4..28Y7..10;gussets3wideX4/25;cableearsX0..4/28..32Y7..10Z38..46;D6.2throughfrontedgereliefsatX8/24Y0

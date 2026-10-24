@@ -1,0 +1,15 @@
+{
+  "schema": "hydrophone.qualified-manual-action/1",
+  "status": "not_qualified",
+  "data_origin": "unavailable",
+  "run_id": null,
+  "action": null,
+  "action_qualification_id": null,
+  "measurement_id": null,
+  "measurement_window_episode_s": [null, null],
+  "window_frames": [null, null],
+  "raw_audio_sha256": null,
+  "realized_action_cents": null,
+  "realized_action_error_cents": null,
+  "note": "Disabled template. Actual action achievement requires its own 5–17 second measurement, distinct from future outcome pitch."
+}

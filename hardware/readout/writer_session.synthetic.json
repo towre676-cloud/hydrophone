@@ -1,0 +1,18 @@
+{
+  "schema": "hydrophone.writer-session/1",
+  "run_id": "SYNTHETIC_RUN",
+  "operator_id": "SYNTHETIC_OPERATOR",
+  "configuration_id": "SYNTHETIC_CONFIG",
+  "adc_serial": "SYNTHETIC_T7",
+  "force_sensor_serial": "SYNTHETIC_FORCE",
+  "position_sensor_serial": "SYNTHETIC_POSITION",
+  "filter_configuration_id": "SYNTHETIC_5HZ",
+  "mechanics_revision": "SYNTHETIC_M04",
+  "operation": "bidirectional_quasistatic",
+  "temperature_C": 21,
+  "temperature_error_C": 0.2,
+  "temperature_observed_utc": "2026-10-24T00:00:00Z",
+  "identity_check_evidence_ids": [
+    "SYNTHETIC_ONLY"
+  ]
+}

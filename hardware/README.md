@@ -1,5 +1,7 @@
 # M03 physical prototype and acquisition release
 
+The current build extends this preserved checkpoint with [M04 completion](mechanics_completion/README.md), [E02 electrical changes](E02_INTEGRATION.md), the [live writer readout](readout/README.md) and [commissioning procedures](commissioning/README.md). Use those current dimensions, parts and configuration identifiers together. The [task adapter](task_adapter/README.md) binds actual raw records to the mathematical session's feature definitions, but blocks the M04 detached writer cell as a permanent clay-force port. The [amendment draft](../experiments/M04_PROTOCOL_AMENDMENT_DRAFT.json) is awaiting a versioned mathematical/physical protocol decision before confirmation.
+
 This is the construction and commissioning workstream for the combined clay, string, water-cell, hydrophone and Dyletsky instrument. The immutable earlier design/evidence packet remains in `design/fusion_design/`. The M03 mechanics here supersede its assembly coordinates where explicitly stated. No assembly, calibration, hardware capture or retained-material-memory experiment has been performed by these software checks.
 
 M03 has a 600 × 360 mm base, widened from the earlier 320 mm design to fit the captive manual writer. The external interface, conditioning, filter, supplies and computer remain on an adjacent dry bench. The complete current bench system is unquoted; the earlier package's planning budget does not price this revised sourced metrology chain. Candidate part selection is not availability confirmation or a purchase.

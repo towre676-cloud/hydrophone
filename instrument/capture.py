@@ -55,7 +55,7 @@ class DuplexCollector:
 
 
 def capture_probe(probe_path, output_dir, *, execute=False, device=None,
-                  commissioning_id=None):
+                  commissioning_id=None, clock=time.monotonic):
     plan, command, command_path = load_probe(probe_path)
     root = Path(output_dir)
     if root.exists():
@@ -87,6 +87,11 @@ def capture_probe(probe_path, output_dir, *, execute=False, device=None,
     root.mkdir(parents=True)
     (root/'drive_command.wav').write_bytes(command_path.read_bytes())
     (root/'probe.json').write_bytes(Path(probe_path).read_bytes())
+    if plan['schema']=='hydrophone.episode-command/1':
+        from .run import _bound_file
+        for key in ('experiment_core','source_probe'):
+            source=_bound_file(Path(probe_path).resolve().parent,plan[key])
+            (root/plan[key]['path']).write_bytes(source.read_bytes())
 
     def callback(indata, outdata, frames, clock, status):
         try:
@@ -99,22 +104,31 @@ def capture_probe(probe_path, output_dir, *, execute=False, device=None,
             raise sd.CallbackStop
 
     failure = None
+    stream = None
+    cleanup_error = None
     try:
-        with sd.RawStream(device=device, channels=(n, 2), samplerate=plan['sample_rate_Hz'],
+        stream = sd.RawStream(device=device, channels=(n, 2), samplerate=plan['sample_rate_Hz'],
                 dtype='int16', blocksize=0, latency='high', never_drop_input=True,
-                callback=callback, finished_callback=finished.set) as stream:
-            deadline = time.monotonic() + plan['frames']/plan['sample_rate_Hz'] + 15
+                callback=callback, finished_callback=finished.set)
+        with stream:
+            deadline = clock() + plan['frames']/plan['sample_rate_Hz'] + 15
             while not finished.wait(.25):
-                if time.monotonic() > deadline:
+                if clock() > deadline:
                     raise TimeoutError('Audio stream did not finish before its time budget')
     except (Exception, KeyboardInterrupt) as exc:
         failure = type(exc).__name__ + ': ' + str(exc)
+    finally:
+        if stream is not None and not getattr(stream, 'closed', False):
+            try:
+                stream.close()
+            except Exception as exc:
+                cleanup_error = str(exc)
     wav = root/'multichannel_audio.wav'
     with wave.open(str(wav), 'wb') as stream:
         stream.setparams((n, 2, plan['sample_rate_Hz'], collector.position, 'NONE', 'not compressed'))
         stream.writeframes(memoryview(collector.recorded)[:collector.position*n*2])
     complete = (collector.position == plan['frames'] and not collector.flags
-                and not collector.error and failure is None)
+                and not collector.error and failure is None and cleanup_error is None)
     receipt = {'schema': 'hydrophone.capture/1',
         'status': 'COMPLETE_NO_HOST_FLAGS' if complete else 'REVIEW_REQUIRED',
         'capture_method': 'sounddevice.RawStream', 'sounddevice_version': sd.__version__,
@@ -124,12 +138,14 @@ def capture_probe(probe_path, output_dir, *, execute=False, device=None,
         'frames_received': collector.position, 'frames_requested': plan['frames'],
         'callback_count': collector.callback_count, 'host_flags': collector.flags,
         'callback_error': collector.error, 'stream_error': failure,
+        'cleanup_error': cleanup_error,
         'missing_samples': 0 if complete else None,
         'host_clock_first': collector.clock_first, 'host_clock_last': collector.clock_last,
         'probe_sha256': sha256(root/'probe.json'),
         'raw_files': {name: {'path': file, 'sha256': sha256(root/file)} for name, file in
             [('multichannel_audio', wav.name), ('drive_command', 'drive_command.wav')]},
-        'hardware_commands_issued': 1, 'physical_readiness_verified': False,
+        'stream_start_attempted': True, 'output_frames_submitted': collector.position,
+        'hardware_commands_issued': int(collector.position > 0), 'physical_readiness_verified': False,
         'qualifications': ['Host flags absent does not independently prove sample continuity.',
             'Host ADC/DAC timestamps are diagnostics, not measured loopback calibration.',
             'Record external logger/audio sync markers and import the slow record before sealing.',

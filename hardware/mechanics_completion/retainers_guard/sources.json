@@ -1,0 +1,11 @@
+{
+  "checked_date": "2026-10-24",
+  "sources": [
+    {"id":"RG-S1","url":"https://www.daytonaudio.com/product/1296/daex-13-4sm-haptic-feedback-and-audio-exciter-13mm-3w-4-ohm","use":"Manufacturer model3W4ohm,product-page6.7g and smaller outline; product revision must not override larger current drawing keepout."},
+    {"id":"RG-S2","url":"https://www.daytonaudio.com/images/resources/295-258--dayton-audio-daex-13-4sm-specifications.pdf","use":"Manufacturer drawing revision reviewed by parent:20.0+/-0.2 by40.5+/-0.5 by8.7+/-0.2mm;20.2x41x9 envelope retained."},
+    {"id":"RG-S3","url":"https://www.parts-express.com/pedocs/specs/295-258--dayton-audio-daex-13-4sm-specifications.pdf","use":"Original manufacturer specification copy:3W4ohm,950HzfreeFs,preappliedVHB;frequencyresponse measured on foamboard and explicitly mounting-dependent."},
+    {"id":"RG-S4","url":"https://rapala.com.au/product/sufix-main-cat/leaders-flurocarbon/superior-mono-leader-2/","use":"ManufacturerSufixSUFML30100C label0.50mm30lb,copolymermonofilament;notaninstalledclampworking-loadrating."},
+    {"id":"RG-S5","url":"https://www.sabic.com/en/products/polymers/polycarbonate-pc/lexan-resin","use":"Primary polycarbonate material-family transparency/impact reference;no claim that this assembledhood meetsanimpactorreachstandard."}
+  ],
+  "custom_material_requirements": ["Capstanpin certifiedminimum0.2%yield600MPa,17-4PHH900orequivalent;actualcertificate required.","Aluminium6061-T6 dimensions are specified;materialpropertiesinreceiptarenominalassumptions.","No frictionoradhesion value is treatedasameasuredbound."]
+}

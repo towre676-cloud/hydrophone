@@ -1,0 +1,162 @@
+{
+  "schema": "hydrophone.writer-calibration/1",
+  "status": "fit_proposal_not_qualified",
+  "evidence_type": "synthetic_demo",
+  "calibration_id": null,
+  "reference_evidence_ids": [
+    "SYNTHETIC-REF",
+    "SYNTHETIC-TEMP-REF"
+  ],
+  "created_utc": null,
+  "valid_until_utc": null,
+  "scope": {
+    "configuration_id": null,
+    "adc_serial": null,
+    "force_sensor_serial": null,
+    "position_sensor_serial": null,
+    "filter_configuration_id": null,
+    "mechanics_revision": null,
+    "scan_list": [
+      "AIN0",
+      "AIN2",
+      "AIN4",
+      "AIN6",
+      "AIN8"
+    ],
+    "sample_rate_Hz_interval": [
+      null,
+      null
+    ],
+    "resolution_index": 7,
+    "range_V": 10,
+    "scans_per_read": 5,
+    "valid_temperature_C": [
+      null,
+      null
+    ],
+    "valid_excitation_V": [
+      null,
+      null
+    ],
+    "environment_valid_for_s": null,
+    "operation": "bidirectional_quasistatic",
+    "qualified_direction_scope": [
+      "positive",
+      "negative"
+    ],
+    "wiring_profile": "E02"
+  },
+  "channels": {
+    "force": {
+      "raw_column": "raw_force_V",
+      "SI_unit": "N",
+      "sensor_serial": null,
+      "chain_id": null,
+      "sign_convention": null,
+      "zero_raw_V": 1.25,
+      "scale_SI_per_V": 22.079998376470705,
+      "raw_valid_V": [
+        null,
+        null
+      ],
+      "raw_error_bound_V": null,
+      "valid_SI": [
+        null,
+        null
+      ],
+      "total_error_SI": null,
+      "uncertainty_kind": "deterministic_bound_declared",
+      "uniform_bound_justification_id": null,
+      "reference_evidence_ids": [
+        "SYNTHETIC-REF"
+      ]
+    },
+    "position": {
+      "raw_column": "raw_displacement_V",
+      "SI_unit": "m",
+      "sensor_serial": null,
+      "chain_id": null,
+      "sign_convention": null,
+      "zero_raw_V": 3.0,
+      "scale_SI_per_V": 0.002499999264706103,
+      "raw_valid_V": [
+        null,
+        null
+      ],
+      "raw_error_bound_V": null,
+      "valid_SI": [
+        null,
+        null
+      ],
+      "total_error_SI": null,
+      "uncertainty_kind": "deterministic_bound_declared",
+      "uniform_bound_justification_id": null,
+      "reference_evidence_ids": [
+        "SYNTHETIC-REF"
+      ]
+    },
+    "temperature_C": {
+      "raw_column": "raw_temperature_V",
+      "SI_unit": "degC",
+      "sensor_serial": null,
+      "chain_id": null,
+      "sign_convention": "Celsius relative to zero degrees Celsius",
+      "zero_raw_V": 0.5099987692307691,
+      "scale_SI_per_V": 97.49941500350995,
+      "raw_valid_V": [
+        null,
+        null
+      ],
+      "raw_error_bound_V": null,
+      "valid_SI": [
+        null,
+        null
+      ],
+      "total_error_SI": null,
+      "uncertainty_kind": "deterministic_bound_declared",
+      "uniform_bound_justification_id": null,
+      "reference_evidence_ids": [
+        "SYNTHETIC-TEMP-REF"
+      ]
+    }
+  },
+  "timing": {
+    "pairing_id": null,
+    "scope": "native_scan_clock_filtered_channels_not_simultaneous",
+    "clock_origin_evidence_id": null,
+    "first_scan_offset_from_call_interval_s": [
+      null,
+      null
+    ],
+    "host_seconds_per_logger_nominal_second_interval": [
+      null,
+      null
+    ],
+    "maximum_observation_age_s": null,
+    "per_channel": {
+      "force": {
+        "sample_offset_s": null,
+        "sample_offset_error_s": null,
+        "filter_lag_bound_s": null,
+        "filter_bound_evidence_id": null,
+        "max_abs_slew_SI_per_s": null,
+        "slew_bound_evidence_id": null
+      },
+      "position": {
+        "sample_offset_s": null,
+        "sample_offset_error_s": null,
+        "filter_lag_bound_s": null,
+        "filter_bound_evidence_id": null,
+        "max_abs_slew_SI_per_s": null,
+        "slew_bound_evidence_id": null
+      }
+    }
+  },
+  "warning": "UNQUALIFIED fit proposal: do not enable until independent uniform error/domain, identity, timing, filter, freshness and slew review is completed.",
+  "fit_source": {
+    "reference_csv_sha256": "1f67f1bbf840ef357f5d8b4b75ddfd13264d9051355c44f9c55e1038d9f52fed",
+    "fit_method": "development_only_exact_decimal_affine_OLS",
+    "held_out_nonzero_levels_disjoint": true,
+    "finite_point_envelopes_are_not_uniform_bounds": true
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "schema": "fusion.m04-calculation/1",
+  "status": "NOMINAL_ANALYTICAL_GEOMETRY_AND_STATIC_SCREEN_ONLY",
+  "checks": {
+    "cell_front_and_rear_external_gaps_match": true,
+    "cell_spigot_with_tolerance_below_depth": true,
+    "rod_end_nominal_engagement_matches_geometry": true,
+    "full_rod_end_engagement_including_chamfer_margin": true,
+    "rod_end_nose_clearance": true,
+    "ball_and_spacers_fill_clevis": true,
+    "two_degree_neck_envelope_clears_slot": true,
+    "stud_collar_fits_6p7mm_load_face_width": true,
+    "EZO_shaft_abutment_at_least9p6": true,
+    "EZO_housing_hole_at_most8p4": true,
+    "journal_clearance_to_bearing_nominal_ID": true,
+    "shaft_washer_OD11p8_clear_of_well": true,
+    "housing_bearing_wall_is6mm": true,
+    "parked_housing_clears_fixed_nut": true,
+    "parked_joint_clears_instrument_fork": true,
+    "rear_joint_does_not_hit_lead_end": true,
+    "catch_initial_gaps_match": true,
+    "initial_operating_window_inside_minimum_catch_gap": true,
+    "water_rod_has_radial_clearance_after_alignment_target": true,
+    "stop_drive_holes_clear_bore_by0p5mm": true,
+    "stop_drive_holes_inside_minimum_root_by0p3mm": true,
+    "M8_stop_clears_water_clevis_by0p9mm": true,
+    "turnbuckle_nut_fits_rear_post_bore_and_clears_stop": true,
+    "turnbuckle_rear_locknut_clears_dry_boss": true,
+    "boss_blind_hole_leaves0p7mm_bond_land": true,
+    "turnbuckle_flat_bores_leave0p8mm_web": true,
+    "turnbuckle_thread_minimum_over_adjustment": true,
+    "pin_nominal_static_screen": true,
+    "stop_nominal_static_screen": true
+  },
+  "connector": {
+    "cell_to_rod_end_gap_mm": 5.399999999999999,
+    "nominal_rod_end_engagement_mm": 5.500000000000002,
+    "minimum_full_engagement_after0p20mm_margin": 5.300000000000002,
+    "neck_side_clearance_at2deg_mm": 0.4567960029273488,
+    "pin_bending_stress_at20N_MPa": 19.355967922320165,
+    "M3_stud_axial_stress_at20N_MPa": 4.495584862422013,
+    "pin_and_thread_fatigue_or_source_material_qualified": false
+  },
+  "lead": {
+    "EZO_static_axial_rating_N": 2220,
+    "EZO_single_bearing_load_ratio_at30N": 74.0,
+    "declared_no_preload_permission": true,
+    "axial_play_acceptance_mm": 0.01,
+    "park_fixed_bush_to_housing_gap_mm": 11.5,
+    "park_instrument_fork_to_joint_gap_mm": 0.5,
+    "ideal20N_torque_at_assumed0p2_efficiency_Nm": 0.007957747154594767,
+    "interpretation": "hand torque is not a force limiter; local measured force and displacement remain required"
+  },
+  "catches": {
+    "load_case_N": 20,
+    "load_axis_XZ": [
+      460,
+      92
+    ],
+    "off_axis_stop_moment_Nm": 0,
+    "front_gap_mm": 0.29999999999999716,
+    "rear_gap_mm": 0.29999999999999716,
+    "hollow_screw_axial_stress_MPa": 0.6096065807577533,
+    "minimum_stop_root_diameter_assumption_mm": 7.35,
+    "drive_hole_inner_ligament_mm": 0.5499999999999998,
+    "drive_hole_outer_ligament_mm": 0.375,
+    "one_post_bending_stress_MPa": 4.799999999999999,
+    "one_post_bending_deflection_um": 29.68115942028986,
+    "one_post_base_bolt_tension_screen_N": 320.0,
+    "impact_rating_or_force_limit": false
+  },
+  "water_rod": {
+    "turnbuckle_nominal_change_um_per_degree": 2.7777777777777777,
+    "nominal_adjustment_range_abs_mm": 0.25,
+    "radial_alignment_target_mm": 0.1,
+    "displacement_conversion_qualified": false
+  },
+  "transition": {
+    "mechanical_sequence_implemented_in_document": true,
+    "duration_measured": false,
+    "instantaneous_or_within2s_claim": false,
+    "task_core_registration_enabled": false
+  },
+  "physical_readiness": false,
+  "completion_sha256": "f2e2986a96eb9df31a3fce585c58b564d4ee826e0d2eca6051fc88e43ddfe5eb"
+}

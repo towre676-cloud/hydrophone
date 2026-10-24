@@ -22,7 +22,7 @@ def seal_capture(capture_path, slow_path, metadata_path, logger_clock_path,
     if (capture.get('schema') != 'hydrophone.capture/1' or
         capture.get('status') != 'COMPLETE_NO_HOST_FLAGS' or
         capture.get('missing_samples') != 0 or capture.get('host_flags') or
-        capture.get('callback_error') or capture.get('stream_error') or
+        capture.get('callback_error') or capture.get('stream_error') or capture.get('cleanup_error') or
         capture.get('frames_received') != capture.get('frames_requested')):
         raise ValueError('Only complete unflagged captures can be sealed')
     probe_path = capture_path.parent/'probe.json'
@@ -41,6 +41,9 @@ def seal_capture(capture_path, slow_path, metadata_path, logger_clock_path,
             stream.getframerate() != plan['sample_rate_Hz']):
             raise ValueError('Actual audio format/frame count contradicts capture and probe')
     metadata = load_json(metadata_path)
+    if plan['schema']=='hydrophone.episode-command/1':
+        if fraction(metadata.get('cost_s',{}).get('reset_s'),'episode reset cost') < 1:
+            raise ValueError('Episode support tail requires at least one second of declared reset overhead')
     for key in ('run_id','specimen_id','history_protocol','calibration_id','validity_domain','rod_state'):
         if not isinstance(metadata.get(key), str) or not metadata[key].strip():
             raise ValueError('Need explicit operator metadata: '+key)
@@ -125,6 +128,10 @@ def seal_capture(capture_path, slow_path, metadata_path, logger_clock_path,
         (Path(logger_clock_path),'logger_clock.json'),(Path(drive_clock_path),'drive_clock.json'),
         (Path(metadata_path),'operator_metadata.json')]:
         shutil.copyfile(source, root/name)
+    if plan['schema']=='hydrophone.episode-command/1':
+        for key in ('experiment_core','source_probe'):
+            source=_bound_file(probe_path.parent,plan[key])
+            shutil.copyfile(source,root/plan[key]['path'])
     for source_path, clock in [(Path(logger_clock_path), logger_clock), (Path(drive_clock_path), drive_clock)]:
         marker_name = clock['source_markers_name']
         destination = root/marker_name
@@ -150,6 +157,9 @@ def seal_capture(capture_path, slow_path, metadata_path, logger_clock_path,
     sync['drive_to_audio'] = {k:drive_clock[k] for k in ('offset_s','drift_rate','sync_residual_s','method')}
     run = {k:metadata[k] for k in ('run_id','specimen_id','history_protocol','calibration_id','validity_domain','rod_state','data_origin')}
     run.update({'schema':'fusion.run/1',
+        'configuration_id':metadata.get('configuration_id'),
+        'mechanics_revision':metadata.get('mechanics_revision'),
+        'electronics_revision':metadata.get('electronics_revision'),
         'raw_files':{role:{'path':name,'sha256':sha256(root/name)} for role,(source,name) in files.items()},
         'audio':{'sample_rate_Hz':capture['sample_rate_Hz'], 'channel_map':labels,
                  'gain_per_channel':gains,'missing_samples':0},
@@ -173,6 +183,13 @@ def seal_capture(capture_path, slow_path, metadata_path, logger_clock_path,
     for index,record in enumerate(native_saved):
         run['raw_files']['native_slow_'+str(index)] = record
     run['provenance']['drive_alignment'] = alignment_record
+    if plan['schema']=='hydrophone.episode-command/1':
+        run['episode_command']={'protocol_arm':plan['protocol_arm'],
+            'experiment_core_canonical_sha256':plan['experiment_core_canonical_sha256'],
+            'tail_cost':plan['tail_cost'],'cost_s':metadata['cost_s']}
+        if plan['protocol_arm']=='reduced':
+            run['analysis'].pop('tones')
+            run['analysis']['omitted_probe']=True
     path = root/'run.json'
     path.write_text(json.dumps(run,indent=2,allow_nan=False)+'\n')
     try:

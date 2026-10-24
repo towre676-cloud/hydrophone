@@ -1,0 +1,20 @@
+{
+  "schema": "hydrophone.electronics-overlay/1",
+  "revision": "E02",
+  "base": "electronics/bom.csv at E01",
+  "replaces": [
+    {"item_id":"EXC-01","part":"Dayton DAEX-13-4SM","quantity":1,"impedance_ohm":4,"source":"https://www.daytonaudio.com/product/1296/daex-13-4sm-haptic-feedback-and-audio-exciter-13mm-3w-4-ohm","qualification":"Use full purchased-revision envelope; no force or permitted installed power inferred."},
+    {"item_id":"LOAD-01","part":"4 ohm at least 5 W dummy resistor","quantity":1,"qualification":"Bench test only; replace the old 8 ohm load."}
+  ],
+  "adds": [
+    {"item_id":"REG-33","part":"Pololu D24V10F3 item 2830","quantity":1,"verified_displayed_price_USD":12.95,"source":"https://www.pololu.com/product/2830","connection":"5 V supply through fuse/switch to VIN; VOUT 3.3 V to amplifier VCC; common actuator-side GND"},
+    {"item_id":"TEMP-01","part":"Analog Devices TMP36GT9Z TO-92","quantity":1,"source":"https://www.analog.com/media/en/technical-documentation/data-sheets/TMP35_36_37.pdf","connection":"Bottom-view pin1 +VS, pin2 output to AIN8 through qualified low-pass, pin3 GND"},
+    {"item_id":"TEMP-02","part":"1.00 kohm series, 100 uF shunt and 100 nF local supply decoupling","quantity":1,"qualification":"Custom network; characterize leakage, loading, response and installed error."}
+  ],
+  "amplifier_supply_V":3.3,
+  "do_not_apply_5V_directly_to_amplifier_with_4ohm_load":true,
+  "slow_scan_list":["AIN0","AIN2","AIN4","AIN6","AIN8"],
+  "raw_temperature_column":"raw_temperature_V",
+  "full_system_quote_available":false,
+  "hardware_execution_performed":false
+}

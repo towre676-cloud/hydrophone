@@ -1,0 +1,43 @@
+{
+  "schema": "hydrophone.physical-protocol-amendment-draft/1",
+  "status": "DRAFT_NOT_REGISTERED_NOT_IMPLEMENTED_BY_V1_EVALUATOR",
+  "base_experiment": "clay-history-tuning-v1",
+  "mechanics": "M04 completion of M03",
+  "physical_v1_binding_status": "BLOCKED_WITH_REMOVABLE_WRITER_FORCE_PORT",
+  "reason": "V1 requires writer disengaged before the time-zero pitch pluck but defines clay-force/relaxation features from 1–2 s. The disengaged inline writer cell measures its own unloaded port. Calibration cannot turn it into permanent clay-reaction force.",
+  "proposed_epoch": "time zero is the end of the unchanged 21 s mechanical preparation history",
+  "proposed_timeline_s": {
+    "writer_engaged_rod_out_slow_force_window": ["1", "2"],
+    "early_force_mean": ["1", "1.2"],
+    "late_force_mean": ["1.8", "2"],
+    "manual_release_reconnect_and_settle_slot": ["2", "10"],
+    "common_pre_action_pluck": "10",
+    "pre_action_free_decay_pitch": ["10.1", "11"],
+    "current_room_temperature_and_plate_position": ["10", "11"],
+    "full_fixed_tone_probe": ["12", "14"],
+    "probe_feature_fit": ["12.1", "13.9"],
+    "decision_deadline": "15",
+    "manual_action": ["15", "27"],
+    "independent_outcome_pluck": "28",
+    "outcome_free_decay_pitch": ["28.1", "30"],
+    "task_endpoint": "30",
+    "record_support_tail": ["30", "31"]
+  },
+  "force_feature_meaning": "Measured engaged writer-port force before the read configuration changes; includes guide/fixture/clay contributions under qualified scope, not isolated clay stress or dissipation.",
+  "memoryless_covariates": "Use qualified post-transfer pitch, temperature and plate position. Do not substitute the earlier write-stage geometry for current-state covariates.",
+  "transfer_requirement": "Eight seconds is a proposal to qualify, not an achieved transition. Measure release, retraction, catch/rod-eye change, zero-load reconnection, gap checks and settling for every required condition. If it cannot fit, revise the core before development/confirmation rather than relabel time.",
+  "cost_changes_required": [
+    "Postwrite disjoint components must total 30 s, replacing V1's fixed 20 s.",
+    "The transfer/settling interval is real time; assign its cost explicitly and identically across matched policies.",
+    "Charge the 31st second of recorded support to reset overhead; do not erase it from total cost.",
+    "Retain reset, calibration, computation, manual action and verification costs."
+  ],
+  "owner_actions_required": [
+    "Review Hidden Math: decide on and version a physically compatible core, feature definitions, cost accounting and evaluator; keep V1 archived.",
+    "Physical build: qualify the actual transition, port identities, read disturbance, clock maps, natural-pitch estimator, action achievement and dynamic motion.",
+    "Freeze command hashes, extractor revision, predictors and schedule only after the revised physical binding is complete."
+  ],
+  "alternative": "A separate qualified permanent clay-reaction force port can support the original temporal ordering, but it is a new hardware variant and is not supplied by the M04 inline writer cell.",
+  "evidence_boundary": "The longer delay may erase fading history information. That is an experimental outcome, not grounds for moving windows after observing results.",
+  "hardware_execution_performed": false
+}

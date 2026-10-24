@@ -1,0 +1,18 @@
+{
+  "schema": "hydrophone.episode-commands/1",
+  "experiment_core_sha256": "e456923ee60b77130b9e7affba6cf75ed11b3c21911dfa4c924a472df9edd288",
+  "source_probe_sha256": "7f04471f478cda4c5fe7325056fdcb4501d5a05d7480563b09f84414b7535465",
+  "commands": {
+    "full": {
+      "plan_path": "results/task_commands_001/full/probe.json",
+      "drive_waveform_sha256": "e42c91c3fe6a3c172eb48bf9c41b381f55d9d4c72e128014d2766d934c460f01"
+    },
+    "reduced": {
+      "plan_path": "results/task_commands_001/reduced/probe.json",
+      "drive_waveform_sha256": "309c696fb8282498dd8232500f7ea21c7089cbc2c4f067a16542a1f80c3a4f58"
+    }
+  },
+  "hardware_commands_issued": 0,
+  "physical_readiness_verified": false,
+  "status": "SOFTWARE_COMMANDS_ONLY_NOT_PHYSICAL_REGISTRATION"
+}

@@ -26,6 +26,7 @@ def main():
     p=sub.add_parser('bench-demo');p.add_argument('--output-dir',required=True)
     p=sub.add_parser('probe');p.add_argument('targets');p.add_argument('--output-dir',required=True)
     p.add_argument('--sample-rate',type=int,default=48000);p.add_argument('--peak',type=float,default=.01);p.add_argument('--plateau',type=float,default=8)
+    p=sub.add_parser('episode-commands');p.add_argument('core');p.add_argument('--output-dir',required=True)
     p=sub.add_parser('capture');p.add_argument('probe');p.add_argument('--output-dir',required=True)
     p.add_argument('--device',type=int);p.add_argument('--commissioning-id');p.add_argument('--execute',action='store_true')
     p=sub.add_parser('devices',help='List optional PortAudio devices without starting a stream')
@@ -38,6 +39,12 @@ def main():
     p.add_argument('--source-pick-error',type=float,default=0);p.add_argument('--audio-pick-error',type=float)
     p=sub.add_parser('seal');p.add_argument('capture');p.add_argument('--slow',required=True);p.add_argument('--metadata',required=True)
     p.add_argument('--logger-clock',required=True);p.add_argument('--drive-clock',required=True);p.add_argument('--output-dir',required=True)
+    for command in ('task-features','task-outcome'):
+        p=sub.add_parser(command);p.add_argument('run');p.add_argument('--core',required=True)
+        p.add_argument('--qualification',required=True);p.add_argument('--pitch-record',required=True)
+        p.add_argument('--output-dir',required=True)
+        if command=='task-features':p.add_argument('--metadata',required=True)
+        else:p.add_argument('--action-record',required=True)
     args=parser.parse_args()
     try:
         if args.command=='render':
@@ -57,6 +64,9 @@ def main():
         elif args.command=='probe':
             from .probe import compile_probe
             result=compile_probe(args.targets,args.output_dir,sample_rate=args.sample_rate,peak=args.peak,plateau_s=args.plateau)
+        elif args.command=='episode-commands':
+            from .episode import compile_episode_commands
+            result=compile_episode_commands(args.core,args.output_dir)
         elif args.command=='capture':
             from .capture import capture_probe
             result=capture_probe(args.probe,args.output_dir,execute=args.execute,device=args.device,commissioning_id=args.commissioning_id)
@@ -76,6 +86,12 @@ def main():
         elif args.command=='seal':
             from .seal import seal_capture
             result=seal_capture(args.capture,args.slow,args.metadata,args.logger_clock,args.drive_clock,args.output_dir)
+        elif args.command=='task-features':
+            from .task_features import extract_features
+            result=extract_features(args.run,args.core,args.qualification,args.pitch_record,args.metadata,args.output_dir)
+        elif args.command=='task-outcome':
+            from .task_features import extract_outcome
+            result=extract_outcome(args.run,args.core,args.qualification,args.pitch_record,args.action_record,args.output_dir)
         elif args.command=='bench-demo':
             from .bench_demo import demo
             result=demo(args.output_dir)

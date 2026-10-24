@@ -1,0 +1,19 @@
+{
+  "schema": "hydrophone.qualified-free-decay-pitch/1",
+  "status": "not_qualified",
+  "data_origin": "unavailable",
+  "probe_kind": "free_decay_pluck",
+  "run_id": null,
+  "read_role": null,
+  "read_id": null,
+  "raw_audio_sha256": null,
+  "analysis_channel": null,
+  "window_frames": [null, null],
+  "pluck_episode_time_s": null,
+  "pitch_Hz_SI": null,
+  "pitch_error_cents": null,
+  "pitch_bound_validation_id": null,
+  "pitch_probe_qualification_id": null,
+  "error_scope": "complete_pitch_error_including_ADC_clock_nonstationarity_and_estimator",
+  "note": "Disabled template. Supply an independently qualified free-decay pitch estimate and complete bound; a driven line is not natural pitch."
+}

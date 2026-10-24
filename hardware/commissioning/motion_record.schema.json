@@ -1,0 +1,185 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "hydrophone.motion-qualification/1",
+  "title": "Conditional axial boss-motion witness",
+  "type": "object",
+  "required": [
+    "schema",
+    "status",
+    "evidence_type",
+    "configuration_id",
+    "target_port",
+    "reference_digital_peak",
+    "boss_motion_limit_m",
+    "probe_frequencies_SI_Hz",
+    "observed_motion_band_SI_Hz",
+    "required_time_interval_SI_s",
+    "measurement_time_interval_SI_s",
+    "measurement_time_error_s",
+    "evidence_files",
+    "conditions",
+    "amplitude_scaling",
+    "tones",
+    "remainder_bounds"
+  ],
+  "properties": {
+    "schema": {
+      "const": "hydrophone.motion-qualification/1"
+    },
+    "status": {
+      "enum": [
+        "not_measured",
+        "measurements_with_declared_bounds"
+      ]
+    },
+    "evidence_type": {
+      "enum": [
+        "unavailable",
+        "physical_measurements_declared",
+        "synthetic_demo"
+      ]
+    },
+    "target_port": {
+      "const": "boss_center_axial"
+    },
+    "configuration_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "reference_digital_peak": {
+      "type": [
+        "number",
+        "string",
+        "null"
+      ]
+    },
+    "boss_motion_limit_m": {
+      "type": [
+        "number",
+        "string"
+      ],
+      "description": "Runtime requires positive limit at most10micrometres."
+    },
+    "probe_frequencies_SI_Hz": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": [
+          "number",
+          "string"
+        ]
+      }
+    },
+    "observed_motion_band_SI_Hz": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": [
+          "number",
+          "string",
+          "null"
+        ]
+      }
+    },
+    "required_time_interval_SI_s": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "measurement_time_interval_SI_s": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "measurement_time_error_s": {
+      "type": [
+        "number",
+        "string",
+        "null"
+      ]
+    },
+    "evidence_files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "sha256"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string",
+            "description": "Physical records require a relative file below the witness directory."
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        }
+      }
+    },
+    "conditions": {
+      "type": "object"
+    },
+    "amplitude_scaling": {
+      "type": "object"
+    },
+    "tones": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "frequency_SI_Hz",
+          "frequency_error_Hz",
+          "mode",
+          "evidence_ids"
+        ],
+        "properties": {
+          "frequency_SI_Hz": {
+            "type": [
+              "number",
+              "string"
+            ]
+          },
+          "frequency_error_Hz": {
+            "type": [
+              "number",
+              "string",
+              "null"
+            ]
+          },
+          "mode": {
+            "enum": [
+              "direct_boss_displacement",
+              "direct_boss_velocity",
+              "bridge_acceleration_with_measured_transfer"
+            ]
+          },
+          "evidence_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "remainder_bounds": {
+      "type": "object",
+      "required": [
+        "in_band_non_tone_peak_m",
+        "outside_measured_band_peak_m",
+        "sub_band_and_equilibrium_drift_peak_m",
+        "drive_on_off_transient_peak_m",
+        "instrument_head_and_mount_motion_peak_m"
+      ]
+    }
+  },
+  "description": "Runtime checks exact frequency coverage, time/band support, SI bound completeness, condition evidence, physical file hashes, domain and amplitude scaling. A syntactically valid record can remain physically blocked."
+}

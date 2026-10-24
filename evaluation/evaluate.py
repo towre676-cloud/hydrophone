@@ -100,6 +100,27 @@ def _verify_physical_sources(row, registration, root, cache):
                 "realized_action_cents", "realized_action_error_cents", "pitch_bound_validation_id", "target_Hz"):
         if post.get(key) != row.get(key):
             raise ValueError("Independent outcome record disagrees with episode ledger: " + key)
+    if str(row['raw_feature_extractor_revision']).startswith('task-features/1:'):
+        # The hardware adapter preserves real padding/monitoring overheads.
+        # Do not let ledger assembly erase them or detach source provenance.
+        if (pre.get('schema')!='fusion.pre-action-features/1' or
+            post.get('schema')!='fusion.independent-outcome/1'):
+            raise ValueError('Task adapter source schemas changed')
+        for record in (pre,post):
+            if (record.get('run_id')!=row['run_id'] or
+                record.get('data_origin')!='physical_measurement' or
+                record.get('provenance',{}).get('raw_run_sha256')!=row['raw_run_sha256']):
+                raise ValueError('Task adapter provenance differs from raw episode')
+        pre_costs,row_costs=pre.get('cost_s'),row.get('cost_s')
+        if (not isinstance(pre_costs,dict) or not isinstance(row_costs,dict) or
+            set(pre_costs)!=set(row_costs) or any(exact(pre_costs[k])!=exact(row_costs[k]) for k in pre_costs) or
+            exact(row_costs['reset_s'])<1):
+            raise ValueError('Task adapter cost ledger changed or omitted recording tail')
+        for key in ('condition','write_protocol','policy_arm','decision_time_s'):
+            if pre.get(key)!=row.get(key):
+                raise ValueError('Task adapter assignment/timing changed: '+key)
+        if exact(pre.get('pre_action_quality_window_end_s'))!=4 or post.get('action')!=row.get('action'):
+            raise ValueError('Task adapter quality audit or applied action changed')
 
 
 def _independent_components(blocks):

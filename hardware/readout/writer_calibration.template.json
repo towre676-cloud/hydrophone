@@ -1,0 +1,125 @@
+{
+  "schema": "hydrophone.writer-calibration/1",
+  "status": "not_calibrated",
+  "evidence_type": "unavailable",
+  "calibration_id": null,
+  "reference_evidence_ids": [],
+  "created_utc": null,
+  "valid_until_utc": null,
+  "scope": {
+    "configuration_id": null,
+    "adc_serial": null,
+    "force_sensor_serial": null,
+    "position_sensor_serial": null,
+    "filter_configuration_id": null,
+    "mechanics_revision": null,
+    "scan_list": [
+      "AIN0",
+      "AIN2",
+      "AIN4",
+      "AIN6",
+      "AIN8"
+    ],
+    "sample_rate_Hz_interval": [
+      null,
+      null
+    ],
+    "resolution_index": 7,
+    "range_V": 10,
+    "scans_per_read": 5,
+    "valid_temperature_C": [
+      null,
+      null
+    ],
+    "valid_excitation_V": [
+      null,
+      null
+    ],
+    "environment_valid_for_s": null,
+    "operation": "bidirectional_quasistatic",
+    "qualified_direction_scope": [
+      "positive",
+      "negative"
+    ],
+    "wiring_profile": "E02"
+  },
+  "channels": {
+    "force": {
+      "raw_column": "raw_force_V",
+      "SI_unit": "N",
+      "sensor_serial": null,
+      "chain_id": null,
+      "sign_convention": null,
+      "zero_raw_V": null,
+      "scale_SI_per_V": null,
+      "raw_valid_V": [
+        null,
+        null
+      ],
+      "raw_error_bound_V": null,
+      "valid_SI": [
+        null,
+        null
+      ],
+      "total_error_SI": null,
+      "uncertainty_kind": "deterministic_bound_declared",
+      "uniform_bound_justification_id": null,
+      "reference_evidence_ids": []
+    },
+    "position": {
+      "raw_column": "raw_displacement_V",
+      "SI_unit": "m",
+      "sensor_serial": null,
+      "chain_id": null,
+      "sign_convention": null,
+      "zero_raw_V": null,
+      "scale_SI_per_V": null,
+      "raw_valid_V": [
+        null,
+        null
+      ],
+      "raw_error_bound_V": null,
+      "valid_SI": [
+        null,
+        null
+      ],
+      "total_error_SI": null,
+      "uncertainty_kind": "deterministic_bound_declared",
+      "uniform_bound_justification_id": null,
+      "reference_evidence_ids": []
+    }
+  },
+  "timing": {
+    "pairing_id": null,
+    "scope": "native_scan_clock_filtered_channels_not_simultaneous",
+    "clock_origin_evidence_id": null,
+    "first_scan_offset_from_call_interval_s": [
+      null,
+      null
+    ],
+    "host_seconds_per_logger_nominal_second_interval": [
+      null,
+      null
+    ],
+    "maximum_observation_age_s": null,
+    "per_channel": {
+      "force": {
+        "sample_offset_s": null,
+        "sample_offset_error_s": null,
+        "filter_lag_bound_s": null,
+        "filter_bound_evidence_id": null,
+        "max_abs_slew_SI_per_s": null,
+        "slew_bound_evidence_id": null
+      },
+      "position": {
+        "sample_offset_s": null,
+        "sample_offset_error_s": null,
+        "filter_lag_bound_s": null,
+        "filter_bound_evidence_id": null,
+        "max_abs_slew_SI_per_s": null,
+        "slew_bound_evidence_id": null
+      }
+    }
+  },
+  "warning": "BLOCKED physical template. No gain, zero, uniform error, clock, filter, slew or domain is inferred from manufacturer nominal specifications or finite-point fit residuals."
+}
