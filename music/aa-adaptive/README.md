@@ -36,12 +36,15 @@ python assets/symphony/fetch_soundfont.py --native-linux
 python -m symphony.adaptive
 python -m symphony.adaptive.validate
 python -m symphony.adaptive.reproduce
+python -m symphony.adaptive.measure_delivery
 python -m unittest discover -s tests -p 'test_symphony*.py'
 python -m unittest discover -s tests -p 'test_adaptive_score.py'
 node --test integration/aa/orchestral-soundtrack.test.mjs
 ```
 
 The exact score grammar is deterministic. Delivery encoding uses ffmpeg bitexact flags. A repeated encode is checked for byte identity; the receipt pins the tested rendering environment. Cross-platform native library differences can change synthesized PCM and therefore asset hashes. No corpus acquisition is needed.
+
+The live mobile game can use a smaller Vorbis quality-2 delivery profile built with `python -m symphony.adaptive.deploy --output-dir PATH`. This derives from the same retained lossless masters and carries a separate manifest and decoded-audio validation. The complete package retains quality-5 delivery and lossless masters.
 
 ## Musical and technical loop contract
 

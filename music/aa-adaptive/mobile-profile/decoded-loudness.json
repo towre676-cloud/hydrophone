@@ -1,0 +1,161 @@
+{
+  "schema": "aa.decoded-loudness/1",
+  "cues": [
+    {
+      "id": "exploration_1",
+      "decoded_lufs": -22.99,
+      "decoded_true_peak_db": -9.91
+    },
+    {
+      "id": "exploration_2",
+      "decoded_lufs": -23.0,
+      "decoded_true_peak_db": -9.9
+    },
+    {
+      "id": "exploration_3",
+      "decoded_lufs": -22.99,
+      "decoded_true_peak_db": -10.22
+    },
+    {
+      "id": "settlement_1",
+      "decoded_lufs": -23.0,
+      "decoded_true_peak_db": -11.52
+    },
+    {
+      "id": "settlement_2",
+      "decoded_lufs": -23.0,
+      "decoded_true_peak_db": -11.17
+    },
+    {
+      "id": "settlement_3",
+      "decoded_lufs": -22.99,
+      "decoded_true_peak_db": -10.75
+    },
+    {
+      "id": "interior_1",
+      "decoded_lufs": -23.01,
+      "decoded_true_peak_db": -11.44
+    },
+    {
+      "id": "interior_2",
+      "decoded_lufs": -23.01,
+      "decoded_true_peak_db": -10.89
+    },
+    {
+      "id": "interior_3",
+      "decoded_lufs": -23.01,
+      "decoded_true_peak_db": -11.15
+    },
+    {
+      "id": "dungeon_1",
+      "decoded_lufs": -22.99,
+      "decoded_true_peak_db": -12.0
+    },
+    {
+      "id": "dungeon_2",
+      "decoded_lufs": -23.0,
+      "decoded_true_peak_db": -11.36
+    },
+    {
+      "id": "dungeon_3",
+      "decoded_lufs": -22.99,
+      "decoded_true_peak_db": -11.34
+    },
+    {
+      "id": "atmospheric_1",
+      "decoded_lufs": -22.99,
+      "decoded_true_peak_db": -10.11
+    },
+    {
+      "id": "atmospheric_2",
+      "decoded_lufs": -22.98,
+      "decoded_true_peak_db": -9.23
+    },
+    {
+      "id": "atmospheric_3",
+      "decoded_lufs": -23.0,
+      "decoded_true_peak_db": -10.31
+    },
+    {
+      "id": "combat_1",
+      "decoded_lufs": -23.05,
+      "decoded_true_peak_db": -10.81
+    },
+    {
+      "id": "combat_2",
+      "decoded_lufs": -23.05,
+      "decoded_true_peak_db": -10.97
+    },
+    {
+      "id": "combat_3",
+      "decoded_lufs": -23.04,
+      "decoded_true_peak_db": -10.83
+    },
+    {
+      "id": "boss_1",
+      "decoded_lufs": -23.01,
+      "decoded_true_peak_db": -10.59
+    },
+    {
+      "id": "boss_2",
+      "decoded_lufs": -23.01,
+      "decoded_true_peak_db": -9.58
+    },
+    {
+      "id": "boss_3",
+      "decoded_lufs": -23.02,
+      "decoded_true_peak_db": -10.11
+    },
+    {
+      "id": "victory_1",
+      "decoded_lufs": -23.01,
+      "decoded_true_peak_db": -10.61
+    },
+    {
+      "id": "victory_2",
+      "decoded_lufs": -23.01,
+      "decoded_true_peak_db": -9.82
+    },
+    {
+      "id": "victory_3",
+      "decoded_lufs": -23.0,
+      "decoded_true_peak_db": -9.82
+    },
+    {
+      "id": "victory_sting",
+      "decoded_lufs": -23.09,
+      "decoded_true_peak_db": -11.73
+    },
+    {
+      "id": "boss_arrival",
+      "decoded_lufs": -23.0,
+      "decoded_true_peak_db": -11.79
+    },
+    {
+      "id": "rest",
+      "decoded_lufs": -23.0,
+      "decoded_true_peak_db": -11.79
+    },
+    {
+      "id": "revelation",
+      "decoded_lufs": -23.0,
+      "decoded_true_peak_db": -11.38
+    },
+    {
+      "id": "chapter_ending",
+      "decoded_lufs": -23.0,
+      "decoded_true_peak_db": -11.04
+    },
+    {
+      "id": "combat_exit",
+      "decoded_lufs": -23.05,
+      "decoded_true_peak_db": -11.53
+    }
+  ],
+  "lufs_range": [
+    -23.09,
+    -22.98
+  ],
+  "spread_lu": 0.10999999999999943,
+  "passed": true
+}

@@ -2,10 +2,13 @@ name: A&A adaptive orchestral score
 on:
   push:
     branches: [codex/aa-adaptive-orchestra]
-    paths: ['symphony/**', 'integration/aa/**', 'tests/test_adaptive_score.py', '.github/workflows/aa-adaptive-score.yml']
+    paths: ['symphony/adaptive/build.py', 'symphony/render.py', 'symphony/midi.py']
   pull_request:
     paths: ['symphony/**', 'integration/aa/**', 'tests/test_adaptive_score.py', '.github/workflows/aa-adaptive-score.yml']
   workflow_dispatch:
+concurrency:
+  group: aa-score-${{ github.ref }}
+  cancel-in-progress: true
 permissions:
   contents: write
 jobs:

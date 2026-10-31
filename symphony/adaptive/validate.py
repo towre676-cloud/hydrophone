@@ -1,5 +1,6 @@
 """Validate decoded full-mix transitions and produce an eight-environment audition."""
 import json
+import argparse
 import subprocess
 from pathlib import Path
 import numpy as np
@@ -8,15 +9,16 @@ from .build import RATE, BAR, write_wav, digest, loudness
 def decode(path):
     return np.frombuffer(subprocess.check_output(['ffmpeg','-v','error','-i',str(path),'-f','f32le','-']),'<f4').reshape(-1,2)
 
-def main():
-    root=Path('music/aa-adaptive');manifest=json.loads((root/'manifest.json').read_text())
+def main(root=Path('music/aa-adaptive'),master_root=None):
+    master_root=master_root or root
+    manifest=json.loads((root/'manifest.json').read_text())
     mixes={};assets=[]
     for cue in manifest['cues']:
         parts=[]
         for stem in cue['stems'].values():
             path=root/stem['file'];pcm=decode(path);parts.append(pcm)
             assert digest(path)==stem['sha256'],str(path)+' digest mismatch'
-            assert digest(root/stem['master'])==stem['master_sha256'],str(path)+' master digest mismatch'
+            assert digest(master_root/stem['master'])==stem['master_sha256'],str(path)+' master digest mismatch'
             expected=round(cue['duration_s']*RATE)
             jump=float(np.max(np.abs(pcm[-1]-pcm[0]))) if cue['loop'] else 0
             assets.append({'asset':path.name,'decoded_frames':len(pcm),'expected_frames':expected,
@@ -24,7 +26,7 @@ def main():
                 'passed':len(pcm)==expected and np.max(np.abs(pcm))<.99 and jump<.02})
             assert assets[-1]['passed'],str(path)+' failed delivered audio validation'
         mixes[cue['id']]=sum(parts)
-    qa=json.loads((root/'validation.json').read_text());qa['assets']=assets;qa['all_passed']=all(a['passed'] for a in assets)
+    qa=json.loads((master_root/'validation.json').read_text());qa['assets']=assets;qa['all_passed']=all(a['passed'] for a in assets)
     qa['delivered_sha256_rechecked']=True
     (root/'validation.json').write_text(json.dumps(qa,indent=2)+'\n')
     loops=[c for c in manifest['cues'] if c['loop']];n=round(BAR*RATE);ramp=np.linspace(0,1,n)[:,None]
@@ -67,15 +69,17 @@ def main():
     write_wav(root/'audition.wav',audio)
     subprocess.run(['ffmpeg','-v','error','-y','-i',str(root/'audition.wav'),'-b:a','192k',str(root/'audition.mp3')],check=True)
     (root/'audition.wav').unlink()
-    source_paths=['symphony/adaptive/build.py','symphony/adaptive/validate.py','symphony/adaptive/reproduce.py','symphony/requirements.txt','symphony/render.py','symphony/midi.py','integration/aa/orchestral-soundtrack.js']
+    source_paths=['symphony/adaptive/build.py','symphony/adaptive/validate.py','symphony/adaptive/reproduce.py','symphony/adaptive/deploy.py','symphony/requirements.txt','symphony/render.py','symphony/midi.py','integration/aa/orchestral-soundtrack.js']
     receipt={'schema':'aa.build-receipt/1','source_sha256':{p:digest(Path(p)) for p in source_paths},
         'manifest_sha256':digest(root/'manifest.json'),'audio_validation_sha256':digest(root/'validation.json'),
         'transition_validation_sha256':digest(root/'transition-validation.json'),
         'rebuild':['python assets/symphony/fetch_soundfont.py --native-linux','python -m symphony.adaptive','python -m symphony.adaptive.validate'],
         'ffmpeg_version':subprocess.check_output(['ffmpeg','-version'],text=True).splitlines()[0],
-        'numpy_version':np.__version__,'original_compositions':'Unmodified; see music/README.md'}
+        'numpy_version':np.__version__,'delivery_profile':manifest.get('delivery_profile',{'quality':5}),
+        'original_compositions':'Unmodified; see music/README.md'}
     (root/'build-receipt.json').write_text(json.dumps(receipt,indent=2)+'\n')
     print(json.dumps({k:v for k,v in report.items() if k!='transitions'},indent=2))
     if not report['all_passed']:raise RuntimeError('Transition validation failed')
 
-if __name__=='__main__':main()
+if __name__=='__main__':
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--root',type=Path,default=Path('music/aa-adaptive'));p.add_argument('--master-root',type=Path);args=p.parse_args();main(args.root,args.master_root)
