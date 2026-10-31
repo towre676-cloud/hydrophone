@@ -1,0 +1,22 @@
+{
+  "full_arrangement": "exploration_1",
+  "stems": [
+    {
+      "stem": "bed",
+      "pcm_sha256": "27a64cd92709b5c03a9f4543ea31cb0c63f422949b405d97ad386b0059d3a0d9",
+      "repeat_pcm_byte_identical": true
+    },
+    {
+      "stem": "theme",
+      "pcm_sha256": "2f14839d3ed2223e44e854cc5c84075c7b5fee648f1fc4086f521c456dde2491",
+      "repeat_pcm_byte_identical": true
+    },
+    {
+      "stem": "motion",
+      "pcm_sha256": "e286e2af1767562a7c35ab7845b6cb2ac845d53fce2407f186b5d89198a1ef19",
+      "repeat_pcm_byte_identical": true
+    }
+  ],
+  "delivery_repeat_byte_identical": true,
+  "scope": "Same pinned native environment; independent complete rerender of all three stems"
+}

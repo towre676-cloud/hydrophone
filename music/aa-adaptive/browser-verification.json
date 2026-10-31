@@ -1,0 +1,59 @@
+{
+  "schema": "aa.browser-verification/1",
+  "environment": "Chrome managed preview",
+  "game_source_base": "50cf0efe5d9a49808512672a4c9cd2594cce60a2",
+  "observations": [
+    {
+      "context": "temporary chapter-one exploration",
+      "transport": "orchestral-stems",
+      "track": "orchestra:interior_2",
+      "contextState": "running",
+      "stems": 3,
+      "meter_rms": 0.00729
+    },
+    {
+      "context": "game pause",
+      "playing": false,
+      "position": 57.20170068027211
+    },
+    {
+      "context": "resumed game, subsequent actual combat",
+      "transport": "orchestral-stems",
+      "track": "orchestra:combat_2",
+      "intensity": "alert",
+      "stems": 3,
+      "meter_rms": 0.01541
+    },
+    {
+      "context": "listening room boss",
+      "track": "orchestra:boss_1",
+      "intensity": "danger",
+      "stems": 3,
+      "meter_rms": 0.01234
+    },
+    {
+      "context": "immutable repository-hosted quality-5 assets in preview",
+      "track": "orchestra:exploration_1",
+      "stems": 3,
+      "rms": 0.02281,
+      "native_decode_passed": 90,
+      "native_decode_total": 90
+    }
+  ],
+  "production_deployed": true,
+  "native_browser_decode": {
+    "passed": 90,
+    "total": 90,
+    "duration_tolerance_s": 0.02,
+    "hash_check": "Python checks passed; preview HTTP lacks SubtleCrypto, HTTPS listening room enables SHA256"
+  },
+  "production": {
+    "url": "https://ash-aether-clay-water.towre676.chatgpt.site",
+    "version": 43,
+    "source_commit": "5657f7d68cd2e06b1c0ab531d09d732e197e407b",
+    "deployment_id": "appgdep_6ae57133e3008191816c55c109ffb648",
+    "native_status": "succeeded",
+    "audio_commit": "a96e21f4924be32fbbb7ac2b34fa05197f9f8a85",
+    "browser_scope": "Preview transport and immutable repository assets verified; live browser stopped at existing ChatGPT sign-in gate"
+  }
+}

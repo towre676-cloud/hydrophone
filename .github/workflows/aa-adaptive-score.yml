@@ -1,0 +1,54 @@
+name: A&A adaptive orchestral score
+on:
+  push:
+    branches: [codex/aa-adaptive-orchestra]
+    paths: ['symphony/adaptive/build.py', 'symphony/render.py', 'symphony/midi.py']
+  pull_request:
+    paths: ['symphony/**', 'integration/aa/**', 'tests/test_adaptive_score.py', '.github/workflows/aa-adaptive-score.yml']
+  workflow_dispatch:
+concurrency:
+  group: aa-score-${{ github.ref }}
+  cancel-in-progress: true
+permissions:
+  contents: write
+jobs:
+  soundtrack:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: python -m pip install numpy==2.3.5
+      - run: python -m unittest discover -s tests -p 'test_symphony*.py'
+      - run: python -m unittest discover -s tests -p 'test_adaptive_score.py'
+      - run: node --test integration/aa/orchestral-soundtrack.test.mjs
+      - if: github.event_name != 'pull_request'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg libfluidsynth3
+          python assets/symphony/fetch_soundfont.py --native-linux
+          python -m symphony.adaptive
+          python -m symphony.adaptive.validate
+          python -m symphony.adaptive.reproduce
+      - if: github.event_name != 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: AA-Adaptive-Orchestral-Book-I
+          path: |
+            music/aa-adaptive/
+            integration/aa/
+          retention-days: 90
+      - if: github.event_name == 'push'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add music/aa-adaptive
+          if ! git diff --cached --quiet; then
+            git commit -m '[skip ci] Retain rebuilt A&A score, masters and game audio'
+            git push origin HEAD:codex/aa-adaptive-orchestra
+          fi

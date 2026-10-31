@@ -1,0 +1,1263 @@
+{
+  "schema": "aa.adaptive-score/1",
+  "title": "The Unfinished Song \u2014 Adaptive Orchestral Book I",
+  "bpm": 100,
+  "bar_s": 2.4,
+  "sample_rate": 32000,
+  "themes": {
+    "ash": [
+      0,
+      2,
+      3,
+      7,
+      5,
+      3,
+      2,
+      0
+    ],
+    "water": [
+      7,
+      5,
+      2,
+      3,
+      0,
+      2,
+      -1,
+      0
+    ],
+    "aether": [
+      0,
+      7,
+      9,
+      5,
+      7,
+      3,
+      2,
+      0
+    ]
+  },
+  "cues": [
+    {
+      "id": "exploration_1",
+      "category": "exploration",
+      "title": "Roads That Remember / 1",
+      "variant": 0,
+      "loop": true,
+      "loop_start_frame": 0,
+      "loop_end_frame": 1228800,
+      "sample_rate": 32000,
+      "duration_s": 38.4,
+      "bpm": 100,
+      "beats_per_bar": 4,
+      "bars": 16,
+      "key": "D modal minor",
+      "stems": {
+        "bed": {
+          "file": "audio/exploration_1_bed.ogg",
+          "sha256": "817ea87e6a761cebc80a745d8082e3f7a7a89ed97febd84c73a38f98e4e7b3e1",
+          "master": "masters/exploration_1_bed.flac",
+          "master_sha256": "c13a02080cb73ffca0e205cbbccb67800599d22e492dcc7ed648b5a0d45632ad"
+        },
+        "theme": {
+          "file": "audio/exploration_1_theme.ogg",
+          "sha256": "acbdb5e2b7cabe02a2d165474ae89c60fdd1c9a0a1ee20ccc8080541b837273f",
+          "master": "masters/exploration_1_theme.flac",
+          "master_sha256": "3f7e37d40235c7e5c3c31f2e694f76a76b57f82f71c81554d1868cea90a9aed7"
+        },
+        "motion": {
+          "file": "audio/exploration_1_motion.ogg",
+          "sha256": "0a51e4dad2e81da4c6702f7813851da6f58e718416e640fd0fefd5899620a1ef",
+          "master": "masters/exploration_1_motion.flac",
+          "master_sha256": "a4579c0ea38a6114fbbe313ce2592211337c7b3652f7c01932b75a84d58be233"
+        }
+      },
+      "lufs": -22.99,
+      "true_peak_db": -9.9,
+      "event_count": 164
+    },
+    {
+      "id": "exploration_2",
+      "category": "exploration",
+      "title": "Roads That Remember / 2",
+      "variant": 1,
+      "loop": true,
+      "loop_start_frame": 0,
+      "loop_end_frame": 1228800,
+      "sample_rate": 32000,
+      "duration_s": 38.4,
+      "bpm": 100,
+      "beats_per_bar": 4,
+      "bars": 16,
+      "key": "D modal minor",
+      "stems": {
+        "bed": {
+          "file": "audio/exploration_2_bed.ogg",
+          "sha256": "224d20c71c17798b215c394f3a77745a6ded98d2682e9bdf6d3cc905b5e18c18",
+          "master": "masters/exploration_2_bed.flac",
+          "master_sha256": "b5d6fc141dbe522de13825e6bcac076aeb98fe7900c38c37304ba9d3043b9cfa"
+        },
+        "theme": {
+          "file": "audio/exploration_2_theme.ogg",
+          "sha256": "401fad1c42ceacfb0ef0b489dabbda35ccb7db8c58b669109b9b38d46c2738a7",
+          "master": "masters/exploration_2_theme.flac",
+          "master_sha256": "0786d06b66ead4524e53c65d783cbe153138b972cba60b3138ea0674242cd19d"
+        },
+        "motion": {
+          "file": "audio/exploration_2_motion.ogg",
+          "sha256": "25498b34dc6e0fff81efb561d9cef0f37d8d078034881a7c0fd366b36c2e5194",
+          "master": "masters/exploration_2_motion.flac",
+          "master_sha256": "bd6a56f7b5d886d720fbb9cf98d23ad7a5572120739ff3983332a55d666d6355"
+        }
+      },
+      "lufs": -23.01,
+      "true_peak_db": -10.01,
+      "event_count": 164
+    },
+    {
+      "id": "exploration_3",
+      "category": "exploration",
+      "title": "Roads That Remember / 3",
+      "variant": 2,
+      "loop": true,
+      "loop_start_frame": 0,
+      "loop_end_frame": 1228800,
+      "sample_rate": 32000,
+      "duration_s": 38.4,
+      "bpm": 100,
+      "beats_per_bar": 4,
+      "bars": 16,
+      "key": "D modal minor",
+      "stems": {
+        "bed": {
+          "file": "audio/exploration_3_bed.ogg",
+          "sha256": "5e353f196fb15f59d8d5af9770be8a7de400e71b846ba5635438fe8a53f1a75d",
+          "master": "masters/exploration_3_bed.flac",
+          "master_sha256": "46cd6f75c7a810ca26cf4d8218bf339df42926a05bbdabc73edd7b4701b386c0"
+        },
+        "theme": {
+          "file": "audio/exploration_3_theme.ogg",
+          "sha256": "0060a26eaabaee4b12346de182d1e1de5e8ea07a50ee7e865815a4f68180ea02",
+          "master": "masters/exploration_3_theme.flac",
+          "master_sha256": "7211d8b383583d1cd3f0d21efbe16ab8e1711482588fd13325902c01087a61cb"
+        },
+        "motion": {
+          "file": "audio/exploration_3_motion.ogg",
+          "sha256": "b3a9e3f6370a93eb73d4e550807174b537daed97a598e85964d362c5adbe6cb6",
+          "master": "masters/exploration_3_motion.flac",
+          "master_sha256": "a0ae47541e9cae1726c26a63caa8695cdf5cd72cf95a6519b90958943e6833ed"
+        }
+      },
+      "lufs": -23.0,
+      "true_peak_db": -10.09,
+      "event_count": 164
+    },
+    {
+      "id": "settlement_1",
+      "category": "settlement",
+      "title": "Lanterns at the Kiln / 1",
+      "variant": 0,
+      "loop": true,
+      "loop_start_frame": 0,
+      "loop_end_frame": 1228800,
+      "sample_rate": 32000,
+      "duration_s": 38.4,
+      "bpm": 100,
+      "beats_per_bar": 4,
+      "bars": 16,
+      "key": "D modal minor",
+      "stems": {
+        "bed": {
+          "file": "audio/settlement_1_bed.ogg",
+          "sha256": "64bfe0c20aa9e4f0d5b7afd7d1750a31a7c81424ecf416d6a1be287da080e6ac",
+          "master": "masters/settlement_1_bed.flac",
+          "master_sha256": "0afb90db22befabacb930835947110d2c0e3acccc757d803dd921e7dd499f59d"
+        },
+        "theme": {
+          "file": "audio/settlement_1_theme.ogg",
+          "sha256": "24c1437c6e257adf5e641d2e5bd57b4d99a18a24fa143f6080d8bce86ab0ae9a",
+          "master": "masters/settlement_1_theme.flac",
+          "master_sha256": "80e49b5db6f71ef1371e28ed762328a5d8d087be2ec5d7c27d77012556049504"
+        },
+        "motion": {
+          "file": "audio/settlement_1_motion.ogg",
+          "sha256": "5874b84bd314a2f2b4b776e0814d531f107d39d1acadbbe758b4039e6220ac03",
+          "master": "masters/settlement_1_motion.flac",
+          "master_sha256": "236b0849719b7b8ddf8d26f7ec143220c08989eb09a504cdbb26f9c3c4b9bdf6"
+        }
+      },
+      "lufs": -23.0,
+      "true_peak_db": -11.47,
+      "event_count": 164
+    },
+    {
+      "id": "settlement_2",
+      "category": "settlement",
+      "title": "Lanterns at the Kiln / 2",
+      "variant": 1,
+      "loop": true,
+      "loop_start_frame": 0,
+      "loop_end_frame": 1228800,
+      "sample_rate": 32000,
+      "duration_s": 38.4,
+      "bpm": 100,
+      "beats_per_bar": 4,
+      "bars": 16,
+      "key": "D modal minor",
+      "stems": {
+        "bed": {
+          "file": "audio/settlement_2_bed.ogg",
+          "sha256": "6cbdf654c0a8c2b22a81e3a5aded2adf8662e6de2836e96e3831c7c13ab61320",
+          "master": "masters/settlement_2_bed.flac",
+          "master_sha256": "8a8f441b7b3e82da3b4795b015fd74d73e5e2b1714fb145d1c90d638f507dba0"
+        },
+        "theme": {
+          "file": "audio/settlement_2_theme.ogg",
+          "sha256": "656519eb0fab256c2155486bc8593e43d380c31fd37160a40994d3ac468b97a5",
+          "master": "masters/settlement_2_theme.flac",
+          "master_sha256": "63a817cff286a8bef8fe58438ebde90c8237823b4e93d5b6504c25262ff7a759"
+        },
+        "motion": {
+          "file": "audio/settlement_2_motion.ogg",
+          "sha256": "e4984ae0a5e599256bf58b672c928d33863967c7826d5d9c5d7e644bfe7350e7",
+          "master": "masters/settlement_2_motion.flac",
+          "master_sha256": "740383189b05357c0f94a3747e34601ee1eb5eea2f5e1044df1167b1623aa6a8"
+        }
+      },
+      "lufs": -23.0,
+      "true_peak_db": -11.1,
+      "event_count": 164
+    },
+    {
+      "id": "settlement_3",
+      "category": "settlement",
+      "title": "Lanterns at the Kiln / 3",
+      "variant": 2,
+      "loop": true,
+      "loop_start_frame": 0,
+      "loop_end_frame": 1228800,
+      "sample_rate": 32000,
+      "duration_s": 38.4,
+      "bpm": 100,
+      "beats_per_bar": 4,
+      "bars": 16,
+      "key": "D modal minor",
+      "stems": {
+        "bed": {
+          "file": "audio/settlement_3_bed.ogg",
+          "sha256": "80ab4cf0ff79e5ce87b995346e9f1ef4c6e1e243061bca198e9eaede17a7019d",
+          "master": "masters/settlement_3_bed.flac",
+          "master_sha256": "0046e0d6ee70a6d674668079f2c8725a2a8f133a1b0ecc95a0b4ecd52750417e"
+        },
+        "theme": {
+          "file": "audio/settlement_3_theme.ogg",
+          "sha256": "4be12637d73a184b90d2d9c0384341935a1adf1f0c09e717e500acba3cd10831",
+          "master": "masters/settlement_3_theme.flac",
+          "master_sha256": "845ce1093e278beab35acfcae3542e70ad8c8582229570fa8fb616a1cf1e4d6c"
+        },
+        "motion": {
+          "file": "audio/settlement_3_motion.ogg",
+          "sha256": "c459187939d33fb6e493e76be54478813735a7e177c5cd41e7434a98aadf3fac",
+          "master": "masters/settlement_3_motion.flac",
+          "master_sha256": "5ebfd121776e3353ed81b07aba07e3e7bea96651f089de71b7954b8fbc3c7aa5"
+        }
+      },
+      "lufs": -22.99,
+      "true_peak_db": -10.69,
+      "event_count": 164
+    },
+    {
+      "id": "interior_1",
+      "category": "interior",
+      "title": "Letters by the Stove / 1",
+      "variant": 0,
+      "loop": true,
+      "loop_start_frame": 0,
+      "loop_end_frame": 1228800,
+      "sample_rate": 32000,
+      "duration_s": 38.4,
+      "bpm": 100,
+      "beats_per_bar": 4,
+      "bars": 16,
+      "key": "D modal minor",
+      "stems": {
+        "bed": {
+          "file": "audio/interior_1_bed.ogg",
+          "sha256": "22602fde5d2aad37533e828dd3a46e436f647b0970ab4aff8b2b4dcffdefc4c6",
+          "master": "masters/interior_1_bed.flac",
+          "master_sha256": "f178d87731cec49dbef5720b9fb1bd4b11f566c41dfad9d9ae425a674b0417ca"
+        },
+        "theme": {
+          "file": "audio/interior_1_theme.ogg",
+          "sha256": "0f6ae2e64e6ddfd48fc4d51cff7ceec7b73aa09cd5af360e512fd1551691e2d8",
+          "master": "masters/interior_1_theme.flac",
+          "master_sha256": "65f38dd179c857933da1f8bcf779f4942b3af7b1dbb47a54ffdc59cd2ac99fba"
+        },
+        "motion": {
+          "file": "audio/interior_1_motion.ogg",
+          "sha256": "6fb5257c70ab35c48f5b078a059937116ed97f12b6881a930dd50d14c9c6f80e",
+          "master": "masters/interior_1_motion.flac",
+          "master_sha256": "c1df841082e4da742751f9f64568cd18915ca9c6266e8e79d1db6eada174307c"
+        }
+      },
+      "lufs": -23.0,
+      "true_peak_db": -11.36,
+      "event_count": 132
+    },
+    {
+      "id": "interior_2",
+      "category": "interior",
+      "title": "Letters by the Stove / 2",
+      "variant": 1,
+      "loop": true,
+      "loop_start_frame": 0,
+      "loop_end_frame": 1228800,
+      "sample_rate": 32000,
+      "duration_s": 38.4,
+      "bpm": 100,
+      "beats_per_bar": 4,
+      "bars": 16,
+      "key": "D modal minor",
+      "stems": {
+        "bed": {
+          "file": "audio/interior_2_bed.ogg",
+          "sha256": "26145643dea98bb25db013819c21a8bb40a03222739538621f86638bd3cb2411",
+          "master": "masters/interior_2_bed.flac",
+          "master_sha256": "3666d19acec876ebd3bc47c3ff4edf08cec450e3de98f1e93ac88413e5c7d809"
+        },
+        "theme": {
+          "file": "audio/interior_2_theme.ogg",
+          "sha256": "b3416dde9915ce8423edd7a75801773e5799d26cf9908b2398163fb566dfce21",
+          "master": "masters/interior_2_theme.flac",
+          "master_sha256": "b51400dbfc7c8a21c6a55738b1f11a76ae6c601d04fe2bb57c7839e9e50dc691"
+        },
+        "motion": {
+          "file": "audio/interior_2_motion.ogg",
+          "sha256": "90a886d948a6c67afcb10e9a1a8324206588566184b4c9a97fb503fb44e38136",
+          "master": "masters/interior_2_motion.flac",
+          "master_sha256": "22c58532b81480ae6b706856e8baf84c10d4001b4ace7b41efca91f74a71bdbb"
+        }
+      },
+      "lufs": -23.0,
+      "true_peak_db": -10.81,
+      "event_count": 132
+    },
+    {
+      "id": "interior_3",
+      "category": "interior",
+      "title": "Letters by the Stove / 3",
+      "variant": 2,
+      "loop": true,
+      "loop_start_frame": 0,
+      "loop_end_frame": 1228800,
+      "sample_rate": 32000,
+      "duration_s": 38.4,
+      "bpm": 100,
+      "beats_per_bar": 4,
+      "bars": 16,
+      "key": "D modal minor",
+      "stems": {
+        "bed": {
+          "file": "audio/interior_3_bed.ogg",
+          "sha256": "8bd65b90007986cfa346be4e8089b5ab4b1208ab5abf07f27b231e779b6d3bc9",
+          "master": "masters/interior_3_bed.flac",
+          "master_sha256": "41256cb917eb6d9ae1be7a2676eb22d06f8a45689a5736d13e023b527998ee6d"
+        },
+        "theme": {
+          "file": "audio/interior_3_theme.ogg",
+          "sha256": "b5a56e6c8a34f2d9c1c6743345e8c0060fd04ae480deb84077d74822bf2ba24d",
+          "master": "masters/interior_3_theme.flac",
+          "master_sha256": "4f70740ae4c18f28c17727c4d50808cf9723e218506ab7593c3d1fcb463906db"
+        },
+        "motion": {
+          "file": "audio/interior_3_motion.ogg",
+          "sha256": "af5ca004f5aab681fc21e6fdb147eb41b104b92d8b761c0992384cf8687fe430",
+          "master": "masters/interior_3_motion.flac",
+          "master_sha256": "6d4365a16ad820aa31436ebb5c321d77f3f29ea8a44c599cf8a7fa6c1c644cce"
+        }
+      },
+      "lufs": -23.01,
+      "true_peak_db": -10.98,
+      "event_count": 132
+    },
+    {
+      "id": "dungeon_1",
+      "category": "dungeon",
+      "title": "The Well Below Names / 1",
+      "variant": 0,
+      "loop": true,
+      "loop_start_frame": 0,
+      "loop_end_frame": 1228800,
+      "sample_rate": 32000,
+      "duration_s": 38.4,
+      "bpm": 100,
+      "beats_per_bar": 4,
+      "bars": 16,
+      "key": "D modal minor",
+      "stems": {
+        "bed": {
+          "file": "audio/dungeon_1_bed.ogg",
+          "sha256": "5fc84a802971cab61e41798ac4546e873910ebe3a15b01c553d26d167985ad76",
+          "master": "masters/dungeon_1_bed.flac",
+          "master_sha256": "7c4545464099a490a0f20417e30ccfcb0502ee182b1d02da69695122675f2da7"
+        },
+        "theme": {
+          "file": "audio/dungeon_1_theme.ogg",
+          "sha256": "25aaef43375ebf1e9c5ec5af3fc2891cc09808359f5e58fc34d6a0d5c1c7d33e",
+          "master": "masters/dungeon_1_theme.flac",
+          "master_sha256": "51dbcaea01b6277f6a59c05f3230f132207caf8dd65fe53f16225aefcb5825de"
+        },
+        "motion": {
+          "file": "audio/dungeon_1_motion.ogg",
+          "sha256": "5cd9e6a11128cc391d000ef67342c265fab673e42fc576127234037b56a49116",
+          "master": "masters/dungeon_1_motion.flac",
+          "master_sha256": "9aa87a2c06791eba1df8dcc2098e593e84a1e09a35feee3fc667cf0a5bf915f2"
+        }
+      },
+      "lufs": -23.0,
+      "true_peak_db": -11.83,
+      "event_count": 164
+    },
+    {
+      "id": "dungeon_2",
+      "category": "dungeon",
+      "title": "The Well Below Names / 2",
+      "variant": 1,
+      "loop": true,
+      "loop_start_frame": 0,
+      "loop_end_frame": 1228800,
+      "sample_rate": 32000,
+      "duration_s": 38.4,
+      "bpm": 100,
+      "beats_per_bar": 4,
+      "bars": 16,
+      "key": "D modal minor",
+      "stems": {
+        "bed": {
+          "file": "audio/dungeon_2_bed.ogg",
+          "sha256": "31f987041a6136d210b42aee01fe72b8638ec8c5eb4391685d1343b52fabf6cb",
+          "master": "masters/dungeon_2_bed.flac",
+          "master_sha256": "31f0583796faec89b6e683e8d080a11e404df1adf4f4a9cc6b35e5ccb5df0c5e"
+        },
+        "theme": {
+          "file": "audio/dungeon_2_theme.ogg",
+          "sha256": "26df4d56d4fc19cdefb5cc0a65357939cd7fcb9e2e092f240d25b896089b1167",
+          "master": "masters/dungeon_2_theme.flac",
+          "master_sha256": "dd5eab3f435d90f7bec704e96536f93c5950fe723270de784b453950f508a733"
+        },
+        "motion": {
+          "file": "audio/dungeon_2_motion.ogg",
+          "sha256": "c7f7d9bd0d03a6cb5cc193edde70ede50fd6f756b2234405c524bc47601b3330",
+          "master": "masters/dungeon_2_motion.flac",
+          "master_sha256": "653f09107524b7219a9db4014b3a3d7e28357346f18d18008ee1af37d46def70"
+        }
+      },
+      "lufs": -23.0,
+      "true_peak_db": -11.23,
+      "event_count": 164
+    },
+    {
+      "id": "dungeon_3",
+      "category": "dungeon",
+      "title": "The Well Below Names / 3",
+      "variant": 2,
+      "loop": true,
+      "loop_start_frame": 0,
+      "loop_end_frame": 1228800,
+      "sample_rate": 32000,
+      "duration_s": 38.4,
+      "bpm": 100,
+      "beats_per_bar": 4,
+      "bars": 16,
+      "key": "D modal minor",
+      "stems": {
+        "bed": {
+          "file": "audio/dungeon_3_bed.ogg",
+          "sha256": "34cdda586ffc4b43c03053a2af6957a9fff9273e843c0be63dfe916b2fc9bc9e",
+          "master": "masters/dungeon_3_bed.flac",
+          "master_sha256": "889f6724b2bdf61dfb8f8be1bf95b15eee4102ef7c9c45861c0f48ef76e9224d"
+        },
+        "theme": {
+          "file": "audio/dungeon_3_theme.ogg",
+          "sha256": "1392de00f496944da795b7ff776a891e220556a0130883f8b0466f36da4259e7",
+          "master": "masters/dungeon_3_theme.flac",
+          "master_sha256": "0ea99f0075c0739f1861d7c7b55251b9085728444b368bc80318d70520d5f16f"
+        },
+        "motion": {
+          "file": "audio/dungeon_3_motion.ogg",
+          "sha256": "4d344dc68d9b2c4ba6c1983e4555cea15fcea0ac1b3da71eeef881430b3a1e43",
+          "master": "masters/dungeon_3_motion.flac",
+          "master_sha256": "e9b084f9681327e89676f71e3089198df1267e44cad9a2248b332c9744052983"
+        }
+      },
+      "lufs": -23.0,
+      "true_peak_db": -11.45,
+      "event_count": 164
+    },
+    {
+      "id": "atmospheric_1",
+      "category": "atmospheric",
+      "title": "A Sky of Unspoken Things / 1",
+      "variant": 0,
+      "loop": true,
+      "loop_start_frame": 0,
+      "loop_end_frame": 1228800,
+      "sample_rate": 32000,
+      "duration_s": 38.4,
+      "bpm": 100,
+      "beats_per_bar": 4,
+      "bars": 16,
+      "key": "D modal minor",
+      "stems": {
+        "bed": {
+          "file": "audio/atmospheric_1_bed.ogg",
+          "sha256": "c8a2eaf3c4b6d9a08b851d0733f0421c846e9c16039ad2214d98e23475351bb4",
+          "master": "masters/atmospheric_1_bed.flac",
+          "master_sha256": "233970f1a84c3cffd988d5db301b5d01ecedbdada29760a251cbc146057926d3"
+        },
+        "theme": {
+          "file": "audio/atmospheric_1_theme.ogg",
+          "sha256": "08ddc2df7c11268f4e3528dc23405b80028fd707890f078f1b00b31bb10ca54d",
+          "master": "masters/atmospheric_1_theme.flac",
+          "master_sha256": "af83f3d2b1b064b1c5b92dc679b0509ef661de59db2e1836742c43d06efb81d8"
+        },
+        "motion": {
+          "file": "audio/atmospheric_1_motion.ogg",
+          "sha256": "1a91102df128158d0ebdb1d0e5739757c5b5330def3ee3fa4691f7e604f32125",
+          "master": "masters/atmospheric_1_motion.flac",
+          "master_sha256": "91771ce9b7f4f30102f750ab9fb910bf0a161e533b4f6948f6e88b4ca41e8629"
+        }
+      },
+      "lufs": -23.0,
+      "true_peak_db": -10.12,
+      "event_count": 132
+    },
+    {
+      "id": "atmospheric_2",
+      "category": "atmospheric",
+      "title": "A Sky of Unspoken Things / 2",
+      "variant": 1,
+      "loop": true,
+      "loop_start_frame": 0,
+      "loop_end_frame": 1228800,
+      "sample_rate": 32000,
+      "duration_s": 38.4,
+      "bpm": 100,
+      "beats_per_bar": 4,
+      "bars": 16,
+      "key": "D modal minor",
+      "stems": {
+        "bed": {
+          "file": "audio/atmospheric_2_bed.ogg",
+          "sha256": "09ae74cc9225b3d6231d947ed30a2d05065c18274616b5a0fa52373f56b440ad",
+          "master": "masters/atmospheric_2_bed.flac",
+          "master_sha256": "d02394d4fcc7aa600434035e9963e8a27e33ddef8f5650a4769379cabb14ac1f"
+        },
+        "theme": {
+          "file": "audio/atmospheric_2_theme.ogg",
+          "sha256": "42172a7089cd5f0b934087d30380376588e858dcabec87bffd1b3f36eec82778",
+          "master": "masters/atmospheric_2_theme.flac",
+          "master_sha256": "d7f806b003745cfdbfe03a66af9cb465a719604a840e8c4a9aa4e0642b9887aa"
+        },
+        "motion": {
+          "file": "audio/atmospheric_2_motion.ogg",
+          "sha256": "2243ca613c41c5961d8926b1632dc469f7e905b5dbef3446b1936e21777d63f4",
+          "master": "masters/atmospheric_2_motion.flac",
+          "master_sha256": "f90953f861afc480af722f4c0d1810a0e6c433297d6319e46c3926dd0795da43"
+        }
+      },
+      "lufs": -23.0,
+      "true_peak_db": -9.24,
+      "event_count": 132
+    },
+    {
+      "id": "atmospheric_3",
+      "category": "atmospheric",
+      "title": "A Sky of Unspoken Things / 3",
+      "variant": 2,
+      "loop": true,
+      "loop_start_frame": 0,
+      "loop_end_frame": 1228800,
+      "sample_rate": 32000,
+      "duration_s": 38.4,
+      "bpm": 100,
+      "beats_per_bar": 4,
+      "bars": 16,
+      "key": "D modal minor",
+      "stems": {
+        "bed": {
+          "file": "audio/atmospheric_3_bed.ogg",
+          "sha256": "435bfa6befb2d4f6fc06d0b3cfbe216a09f30cf63f86b6d97177b5d51c9951e1",
+          "master": "masters/atmospheric_3_bed.flac",
+          "master_sha256": "7cc69843ba88fc4c3ac774a23ef2b054279ec93ae52be4dbb4a39520ab3ee79d"
+        },
+        "theme": {
+          "file": "audio/atmospheric_3_theme.ogg",
+          "sha256": "ec75032061b825ed3a012f649db4635b7fa601874026c7310189038bf1be14f2",
+          "master": "masters/atmospheric_3_theme.flac",
+          "master_sha256": "7fdb77dc0b620e23540bdcb95ae8d7bd94ebfdfc4069bf10e52dbce2434eadcd"
+        },
+        "motion": {
+          "file": "audio/atmospheric_3_motion.ogg",
+          "sha256": "a9c99d91ff78785994c5a8a8c40a75cc6ee42aa7cc74fc4cb44d3967cd816da9",
+          "master": "masters/atmospheric_3_motion.flac",
+          "master_sha256": "e48a1ba6acf5bd79c9bc24e9da5674fc0628adcb6fcc1dc332f437965334ac77"
+        }
+      },
+      "lufs": -23.0,
+      "true_peak_db": -10.43,
+      "event_count": 132
+    },
+    {
+      "id": "combat_1",
+      "category": "combat",
+      "title": "Clay Against Iron / 1",
+      "variant": 0,
+      "loop": true,
+      "loop_start_frame": 0,
+      "loop_end_frame": 1228800,
+      "sample_rate": 32000,
+      "duration_s": 38.4,
+      "bpm": 100,
+      "beats_per_bar": 4,
+      "bars": 16,
+      "key": "D modal minor",
+      "stems": {
+        "bed": {
+          "file": "audio/combat_1_bed.ogg",
+          "sha256": "bd278b77849f5d63dc8672533a75daae4d4601cd96039948b9dda17ffdfaf15d",
+          "master": "masters/combat_1_bed.flac",
+          "master_sha256": "a87f436d4feb848f9f281d8596cb70c549e917cff086f61b042382b7961c0d72"
+        },
+        "theme": {
+          "file": "audio/combat_1_theme.ogg",
+          "sha256": "4634ab8b78f931f737e38da5868c9b262bb5d68d8e44d9dd38cb2fdda280fff6",
+          "master": "masters/combat_1_theme.flac",
+          "master_sha256": "36bad375469e8c4b5d2807dfcdf02121c8e634dad4cf9d26bd8ba20b75684e70"
+        },
+        "motion": {
+          "file": "audio/combat_1_motion.ogg",
+          "sha256": "1f3744d0102db28a64b86284dc5d67a7f1daa2fa92be0f09c0d7c9c0a579a406",
+          "master": "masters/combat_1_motion.flac",
+          "master_sha256": "433945ca673d9367497f1d121f2834109f374362c7aafa2d8d8e6d08a9cb076f"
+        }
+      },
+      "lufs": -23.0,
+      "true_peak_db": -10.61,
+      "event_count": 412
+    },
+    {
+      "id": "combat_2",
+      "category": "combat",
+      "title": "Clay Against Iron / 2",
+      "variant": 1,
+      "loop": true,
+      "loop_start_frame": 0,
+      "loop_end_frame": 1228800,
+      "sample_rate": 32000,
+      "duration_s": 38.4,
+      "bpm": 100,
+      "beats_per_bar": 4,
+      "bars": 16,
+      "key": "D modal minor",
+      "stems": {
+        "bed": {
+          "file": "audio/combat_2_bed.ogg",
+          "sha256": "d9fedc2157e5b0224f0b49b8f857d69ec6e485d14a187ad66b5a8b2179180da4",
+          "master": "masters/combat_2_bed.flac",
+          "master_sha256": "fce7000409e0ea345cc863e822854bedc570b128cf147ce2f182decf64acad5f"
+        },
+        "theme": {
+          "file": "audio/combat_2_theme.ogg",
+          "sha256": "9015993c18e4cad1ede504a86a619dcaf14185c9f56c10d8768ba6b0d546c8c0",
+          "master": "masters/combat_2_theme.flac",
+          "master_sha256": "fbbd5b0372a91b08fdf4445b3f9322bfdc5e1dbf4b1665bdbb393973607d3650"
+        },
+        "motion": {
+          "file": "audio/combat_2_motion.ogg",
+          "sha256": "b2c54f6005282a8a6b9daebb5927912d3f837da02c608732bf8aaa9865210410",
+          "master": "masters/combat_2_motion.flac",
+          "master_sha256": "8b9e98b756f10eec78637a9d4eefc9f367a326bc2b551b266eb718288773e4e0"
+        }
+      },
+      "lufs": -23.0,
+      "true_peak_db": -11.03,
+      "event_count": 412
+    },
+    {
+      "id": "combat_3",
+      "category": "combat",
+      "title": "Clay Against Iron / 3",
+      "variant": 2,
+      "loop": true,
+      "loop_start_frame": 0,
+      "loop_end_frame": 1228800,
+      "sample_rate": 32000,
+      "duration_s": 38.4,
+      "bpm": 100,
+      "beats_per_bar": 4,
+      "bars": 16,
+      "key": "D modal minor",
+      "stems": {
+        "bed": {
+          "file": "audio/combat_3_bed.ogg",
+          "sha256": "c2a779788c5a98948032e7ad05fc0fc6314d8fa145ff1ec356f3b7218e39c201",
+          "master": "masters/combat_3_bed.flac",
+          "master_sha256": "a2817c290b046fb473f157ec78d7faf874d1c78eec950195da1aa72b591b276a"
+        },
+        "theme": {
+          "file": "audio/combat_3_theme.ogg",
+          "sha256": "0a228c8eab38aa626267d96c9cf1d6f6103392baa23e054562d0e756c446f68f",
+          "master": "masters/combat_3_theme.flac",
+          "master_sha256": "b09f527f6cf1971cc245811d6ea55832db963a67f33f7dd3569e535a0abb9a88"
+        },
+        "motion": {
+          "file": "audio/combat_3_motion.ogg",
+          "sha256": "4a2848dfa927083b4d66c07bf20041da3bd6ef1f79d708b24b6a55e744af663c",
+          "master": "masters/combat_3_motion.flac",
+          "master_sha256": "1375fc6dc84d599c701e67d5d0f6b8508f7d404ce4d65260655401d437d0ec32"
+        }
+      },
+      "lufs": -23.0,
+      "true_peak_db": -10.88,
+      "event_count": 412
+    },
+    {
+      "id": "boss_1",
+      "category": "boss",
+      "title": "The Furnace Remembers / 1",
+      "variant": 0,
+      "loop": true,
+      "loop_start_frame": 0,
+      "loop_end_frame": 1228800,
+      "sample_rate": 32000,
+      "duration_s": 38.4,
+      "bpm": 100,
+      "beats_per_bar": 4,
+      "bars": 16,
+      "key": "D modal minor",
+      "stems": {
+        "bed": {
+          "file": "audio/boss_1_bed.ogg",
+          "sha256": "dfffdb31edf20d4caaf068650c606b1c85b187d8c371721960ecffdbf3567bca",
+          "master": "masters/boss_1_bed.flac",
+          "master_sha256": "bfa37e7a462f741e16647c790b7b5ba48af33b72053b6a1b821899224bab6a25"
+        },
+        "theme": {
+          "file": "audio/boss_1_theme.ogg",
+          "sha256": "95c45596c8904e37e71e6472bebc15067e9ae68d5bd06de85326b5971aab4693",
+          "master": "masters/boss_1_theme.flac",
+          "master_sha256": "5c8a43389713dea8ef31a427b65de12a9660806f2dbad51671c1d11f008d2500"
+        },
+        "motion": {
+          "file": "audio/boss_1_motion.ogg",
+          "sha256": "66cb6dedebe74527509db8f618904218d12cfc1365510a4471e8525106a9136e",
+          "master": "masters/boss_1_motion.flac",
+          "master_sha256": "bacf98b6d472b58e7b62212129d1914d8890478e3f56b7c41fd38a022feeea81"
+        }
+      },
+      "lufs": -23.0,
+      "true_peak_db": -10.61,
+      "event_count": 436
+    },
+    {
+      "id": "boss_2",
+      "category": "boss",
+      "title": "The Furnace Remembers / 2",
+      "variant": 1,
+      "loop": true,
+      "loop_start_frame": 0,
+      "loop_end_frame": 1228800,
+      "sample_rate": 32000,
+      "duration_s": 38.4,
+      "bpm": 100,
+      "beats_per_bar": 4,
+      "bars": 16,
+      "key": "D modal minor",
+      "stems": {
+        "bed": {
+          "file": "audio/boss_2_bed.ogg",
+          "sha256": "aa6be2197f8a91bb055c71487f7a1925b94ff021d24fabb6d4bf0d78345a13fe",
+          "master": "masters/boss_2_bed.flac",
+          "master_sha256": "05c5cd8cf1a2bb3bf6537a0cd811693c693686ef0038f4ec2d9c8073fe2a4402"
+        },
+        "theme": {
+          "file": "audio/boss_2_theme.ogg",
+          "sha256": "5aa63bc1cae7590ac726489ac5c8b51acb8c5bef8a120ca35b362af91de1694f",
+          "master": "masters/boss_2_theme.flac",
+          "master_sha256": "c9c77e924eb58cc15e5697dfe5f2b9cf1c70600e6b6f2a012f5a792f49ab7f92"
+        },
+        "motion": {
+          "file": "audio/boss_2_motion.ogg",
+          "sha256": "b4e3bef1d8c9609d6951c0ab8b5760977399a8bc2cfee1136f976c6cd0394365",
+          "master": "masters/boss_2_motion.flac",
+          "master_sha256": "92109d01c4c94e6538601d601404963673e12334065284b62b13695a585c9f3e"
+        }
+      },
+      "lufs": -23.0,
+      "true_peak_db": -9.45,
+      "event_count": 436
+    },
+    {
+      "id": "boss_3",
+      "category": "boss",
+      "title": "The Furnace Remembers / 3",
+      "variant": 2,
+      "loop": true,
+      "loop_start_frame": 0,
+      "loop_end_frame": 1228800,
+      "sample_rate": 32000,
+      "duration_s": 38.4,
+      "bpm": 100,
+      "beats_per_bar": 4,
+      "bars": 16,
+      "key": "D modal minor",
+      "stems": {
+        "bed": {
+          "file": "audio/boss_3_bed.ogg",
+          "sha256": "8c0f4807f3a454a1178f3f173af1f5706005380e9dcd7061942fdf143290d603",
+          "master": "masters/boss_3_bed.flac",
+          "master_sha256": "10c142163fd49ddc5812a9fde758cf578ecc0da570b732ffea22d885a1e1dad1"
+        },
+        "theme": {
+          "file": "audio/boss_3_theme.ogg",
+          "sha256": "e5816d05a817336fda95329dbf714bdfaee538a4a8df6c403aa829c3e02d6703",
+          "master": "masters/boss_3_theme.flac",
+          "master_sha256": "5fed390f162cea71a50689064b2c90de3c525df4812ea4d6f4ebae5f069fb121"
+        },
+        "motion": {
+          "file": "audio/boss_3_motion.ogg",
+          "sha256": "7052028e823f249c26068cdc58d47837234b86be95beb18028d57876031aa34a",
+          "master": "masters/boss_3_motion.flac",
+          "master_sha256": "67dbbe722af6104be50b999f23ae1bae3dda4958ed6989a8223ee10cb00615b9"
+        }
+      },
+      "lufs": -23.0,
+      "true_peak_db": -10.33,
+      "event_count": 436
+    },
+    {
+      "id": "victory_1",
+      "category": "victory",
+      "title": "A Name Returned / 1",
+      "variant": 0,
+      "loop": true,
+      "loop_start_frame": 0,
+      "loop_end_frame": 1228800,
+      "sample_rate": 32000,
+      "duration_s": 38.4,
+      "bpm": 100,
+      "beats_per_bar": 4,
+      "bars": 16,
+      "key": "D modal minor",
+      "stems": {
+        "bed": {
+          "file": "audio/victory_1_bed.ogg",
+          "sha256": "559c068711712fdbd47890ddccc8afc0c2e22cd86cd51ef0ab17ca955255b67b",
+          "master": "masters/victory_1_bed.flac",
+          "master_sha256": "ef5ad6120fc3e3aabb547cfd3f3a45b2b25ae7df568f023045641584a09ced8f"
+        },
+        "theme": {
+          "file": "audio/victory_1_theme.ogg",
+          "sha256": "e26bb303cc98b8d8cf91a55d181c6f57d72e53072cab0183c755a74d70efe4b6",
+          "master": "masters/victory_1_theme.flac",
+          "master_sha256": "0a87a37856b7eeb2553c965a67302695d00d016aadccf12d42aa5f5d9d509e35"
+        },
+        "motion": {
+          "file": "audio/victory_1_motion.ogg",
+          "sha256": "27f996f42e7ae4b8b407baae7d9cf29ead8de1ccfd66b1c2d5bca855662762d1",
+          "master": "masters/victory_1_motion.flac",
+          "master_sha256": "f507355be802e44907333ce64025cf819bee50293c9644a479f6f3ef4b463365"
+        }
+      },
+      "lufs": -23.0,
+      "true_peak_db": -10.73,
+      "event_count": 164
+    },
+    {
+      "id": "victory_2",
+      "category": "victory",
+      "title": "A Name Returned / 2",
+      "variant": 1,
+      "loop": true,
+      "loop_start_frame": 0,
+      "loop_end_frame": 1228800,
+      "sample_rate": 32000,
+      "duration_s": 38.4,
+      "bpm": 100,
+      "beats_per_bar": 4,
+      "bars": 16,
+      "key": "D modal minor",
+      "stems": {
+        "bed": {
+          "file": "audio/victory_2_bed.ogg",
+          "sha256": "ffa110af51122475d8068f3622d39003cb0354ff691941b223c6920005797cf9",
+          "master": "masters/victory_2_bed.flac",
+          "master_sha256": "cc57a251c9839828d03242b60a459a9a2c9cbf03fc00864c6b1ce4c50056cf06"
+        },
+        "theme": {
+          "file": "audio/victory_2_theme.ogg",
+          "sha256": "f98e35dbd8e1d7061585bc6efe056bd6ac518c37ec5e3127c1a69562380a6c3e",
+          "master": "masters/victory_2_theme.flac",
+          "master_sha256": "211e2b789f38af6603f49f64ec087147f41c2b9efc2a87864cf026f10beb0ec7"
+        },
+        "motion": {
+          "file": "audio/victory_2_motion.ogg",
+          "sha256": "1243d022324856d4a2320869812a260c98459641a47912295292857b034bfa0e",
+          "master": "masters/victory_2_motion.flac",
+          "master_sha256": "394cd436abf34054c3423d55a087254ecbd077dd1b16fedf8403401e7e1cd051"
+        }
+      },
+      "lufs": -22.99,
+      "true_peak_db": -9.83,
+      "event_count": 164
+    },
+    {
+      "id": "victory_3",
+      "category": "victory",
+      "title": "A Name Returned / 3",
+      "variant": 2,
+      "loop": true,
+      "loop_start_frame": 0,
+      "loop_end_frame": 1228800,
+      "sample_rate": 32000,
+      "duration_s": 38.4,
+      "bpm": 100,
+      "beats_per_bar": 4,
+      "bars": 16,
+      "key": "D modal minor",
+      "stems": {
+        "bed": {
+          "file": "audio/victory_3_bed.ogg",
+          "sha256": "0d14f6566e792acb418901fc7b43c3d099414bd3a05ba28962bf58dc1379e532",
+          "master": "masters/victory_3_bed.flac",
+          "master_sha256": "5397147e8b09c24cc632c2ead47fd654c86af12494842a2276355d41351e5837"
+        },
+        "theme": {
+          "file": "audio/victory_3_theme.ogg",
+          "sha256": "3593dd949f8c617549afb737d3c7e313f1832a95cecfc681e9a117ba1573fbbb",
+          "master": "masters/victory_3_theme.flac",
+          "master_sha256": "ef4ce625969dd9bb4f6912e99f7da7f6346a0ea8b57bdc4f49f307c3c6dc8b9a"
+        },
+        "motion": {
+          "file": "audio/victory_3_motion.ogg",
+          "sha256": "6ed751b39c0f9d571188926b889bbb1889b882e0c66bd43959181bc25c7fac47",
+          "master": "masters/victory_3_motion.flac",
+          "master_sha256": "6caa9fb174409a402bf00635eab268de17fb14adc14684b54fbc8df27918e3e8"
+        }
+      },
+      "lufs": -23.0,
+      "true_peak_db": -9.89,
+      "event_count": 164
+    },
+    {
+      "id": "victory_sting",
+      "category": "victory",
+      "title": "A Name Returned / 1",
+      "variant": 0,
+      "loop": false,
+      "loop_start_frame": 0,
+      "loop_end_frame": 309760,
+      "sample_rate": 32000,
+      "duration_s": 9.68,
+      "bpm": 100,
+      "beats_per_bar": 4,
+      "bars": 2,
+      "key": "D modal minor",
+      "stems": {
+        "bed": {
+          "file": "audio/victory_sting_bed.ogg",
+          "sha256": "e85d5340864cb83ee1edd90775a24aeaf0683a151321c76d1177570bebc7fb40",
+          "master": "masters/victory_sting_bed.flac",
+          "master_sha256": "13ea13ac8a438f665bd9286dfcacd67d6b01e2a86e5616e24a7b21282a004eb5"
+        },
+        "theme": {
+          "file": "audio/victory_sting_theme.ogg",
+          "sha256": "c5c6ca5b8ccc03c0b30c30ac5fc74284b0eae4a60d4df7a95934e57919ee6246",
+          "master": "masters/victory_sting_theme.flac",
+          "master_sha256": "b01168b9ede096e9fa03dfc6fe75bde4c29ec6542914b36cd65aa65d20f8bf9c"
+        },
+        "motion": {
+          "file": "audio/victory_sting_motion.ogg",
+          "sha256": "943530d872020e77efbd241a89e5e10d247e64bbc758a8f25b38cfb9473018a7",
+          "master": "masters/victory_sting_motion.flac",
+          "master_sha256": "4330d5226dc2105e9a2af0102b86bd510de3517081862ec31020b2d2e7cbbee1"
+        }
+      },
+      "lufs": -23.08,
+      "true_peak_db": -11.85,
+      "event_count": 20
+    },
+    {
+      "id": "boss_arrival",
+      "category": "boss",
+      "title": "The Furnace Remembers / 1",
+      "variant": 0,
+      "loop": false,
+      "loop_start_frame": 0,
+      "loop_end_frame": 311296,
+      "sample_rate": 32000,
+      "duration_s": 9.728,
+      "bpm": 100,
+      "beats_per_bar": 4,
+      "bars": 2,
+      "key": "D modal minor",
+      "stems": {
+        "bed": {
+          "file": "audio/boss_arrival_bed.ogg",
+          "sha256": "fb2137c260747cf03a1283fed091352d75b1042427a9232a0ca17211257f20e9",
+          "master": "masters/boss_arrival_bed.flac",
+          "master_sha256": "25e449c32858b5944392825567d8eeb97d252a10da9aaf761f6974556e722b9d"
+        },
+        "theme": {
+          "file": "audio/boss_arrival_theme.ogg",
+          "sha256": "39e04da5083cf3642c692fb958c99517009901e329e3d4a11c659020f5d777f1",
+          "master": "masters/boss_arrival_theme.flac",
+          "master_sha256": "a7c7497422d4921c2a5212a19a14bae6ec763d145bf9ae9c5861b5d841441ce6"
+        },
+        "motion": {
+          "file": "audio/boss_arrival_motion.ogg",
+          "sha256": "7fe1c6c7b5122b33a87d63b76e486c9a3f88078a912fd618e1abc76f9586a8f6",
+          "master": "masters/boss_arrival_motion.flac",
+          "master_sha256": "a5bbfbe16caa41f7ba95b6f55dc1c0899c899dc8f4ef3c2d70a28cdbb8c624bf"
+        }
+      },
+      "lufs": -22.99,
+      "true_peak_db": -11.69,
+      "event_count": 50
+    },
+    {
+      "id": "rest",
+      "category": "interior",
+      "title": "Letters by the Stove / 1",
+      "variant": 0,
+      "loop": false,
+      "loop_start_frame": 0,
+      "loop_end_frame": 307841,
+      "sample_rate": 32000,
+      "duration_s": 9.62003125,
+      "bpm": 100,
+      "beats_per_bar": 4,
+      "bars": 2,
+      "key": "D modal minor",
+      "stems": {
+        "bed": {
+          "file": "audio/rest_bed.ogg",
+          "sha256": "4edfa7d369a170bffb2e56716af2554b790ac2b766e79f018b1fda0316976c26",
+          "master": "masters/rest_bed.flac",
+          "master_sha256": "a5bb87db2cf521e9d5f2c22cf52a0a886f2d2ac204a1221d2b9d15aeaa29b952"
+        },
+        "theme": {
+          "file": "audio/rest_theme.ogg",
+          "sha256": "c7e855b8e813023d173b85b7e61a89ec7f56cf0d80f82bcae54a4f15cbc76345",
+          "master": "masters/rest_theme.flac",
+          "master_sha256": "c5c52b37ca9d294083e985fcdf6391ecba159ccb9a100d58d048656bda9f45b8"
+        },
+        "motion": {
+          "file": "audio/rest_motion.ogg",
+          "sha256": "b1d3483088b8ae62f3f87786ed7c2abcf8cb4d5897c6974ce6e5820bd5eedb6d",
+          "master": "masters/rest_motion.flac",
+          "master_sha256": "a00d1a71829a4621d1434200f941c643b2a52765e77293f42ba19abc251c54bd"
+        }
+      },
+      "lufs": -22.99,
+      "true_peak_db": -11.77,
+      "event_count": 16
+    },
+    {
+      "id": "revelation",
+      "category": "atmospheric",
+      "title": "A Sky of Unspoken Things / 1",
+      "variant": 0,
+      "loop": false,
+      "loop_start_frame": 0,
+      "loop_end_frame": 307841,
+      "sample_rate": 32000,
+      "duration_s": 9.62003125,
+      "bpm": 100,
+      "beats_per_bar": 4,
+      "bars": 2,
+      "key": "D modal minor",
+      "stems": {
+        "bed": {
+          "file": "audio/revelation_bed.ogg",
+          "sha256": "5de9b6b6203d04e80dc419c21cb76f08e670194926e3faf807d7e49c6c1fc734",
+          "master": "masters/revelation_bed.flac",
+          "master_sha256": "db0c942db301e9197cce8b4a7c338f6c2fdf6d70e754cb610ea7cb95ce3c82d0"
+        },
+        "theme": {
+          "file": "audio/revelation_theme.ogg",
+          "sha256": "87125f06544645badc20cfac2052a2a5a871c758e8be08a194b903561dc2849b",
+          "master": "masters/revelation_theme.flac",
+          "master_sha256": "67f760e0e5bac57d65f60300f4e26a109dd6ad3d55fd30874d18bbc76b8d018d"
+        },
+        "motion": {
+          "file": "audio/revelation_motion.ogg",
+          "sha256": "648bab4fe2aee13561d151c05d3af49d7310addb8cc5716b31095e8ae5508290",
+          "master": "masters/revelation_motion.flac",
+          "master_sha256": "c8776e1c2d6a977f29e1fa7ceeb32505d0745632c11c4f8c8f64d797d6d13b76"
+        }
+      },
+      "lufs": -23.0,
+      "true_peak_db": -11.29,
+      "event_count": 16
+    },
+    {
+      "id": "chapter_ending",
+      "category": "exploration",
+      "title": "Roads That Remember / 1",
+      "variant": 0,
+      "loop": false,
+      "loop_start_frame": 0,
+      "loop_end_frame": 463360,
+      "sample_rate": 32000,
+      "duration_s": 14.48,
+      "bpm": 100,
+      "beats_per_bar": 4,
+      "bars": 4,
+      "key": "D modal minor",
+      "stems": {
+        "bed": {
+          "file": "audio/chapter_ending_bed.ogg",
+          "sha256": "ed5e4be068e37f4eda7c6009bef48fea3d21738c9bd5b19136597f07f3c2afa9",
+          "master": "masters/chapter_ending_bed.flac",
+          "master_sha256": "af5185007f923e349a13f70e573bf21caf1afc05eec75589ddef22587ca5ace4"
+        },
+        "theme": {
+          "file": "audio/chapter_ending_theme.ogg",
+          "sha256": "423ad26c80538e613ce7b4fc94f5a4e478a94f0ddaea702a3c0240ae2c37a3c2",
+          "master": "masters/chapter_ending_theme.flac",
+          "master_sha256": "b8eb4f3f1e3307870fbe158bdcf804f32222c83659d0f5ca88a3f59f4748246a"
+        },
+        "motion": {
+          "file": "audio/chapter_ending_motion.ogg",
+          "sha256": "6320897709e3883fcd18b8179641ac32b17bf504b458b203c99daa6d43d5b8f5",
+          "master": "masters/chapter_ending_motion.flac",
+          "master_sha256": "1cbabb0864a16b6e8cb90c217229615da87f317236c7e4e0325572378bcfe59d"
+        }
+      },
+      "lufs": -23.0,
+      "true_peak_db": -11.08,
+      "event_count": 41
+    },
+    {
+      "id": "combat_exit",
+      "category": "combat",
+      "title": "Clay Against Iron / 1",
+      "variant": 0,
+      "loop": false,
+      "loop_start_frame": 0,
+      "loop_end_frame": 464896,
+      "sample_rate": 32000,
+      "duration_s": 14.528,
+      "bpm": 100,
+      "beats_per_bar": 4,
+      "bars": 4,
+      "key": "D modal minor",
+      "stems": {
+        "bed": {
+          "file": "audio/combat_exit_bed.ogg",
+          "sha256": "88d9999a524f96318b3795f1ae18a7fd851e395869e6ce167c54e71106e519d6",
+          "master": "masters/combat_exit_bed.flac",
+          "master_sha256": "b795e610f58e2e35f9e4ea6f71cd40213f3b88cef0e4f8de4c96c81b1537ad6c"
+        },
+        "theme": {
+          "file": "audio/combat_exit_theme.ogg",
+          "sha256": "d56d09b662c69c23f26e92a7b1d0a4818d1759983ee608ce3fcafed32b706953",
+          "master": "masters/combat_exit_theme.flac",
+          "master_sha256": "9b9c715f8bf5c057ff2386238d0607f129bd92756c9ecfbf01a3164c7e9d8a88"
+        },
+        "motion": {
+          "file": "audio/combat_exit_motion.ogg",
+          "sha256": "afc2334339b2766486d2f4a8606ad4d9725af2d9b8bbf77ef2ea1b4d213d58c3",
+          "master": "masters/combat_exit_motion.flac",
+          "master_sha256": "a8c0023c5ab95d96ea4aa5083e060d2c6b5bb32cd3740243b2170106f8a028ce"
+        }
+      },
+      "lufs": -23.0,
+      "true_peak_db": -11.46,
+      "event_count": 103
+    }
+  ],
+  "intensity_layers": {
+    "calm": {
+      "bed": 1,
+      "theme": 0.65,
+      "motion": 0.15
+    },
+    "alert": {
+      "bed": 1,
+      "theme": 0.85,
+      "motion": 0.55
+    },
+    "danger": {
+      "bed": 1,
+      "theme": 1,
+      "motion": 1
+    }
+  },
+  "transition": {
+    "quantize": "bar",
+    "crossfade_s": 2.4,
+    "curve": "linear_constant_sum",
+    "combat_max_wait_s": 2.4,
+    "variant_after_cycles": 2,
+    "no_immediate_repeat": true
+  },
+  "events": {
+    "victory_sting": "victory_sting",
+    "boss_arrival": "boss_arrival",
+    "rest": "rest",
+    "revelation": "revelation",
+    "chapter_ending": "chapter_ending",
+    "combat_exit": "combat_exit"
+  },
+  "provenance": {
+    "engine": "symphony.render sampled FluidSynth",
+    "soundfont_sha256": "9575028c7a1f589f5770fccc8cff2734566af40cd26ed836944e9a5152688cfe",
+    "original_20261024_compositions_modified": false
+  },
+  "gameplay_rules": [
+    {
+      "event": "battle.start",
+      "category": "combat",
+      "priority": 80
+    },
+    {
+      "event": "boss.start",
+      "category": "boss",
+      "priority": 90,
+      "sting": "boss_arrival"
+    },
+    {
+      "event": "battle.win",
+      "sting": "victory_sting",
+      "return": "scene"
+    },
+    {
+      "event": "discovery",
+      "sting": "revelation"
+    },
+    {
+      "event": "story.transition",
+      "sting": "chapter_ending"
+    },
+    {
+      "event": "rest",
+      "sting": "rest"
+    },
+    {
+      "event": "dialogue",
+      "action": "duck existing music"
+    },
+    {
+      "event": "pause_or_hidden",
+      "action": "pause preserving musical offset"
+    }
+  ],
+  "delivery_profile": {
+    "codec": "Vorbis",
+    "quality": 2,
+    "lossless_master_manifest_sha256": "9e98c9e12a14680bef6163e89b1107f7d3d1d49b99f85921337a2ba1378b3cc6",
+    "master_location": "Hydrophone music/aa-adaptive/masters"
+  }
+}
