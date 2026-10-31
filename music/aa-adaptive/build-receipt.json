@@ -1,0 +1,23 @@
+{
+  "schema": "aa.build-receipt/1",
+  "source_sha256": {
+    "symphony/adaptive/build.py": "45f19180145477ad583de22e2f23847324242203925b258f76e094050c795e34",
+    "symphony/adaptive/validate.py": "007ef8209f9d42dd7808be357ba1d948de7b1342b76e386c8459f79687eef05c",
+    "symphony/render.py": "15ba6b3f3beb02036920f462a5dab4168f8d0639d767266935bdf25d4d3acd53",
+    "symphony/midi.py": "58de946d10d7c45ece6ab2fa9b51fafbda5fb76e21c7f0675f9f6f3c4f1f57bb",
+    "integration/aa/orchestral-soundtrack.js": "3f3096586e1a73caa9687872c23c8904515d61ba43c655d835f6faaa74d71009",
+    "symphony/adaptive/reproduce.py": "e114b502ddbad747f67a5bee5e4c14e5e5871383e498197a05e75c0b7f6eadda"
+  },
+  "manifest_sha256": "9e98c9e12a14680bef6163e89b1107f7d3d1d49b99f85921337a2ba1378b3cc6",
+  "audio_validation_sha256": "d1fa868c041b35981750138f40ebe3956f8ec6647192cf0b2cf5c5b0f5c0e7a7",
+  "transition_validation_sha256": "671e14aac7d3d656cc1538edb78f6a1f630faa5e63883fb8fda7c73720f16185",
+  "rebuild": [
+    "python assets/symphony/fetch_soundfont.py --native-linux",
+    "python -m symphony.adaptive",
+    "python -m symphony.adaptive.validate"
+  ],
+  "ffmpeg_version": "ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers",
+  "numpy_version": "2.3.5",
+  "original_compositions": "Unmodified; see music/README.md",
+  "reproducibility_sha256": "c43c2a80936afbb036719aa4cc67d0313150527cd03fa8854293701c9c048aea"
+}

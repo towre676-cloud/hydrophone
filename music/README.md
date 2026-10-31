@@ -9,3 +9,7 @@ The HTML players contain the actual audio and a MIDI download. No server, online
 Each folder retains its written score, performed score, MIDI and build receipt. These are software-rendered original compositions using recorded instrument samples, not a recording of a live orchestra or the physical clay/string/water object. Audio preserves the recovered Dyletsky spelling-dependent cents, per-note envelopes and vibrato. The portable standard MIDI export retains timing, velocities, programs, pan and shared-section expression; its notes are equal-tempered, as stated in the MIDI metadata.
 
 The composition and performance architecture, measured corpus counts, source licenses and reproducible build instructions are in [the engine documentation](../docs/SYMPHONIC_ENGINE.md).
+
+## Ash & Aether adaptive score
+
+[Adaptive Orchestral Book I](aa-adaptive/README.md) adds 24 coordinated loop arrangements across eight gameplay families and six finite event/ending cues. Each arrangement has synchronized bed, theme and motion stems, editable scores, MIDI, lossless FLAC masters and game-ready Vorbis delivery. The [manifest](aa-adaptive/manifest.json), [decoded-audio checks](aa-adaptive/validation.json) and [transition checks](aa-adaptive/transition-validation.json) accompany a reproducible `python -m symphony.adaptive` build. The original recordings above remain unchanged.

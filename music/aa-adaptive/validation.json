@@ -1,0 +1,736 @@
+{
+  "schema": "aa.audio-qa/1",
+  "assets": [
+    {
+      "asset": "exploration_1_bed.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.0004652023781090975,
+      "peak": 0.1385778784751892,
+      "passed": true
+    },
+    {
+      "asset": "exploration_1_theme.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.0001168003655038774,
+      "peak": 0.24547648429870605,
+      "passed": true
+    },
+    {
+      "asset": "exploration_1_motion.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.00018802029080688953,
+      "peak": 0.11686155945062637,
+      "passed": true
+    },
+    {
+      "asset": "exploration_2_bed.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.00012876559048891068,
+      "peak": 0.15343233942985535,
+      "passed": true
+    },
+    {
+      "asset": "exploration_2_theme.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.000374343479052186,
+      "peak": 0.2614917755126953,
+      "passed": true
+    },
+    {
+      "asset": "exploration_2_motion.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.000371050089597702,
+      "peak": 0.12900575995445251,
+      "passed": true
+    },
+    {
+      "asset": "exploration_3_bed.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.0006010537035763264,
+      "peak": 0.13025325536727905,
+      "passed": true
+    },
+    {
+      "asset": "exploration_3_theme.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.00021460698917508125,
+      "peak": 0.23847636580467224,
+      "passed": true
+    },
+    {
+      "asset": "exploration_3_motion.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.0002728864783421159,
+      "peak": 0.11698038876056671,
+      "passed": true
+    },
+    {
+      "asset": "settlement_1_bed.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.0002818981884047389,
+      "peak": 0.13975124061107635,
+      "passed": true
+    },
+    {
+      "asset": "settlement_1_theme.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.0002773045562207699,
+      "peak": 0.17537128925323486,
+      "passed": true
+    },
+    {
+      "asset": "settlement_1_motion.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.00015180697664618492,
+      "peak": 0.11427897959947586,
+      "passed": true
+    },
+    {
+      "asset": "settlement_2_bed.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 4.385504871606827e-05,
+      "peak": 0.13572007417678833,
+      "passed": true
+    },
+    {
+      "asset": "settlement_2_theme.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.00012155622243881226,
+      "peak": 0.17519882321357727,
+      "passed": true
+    },
+    {
+      "asset": "settlement_2_motion.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.0006198817864060402,
+      "peak": 0.1179683655500412,
+      "passed": true
+    },
+    {
+      "asset": "settlement_3_bed.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.00010321801528334618,
+      "peak": 0.13058696687221527,
+      "passed": true
+    },
+    {
+      "asset": "settlement_3_theme.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.00011808599811047316,
+      "peak": 0.17419014871120453,
+      "passed": true
+    },
+    {
+      "asset": "settlement_3_motion.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.00026328349485993385,
+      "peak": 0.11697736382484436,
+      "passed": true
+    },
+    {
+      "asset": "interior_1_bed.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 8.94427066668868e-05,
+      "peak": 0.1587100625038147,
+      "passed": true
+    },
+    {
+      "asset": "interior_1_theme.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.00022835383424535394,
+      "peak": 0.1804879903793335,
+      "passed": true
+    },
+    {
+      "asset": "interior_1_motion.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 5.979991692584008e-05,
+      "peak": 0.06401681154966354,
+      "passed": true
+    },
+    {
+      "asset": "interior_2_bed.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.0002027861773967743,
+      "peak": 0.1759069561958313,
+      "passed": true
+    },
+    {
+      "asset": "interior_2_theme.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 4.782038740813732e-05,
+      "peak": 0.1920185685157776,
+      "passed": true
+    },
+    {
+      "asset": "interior_2_motion.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 4.505447577685118e-05,
+      "peak": 0.06489326804876328,
+      "passed": true
+    },
+    {
+      "asset": "interior_3_bed.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.00025445129722356796,
+      "peak": 0.1541537493467331,
+      "passed": true
+    },
+    {
+      "asset": "interior_3_theme.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.00036028772592544556,
+      "peak": 0.18252921104431152,
+      "passed": true
+    },
+    {
+      "asset": "interior_3_motion.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.00016251606575679034,
+      "peak": 0.06402293592691422,
+      "passed": true
+    },
+    {
+      "asset": "dungeon_1_bed.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.00015005830209702253,
+      "peak": 0.1442776471376419,
+      "passed": true
+    },
+    {
+      "asset": "dungeon_1_theme.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.00024487628252245486,
+      "peak": 0.1775205433368683,
+      "passed": true
+    },
+    {
+      "asset": "dungeon_1_motion.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.00017694919370114803,
+      "peak": 0.11510723829269409,
+      "passed": true
+    },
+    {
+      "asset": "dungeon_2_bed.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.0002983058802783489,
+      "peak": 0.13834773004055023,
+      "passed": true
+    },
+    {
+      "asset": "dungeon_2_theme.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.000298953615128994,
+      "peak": 0.18544811010360718,
+      "passed": true
+    },
+    {
+      "asset": "dungeon_2_motion.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.0004406170919537544,
+      "peak": 0.12020882964134216,
+      "passed": true
+    },
+    {
+      "asset": "dungeon_3_bed.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.00043570902198553085,
+      "peak": 0.132541686296463,
+      "passed": true
+    },
+    {
+      "asset": "dungeon_3_theme.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.0005446574650704861,
+      "peak": 0.1769997477531433,
+      "passed": true
+    },
+    {
+      "asset": "dungeon_3_motion.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.0001536356285214424,
+      "peak": 0.11641336977481842,
+      "passed": true
+    },
+    {
+      "asset": "atmospheric_1_bed.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 7.246108725667e-05,
+      "peak": 0.13537828624248505,
+      "passed": true
+    },
+    {
+      "asset": "atmospheric_1_theme.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.00010003126226365566,
+      "peak": 0.23731765151023865,
+      "passed": true
+    },
+    {
+      "asset": "atmospheric_1_motion.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.00011229833762627095,
+      "peak": 0.055460743606090546,
+      "passed": true
+    },
+    {
+      "asset": "atmospheric_2_bed.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.00021064840257167816,
+      "peak": 0.1483561396598816,
+      "passed": true
+    },
+    {
+      "asset": "atmospheric_2_theme.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.00035264366306364536,
+      "peak": 0.2758948504924774,
+      "passed": true
+    },
+    {
+      "asset": "atmospheric_2_motion.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 1.7835176549851894e-05,
+      "peak": 0.057793036103248596,
+      "passed": true
+    },
+    {
+      "asset": "atmospheric_3_bed.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.0006375755183398724,
+      "peak": 0.14626486599445343,
+      "passed": true
+    },
+    {
+      "asset": "atmospheric_3_theme.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.00047114305198192596,
+      "peak": 0.22860300540924072,
+      "passed": true
+    },
+    {
+      "asset": "atmospheric_3_motion.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.00012008966587018222,
+      "peak": 0.06044385954737663,
+      "passed": true
+    },
+    {
+      "asset": "combat_1_bed.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.0016475726151838899,
+      "peak": 0.1630847156047821,
+      "passed": true
+    },
+    {
+      "asset": "combat_1_theme.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.0007192781195044518,
+      "peak": 0.16857895255088806,
+      "passed": true
+    },
+    {
+      "asset": "combat_1_motion.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.0013408128870651126,
+      "peak": 0.16936524212360382,
+      "passed": true
+    },
+    {
+      "asset": "combat_2_bed.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.00013091322034597397,
+      "peak": 0.17478522658348083,
+      "passed": true
+    },
+    {
+      "asset": "combat_2_theme.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.0007431916892528534,
+      "peak": 0.18434394896030426,
+      "passed": true
+    },
+    {
+      "asset": "combat_2_motion.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.0011438026558607817,
+      "peak": 0.1758178174495697,
+      "passed": true
+    },
+    {
+      "asset": "combat_3_bed.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.00014275219291448593,
+      "peak": 0.16084641218185425,
+      "passed": true
+    },
+    {
+      "asset": "combat_3_theme.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.0001993868499994278,
+      "peak": 0.19064782559871674,
+      "passed": true
+    },
+    {
+      "asset": "combat_3_motion.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.0014200813602656126,
+      "peak": 0.16597139835357666,
+      "passed": true
+    },
+    {
+      "asset": "boss_1_bed.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.0006485634949058294,
+      "peak": 0.11242903023958206,
+      "passed": true
+    },
+    {
+      "asset": "boss_1_theme.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.0019307397305965424,
+      "peak": 0.23646493256092072,
+      "passed": true
+    },
+    {
+      "asset": "boss_1_motion.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.001071067526936531,
+      "peak": 0.2510837912559509,
+      "passed": true
+    },
+    {
+      "asset": "boss_2_bed.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.00021084630861878395,
+      "peak": 0.10710182785987854,
+      "passed": true
+    },
+    {
+      "asset": "boss_2_theme.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.0006496375426650047,
+      "peak": 0.22429531812667847,
+      "passed": true
+    },
+    {
+      "asset": "boss_2_motion.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.0001596743823029101,
+      "peak": 0.2494426965713501,
+      "passed": true
+    },
+    {
+      "asset": "boss_3_bed.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.00034233025508001447,
+      "peak": 0.11612565815448761,
+      "passed": true
+    },
+    {
+      "asset": "boss_3_theme.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.0018629655241966248,
+      "peak": 0.23473425209522247,
+      "passed": true
+    },
+    {
+      "asset": "boss_3_motion.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.000969946850091219,
+      "peak": 0.25028195977211,
+      "passed": true
+    },
+    {
+      "asset": "victory_1_bed.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.00022862432524561882,
+      "peak": 0.15368998050689697,
+      "passed": true
+    },
+    {
+      "asset": "victory_1_theme.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.0004028724506497383,
+      "peak": 0.21157744526863098,
+      "passed": true
+    },
+    {
+      "asset": "victory_1_motion.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.0005167964845895767,
+      "peak": 0.1285492181777954,
+      "passed": true
+    },
+    {
+      "asset": "victory_2_bed.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 3.88631597161293e-05,
+      "peak": 0.14615961909294128,
+      "passed": true
+    },
+    {
+      "asset": "victory_2_theme.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.00022752024233341217,
+      "peak": 0.2119293510913849,
+      "passed": true
+    },
+    {
+      "asset": "victory_2_motion.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.0006490238010883331,
+      "peak": 0.1284567415714264,
+      "passed": true
+    },
+    {
+      "asset": "victory_3_bed.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.00013636122457683086,
+      "peak": 0.14260894060134888,
+      "passed": true
+    },
+    {
+      "asset": "victory_3_theme.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.00026855687610805035,
+      "peak": 0.2108355462551117,
+      "passed": true
+    },
+    {
+      "asset": "victory_3_motion.ogg",
+      "decoded_frames": 1228800,
+      "expected_frames": 1228800,
+      "loop_jump": 0.00016574375331401825,
+      "peak": 0.12693805992603302,
+      "passed": true
+    },
+    {
+      "asset": "victory_sting_bed.ogg",
+      "decoded_frames": 309760,
+      "expected_frames": 309760,
+      "loop_jump": 0,
+      "peak": 0.12587140500545502,
+      "passed": true
+    },
+    {
+      "asset": "victory_sting_theme.ogg",
+      "decoded_frames": 309760,
+      "expected_frames": 309760,
+      "loop_jump": 0,
+      "peak": 0.16970913112163544,
+      "passed": true
+    },
+    {
+      "asset": "victory_sting_motion.ogg",
+      "decoded_frames": 309760,
+      "expected_frames": 309760,
+      "loop_jump": 0,
+      "peak": 0.12109861522912979,
+      "passed": true
+    },
+    {
+      "asset": "boss_arrival_bed.ogg",
+      "decoded_frames": 311296,
+      "expected_frames": 311296,
+      "loop_jump": 0,
+      "peak": 0.11573473364114761,
+      "passed": true
+    },
+    {
+      "asset": "boss_arrival_theme.ogg",
+      "decoded_frames": 311296,
+      "expected_frames": 311296,
+      "loop_jump": 0,
+      "peak": 0.245040625333786,
+      "passed": true
+    },
+    {
+      "asset": "boss_arrival_motion.ogg",
+      "decoded_frames": 311296,
+      "expected_frames": 311296,
+      "loop_jump": 0,
+      "peak": 0.12363571673631668,
+      "passed": true
+    },
+    {
+      "asset": "rest_bed.ogg",
+      "decoded_frames": 307841,
+      "expected_frames": 307841,
+      "loop_jump": 0,
+      "peak": 0.14059071242809296,
+      "passed": true
+    },
+    {
+      "asset": "rest_theme.ogg",
+      "decoded_frames": 307841,
+      "expected_frames": 307841,
+      "loop_jump": 0,
+      "peak": 0.15232661366462708,
+      "passed": true
+    },
+    {
+      "asset": "rest_motion.ogg",
+      "decoded_frames": 307841,
+      "expected_frames": 307841,
+      "loop_jump": 0,
+      "peak": 0.06456869840621948,
+      "passed": true
+    },
+    {
+      "asset": "revelation_bed.ogg",
+      "decoded_frames": 307841,
+      "expected_frames": 307841,
+      "loop_jump": 0,
+      "peak": 0.12284056842327118,
+      "passed": true
+    },
+    {
+      "asset": "revelation_theme.ogg",
+      "decoded_frames": 307841,
+      "expected_frames": 307841,
+      "loop_jump": 0,
+      "peak": 0.2128240168094635,
+      "passed": true
+    },
+    {
+      "asset": "revelation_motion.ogg",
+      "decoded_frames": 307841,
+      "expected_frames": 307841,
+      "loop_jump": 0,
+      "peak": 0.056288015097379684,
+      "passed": true
+    },
+    {
+      "asset": "chapter_ending_bed.ogg",
+      "decoded_frames": 463360,
+      "expected_frames": 463360,
+      "loop_jump": 0,
+      "peak": 0.13207687437534332,
+      "passed": true
+    },
+    {
+      "asset": "chapter_ending_theme.ogg",
+      "decoded_frames": 463360,
+      "expected_frames": 463360,
+      "loop_jump": 0,
+      "peak": 0.18263912200927734,
+      "passed": true
+    },
+    {
+      "asset": "chapter_ending_motion.ogg",
+      "decoded_frames": 463360,
+      "expected_frames": 463360,
+      "loop_jump": 0,
+      "peak": 0.11401758342981339,
+      "passed": true
+    },
+    {
+      "asset": "combat_exit_bed.ogg",
+      "decoded_frames": 464896,
+      "expected_frames": 464896,
+      "loop_jump": 0,
+      "peak": 0.16668428480625153,
+      "passed": true
+    },
+    {
+      "asset": "combat_exit_theme.ogg",
+      "decoded_frames": 464896,
+      "expected_frames": 464896,
+      "loop_jump": 0,
+      "peak": 0.1424497663974762,
+      "passed": true
+    },
+    {
+      "asset": "combat_exit_motion.ogg",
+      "decoded_frames": 464896,
+      "expected_frames": 464896,
+      "loop_jump": 0,
+      "peak": 0.17496421933174133,
+      "passed": true
+    }
+  ],
+  "all_passed": true,
+  "cue_count": 30,
+  "loop_count": 24,
+  "unique_loop_minutes": 15.359999999999998,
+  "lufs_range": [
+    -23.08,
+    -22.99
+  ],
+  "soundfont_sha256": "9575028c7a1f589f5770fccc8cff2734566af40cd26ed836944e9a5152688cfe",
+  "numpy": "2.3.5",
+  "delivered_sha256_rechecked": true
+}

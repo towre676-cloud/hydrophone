@@ -1,0 +1,3878 @@
+{
+  "schema": "aa.transition-qa/1",
+  "directed_transitions": 552,
+  "bar_positions_per_transition": 16,
+  "transition_cases": 8832,
+  "transitions": [
+    {
+      "from": "exploration_1",
+      "to": "exploration_2",
+      "peak": 0.26007429744129706,
+      "boundary_step": 0.00398581987246871,
+      "passed": true
+    },
+    {
+      "from": "exploration_1",
+      "to": "exploration_3",
+      "peak": 0.2593363618134046,
+      "boundary_step": 0.00398581987246871,
+      "passed": true
+    },
+    {
+      "from": "exploration_1",
+      "to": "settlement_1",
+      "peak": 0.25903934079724755,
+      "boundary_step": 0.00398581987246871,
+      "passed": true
+    },
+    {
+      "from": "exploration_1",
+      "to": "settlement_2",
+      "peak": 0.2679027827971568,
+      "boundary_step": 0.00398581987246871,
+      "passed": true
+    },
+    {
+      "from": "exploration_1",
+      "to": "settlement_3",
+      "peak": 0.26113272489795947,
+      "boundary_step": 0.00398581987246871,
+      "passed": true
+    },
+    {
+      "from": "exploration_1",
+      "to": "interior_1",
+      "peak": 0.2607805360868282,
+      "boundary_step": 0.00398581987246871,
+      "passed": true
+    },
+    {
+      "from": "exploration_1",
+      "to": "interior_2",
+      "peak": 0.2691977847234664,
+      "boundary_step": 0.00398581987246871,
+      "passed": true
+    },
+    {
+      "from": "exploration_1",
+      "to": "interior_3",
+      "peak": 0.2521113608686388,
+      "boundary_step": 0.00398581987246871,
+      "passed": true
+    },
+    {
+      "from": "exploration_1",
+      "to": "dungeon_1",
+      "peak": 0.25259992386950514,
+      "boundary_step": 0.00398581987246871,
+      "passed": true
+    },
+    {
+      "from": "exploration_1",
+      "to": "dungeon_2",
+      "peak": 0.24820862813155573,
+      "boundary_step": 0.00398581987246871,
+      "passed": true
+    },
+    {
+      "from": "exploration_1",
+      "to": "dungeon_3",
+      "peak": 0.2568184920313563,
+      "boundary_step": 0.00398581987246871,
+      "passed": true
+    },
+    {
+      "from": "exploration_1",
+      "to": "atmospheric_1",
+      "peak": 0.2500555084678946,
+      "boundary_step": 0.00398581987246871,
+      "passed": true
+    },
+    {
+      "from": "exploration_1",
+      "to": "atmospheric_2",
+      "peak": 0.25621690694932725,
+      "boundary_step": 0.00398581987246871,
+      "passed": true
+    },
+    {
+      "from": "exploration_1",
+      "to": "atmospheric_3",
+      "peak": 0.2846576338075943,
+      "boundary_step": 0.00398581987246871,
+      "passed": true
+    },
+    {
+      "from": "exploration_1",
+      "to": "combat_1",
+      "peak": 0.2571788165679948,
+      "boundary_step": 0.006658349186182022,
+      "passed": true
+    },
+    {
+      "from": "exploration_1",
+      "to": "combat_2",
+      "peak": 0.25817036529652415,
+      "boundary_step": 0.00398581987246871,
+      "passed": true
+    },
+    {
+      "from": "exploration_1",
+      "to": "combat_3",
+      "peak": 0.25551091882409954,
+      "boundary_step": 0.00398581987246871,
+      "passed": true
+    },
+    {
+      "from": "exploration_1",
+      "to": "boss_1",
+      "peak": 0.25723505905336425,
+      "boundary_step": 0.00398581987246871,
+      "passed": true
+    },
+    {
+      "from": "exploration_1",
+      "to": "boss_2",
+      "peak": 0.25857017133781973,
+      "boundary_step": 0.00398581987246871,
+      "passed": true
+    },
+    {
+      "from": "exploration_1",
+      "to": "boss_3",
+      "peak": 0.2533532778776462,
+      "boundary_step": 0.00398581987246871,
+      "passed": true
+    },
+    {
+      "from": "exploration_1",
+      "to": "victory_1",
+      "peak": 0.25233624568612506,
+      "boundary_step": 0.00398581987246871,
+      "passed": true
+    },
+    {
+      "from": "exploration_1",
+      "to": "victory_2",
+      "peak": 0.25709156979674647,
+      "boundary_step": 0.00398581987246871,
+      "passed": true
+    },
+    {
+      "from": "exploration_1",
+      "to": "victory_3",
+      "peak": 0.24360115033680496,
+      "boundary_step": 0.00398581987246871,
+      "passed": true
+    },
+    {
+      "from": "exploration_2",
+      "to": "exploration_1",
+      "peak": 0.26603288043453216,
+      "boundary_step": 0.005522941239178181,
+      "passed": true
+    },
+    {
+      "from": "exploration_2",
+      "to": "exploration_3",
+      "peak": 0.24721176673608874,
+      "boundary_step": 0.005522941239178181,
+      "passed": true
+    },
+    {
+      "from": "exploration_2",
+      "to": "settlement_1",
+      "peak": 0.25721444612898325,
+      "boundary_step": 0.005522941239178181,
+      "passed": true
+    },
+    {
+      "from": "exploration_2",
+      "to": "settlement_2",
+      "peak": 0.2531870280981986,
+      "boundary_step": 0.005522941239178181,
+      "passed": true
+    },
+    {
+      "from": "exploration_2",
+      "to": "settlement_3",
+      "peak": 0.2682890325905369,
+      "boundary_step": 0.005522941239178181,
+      "passed": true
+    },
+    {
+      "from": "exploration_2",
+      "to": "interior_1",
+      "peak": 0.24916405422326907,
+      "boundary_step": 0.005522941239178181,
+      "passed": true
+    },
+    {
+      "from": "exploration_2",
+      "to": "interior_2",
+      "peak": 0.24414846716167882,
+      "boundary_step": 0.005522941239178181,
+      "passed": true
+    },
+    {
+      "from": "exploration_2",
+      "to": "interior_3",
+      "peak": 0.2523420955741067,
+      "boundary_step": 0.005522941239178181,
+      "passed": true
+    },
+    {
+      "from": "exploration_2",
+      "to": "dungeon_1",
+      "peak": 0.25344793102271973,
+      "boundary_step": 0.005522941239178181,
+      "passed": true
+    },
+    {
+      "from": "exploration_2",
+      "to": "dungeon_2",
+      "peak": 0.24496684992084744,
+      "boundary_step": 0.005522941239178181,
+      "passed": true
+    },
+    {
+      "from": "exploration_2",
+      "to": "dungeon_3",
+      "peak": 0.24290593834964125,
+      "boundary_step": 0.005522941239178181,
+      "passed": true
+    },
+    {
+      "from": "exploration_2",
+      "to": "atmospheric_1",
+      "peak": 0.2598983980479046,
+      "boundary_step": 0.005522941239178181,
+      "passed": true
+    },
+    {
+      "from": "exploration_2",
+      "to": "atmospheric_2",
+      "peak": 0.23975049629874415,
+      "boundary_step": 0.005522941239178181,
+      "passed": true
+    },
+    {
+      "from": "exploration_2",
+      "to": "atmospheric_3",
+      "peak": 0.25266153668008884,
+      "boundary_step": 0.005522941239178181,
+      "passed": true
+    },
+    {
+      "from": "exploration_2",
+      "to": "combat_1",
+      "peak": 0.24659367950641922,
+      "boundary_step": 0.006658349186182022,
+      "passed": true
+    },
+    {
+      "from": "exploration_2",
+      "to": "combat_2",
+      "peak": 0.23998080416371992,
+      "boundary_step": 0.005522941239178181,
+      "passed": true
+    },
+    {
+      "from": "exploration_2",
+      "to": "combat_3",
+      "peak": 0.25084104756004844,
+      "boundary_step": 0.005522941239178181,
+      "passed": true
+    },
+    {
+      "from": "exploration_2",
+      "to": "boss_1",
+      "peak": 0.2432432570855907,
+      "boundary_step": 0.005522941239178181,
+      "passed": true
+    },
+    {
+      "from": "exploration_2",
+      "to": "boss_2",
+      "peak": 0.2408334805613255,
+      "boundary_step": 0.005522941239178181,
+      "passed": true
+    },
+    {
+      "from": "exploration_2",
+      "to": "boss_3",
+      "peak": 0.24868826649244963,
+      "boundary_step": 0.005522941239178181,
+      "passed": true
+    },
+    {
+      "from": "exploration_2",
+      "to": "victory_1",
+      "peak": 0.26246362241810456,
+      "boundary_step": 0.005522941239178181,
+      "passed": true
+    },
+    {
+      "from": "exploration_2",
+      "to": "victory_2",
+      "peak": 0.25766445037182373,
+      "boundary_step": 0.005522941239178181,
+      "passed": true
+    },
+    {
+      "from": "exploration_2",
+      "to": "victory_3",
+      "peak": 0.25070713796812455,
+      "boundary_step": 0.005522941239178181,
+      "passed": true
+    },
+    {
+      "from": "exploration_3",
+      "to": "exploration_1",
+      "peak": 0.29371634123381196,
+      "boundary_step": 0.003440573811531067,
+      "passed": true
+    },
+    {
+      "from": "exploration_3",
+      "to": "exploration_2",
+      "peak": 0.2652077452929633,
+      "boundary_step": 0.003431903198361397,
+      "passed": true
+    },
+    {
+      "from": "exploration_3",
+      "to": "settlement_1",
+      "peak": 0.2725512207221481,
+      "boundary_step": 0.003431903198361397,
+      "passed": true
+    },
+    {
+      "from": "exploration_3",
+      "to": "settlement_2",
+      "peak": 0.2749520216777124,
+      "boundary_step": 0.003431903198361397,
+      "passed": true
+    },
+    {
+      "from": "exploration_3",
+      "to": "settlement_3",
+      "peak": 0.2696663982919123,
+      "boundary_step": 0.003431903198361397,
+      "passed": true
+    },
+    {
+      "from": "exploration_3",
+      "to": "interior_1",
+      "peak": 0.2665800018956055,
+      "boundary_step": 0.003431903198361397,
+      "passed": true
+    },
+    {
+      "from": "exploration_3",
+      "to": "interior_2",
+      "peak": 0.26360492669088126,
+      "boundary_step": 0.003431903198361397,
+      "passed": true
+    },
+    {
+      "from": "exploration_3",
+      "to": "interior_3",
+      "peak": 0.25939221883064334,
+      "boundary_step": 0.003431903198361397,
+      "passed": true
+    },
+    {
+      "from": "exploration_3",
+      "to": "dungeon_1",
+      "peak": 0.2764885173759947,
+      "boundary_step": 0.003431903198361397,
+      "passed": true
+    },
+    {
+      "from": "exploration_3",
+      "to": "dungeon_2",
+      "peak": 0.2651746127176295,
+      "boundary_step": 0.003431903198361397,
+      "passed": true
+    },
+    {
+      "from": "exploration_3",
+      "to": "dungeon_3",
+      "peak": 0.2704167595535866,
+      "boundary_step": 0.003431903198361397,
+      "passed": true
+    },
+    {
+      "from": "exploration_3",
+      "to": "atmospheric_1",
+      "peak": 0.2680536837697745,
+      "boundary_step": 0.003431903198361397,
+      "passed": true
+    },
+    {
+      "from": "exploration_3",
+      "to": "atmospheric_2",
+      "peak": 0.2611171658948052,
+      "boundary_step": 0.003431903198361397,
+      "passed": true
+    },
+    {
+      "from": "exploration_3",
+      "to": "atmospheric_3",
+      "peak": 0.2929428992100648,
+      "boundary_step": 0.003431903198361397,
+      "passed": true
+    },
+    {
+      "from": "exploration_3",
+      "to": "combat_1",
+      "peak": 0.28398717011642816,
+      "boundary_step": 0.006658349186182022,
+      "passed": true
+    },
+    {
+      "from": "exploration_3",
+      "to": "combat_2",
+      "peak": 0.2741777824227295,
+      "boundary_step": 0.003431903198361397,
+      "passed": true
+    },
+    {
+      "from": "exploration_3",
+      "to": "combat_3",
+      "peak": 0.26468549310089234,
+      "boundary_step": 0.003431903198361397,
+      "passed": true
+    },
+    {
+      "from": "exploration_3",
+      "to": "boss_1",
+      "peak": 0.2614479717693283,
+      "boundary_step": 0.003431903198361397,
+      "passed": true
+    },
+    {
+      "from": "exploration_3",
+      "to": "boss_2",
+      "peak": 0.2573704884775815,
+      "boundary_step": 0.003876771777868271,
+      "passed": true
+    },
+    {
+      "from": "exploration_3",
+      "to": "boss_3",
+      "peak": 0.25930188928123926,
+      "boundary_step": 0.003431903198361397,
+      "passed": true
+    },
+    {
+      "from": "exploration_3",
+      "to": "victory_1",
+      "peak": 0.2790213145430997,
+      "boundary_step": 0.003431903198361397,
+      "passed": true
+    },
+    {
+      "from": "exploration_3",
+      "to": "victory_2",
+      "peak": 0.2637280233960201,
+      "boundary_step": 0.003431903198361397,
+      "passed": true
+    },
+    {
+      "from": "exploration_3",
+      "to": "victory_3",
+      "peak": 0.2604936753138472,
+      "boundary_step": 0.003431903198361397,
+      "passed": true
+    },
+    {
+      "from": "settlement_1",
+      "to": "exploration_1",
+      "peak": 0.26013204471169554,
+      "boundary_step": 0.006325786933302879,
+      "passed": true
+    },
+    {
+      "from": "settlement_1",
+      "to": "exploration_2",
+      "peak": 0.21477398173338946,
+      "boundary_step": 0.006325786933302879,
+      "passed": true
+    },
+    {
+      "from": "settlement_1",
+      "to": "exploration_3",
+      "peak": 0.21553982082531678,
+      "boundary_step": 0.006325786933302879,
+      "passed": true
+    },
+    {
+      "from": "settlement_1",
+      "to": "settlement_2",
+      "peak": 0.21272015671208244,
+      "boundary_step": 0.006325786933302879,
+      "passed": true
+    },
+    {
+      "from": "settlement_1",
+      "to": "settlement_3",
+      "peak": 0.23366850513497917,
+      "boundary_step": 0.006325786933302879,
+      "passed": true
+    },
+    {
+      "from": "settlement_1",
+      "to": "interior_1",
+      "peak": 0.20834156477964258,
+      "boundary_step": 0.006325786933302879,
+      "passed": true
+    },
+    {
+      "from": "settlement_1",
+      "to": "interior_2",
+      "peak": 0.2080350575188412,
+      "boundary_step": 0.006325786933302879,
+      "passed": true
+    },
+    {
+      "from": "settlement_1",
+      "to": "interior_3",
+      "peak": 0.2065834418291541,
+      "boundary_step": 0.006325786933302879,
+      "passed": true
+    },
+    {
+      "from": "settlement_1",
+      "to": "dungeon_1",
+      "peak": 0.2491541911162449,
+      "boundary_step": 0.006325786933302879,
+      "passed": true
+    },
+    {
+      "from": "settlement_1",
+      "to": "dungeon_2",
+      "peak": 0.21899400245257175,
+      "boundary_step": 0.006325786933302879,
+      "passed": true
+    },
+    {
+      "from": "settlement_1",
+      "to": "dungeon_3",
+      "peak": 0.20807064922039492,
+      "boundary_step": 0.006325786933302879,
+      "passed": true
+    },
+    {
+      "from": "settlement_1",
+      "to": "atmospheric_1",
+      "peak": 0.2180894577380501,
+      "boundary_step": 0.006325786933302879,
+      "passed": true
+    },
+    {
+      "from": "settlement_1",
+      "to": "atmospheric_2",
+      "peak": 0.21359044600708738,
+      "boundary_step": 0.006325786933302879,
+      "passed": true
+    },
+    {
+      "from": "settlement_1",
+      "to": "atmospheric_3",
+      "peak": 0.24098428498441493,
+      "boundary_step": 0.006325786933302879,
+      "passed": true
+    },
+    {
+      "from": "settlement_1",
+      "to": "combat_1",
+      "peak": 0.21515749739497186,
+      "boundary_step": 0.006658349186182022,
+      "passed": true
+    },
+    {
+      "from": "settlement_1",
+      "to": "combat_2",
+      "peak": 0.22152588386484673,
+      "boundary_step": 0.006325786933302879,
+      "passed": true
+    },
+    {
+      "from": "settlement_1",
+      "to": "combat_3",
+      "peak": 0.22119905212178237,
+      "boundary_step": 0.006325786933302879,
+      "passed": true
+    },
+    {
+      "from": "settlement_1",
+      "to": "boss_1",
+      "peak": 0.2142955816585736,
+      "boundary_step": 0.006325786933302879,
+      "passed": true
+    },
+    {
+      "from": "settlement_1",
+      "to": "boss_2",
+      "peak": 0.2062484060905475,
+      "boundary_step": 0.006325786933302879,
+      "passed": true
+    },
+    {
+      "from": "settlement_1",
+      "to": "boss_3",
+      "peak": 0.20802181265695924,
+      "boundary_step": 0.006325786933302879,
+      "passed": true
+    },
+    {
+      "from": "settlement_1",
+      "to": "victory_1",
+      "peak": 0.23680194841654179,
+      "boundary_step": 0.006325786933302879,
+      "passed": true
+    },
+    {
+      "from": "settlement_1",
+      "to": "victory_2",
+      "peak": 0.24209108646179026,
+      "boundary_step": 0.006325786933302879,
+      "passed": true
+    },
+    {
+      "from": "settlement_1",
+      "to": "victory_3",
+      "peak": 0.2235369577172085,
+      "boundary_step": 0.006325786933302879,
+      "passed": true
+    },
+    {
+      "from": "settlement_2",
+      "to": "exploration_1",
+      "peak": 0.25701124440891193,
+      "boundary_step": 0.0037427875213325024,
+      "passed": true
+    },
+    {
+      "from": "settlement_2",
+      "to": "exploration_2",
+      "peak": 0.21304052081693237,
+      "boundary_step": 0.0037427875213325024,
+      "passed": true
+    },
+    {
+      "from": "settlement_2",
+      "to": "exploration_3",
+      "peak": 0.25031640090500495,
+      "boundary_step": 0.0037427875213325024,
+      "passed": true
+    },
+    {
+      "from": "settlement_2",
+      "to": "settlement_1",
+      "peak": 0.22903119323526794,
+      "boundary_step": 0.0037427875213325024,
+      "passed": true
+    },
+    {
+      "from": "settlement_2",
+      "to": "settlement_3",
+      "peak": 0.23763739333905415,
+      "boundary_step": 0.0037427875213325024,
+      "passed": true
+    },
+    {
+      "from": "settlement_2",
+      "to": "interior_1",
+      "peak": 0.20871195569682943,
+      "boundary_step": 0.0037427875213325024,
+      "passed": true
+    },
+    {
+      "from": "settlement_2",
+      "to": "interior_2",
+      "peak": 0.22763929047897027,
+      "boundary_step": 0.0037427875213325024,
+      "passed": true
+    },
+    {
+      "from": "settlement_2",
+      "to": "interior_3",
+      "peak": 0.21307715422158832,
+      "boundary_step": 0.0037427875213325024,
+      "passed": true
+    },
+    {
+      "from": "settlement_2",
+      "to": "dungeon_1",
+      "peak": 0.2263470026152626,
+      "boundary_step": 0.0037427875213325024,
+      "passed": true
+    },
+    {
+      "from": "settlement_2",
+      "to": "dungeon_2",
+      "peak": 0.22670366811287274,
+      "boundary_step": 0.0037427875213325024,
+      "passed": true
+    },
+    {
+      "from": "settlement_2",
+      "to": "dungeon_3",
+      "peak": 0.21418427983526034,
+      "boundary_step": 0.0037427875213325024,
+      "passed": true
+    },
+    {
+      "from": "settlement_2",
+      "to": "atmospheric_1",
+      "peak": 0.21432574985385847,
+      "boundary_step": 0.0037427875213325024,
+      "passed": true
+    },
+    {
+      "from": "settlement_2",
+      "to": "atmospheric_2",
+      "peak": 0.2126316128285034,
+      "boundary_step": 0.0037427875213325024,
+      "passed": true
+    },
+    {
+      "from": "settlement_2",
+      "to": "atmospheric_3",
+      "peak": 0.2350626093111699,
+      "boundary_step": 0.0037427875213325024,
+      "passed": true
+    },
+    {
+      "from": "settlement_2",
+      "to": "combat_1",
+      "peak": 0.21645213802172278,
+      "boundary_step": 0.006658349186182022,
+      "passed": true
+    },
+    {
+      "from": "settlement_2",
+      "to": "combat_2",
+      "peak": 0.21739033292722643,
+      "boundary_step": 0.0037427875213325024,
+      "passed": true
+    },
+    {
+      "from": "settlement_2",
+      "to": "combat_3",
+      "peak": 0.21675582521094383,
+      "boundary_step": 0.0037427875213325024,
+      "passed": true
+    },
+    {
+      "from": "settlement_2",
+      "to": "boss_1",
+      "peak": 0.23793181622515286,
+      "boundary_step": 0.0037427875213325024,
+      "passed": true
+    },
+    {
+      "from": "settlement_2",
+      "to": "boss_2",
+      "peak": 0.2082079554520637,
+      "boundary_step": 0.003876771777868271,
+      "passed": true
+    },
+    {
+      "from": "settlement_2",
+      "to": "boss_3",
+      "peak": 0.23514294446773534,
+      "boundary_step": 0.0037427875213325024,
+      "passed": true
+    },
+    {
+      "from": "settlement_2",
+      "to": "victory_1",
+      "peak": 0.24219056843894834,
+      "boundary_step": 0.0037427875213325024,
+      "passed": true
+    },
+    {
+      "from": "settlement_2",
+      "to": "victory_2",
+      "peak": 0.2595066572316316,
+      "boundary_step": 0.0037427875213325024,
+      "passed": true
+    },
+    {
+      "from": "settlement_2",
+      "to": "victory_3",
+      "peak": 0.21704138987302146,
+      "boundary_step": 0.0037427875213325024,
+      "passed": true
+    },
+    {
+      "from": "settlement_3",
+      "to": "exploration_1",
+      "peak": 0.2570481121813261,
+      "boundary_step": 0.004384474828839302,
+      "passed": true
+    },
+    {
+      "from": "settlement_3",
+      "to": "exploration_2",
+      "peak": 0.24361552841949066,
+      "boundary_step": 0.004384474828839302,
+      "passed": true
+    },
+    {
+      "from": "settlement_3",
+      "to": "exploration_3",
+      "peak": 0.24438136751141798,
+      "boundary_step": 0.004384474828839302,
+      "passed": true
+    },
+    {
+      "from": "settlement_3",
+      "to": "settlement_1",
+      "peak": 0.23774491119002764,
+      "boundary_step": 0.004384474828839302,
+      "passed": true
+    },
+    {
+      "from": "settlement_3",
+      "to": "settlement_2",
+      "peak": 0.22707486503684496,
+      "boundary_step": 0.004384474828839302,
+      "passed": true
+    },
+    {
+      "from": "settlement_3",
+      "to": "interior_1",
+      "peak": 0.2252042246686926,
+      "boundary_step": 0.004384474828839302,
+      "passed": true
+    },
+    {
+      "from": "settlement_3",
+      "to": "interior_2",
+      "peak": 0.21630774360517735,
+      "boundary_step": 0.004384474828839302,
+      "passed": true
+    },
+    {
+      "from": "settlement_3",
+      "to": "interior_3",
+      "peak": 0.2120382827087746,
+      "boundary_step": 0.004384474828839302,
+      "passed": true
+    },
+    {
+      "from": "settlement_3",
+      "to": "dungeon_1",
+      "peak": 0.2452895279743968,
+      "boundary_step": 0.004384474828839302,
+      "passed": true
+    },
+    {
+      "from": "settlement_3",
+      "to": "dungeon_2",
+      "peak": 0.23615224867149942,
+      "boundary_step": 0.004384474828839302,
+      "passed": true
+    },
+    {
+      "from": "settlement_3",
+      "to": "dungeon_3",
+      "peak": 0.21635920012488816,
+      "boundary_step": 0.004384474828839302,
+      "passed": true
+    },
+    {
+      "from": "settlement_3",
+      "to": "atmospheric_1",
+      "peak": 0.23870507173049943,
+      "boundary_step": 0.004384474828839302,
+      "passed": true
+    },
+    {
+      "from": "settlement_3",
+      "to": "atmospheric_2",
+      "peak": 0.24243199269318857,
+      "boundary_step": 0.004384474828839302,
+      "passed": true
+    },
+    {
+      "from": "settlement_3",
+      "to": "atmospheric_3",
+      "peak": 0.23509947708358409,
+      "boundary_step": 0.004384474828839302,
+      "passed": true
+    },
+    {
+      "from": "settlement_3",
+      "to": "combat_1",
+      "peak": 0.2388573293721676,
+      "boundary_step": 0.006658349186182022,
+      "passed": true
+    },
+    {
+      "from": "settlement_3",
+      "to": "combat_2",
+      "peak": 0.22382255353175282,
+      "boundary_step": 0.004384474828839302,
+      "passed": true
+    },
+    {
+      "from": "settlement_3",
+      "to": "combat_3",
+      "peak": 0.23482636703619286,
+      "boundary_step": 0.004384474828839302,
+      "passed": true
+    },
+    {
+      "from": "settlement_3",
+      "to": "boss_1",
+      "peak": 0.2317387297890966,
+      "boundary_step": 0.004384474828839302,
+      "passed": true
+    },
+    {
+      "from": "settlement_3",
+      "to": "boss_2",
+      "peak": 0.2141839899948183,
+      "boundary_step": 0.004384474828839302,
+      "passed": true
+    },
+    {
+      "from": "settlement_3",
+      "to": "boss_3",
+      "peak": 0.21370125400205944,
+      "boundary_step": 0.004384474828839302,
+      "passed": true
+    },
+    {
+      "from": "settlement_3",
+      "to": "victory_1",
+      "peak": 0.2640131944467547,
+      "boundary_step": 0.004384474828839302,
+      "passed": true
+    },
+    {
+      "from": "settlement_3",
+      "to": "victory_2",
+      "peak": 0.2276394062200082,
+      "boundary_step": 0.004384474828839302,
+      "passed": true
+    },
+    {
+      "from": "settlement_3",
+      "to": "victory_3",
+      "peak": 0.22790912523525955,
+      "boundary_step": 0.004384474828839302,
+      "passed": true
+    },
+    {
+      "from": "interior_1",
+      "to": "exploration_1",
+      "peak": 0.23815609113424446,
+      "boundary_step": 0.005561050958931446,
+      "passed": true
+    },
+    {
+      "from": "interior_1",
+      "to": "exploration_2",
+      "peak": 0.2345047221048547,
+      "boundary_step": 0.005561050958931446,
+      "passed": true
+    },
+    {
+      "from": "interior_1",
+      "to": "exploration_3",
+      "peak": 0.23293096251597256,
+      "boundary_step": 0.005561050958931446,
+      "passed": true
+    },
+    {
+      "from": "interior_1",
+      "to": "settlement_1",
+      "peak": 0.23447531529024032,
+      "boundary_step": 0.005561050958931446,
+      "passed": true
+    },
+    {
+      "from": "interior_1",
+      "to": "settlement_2",
+      "peak": 0.23459446275177875,
+      "boundary_step": 0.005561050958931446,
+      "passed": true
+    },
+    {
+      "from": "interior_1",
+      "to": "settlement_3",
+      "peak": 0.22687697390171743,
+      "boundary_step": 0.005561050958931446,
+      "passed": true
+    },
+    {
+      "from": "interior_1",
+      "to": "interior_2",
+      "peak": 0.22775035129959023,
+      "boundary_step": 0.005561050958931446,
+      "passed": true
+    },
+    {
+      "from": "interior_1",
+      "to": "interior_3",
+      "peak": 0.2372892903396305,
+      "boundary_step": 0.005561050958931446,
+      "passed": true
+    },
+    {
+      "from": "interior_1",
+      "to": "dungeon_1",
+      "peak": 0.23283990037292007,
+      "boundary_step": 0.005561050958931446,
+      "passed": true
+    },
+    {
+      "from": "interior_1",
+      "to": "dungeon_2",
+      "peak": 0.24490896160058453,
+      "boundary_step": 0.005561050958931446,
+      "passed": true
+    },
+    {
+      "from": "interior_1",
+      "to": "dungeon_3",
+      "peak": 0.23297924505012554,
+      "boundary_step": 0.005561050958931446,
+      "passed": true
+    },
+    {
+      "from": "interior_1",
+      "to": "atmospheric_1",
+      "peak": 0.2360570183788936,
+      "boundary_step": 0.005561050958931446,
+      "passed": true
+    },
+    {
+      "from": "interior_1",
+      "to": "atmospheric_2",
+      "peak": 0.23118456223171394,
+      "boundary_step": 0.005561050958931446,
+      "passed": true
+    },
+    {
+      "from": "interior_1",
+      "to": "atmospheric_3",
+      "peak": 0.23535168650498417,
+      "boundary_step": 0.005561050958931446,
+      "passed": true
+    },
+    {
+      "from": "interior_1",
+      "to": "combat_1",
+      "peak": 0.23534196836061858,
+      "boundary_step": 0.006658349186182022,
+      "passed": true
+    },
+    {
+      "from": "interior_1",
+      "to": "combat_2",
+      "peak": 0.23249641127652426,
+      "boundary_step": 0.005561050958931446,
+      "passed": true
+    },
+    {
+      "from": "interior_1",
+      "to": "combat_3",
+      "peak": 0.2292394905052869,
+      "boundary_step": 0.005561050958931446,
+      "passed": true
+    },
+    {
+      "from": "interior_1",
+      "to": "boss_1",
+      "peak": 0.23155081857682536,
+      "boundary_step": 0.005561050958931446,
+      "passed": true
+    },
+    {
+      "from": "interior_1",
+      "to": "boss_2",
+      "peak": 0.22901494581792753,
+      "boundary_step": 0.005561050958931446,
+      "passed": true
+    },
+    {
+      "from": "interior_1",
+      "to": "boss_3",
+      "peak": 0.2263637692401301,
+      "boundary_step": 0.005561050958931446,
+      "passed": true
+    },
+    {
+      "from": "interior_1",
+      "to": "victory_1",
+      "peak": 0.23585509201012966,
+      "boundary_step": 0.005561050958931446,
+      "passed": true
+    },
+    {
+      "from": "interior_1",
+      "to": "victory_2",
+      "peak": 0.22826272120435676,
+      "boundary_step": 0.005561050958931446,
+      "passed": true
+    },
+    {
+      "from": "interior_1",
+      "to": "victory_3",
+      "peak": 0.2273775499098844,
+      "boundary_step": 0.005561050958931446,
+      "passed": true
+    },
+    {
+      "from": "interior_2",
+      "to": "exploration_1",
+      "peak": 0.25705033631268903,
+      "boundary_step": 0.00591639056801796,
+      "passed": true
+    },
+    {
+      "from": "interior_2",
+      "to": "exploration_2",
+      "peak": 0.25412210702176663,
+      "boundary_step": 0.00591639056801796,
+      "passed": true
+    },
+    {
+      "from": "interior_2",
+      "to": "exploration_3",
+      "peak": 0.2575950619231013,
+      "boundary_step": 0.00591639056801796,
+      "passed": true
+    },
+    {
+      "from": "interior_2",
+      "to": "settlement_1",
+      "peak": 0.25365097389327723,
+      "boundary_step": 0.00591639056801796,
+      "passed": true
+    },
+    {
+      "from": "interior_2",
+      "to": "settlement_2",
+      "peak": 0.259589339403935,
+      "boundary_step": 0.00591639056801796,
+      "passed": true
+    },
+    {
+      "from": "interior_2",
+      "to": "settlement_3",
+      "peak": 0.24802812293668014,
+      "boundary_step": 0.00591639056801796,
+      "passed": true
+    },
+    {
+      "from": "interior_2",
+      "to": "interior_1",
+      "peak": 0.2533735062352054,
+      "boundary_step": 0.00591639056801796,
+      "passed": true
+    },
+    {
+      "from": "interior_2",
+      "to": "interior_3",
+      "peak": 0.25839217001882625,
+      "boundary_step": 0.00591639056801796,
+      "passed": true
+    },
+    {
+      "from": "interior_2",
+      "to": "dungeon_1",
+      "peak": 0.25447609503067653,
+      "boundary_step": 0.00591639056801796,
+      "passed": true
+    },
+    {
+      "from": "interior_2",
+      "to": "dungeon_2",
+      "peak": 0.24670686535946643,
+      "boundary_step": 0.00591639056801796,
+      "passed": true
+    },
+    {
+      "from": "interior_2",
+      "to": "dungeon_3",
+      "peak": 0.24913530827987823,
+      "boundary_step": 0.00591639056801796,
+      "passed": true
+    },
+    {
+      "from": "interior_2",
+      "to": "atmospheric_1",
+      "peak": 0.2551369038572074,
+      "boundary_step": 0.00591639056801796,
+      "passed": true
+    },
+    {
+      "from": "interior_2",
+      "to": "atmospheric_2",
+      "peak": 0.25158157758208594,
+      "boundary_step": 0.00591639056801796,
+      "passed": true
+    },
+    {
+      "from": "interior_2",
+      "to": "atmospheric_3",
+      "peak": 0.2614125409302568,
+      "boundary_step": 0.00591639056801796,
+      "passed": true
+    },
+    {
+      "from": "interior_2",
+      "to": "combat_1",
+      "peak": 0.25248527285979333,
+      "boundary_step": 0.006658349186182022,
+      "passed": true
+    },
+    {
+      "from": "interior_2",
+      "to": "combat_2",
+      "peak": 0.2518197301935824,
+      "boundary_step": 0.00591639056801796,
+      "passed": true
+    },
+    {
+      "from": "interior_2",
+      "to": "combat_3",
+      "peak": 0.24992266565716373,
+      "boundary_step": 0.00591639056801796,
+      "passed": true
+    },
+    {
+      "from": "interior_2",
+      "to": "boss_1",
+      "peak": 0.25204212033633683,
+      "boundary_step": 0.00591639056801796,
+      "passed": true
+    },
+    {
+      "from": "interior_2",
+      "to": "boss_2",
+      "peak": 0.25135035269648953,
+      "boundary_step": 0.00591639056801796,
+      "passed": true
+    },
+    {
+      "from": "interior_2",
+      "to": "boss_3",
+      "peak": 0.24640786395135714,
+      "boundary_step": 0.00591639056801796,
+      "passed": true
+    },
+    {
+      "from": "interior_2",
+      "to": "victory_1",
+      "peak": 0.2556348400131706,
+      "boundary_step": 0.00591639056801796,
+      "passed": true
+    },
+    {
+      "from": "interior_2",
+      "to": "victory_2",
+      "peak": 0.2513141800023008,
+      "boundary_step": 0.00591639056801796,
+      "passed": true
+    },
+    {
+      "from": "interior_2",
+      "to": "victory_3",
+      "peak": 0.24200636321040722,
+      "boundary_step": 0.00591639056801796,
+      "passed": true
+    },
+    {
+      "from": "interior_3",
+      "to": "exploration_1",
+      "peak": 0.2612477503857131,
+      "boundary_step": 0.0035756893921643496,
+      "passed": true
+    },
+    {
+      "from": "interior_3",
+      "to": "exploration_2",
+      "peak": 0.26096337639964107,
+      "boundary_step": 0.0035756893921643496,
+      "passed": true
+    },
+    {
+      "from": "interior_3",
+      "to": "exploration_3",
+      "peak": 0.25792960978153945,
+      "boundary_step": 0.0035756893921643496,
+      "passed": true
+    },
+    {
+      "from": "interior_3",
+      "to": "settlement_1",
+      "peak": 0.25891990942540744,
+      "boundary_step": 0.0035756893921643496,
+      "passed": true
+    },
+    {
+      "from": "interior_3",
+      "to": "settlement_2",
+      "peak": 0.26019242676822507,
+      "boundary_step": 0.0035756893921643496,
+      "passed": true
+    },
+    {
+      "from": "interior_3",
+      "to": "settlement_3",
+      "peak": 0.25647624273246866,
+      "boundary_step": 0.0035756893921643496,
+      "passed": true
+    },
+    {
+      "from": "interior_3",
+      "to": "interior_1",
+      "peak": 0.2593113068243301,
+      "boundary_step": 0.0035756893921643496,
+      "passed": true
+    },
+    {
+      "from": "interior_3",
+      "to": "interior_2",
+      "peak": 0.25232915456021954,
+      "boundary_step": 0.0035756893921643496,
+      "passed": true
+    },
+    {
+      "from": "interior_3",
+      "to": "dungeon_1",
+      "peak": 0.25801401643519817,
+      "boundary_step": 0.0035756893921643496,
+      "passed": true
+    },
+    {
+      "from": "interior_3",
+      "to": "dungeon_2",
+      "peak": 0.2549969415323614,
+      "boundary_step": 0.0035756893921643496,
+      "passed": true
+    },
+    {
+      "from": "interior_3",
+      "to": "dungeon_3",
+      "peak": 0.25920740007949833,
+      "boundary_step": 0.0035756893921643496,
+      "passed": true
+    },
+    {
+      "from": "interior_3",
+      "to": "atmospheric_1",
+      "peak": 0.26200264984473975,
+      "boundary_step": 0.0035756893921643496,
+      "passed": true
+    },
+    {
+      "from": "interior_3",
+      "to": "atmospheric_2",
+      "peak": 0.2569355262650621,
+      "boundary_step": 0.0035756893921643496,
+      "passed": true
+    },
+    {
+      "from": "interior_3",
+      "to": "atmospheric_3",
+      "peak": 0.2599644199695525,
+      "boundary_step": 0.0035756893921643496,
+      "passed": true
+    },
+    {
+      "from": "interior_3",
+      "to": "combat_1",
+      "peak": 0.25842850094091135,
+      "boundary_step": 0.006658349186182022,
+      "passed": true
+    },
+    {
+      "from": "interior_3",
+      "to": "combat_2",
+      "peak": 0.2549127721616841,
+      "boundary_step": 0.0035756893921643496,
+      "passed": true
+    },
+    {
+      "from": "interior_3",
+      "to": "combat_3",
+      "peak": 0.2532963122585635,
+      "boundary_step": 0.0035756893921643496,
+      "passed": true
+    },
+    {
+      "from": "interior_3",
+      "to": "boss_1",
+      "peak": 0.26011919948252654,
+      "boundary_step": 0.0035756893921643496,
+      "passed": true
+    },
+    {
+      "from": "interior_3",
+      "to": "boss_2",
+      "peak": 0.25727379828940616,
+      "boundary_step": 0.003876771777868271,
+      "passed": true
+    },
+    {
+      "from": "interior_3",
+      "to": "boss_3",
+      "peak": 0.2516082285754029,
+      "boundary_step": 0.0035756893921643496,
+      "passed": true
+    },
+    {
+      "from": "interior_3",
+      "to": "victory_1",
+      "peak": 0.2605409698061236,
+      "boundary_step": 0.0035756893921643496,
+      "passed": true
+    },
+    {
+      "from": "interior_3",
+      "to": "victory_2",
+      "peak": 0.25240135397119584,
+      "boundary_step": 0.0035756893921643496,
+      "passed": true
+    },
+    {
+      "from": "interior_3",
+      "to": "victory_3",
+      "peak": 0.25000179976637793,
+      "boundary_step": 0.0035756893921643496,
+      "passed": true
+    },
+    {
+      "from": "dungeon_1",
+      "to": "exploration_1",
+      "peak": 0.2397314274331943,
+      "boundary_step": 0.0046965149231255054,
+      "passed": true
+    },
+    {
+      "from": "dungeon_1",
+      "to": "exploration_2",
+      "peak": 0.20564946262632902,
+      "boundary_step": 0.0046965149231255054,
+      "passed": true
+    },
+    {
+      "from": "dungeon_1",
+      "to": "exploration_3",
+      "peak": 0.20459680545035938,
+      "boundary_step": 0.0046965149231255054,
+      "passed": true
+    },
+    {
+      "from": "dungeon_1",
+      "to": "settlement_1",
+      "peak": 0.2315482006815163,
+      "boundary_step": 0.0046965149231255054,
+      "passed": true
+    },
+    {
+      "from": "dungeon_1",
+      "to": "settlement_2",
+      "peak": 0.20929663648344063,
+      "boundary_step": 0.0046965149231255054,
+      "passed": true
+    },
+    {
+      "from": "dungeon_1",
+      "to": "settlement_3",
+      "peak": 0.21457822344921973,
+      "boundary_step": 0.0046965149231255054,
+      "passed": true
+    },
+    {
+      "from": "dungeon_1",
+      "to": "interior_1",
+      "peak": 0.21840099970480012,
+      "boundary_step": 0.0046965149231255054,
+      "passed": true
+    },
+    {
+      "from": "dungeon_1",
+      "to": "interior_2",
+      "peak": 0.2158598315869227,
+      "boundary_step": 0.0046965149231255054,
+      "passed": true
+    },
+    {
+      "from": "dungeon_1",
+      "to": "interior_3",
+      "peak": 0.2098205745709911,
+      "boundary_step": 0.0046965149231255054,
+      "passed": true
+    },
+    {
+      "from": "dungeon_1",
+      "to": "dungeon_2",
+      "peak": 0.2112308415801226,
+      "boundary_step": 0.0046965149231255054,
+      "passed": true
+    },
+    {
+      "from": "dungeon_1",
+      "to": "dungeon_3",
+      "peak": 0.2197672501061847,
+      "boundary_step": 0.0046965149231255054,
+      "passed": true
+    },
+    {
+      "from": "dungeon_1",
+      "to": "atmospheric_1",
+      "peak": 0.21371202879807985,
+      "boundary_step": 0.0046965149231255054,
+      "passed": true
+    },
+    {
+      "from": "dungeon_1",
+      "to": "atmospheric_2",
+      "peak": 0.20645067816357351,
+      "boundary_step": 0.0046965149231255054,
+      "passed": true
+    },
+    {
+      "from": "dungeon_1",
+      "to": "atmospheric_3",
+      "peak": 0.21496389343300237,
+      "boundary_step": 0.0046965149231255054,
+      "passed": true
+    },
+    {
+      "from": "dungeon_1",
+      "to": "combat_1",
+      "peak": 0.214613381614761,
+      "boundary_step": 0.006658349186182022,
+      "passed": true
+    },
+    {
+      "from": "dungeon_1",
+      "to": "combat_2",
+      "peak": 0.23028844638883397,
+      "boundary_step": 0.0046965149231255054,
+      "passed": true
+    },
+    {
+      "from": "dungeon_1",
+      "to": "combat_3",
+      "peak": 0.21109071775325366,
+      "boundary_step": 0.0046965149231255054,
+      "passed": true
+    },
+    {
+      "from": "dungeon_1",
+      "to": "boss_1",
+      "peak": 0.21776766118367627,
+      "boundary_step": 0.0046965149231255054,
+      "passed": true
+    },
+    {
+      "from": "dungeon_1",
+      "to": "boss_2",
+      "peak": 0.1973587905901245,
+      "boundary_step": 0.0046965149231255054,
+      "passed": true
+    },
+    {
+      "from": "dungeon_1",
+      "to": "boss_3",
+      "peak": 0.20565483195865308,
+      "boundary_step": 0.0046965149231255054,
+      "passed": true
+    },
+    {
+      "from": "dungeon_1",
+      "to": "victory_1",
+      "peak": 0.21896572802705977,
+      "boundary_step": 0.0046965149231255054,
+      "passed": true
+    },
+    {
+      "from": "dungeon_1",
+      "to": "victory_2",
+      "peak": 0.2249193424466771,
+      "boundary_step": 0.0046965149231255054,
+      "passed": true
+    },
+    {
+      "from": "dungeon_1",
+      "to": "victory_3",
+      "peak": 0.20150112401161016,
+      "boundary_step": 0.0046965149231255054,
+      "passed": true
+    },
+    {
+      "from": "dungeon_2",
+      "to": "exploration_1",
+      "peak": 0.24833742826821975,
+      "boundary_step": 0.005207959562540054,
+      "passed": true
+    },
+    {
+      "from": "dungeon_2",
+      "to": "exploration_2",
+      "peak": 0.22025703543737687,
+      "boundary_step": 0.005207959562540054,
+      "passed": true
+    },
+    {
+      "from": "dungeon_2",
+      "to": "exploration_3",
+      "peak": 0.2238608383133257,
+      "boundary_step": 0.005207959562540054,
+      "passed": true
+    },
+    {
+      "from": "dungeon_2",
+      "to": "settlement_1",
+      "peak": 0.24018025671833962,
+      "boundary_step": 0.005207959562540054,
+      "passed": true
+    },
+    {
+      "from": "dungeon_2",
+      "to": "settlement_2",
+      "peak": 0.23098320982512366,
+      "boundary_step": 0.005207959562540054,
+      "passed": true
+    },
+    {
+      "from": "dungeon_2",
+      "to": "settlement_3",
+      "peak": 0.22045733677173482,
+      "boundary_step": 0.005207959562540054,
+      "passed": true
+    },
+    {
+      "from": "dungeon_2",
+      "to": "interior_1",
+      "peak": 0.23865536355322992,
+      "boundary_step": 0.005207959562540054,
+      "passed": true
+    },
+    {
+      "from": "dungeon_2",
+      "to": "interior_2",
+      "peak": 0.23568104457947736,
+      "boundary_step": 0.005207959562540054,
+      "passed": true
+    },
+    {
+      "from": "dungeon_2",
+      "to": "interior_3",
+      "peak": 0.23147058800138573,
+      "boundary_step": 0.005207959562540054,
+      "passed": true
+    },
+    {
+      "from": "dungeon_2",
+      "to": "dungeon_1",
+      "peak": 0.23219143470640868,
+      "boundary_step": 0.005207959562540054,
+      "passed": true
+    },
+    {
+      "from": "dungeon_2",
+      "to": "dungeon_3",
+      "peak": 0.21856636277129565,
+      "boundary_step": 0.005207959562540054,
+      "passed": true
+    },
+    {
+      "from": "dungeon_2",
+      "to": "atmospheric_1",
+      "peak": 0.22311647973743573,
+      "boundary_step": 0.005207959562540054,
+      "passed": true
+    },
+    {
+      "from": "dungeon_2",
+      "to": "atmospheric_2",
+      "peak": 0.2189986393296015,
+      "boundary_step": 0.005207959562540054,
+      "passed": true
+    },
+    {
+      "from": "dungeon_2",
+      "to": "atmospheric_3",
+      "peak": 0.22596968066617998,
+      "boundary_step": 0.005207959562540054,
+      "passed": true
+    },
+    {
+      "from": "dungeon_2",
+      "to": "combat_1",
+      "peak": 0.23214159791026476,
+      "boundary_step": 0.006658349186182022,
+      "passed": true
+    },
+    {
+      "from": "dungeon_2",
+      "to": "combat_2",
+      "peak": 0.23427270805604908,
+      "boundary_step": 0.005207959562540054,
+      "passed": true
+    },
+    {
+      "from": "dungeon_2",
+      "to": "combat_3",
+      "peak": 0.2311843685856924,
+      "boundary_step": 0.005207959562540054,
+      "passed": true
+    },
+    {
+      "from": "dungeon_2",
+      "to": "boss_1",
+      "peak": 0.22849559097231428,
+      "boundary_step": 0.005207959562540054,
+      "passed": true
+    },
+    {
+      "from": "dungeon_2",
+      "to": "boss_2",
+      "peak": 0.2277279127908751,
+      "boundary_step": 0.005207959562540054,
+      "passed": true
+    },
+    {
+      "from": "dungeon_2",
+      "to": "boss_3",
+      "peak": 0.22965478088540983,
+      "boundary_step": 0.005207959562540054,
+      "passed": true
+    },
+    {
+      "from": "dungeon_2",
+      "to": "victory_1",
+      "peak": 0.2342132108981638,
+      "boundary_step": 0.005207959562540054,
+      "passed": true
+    },
+    {
+      "from": "dungeon_2",
+      "to": "victory_2",
+      "peak": 0.2322646556463224,
+      "boundary_step": 0.005207959562540054,
+      "passed": true
+    },
+    {
+      "from": "dungeon_2",
+      "to": "victory_3",
+      "peak": 0.2194940025239415,
+      "boundary_step": 0.005207959562540054,
+      "passed": true
+    },
+    {
+      "from": "dungeon_3",
+      "to": "exploration_1",
+      "peak": 0.2385087237164655,
+      "boundary_step": 0.003509014844894409,
+      "passed": true
+    },
+    {
+      "from": "dungeon_3",
+      "to": "exploration_2",
+      "peak": 0.2310883839236201,
+      "boundary_step": 0.003509014844894409,
+      "passed": true
+    },
+    {
+      "from": "dungeon_3",
+      "to": "exploration_3",
+      "peak": 0.23124422110442244,
+      "boundary_step": 0.003509014844894409,
+      "passed": true
+    },
+    {
+      "from": "dungeon_3",
+      "to": "settlement_1",
+      "peak": 0.22705791501148653,
+      "boundary_step": 0.003509014844894409,
+      "passed": true
+    },
+    {
+      "from": "dungeon_3",
+      "to": "settlement_2",
+      "peak": 0.21274564479015298,
+      "boundary_step": 0.003509014844894409,
+      "passed": true
+    },
+    {
+      "from": "dungeon_3",
+      "to": "settlement_3",
+      "peak": 0.24201285356649438,
+      "boundary_step": 0.003509014844894409,
+      "passed": true
+    },
+    {
+      "from": "dungeon_3",
+      "to": "interior_1",
+      "peak": 0.21548378329411833,
+      "boundary_step": 0.003509014844894409,
+      "passed": true
+    },
+    {
+      "from": "dungeon_3",
+      "to": "interior_2",
+      "peak": 0.21815275200552725,
+      "boundary_step": 0.003509014844894409,
+      "passed": true
+    },
+    {
+      "from": "dungeon_3",
+      "to": "interior_3",
+      "peak": 0.2172452315970832,
+      "boundary_step": 0.003509014844894409,
+      "passed": true
+    },
+    {
+      "from": "dungeon_3",
+      "to": "dungeon_1",
+      "peak": 0.23479917701955377,
+      "boundary_step": 0.003509014844894409,
+      "passed": true
+    },
+    {
+      "from": "dungeon_3",
+      "to": "dungeon_2",
+      "peak": 0.2258752073090617,
+      "boundary_step": 0.003509014844894409,
+      "passed": true
+    },
+    {
+      "from": "dungeon_3",
+      "to": "atmospheric_1",
+      "peak": 0.2252264361999844,
+      "boundary_step": 0.003509014844894409,
+      "passed": true
+    },
+    {
+      "from": "dungeon_3",
+      "to": "atmospheric_2",
+      "peak": 0.2280525420685746,
+      "boundary_step": 0.003509014844894409,
+      "passed": true
+    },
+    {
+      "from": "dungeon_3",
+      "to": "atmospheric_3",
+      "peak": 0.21546623127428485,
+      "boundary_step": 0.003509014844894409,
+      "passed": true
+    },
+    {
+      "from": "dungeon_3",
+      "to": "combat_1",
+      "peak": 0.22409959303838195,
+      "boundary_step": 0.006658349186182022,
+      "passed": true
+    },
+    {
+      "from": "dungeon_3",
+      "to": "combat_2",
+      "peak": 0.22611638762054984,
+      "boundary_step": 0.003509014844894409,
+      "passed": true
+    },
+    {
+      "from": "dungeon_3",
+      "to": "combat_3",
+      "peak": 0.21467847550532634,
+      "boundary_step": 0.003509014844894409,
+      "passed": true
+    },
+    {
+      "from": "dungeon_3",
+      "to": "boss_1",
+      "peak": 0.22323118621586593,
+      "boundary_step": 0.003509014844894409,
+      "passed": true
+    },
+    {
+      "from": "dungeon_3",
+      "to": "boss_2",
+      "peak": 0.2152731549092521,
+      "boundary_step": 0.003876771777868271,
+      "passed": true
+    },
+    {
+      "from": "dungeon_3",
+      "to": "boss_3",
+      "peak": 0.21141534444349191,
+      "boundary_step": 0.003509014844894409,
+      "passed": true
+    },
+    {
+      "from": "dungeon_3",
+      "to": "victory_1",
+      "peak": 0.23892535234626397,
+      "boundary_step": 0.003509014844894409,
+      "passed": true
+    },
+    {
+      "from": "dungeon_3",
+      "to": "victory_2",
+      "peak": 0.2163389112710282,
+      "boundary_step": 0.003509014844894409,
+      "passed": true
+    },
+    {
+      "from": "dungeon_3",
+      "to": "victory_3",
+      "peak": 0.22429994719794713,
+      "boundary_step": 0.003509014844894409,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_1",
+      "to": "exploration_1",
+      "peak": 0.2998127358379842,
+      "boundary_step": 0.004291694611310959,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_1",
+      "to": "exploration_2",
+      "peak": 0.2654216504157017,
+      "boundary_step": 0.004291694611310959,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_1",
+      "to": "exploration_3",
+      "peak": 0.26924453555585337,
+      "boundary_step": 0.004291694611310959,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_1",
+      "to": "settlement_1",
+      "peak": 0.2791498885806084,
+      "boundary_step": 0.004291694611310959,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_1",
+      "to": "settlement_2",
+      "peak": 0.2767318524610894,
+      "boundary_step": 0.004291694611310959,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_1",
+      "to": "settlement_3",
+      "peak": 0.27335443320227815,
+      "boundary_step": 0.004291694611310959,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_1",
+      "to": "interior_1",
+      "peak": 0.27368976652725446,
+      "boundary_step": 0.004291694611310959,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_1",
+      "to": "interior_2",
+      "peak": 0.26308487075629566,
+      "boundary_step": 0.004291694611310959,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_1",
+      "to": "interior_3",
+      "peak": 0.2693575085439386,
+      "boundary_step": 0.004291694611310959,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_1",
+      "to": "dungeon_1",
+      "peak": 0.2832517370043781,
+      "boundary_step": 0.004291694611310959,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_1",
+      "to": "dungeon_2",
+      "peak": 0.2694581302226317,
+      "boundary_step": 0.004291694611310959,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_1",
+      "to": "dungeon_3",
+      "peak": 0.2634837880737808,
+      "boundary_step": 0.004291694611310959,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_1",
+      "to": "atmospheric_2",
+      "peak": 0.26536613851642077,
+      "boundary_step": 0.004291694611310959,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_1",
+      "to": "atmospheric_3",
+      "peak": 0.2963957830792636,
+      "boundary_step": 0.004291694611310959,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_1",
+      "to": "combat_1",
+      "peak": 0.28326426233744273,
+      "boundary_step": 0.006658349186182022,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_1",
+      "to": "combat_2",
+      "peak": 0.2703738904325325,
+      "boundary_step": 0.004291694611310959,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_1",
+      "to": "combat_3",
+      "peak": 0.2715891642221028,
+      "boundary_step": 0.004291694611310959,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_1",
+      "to": "boss_1",
+      "peak": 0.27352770726006453,
+      "boundary_step": 0.004291694611310959,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_1",
+      "to": "boss_2",
+      "peak": 0.2655453333663367,
+      "boundary_step": 0.004291694611310959,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_1",
+      "to": "boss_3",
+      "peak": 0.2741875500992581,
+      "boundary_step": 0.004291694611310959,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_1",
+      "to": "victory_1",
+      "peak": 0.2760547804048042,
+      "boundary_step": 0.004291694611310959,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_1",
+      "to": "victory_2",
+      "peak": 0.2652328005947141,
+      "boundary_step": 0.004291694611310959,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_1",
+      "to": "victory_3",
+      "peak": 0.25678905581469946,
+      "boundary_step": 0.004291694611310959,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_2",
+      "to": "exploration_1",
+      "peak": 0.27571087334683453,
+      "boundary_step": 0.003440573811531067,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_2",
+      "to": "exploration_2",
+      "peak": 0.2667340936188242,
+      "boundary_step": 0.0028333496302366257,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_2",
+      "to": "exploration_3",
+      "peak": 0.2739545316426483,
+      "boundary_step": 0.0028333496302366257,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_2",
+      "to": "settlement_1",
+      "peak": 0.27345308696036674,
+      "boundary_step": 0.0028333496302366257,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_2",
+      "to": "settlement_2",
+      "peak": 0.27383647849269005,
+      "boundary_step": 0.0028333496302366257,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_2",
+      "to": "settlement_3",
+      "peak": 0.2601108159259448,
+      "boundary_step": 0.0028333496302366257,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_2",
+      "to": "interior_1",
+      "peak": 0.2727567298499418,
+      "boundary_step": 0.0028333496302366257,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_2",
+      "to": "interior_2",
+      "peak": 0.2659345605580422,
+      "boundary_step": 0.0028333496302366257,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_2",
+      "to": "interior_3",
+      "peak": 0.273592547702346,
+      "boundary_step": 0.0028333496302366257,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_2",
+      "to": "dungeon_1",
+      "peak": 0.2702501626449348,
+      "boundary_step": 0.0028333496302366257,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_2",
+      "to": "dungeon_2",
+      "peak": 0.2604100754710262,
+      "boundary_step": 0.0028333496302366257,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_2",
+      "to": "dungeon_3",
+      "peak": 0.2615601415585295,
+      "boundary_step": 0.0028333496302366257,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_2",
+      "to": "atmospheric_1",
+      "peak": 0.2718651414038906,
+      "boundary_step": 0.0028333496302366257,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_2",
+      "to": "atmospheric_3",
+      "peak": 0.2755762459360626,
+      "boundary_step": 0.0028333496302366257,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_2",
+      "to": "combat_1",
+      "peak": 0.2713564869112598,
+      "boundary_step": 0.006658349186182022,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_2",
+      "to": "combat_2",
+      "peak": 0.2712832169055296,
+      "boundary_step": 0.0028333496302366257,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_2",
+      "to": "combat_3",
+      "peak": 0.26926787300531463,
+      "boundary_step": 0.0028333496302366257,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_2",
+      "to": "boss_1",
+      "peak": 0.2643628275558471,
+      "boundary_step": 0.0028333496302366257,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_2",
+      "to": "boss_2",
+      "peak": 0.26380734614408274,
+      "boundary_step": 0.003876771777868271,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_2",
+      "to": "boss_3",
+      "peak": 0.2651510764151853,
+      "boundary_step": 0.0028333496302366257,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_2",
+      "to": "victory_1",
+      "peak": 0.2629048427313364,
+      "boundary_step": 0.0028333496302366257,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_2",
+      "to": "victory_2",
+      "peak": 0.26971890875697446,
+      "boundary_step": 0.0029526520520448685,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_2",
+      "to": "victory_3",
+      "peak": 0.2606122664934856,
+      "boundary_step": 0.0028333496302366257,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_3",
+      "to": "exploration_1",
+      "peak": 0.2950152206196447,
+      "boundary_step": 0.0038573145866394043,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_3",
+      "to": "exploration_2",
+      "peak": 0.26480309834822424,
+      "boundary_step": 0.0038573145866394043,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_3",
+      "to": "exploration_3",
+      "peak": 0.2548099322669616,
+      "boundary_step": 0.0038573145866394043,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_3",
+      "to": "settlement_1",
+      "peak": 0.2739374992256014,
+      "boundary_step": 0.0038573145866394043,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_3",
+      "to": "settlement_2",
+      "peak": 0.26194244293879776,
+      "boundary_step": 0.0038573145866394043,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_3",
+      "to": "settlement_3",
+      "peak": 0.268514878372944,
+      "boundary_step": 0.0038573145866394043,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_3",
+      "to": "interior_1",
+      "peak": 0.26669635970373107,
+      "boundary_step": 0.0038573145866394043,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_3",
+      "to": "interior_2",
+      "peak": 0.25864349498066763,
+      "boundary_step": 0.0038573145866394043,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_3",
+      "to": "interior_3",
+      "peak": 0.2627467651684478,
+      "boundary_step": 0.0038573145866394043,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_3",
+      "to": "dungeon_1",
+      "peak": 0.27880740544026367,
+      "boundary_step": 0.0038573145866394043,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_3",
+      "to": "dungeon_2",
+      "peak": 0.26371269092062916,
+      "boundary_step": 0.0038573145866394043,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_3",
+      "to": "dungeon_3",
+      "peak": 0.26622568870187124,
+      "boundary_step": 0.0038573145866394043,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_3",
+      "to": "atmospheric_1",
+      "peak": 0.2683515975041977,
+      "boundary_step": 0.0038573145866394043,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_3",
+      "to": "atmospheric_2",
+      "peak": 0.26374329896744286,
+      "boundary_step": 0.0038573145866394043,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_3",
+      "to": "combat_1",
+      "peak": 0.2784079359414191,
+      "boundary_step": 0.006658349186182022,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_3",
+      "to": "combat_2",
+      "peak": 0.27110231053648515,
+      "boundary_step": 0.0038573145866394043,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_3",
+      "to": "combat_3",
+      "peak": 0.2736688715039207,
+      "boundary_step": 0.0038573145866394043,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_3",
+      "to": "boss_1",
+      "peak": 0.26639259322047953,
+      "boundary_step": 0.0038573145866394043,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_3",
+      "to": "boss_2",
+      "peak": 0.26089422290677583,
+      "boundary_step": 0.003876771777868271,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_3",
+      "to": "boss_3",
+      "peak": 0.26189159334624046,
+      "boundary_step": 0.0038573145866394043,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_3",
+      "to": "victory_1",
+      "peak": 0.2714247780204973,
+      "boundary_step": 0.0038573145866394043,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_3",
+      "to": "victory_2",
+      "peak": 0.2538505764733055,
+      "boundary_step": 0.0038573145866394043,
+      "passed": true
+    },
+    {
+      "from": "atmospheric_3",
+      "to": "victory_3",
+      "peak": 0.2557773890871406,
+      "boundary_step": 0.0038573145866394043,
+      "passed": true
+    },
+    {
+      "from": "combat_1",
+      "to": "exploration_1",
+      "peak": 0.21951140636425234,
+      "boundary_step": 0.009339073672890663,
+      "passed": true
+    },
+    {
+      "from": "combat_1",
+      "to": "exploration_2",
+      "peak": 0.22355881060896932,
+      "boundary_step": 0.009339073672890663,
+      "passed": true
+    },
+    {
+      "from": "combat_1",
+      "to": "exploration_3",
+      "peak": 0.22883296930708766,
+      "boundary_step": 0.009339073672890663,
+      "passed": true
+    },
+    {
+      "from": "combat_1",
+      "to": "settlement_1",
+      "peak": 0.22953556353971685,
+      "boundary_step": 0.009339073672890663,
+      "passed": true
+    },
+    {
+      "from": "combat_1",
+      "to": "settlement_2",
+      "peak": 0.23472619567616354,
+      "boundary_step": 0.009339073672890663,
+      "passed": true
+    },
+    {
+      "from": "combat_1",
+      "to": "settlement_3",
+      "peak": 0.2406204636274622,
+      "boundary_step": 0.009339073672890663,
+      "passed": true
+    },
+    {
+      "from": "combat_1",
+      "to": "interior_1",
+      "peak": 0.22161028047430315,
+      "boundary_step": 0.009339073672890663,
+      "passed": true
+    },
+    {
+      "from": "combat_1",
+      "to": "interior_2",
+      "peak": 0.22882004155244776,
+      "boundary_step": 0.009339073672890663,
+      "passed": true
+    },
+    {
+      "from": "combat_1",
+      "to": "interior_3",
+      "peak": 0.23602534659204633,
+      "boundary_step": 0.009339073672890663,
+      "passed": true
+    },
+    {
+      "from": "combat_1",
+      "to": "dungeon_1",
+      "peak": 0.22908029430299753,
+      "boundary_step": 0.009339073672890663,
+      "passed": true
+    },
+    {
+      "from": "combat_1",
+      "to": "dungeon_2",
+      "peak": 0.24199058334287776,
+      "boundary_step": 0.009339073672890663,
+      "passed": true
+    },
+    {
+      "from": "combat_1",
+      "to": "dungeon_3",
+      "peak": 0.23548345918368171,
+      "boundary_step": 0.009339073672890663,
+      "passed": true
+    },
+    {
+      "from": "combat_1",
+      "to": "atmospheric_1",
+      "peak": 0.22219215654061603,
+      "boundary_step": 0.009339073672890663,
+      "passed": true
+    },
+    {
+      "from": "combat_1",
+      "to": "atmospheric_2",
+      "peak": 0.2236282046429836,
+      "boundary_step": 0.009339073672890663,
+      "passed": true
+    },
+    {
+      "from": "combat_1",
+      "to": "atmospheric_3",
+      "peak": 0.22861101419035987,
+      "boundary_step": 0.009339073672890663,
+      "passed": true
+    },
+    {
+      "from": "combat_1",
+      "to": "combat_2",
+      "peak": 0.2801304196039043,
+      "boundary_step": 0.009339073672890663,
+      "passed": true
+    },
+    {
+      "from": "combat_1",
+      "to": "combat_3",
+      "peak": 0.24910891017371592,
+      "boundary_step": 0.009339073672890663,
+      "passed": true
+    },
+    {
+      "from": "combat_1",
+      "to": "boss_1",
+      "peak": 0.23375005413944855,
+      "boundary_step": 0.009339073672890663,
+      "passed": true
+    },
+    {
+      "from": "combat_1",
+      "to": "boss_2",
+      "peak": 0.23741712420887773,
+      "boundary_step": 0.009339073672890663,
+      "passed": true
+    },
+    {
+      "from": "combat_1",
+      "to": "boss_3",
+      "peak": 0.23999807132697681,
+      "boundary_step": 0.009339073672890663,
+      "passed": true
+    },
+    {
+      "from": "combat_1",
+      "to": "victory_1",
+      "peak": 0.23411265677325116,
+      "boundary_step": 0.009339073672890663,
+      "passed": true
+    },
+    {
+      "from": "combat_1",
+      "to": "victory_2",
+      "peak": 0.23595536158153757,
+      "boundary_step": 0.009339073672890663,
+      "passed": true
+    },
+    {
+      "from": "combat_1",
+      "to": "victory_3",
+      "peak": 0.2251925102519327,
+      "boundary_step": 0.009339073672890663,
+      "passed": true
+    },
+    {
+      "from": "combat_2",
+      "to": "exploration_1",
+      "peak": 0.2293673405122362,
+      "boundary_step": 0.006519690155982971,
+      "passed": true
+    },
+    {
+      "from": "combat_2",
+      "to": "exploration_2",
+      "peak": 0.21897418410871194,
+      "boundary_step": 0.006519690155982971,
+      "passed": true
+    },
+    {
+      "from": "combat_2",
+      "to": "exploration_3",
+      "peak": 0.23041496424382768,
+      "boundary_step": 0.006519690155982971,
+      "passed": true
+    },
+    {
+      "from": "combat_2",
+      "to": "settlement_1",
+      "peak": 0.23365794811135127,
+      "boundary_step": 0.006519690155982971,
+      "passed": true
+    },
+    {
+      "from": "combat_2",
+      "to": "settlement_2",
+      "peak": 0.23641996732649745,
+      "boundary_step": 0.006519690155982971,
+      "passed": true
+    },
+    {
+      "from": "combat_2",
+      "to": "settlement_3",
+      "peak": 0.23588011789615893,
+      "boundary_step": 0.006519690155982971,
+      "passed": true
+    },
+    {
+      "from": "combat_2",
+      "to": "interior_1",
+      "peak": 0.233851481444438,
+      "boundary_step": 0.006519690155982971,
+      "passed": true
+    },
+    {
+      "from": "combat_2",
+      "to": "interior_2",
+      "peak": 0.22423708871711093,
+      "boundary_step": 0.006519690155982971,
+      "passed": true
+    },
+    {
+      "from": "combat_2",
+      "to": "interior_3",
+      "peak": 0.2415802224683371,
+      "boundary_step": 0.006519690155982971,
+      "passed": true
+    },
+    {
+      "from": "combat_2",
+      "to": "dungeon_1",
+      "peak": 0.24807122482551283,
+      "boundary_step": 0.006519690155982971,
+      "passed": true
+    },
+    {
+      "from": "combat_2",
+      "to": "dungeon_2",
+      "peak": 0.23498452436071965,
+      "boundary_step": 0.006519690155982971,
+      "passed": true
+    },
+    {
+      "from": "combat_2",
+      "to": "dungeon_3",
+      "peak": 0.22719113846556155,
+      "boundary_step": 0.006519690155982971,
+      "passed": true
+    },
+    {
+      "from": "combat_2",
+      "to": "atmospheric_1",
+      "peak": 0.23227690543867985,
+      "boundary_step": 0.006519690155982971,
+      "passed": true
+    },
+    {
+      "from": "combat_2",
+      "to": "atmospheric_2",
+      "peak": 0.21926779207292085,
+      "boundary_step": 0.006519690155982971,
+      "passed": true
+    },
+    {
+      "from": "combat_2",
+      "to": "atmospheric_3",
+      "peak": 0.23017327792961054,
+      "boundary_step": 0.006519690155982971,
+      "passed": true
+    },
+    {
+      "from": "combat_2",
+      "to": "combat_1",
+      "peak": 0.2540343542538527,
+      "boundary_step": 0.006658349186182022,
+      "passed": true
+    },
+    {
+      "from": "combat_2",
+      "to": "combat_3",
+      "peak": 0.24947031577612377,
+      "boundary_step": 0.006519690155982971,
+      "passed": true
+    },
+    {
+      "from": "combat_2",
+      "to": "boss_1",
+      "peak": 0.2406944700887269,
+      "boundary_step": 0.006519690155982971,
+      "passed": true
+    },
+    {
+      "from": "combat_2",
+      "to": "boss_2",
+      "peak": 0.2431598047583767,
+      "boundary_step": 0.006519690155982971,
+      "passed": true
+    },
+    {
+      "from": "combat_2",
+      "to": "boss_3",
+      "peak": 0.2446482176578073,
+      "boundary_step": 0.006519690155982971,
+      "passed": true
+    },
+    {
+      "from": "combat_2",
+      "to": "victory_1",
+      "peak": 0.22760376643238267,
+      "boundary_step": 0.006519690155982971,
+      "passed": true
+    },
+    {
+      "from": "combat_2",
+      "to": "victory_2",
+      "peak": 0.23634040964193181,
+      "boundary_step": 0.006519690155982971,
+      "passed": true
+    },
+    {
+      "from": "combat_2",
+      "to": "victory_3",
+      "peak": 0.22870383247969878,
+      "boundary_step": 0.006519690155982971,
+      "passed": true
+    },
+    {
+      "from": "combat_3",
+      "to": "exploration_1",
+      "peak": 0.22229163946518896,
+      "boundary_step": 0.005821266211569309,
+      "passed": true
+    },
+    {
+      "from": "combat_3",
+      "to": "exploration_2",
+      "peak": 0.22380306293919927,
+      "boundary_step": 0.005821266211569309,
+      "passed": true
+    },
+    {
+      "from": "combat_3",
+      "to": "exploration_3",
+      "peak": 0.22935288546953211,
+      "boundary_step": 0.005821266211569309,
+      "passed": true
+    },
+    {
+      "from": "combat_3",
+      "to": "settlement_1",
+      "peak": 0.22709556262415856,
+      "boundary_step": 0.005821266211569309,
+      "passed": true
+    },
+    {
+      "from": "combat_3",
+      "to": "settlement_2",
+      "peak": 0.23521332626961006,
+      "boundary_step": 0.005821266211569309,
+      "passed": true
+    },
+    {
+      "from": "combat_3",
+      "to": "settlement_3",
+      "peak": 0.23483687909478734,
+      "boundary_step": 0.005821266211569309,
+      "passed": true
+    },
+    {
+      "from": "combat_3",
+      "to": "interior_1",
+      "peak": 0.22452627431838146,
+      "boundary_step": 0.005821266211569309,
+      "passed": true
+    },
+    {
+      "from": "combat_3",
+      "to": "interior_2",
+      "peak": 0.2216379581264049,
+      "boundary_step": 0.005821266211569309,
+      "passed": true
+    },
+    {
+      "from": "combat_3",
+      "to": "interior_3",
+      "peak": 0.23775897419228836,
+      "boundary_step": 0.005821266211569309,
+      "passed": true
+    },
+    {
+      "from": "combat_3",
+      "to": "dungeon_1",
+      "peak": 0.23439293351868362,
+      "boundary_step": 0.005821266211569309,
+      "passed": true
+    },
+    {
+      "from": "combat_3",
+      "to": "dungeon_2",
+      "peak": 0.24180553459324394,
+      "boundary_step": 0.005821266211569309,
+      "passed": true
+    },
+    {
+      "from": "combat_3",
+      "to": "dungeon_3",
+      "peak": 0.23464310198227165,
+      "boundary_step": 0.005821266211569309,
+      "passed": true
+    },
+    {
+      "from": "combat_3",
+      "to": "atmospheric_1",
+      "peak": 0.22311721322713002,
+      "boundary_step": 0.005821266211569309,
+      "passed": true
+    },
+    {
+      "from": "combat_3",
+      "to": "atmospheric_2",
+      "peak": 0.22407824023081513,
+      "boundary_step": 0.005821266211569309,
+      "passed": true
+    },
+    {
+      "from": "combat_3",
+      "to": "atmospheric_3",
+      "peak": 0.23290069235535124,
+      "boundary_step": 0.005821266211569309,
+      "passed": true
+    },
+    {
+      "from": "combat_3",
+      "to": "combat_1",
+      "peak": 0.2475406455534815,
+      "boundary_step": 0.006658349186182022,
+      "passed": true
+    },
+    {
+      "from": "combat_3",
+      "to": "combat_2",
+      "peak": 0.26709771955163375,
+      "boundary_step": 0.005821266211569309,
+      "passed": true
+    },
+    {
+      "from": "combat_3",
+      "to": "boss_1",
+      "peak": 0.23560090165485698,
+      "boundary_step": 0.005821266211569309,
+      "passed": true
+    },
+    {
+      "from": "combat_3",
+      "to": "boss_2",
+      "peak": 0.23885318772830288,
+      "boundary_step": 0.005821266211569309,
+      "passed": true
+    },
+    {
+      "from": "combat_3",
+      "to": "boss_3",
+      "peak": 0.24155701409284316,
+      "boundary_step": 0.005821266211569309,
+      "passed": true
+    },
+    {
+      "from": "combat_3",
+      "to": "victory_1",
+      "peak": 0.2347523679947553,
+      "boundary_step": 0.005821266211569309,
+      "passed": true
+    },
+    {
+      "from": "combat_3",
+      "to": "victory_2",
+      "peak": 0.23655219271622477,
+      "boundary_step": 0.005821266211569309,
+      "passed": true
+    },
+    {
+      "from": "combat_3",
+      "to": "victory_3",
+      "peak": 0.2285390035628921,
+      "boundary_step": 0.005821266211569309,
+      "passed": true
+    },
+    {
+      "from": "boss_1",
+      "to": "exploration_1",
+      "peak": 0.28085894234314807,
+      "boundary_step": 0.005566241219639778,
+      "passed": true
+    },
+    {
+      "from": "boss_1",
+      "to": "exploration_2",
+      "peak": 0.2732176997622845,
+      "boundary_step": 0.005566241219639778,
+      "passed": true
+    },
+    {
+      "from": "boss_1",
+      "to": "exploration_3",
+      "peak": 0.2733077245418907,
+      "boundary_step": 0.005566241219639778,
+      "passed": true
+    },
+    {
+      "from": "boss_1",
+      "to": "settlement_1",
+      "peak": 0.2748548227964149,
+      "boundary_step": 0.005566241219639778,
+      "passed": true
+    },
+    {
+      "from": "boss_1",
+      "to": "settlement_2",
+      "peak": 0.27458633945213134,
+      "boundary_step": 0.005566241219639778,
+      "passed": true
+    },
+    {
+      "from": "boss_1",
+      "to": "settlement_3",
+      "peak": 0.2749564647929707,
+      "boundary_step": 0.005566241219639778,
+      "passed": true
+    },
+    {
+      "from": "boss_1",
+      "to": "interior_1",
+      "peak": 0.27182734973943684,
+      "boundary_step": 0.005566241219639778,
+      "passed": true
+    },
+    {
+      "from": "boss_1",
+      "to": "interior_2",
+      "peak": 0.2719929601514395,
+      "boundary_step": 0.005566241219639778,
+      "passed": true
+    },
+    {
+      "from": "boss_1",
+      "to": "interior_3",
+      "peak": 0.2694552185886264,
+      "boundary_step": 0.005566241219639778,
+      "passed": true
+    },
+    {
+      "from": "boss_1",
+      "to": "dungeon_1",
+      "peak": 0.279362547741276,
+      "boundary_step": 0.005566241219639778,
+      "passed": true
+    },
+    {
+      "from": "boss_1",
+      "to": "dungeon_2",
+      "peak": 0.27745518939929925,
+      "boundary_step": 0.005566241219639778,
+      "passed": true
+    },
+    {
+      "from": "boss_1",
+      "to": "dungeon_3",
+      "peak": 0.2760710509378718,
+      "boundary_step": 0.005566241219639778,
+      "passed": true
+    },
+    {
+      "from": "boss_1",
+      "to": "atmospheric_1",
+      "peak": 0.27318933699305487,
+      "boundary_step": 0.005566241219639778,
+      "passed": true
+    },
+    {
+      "from": "boss_1",
+      "to": "atmospheric_2",
+      "peak": 0.2735394907713605,
+      "boundary_step": 0.005566241219639778,
+      "passed": true
+    },
+    {
+      "from": "boss_1",
+      "to": "atmospheric_3",
+      "peak": 0.28247904495778703,
+      "boundary_step": 0.005566241219639778,
+      "passed": true
+    },
+    {
+      "from": "boss_1",
+      "to": "combat_1",
+      "peak": 0.2790321024591521,
+      "boundary_step": 0.006658349186182022,
+      "passed": true
+    },
+    {
+      "from": "boss_1",
+      "to": "combat_2",
+      "peak": 0.27869615134678666,
+      "boundary_step": 0.005566241219639778,
+      "passed": true
+    },
+    {
+      "from": "boss_1",
+      "to": "combat_3",
+      "peak": 0.28022514496127504,
+      "boundary_step": 0.005566241219639778,
+      "passed": true
+    },
+    {
+      "from": "boss_1",
+      "to": "boss_2",
+      "peak": 0.2780480571572849,
+      "boundary_step": 0.005566241219639778,
+      "passed": true
+    },
+    {
+      "from": "boss_1",
+      "to": "boss_3",
+      "peak": 0.2796007734165134,
+      "boundary_step": 0.005566241219639778,
+      "passed": true
+    },
+    {
+      "from": "boss_1",
+      "to": "victory_1",
+      "peak": 0.2741023546450771,
+      "boundary_step": 0.005566241219639778,
+      "passed": true
+    },
+    {
+      "from": "boss_1",
+      "to": "victory_2",
+      "peak": 0.2703210928675413,
+      "boundary_step": 0.005566241219639778,
+      "passed": true
+    },
+    {
+      "from": "boss_1",
+      "to": "victory_3",
+      "peak": 0.2714049579276199,
+      "boundary_step": 0.005566241219639778,
+      "passed": true
+    },
+    {
+      "from": "boss_2",
+      "to": "exploration_1",
+      "peak": 0.27448365925375817,
+      "boundary_step": 0.007362965494394302,
+      "passed": true
+    },
+    {
+      "from": "boss_2",
+      "to": "exploration_2",
+      "peak": 0.27438930185469823,
+      "boundary_step": 0.007362965494394302,
+      "passed": true
+    },
+    {
+      "from": "boss_2",
+      "to": "exploration_3",
+      "peak": 0.28095568202060617,
+      "boundary_step": 0.007362965494394302,
+      "passed": true
+    },
+    {
+      "from": "boss_2",
+      "to": "settlement_1",
+      "peak": 0.2724421149383783,
+      "boundary_step": 0.007362965494394302,
+      "passed": true
+    },
+    {
+      "from": "boss_2",
+      "to": "settlement_2",
+      "peak": 0.2749027845544977,
+      "boundary_step": 0.007362965494394302,
+      "passed": true
+    },
+    {
+      "from": "boss_2",
+      "to": "settlement_3",
+      "peak": 0.2812264424397685,
+      "boundary_step": 0.007362965494394302,
+      "passed": true
+    },
+    {
+      "from": "boss_2",
+      "to": "interior_1",
+      "peak": 0.27203174004409736,
+      "boundary_step": 0.007362965494394302,
+      "passed": true
+    },
+    {
+      "from": "boss_2",
+      "to": "interior_2",
+      "peak": 0.27189572641826354,
+      "boundary_step": 0.007362965494394302,
+      "passed": true
+    },
+    {
+      "from": "boss_2",
+      "to": "interior_3",
+      "peak": 0.2779731919232547,
+      "boundary_step": 0.007362965494394302,
+      "passed": true
+    },
+    {
+      "from": "boss_2",
+      "to": "dungeon_1",
+      "peak": 0.28489054212592047,
+      "boundary_step": 0.007362965494394302,
+      "passed": true
+    },
+    {
+      "from": "boss_2",
+      "to": "dungeon_2",
+      "peak": 0.29048037563839135,
+      "boundary_step": 0.007362965494394302,
+      "passed": true
+    },
+    {
+      "from": "boss_2",
+      "to": "dungeon_3",
+      "peak": 0.2881463886519599,
+      "boundary_step": 0.007362965494394302,
+      "passed": true
+    },
+    {
+      "from": "boss_2",
+      "to": "atmospheric_1",
+      "peak": 0.2757334113408194,
+      "boundary_step": 0.007362965494394302,
+      "passed": true
+    },
+    {
+      "from": "boss_2",
+      "to": "atmospheric_2",
+      "peak": 0.2752521459894741,
+      "boundary_step": 0.007362965494394302,
+      "passed": true
+    },
+    {
+      "from": "boss_2",
+      "to": "atmospheric_3",
+      "peak": 0.2821515075561955,
+      "boundary_step": 0.007362965494394302,
+      "passed": true
+    },
+    {
+      "from": "boss_2",
+      "to": "combat_1",
+      "peak": 0.28804240049140073,
+      "boundary_step": 0.007362965494394302,
+      "passed": true
+    },
+    {
+      "from": "boss_2",
+      "to": "combat_2",
+      "peak": 0.3052395867319454,
+      "boundary_step": 0.007362965494394302,
+      "passed": true
+    },
+    {
+      "from": "boss_2",
+      "to": "combat_3",
+      "peak": 0.2990423192150445,
+      "boundary_step": 0.007362965494394302,
+      "passed": true
+    },
+    {
+      "from": "boss_2",
+      "to": "boss_1",
+      "peak": 0.2844848070371712,
+      "boundary_step": 0.007362965494394302,
+      "passed": true
+    },
+    {
+      "from": "boss_2",
+      "to": "boss_3",
+      "peak": 0.3070212943864152,
+      "boundary_step": 0.007362965494394302,
+      "passed": true
+    },
+    {
+      "from": "boss_2",
+      "to": "victory_1",
+      "peak": 0.27343717832116576,
+      "boundary_step": 0.007362965494394302,
+      "passed": true
+    },
+    {
+      "from": "boss_2",
+      "to": "victory_2",
+      "peak": 0.281657606283745,
+      "boundary_step": 0.007362965494394302,
+      "passed": true
+    },
+    {
+      "from": "boss_2",
+      "to": "victory_3",
+      "peak": 0.2754683126104699,
+      "boundary_step": 0.007362965494394302,
+      "passed": true
+    },
+    {
+      "from": "boss_3",
+      "to": "exploration_1",
+      "peak": 0.2750763871159584,
+      "boundary_step": 0.005272556096315384,
+      "passed": true
+    },
+    {
+      "from": "boss_3",
+      "to": "exploration_2",
+      "peak": 0.2743155703861084,
+      "boundary_step": 0.005272556096315384,
+      "passed": true
+    },
+    {
+      "from": "boss_3",
+      "to": "exploration_3",
+      "peak": 0.27313016456883016,
+      "boundary_step": 0.005272556096315384,
+      "passed": true
+    },
+    {
+      "from": "boss_3",
+      "to": "settlement_1",
+      "peak": 0.281316599510109,
+      "boundary_step": 0.005272556096315384,
+      "passed": true
+    },
+    {
+      "from": "boss_3",
+      "to": "settlement_2",
+      "peak": 0.2807321271001784,
+      "boundary_step": 0.005272556096315384,
+      "passed": true
+    },
+    {
+      "from": "boss_3",
+      "to": "settlement_3",
+      "peak": 0.28049446504231446,
+      "boundary_step": 0.005272556096315384,
+      "passed": true
+    },
+    {
+      "from": "boss_3",
+      "to": "interior_1",
+      "peak": 0.2783631579491212,
+      "boundary_step": 0.005272556096315384,
+      "passed": true
+    },
+    {
+      "from": "boss_3",
+      "to": "interior_2",
+      "peak": 0.2770689875240598,
+      "boundary_step": 0.005272556096315384,
+      "passed": true
+    },
+    {
+      "from": "boss_3",
+      "to": "interior_3",
+      "peak": 0.27773387120272003,
+      "boundary_step": 0.005272556096315384,
+      "passed": true
+    },
+    {
+      "from": "boss_3",
+      "to": "dungeon_1",
+      "peak": 0.2770091755674783,
+      "boundary_step": 0.005272556096315384,
+      "passed": true
+    },
+    {
+      "from": "boss_3",
+      "to": "dungeon_2",
+      "peak": 0.2766944539247154,
+      "boundary_step": 0.005272556096315384,
+      "passed": true
+    },
+    {
+      "from": "boss_3",
+      "to": "dungeon_3",
+      "peak": 0.28243118451790866,
+      "boundary_step": 0.005272556096315384,
+      "passed": true
+    },
+    {
+      "from": "boss_3",
+      "to": "atmospheric_1",
+      "peak": 0.26888841573578204,
+      "boundary_step": 0.005272556096315384,
+      "passed": true
+    },
+    {
+      "from": "boss_3",
+      "to": "atmospheric_2",
+      "peak": 0.2733097876176407,
+      "boundary_step": 0.005272556096315384,
+      "passed": true
+    },
+    {
+      "from": "boss_3",
+      "to": "atmospheric_3",
+      "peak": 0.27037919822126505,
+      "boundary_step": 0.005272556096315384,
+      "passed": true
+    },
+    {
+      "from": "boss_3",
+      "to": "combat_1",
+      "peak": 0.27695132352095575,
+      "boundary_step": 0.006658349186182022,
+      "passed": true
+    },
+    {
+      "from": "boss_3",
+      "to": "combat_2",
+      "peak": 0.2793572278732536,
+      "boundary_step": 0.005272556096315384,
+      "passed": true
+    },
+    {
+      "from": "boss_3",
+      "to": "combat_3",
+      "peak": 0.28099739723647077,
+      "boundary_step": 0.005272556096315384,
+      "passed": true
+    },
+    {
+      "from": "boss_3",
+      "to": "boss_1",
+      "peak": 0.27085654910432005,
+      "boundary_step": 0.005272556096315384,
+      "passed": true
+    },
+    {
+      "from": "boss_3",
+      "to": "boss_2",
+      "peak": 0.27084502424227863,
+      "boundary_step": 0.005272556096315384,
+      "passed": true
+    },
+    {
+      "from": "boss_3",
+      "to": "victory_1",
+      "peak": 0.27999609692371236,
+      "boundary_step": 0.005272556096315384,
+      "passed": true
+    },
+    {
+      "from": "boss_3",
+      "to": "victory_2",
+      "peak": 0.2781490978967209,
+      "boundary_step": 0.005272556096315384,
+      "passed": true
+    },
+    {
+      "from": "boss_3",
+      "to": "victory_3",
+      "peak": 0.2730839020426002,
+      "boundary_step": 0.005272556096315384,
+      "passed": true
+    },
+    {
+      "from": "victory_1",
+      "to": "exploration_1",
+      "peak": 0.25865136953130546,
+      "boundary_step": 0.0069703394547104836,
+      "passed": true
+    },
+    {
+      "from": "victory_1",
+      "to": "exploration_2",
+      "peak": 0.24976624650692852,
+      "boundary_step": 0.0069703394547104836,
+      "passed": true
+    },
+    {
+      "from": "victory_1",
+      "to": "exploration_3",
+      "peak": 0.24262598798104454,
+      "boundary_step": 0.0069703394547104836,
+      "passed": true
+    },
+    {
+      "from": "victory_1",
+      "to": "settlement_1",
+      "peak": 0.25765358015449985,
+      "boundary_step": 0.0069703394547104836,
+      "passed": true
+    },
+    {
+      "from": "victory_1",
+      "to": "settlement_2",
+      "peak": 0.24146321726246647,
+      "boundary_step": 0.0069703394547104836,
+      "passed": true
+    },
+    {
+      "from": "victory_1",
+      "to": "settlement_3",
+      "peak": 0.25566226641914636,
+      "boundary_step": 0.0069703394547104836,
+      "passed": true
+    },
+    {
+      "from": "victory_1",
+      "to": "interior_1",
+      "peak": 0.2527629197346017,
+      "boundary_step": 0.0069703394547104836,
+      "passed": true
+    },
+    {
+      "from": "victory_1",
+      "to": "interior_2",
+      "peak": 0.2499778347234462,
+      "boundary_step": 0.0069703394547104836,
+      "passed": true
+    },
+    {
+      "from": "victory_1",
+      "to": "interior_3",
+      "peak": 0.24655583522569013,
+      "boundary_step": 0.0069703394547104836,
+      "passed": true
+    },
+    {
+      "from": "victory_1",
+      "to": "dungeon_1",
+      "peak": 0.2633969434986472,
+      "boundary_step": 0.0069703394547104836,
+      "passed": true
+    },
+    {
+      "from": "victory_1",
+      "to": "dungeon_2",
+      "peak": 0.2471721571015079,
+      "boundary_step": 0.0069703394547104836,
+      "passed": true
+    },
+    {
+      "from": "victory_1",
+      "to": "dungeon_3",
+      "peak": 0.2503785220128935,
+      "boundary_step": 0.0069703394547104836,
+      "passed": true
+    },
+    {
+      "from": "victory_1",
+      "to": "atmospheric_1",
+      "peak": 0.2588938038840959,
+      "boundary_step": 0.0069703394547104836,
+      "passed": true
+    },
+    {
+      "from": "victory_1",
+      "to": "atmospheric_2",
+      "peak": 0.24843585117559985,
+      "boundary_step": 0.0069703394547104836,
+      "passed": true
+    },
+    {
+      "from": "victory_1",
+      "to": "atmospheric_3",
+      "peak": 0.24859573461869064,
+      "boundary_step": 0.0069703394547104836,
+      "passed": true
+    },
+    {
+      "from": "victory_1",
+      "to": "combat_1",
+      "peak": 0.25443229492584507,
+      "boundary_step": 0.0069703394547104836,
+      "passed": true
+    },
+    {
+      "from": "victory_1",
+      "to": "combat_2",
+      "peak": 0.2493997582958082,
+      "boundary_step": 0.0069703394547104836,
+      "passed": true
+    },
+    {
+      "from": "victory_1",
+      "to": "combat_3",
+      "peak": 0.24913287580285498,
+      "boundary_step": 0.0069703394547104836,
+      "passed": true
+    },
+    {
+      "from": "victory_1",
+      "to": "boss_1",
+      "peak": 0.2554733282093538,
+      "boundary_step": 0.0069703394547104836,
+      "passed": true
+    },
+    {
+      "from": "victory_1",
+      "to": "boss_2",
+      "peak": 0.25061949454491944,
+      "boundary_step": 0.0069703394547104836,
+      "passed": true
+    },
+    {
+      "from": "victory_1",
+      "to": "boss_3",
+      "peak": 0.2502300481023397,
+      "boundary_step": 0.0069703394547104836,
+      "passed": true
+    },
+    {
+      "from": "victory_1",
+      "to": "victory_2",
+      "peak": 0.25401336178458106,
+      "boundary_step": 0.0069703394547104836,
+      "passed": true
+    },
+    {
+      "from": "victory_1",
+      "to": "victory_3",
+      "peak": 0.2609776560816738,
+      "boundary_step": 0.0069703394547104836,
+      "passed": true
+    },
+    {
+      "from": "victory_2",
+      "to": "exploration_1",
+      "peak": 0.28089906945270676,
+      "boundary_step": 0.007558673853054643,
+      "passed": true
+    },
+    {
+      "from": "victory_2",
+      "to": "exploration_2",
+      "peak": 0.26338483586308425,
+      "boundary_step": 0.007558673853054643,
+      "passed": true
+    },
+    {
+      "from": "victory_2",
+      "to": "exploration_3",
+      "peak": 0.2552071580809742,
+      "boundary_step": 0.007558673853054643,
+      "passed": true
+    },
+    {
+      "from": "victory_2",
+      "to": "settlement_1",
+      "peak": 0.27957054932290787,
+      "boundary_step": 0.007558673853054643,
+      "passed": true
+    },
+    {
+      "from": "victory_2",
+      "to": "settlement_2",
+      "peak": 0.25078300644462637,
+      "boundary_step": 0.007558673853054643,
+      "passed": true
+    },
+    {
+      "from": "victory_2",
+      "to": "settlement_3",
+      "peak": 0.2625565635829539,
+      "boundary_step": 0.007558673853054643,
+      "passed": true
+    },
+    {
+      "from": "victory_2",
+      "to": "interior_1",
+      "peak": 0.2618992463050918,
+      "boundary_step": 0.007558673853054643,
+      "passed": true
+    },
+    {
+      "from": "victory_2",
+      "to": "interior_2",
+      "peak": 0.255484129108503,
+      "boundary_step": 0.007558673853054643,
+      "passed": true
+    },
+    {
+      "from": "victory_2",
+      "to": "interior_3",
+      "peak": 0.2460122033666505,
+      "boundary_step": 0.007558673853054643,
+      "passed": true
+    },
+    {
+      "from": "victory_2",
+      "to": "dungeon_1",
+      "peak": 0.2784682992421289,
+      "boundary_step": 0.007558673853054643,
+      "passed": true
+    },
+    {
+      "from": "victory_2",
+      "to": "dungeon_2",
+      "peak": 0.2679669381895047,
+      "boundary_step": 0.007558673853054643,
+      "passed": true
+    },
+    {
+      "from": "victory_2",
+      "to": "dungeon_3",
+      "peak": 0.2643375118387498,
+      "boundary_step": 0.007558673853054643,
+      "passed": true
+    },
+    {
+      "from": "victory_2",
+      "to": "atmospheric_1",
+      "peak": 0.2595453627493796,
+      "boundary_step": 0.007558673853054643,
+      "passed": true
+    },
+    {
+      "from": "victory_2",
+      "to": "atmospheric_2",
+      "peak": 0.2610209262068069,
+      "boundary_step": 0.007558673853054643,
+      "passed": true
+    },
+    {
+      "from": "victory_2",
+      "to": "atmospheric_3",
+      "peak": 0.2629481907678561,
+      "boundary_step": 0.007558673853054643,
+      "passed": true
+    },
+    {
+      "from": "victory_2",
+      "to": "combat_1",
+      "peak": 0.2568217485543178,
+      "boundary_step": 0.007558673853054643,
+      "passed": true
+    },
+    {
+      "from": "victory_2",
+      "to": "combat_2",
+      "peak": 0.255246763234671,
+      "boundary_step": 0.007558673853054643,
+      "passed": true
+    },
+    {
+      "from": "victory_2",
+      "to": "combat_3",
+      "peak": 0.254289624646352,
+      "boundary_step": 0.007558673853054643,
+      "passed": true
+    },
+    {
+      "from": "victory_2",
+      "to": "boss_1",
+      "peak": 0.2609172839959554,
+      "boundary_step": 0.007558673853054643,
+      "passed": true
+    },
+    {
+      "from": "victory_2",
+      "to": "boss_2",
+      "peak": 0.2464703397620685,
+      "boundary_step": 0.007558673853054643,
+      "passed": true
+    },
+    {
+      "from": "victory_2",
+      "to": "boss_3",
+      "peak": 0.24800219184687292,
+      "boundary_step": 0.007558673853054643,
+      "passed": true
+    },
+    {
+      "from": "victory_2",
+      "to": "victory_1",
+      "peak": 0.26292232958228534,
+      "boundary_step": 0.007558673853054643,
+      "passed": true
+    },
+    {
+      "from": "victory_2",
+      "to": "victory_3",
+      "peak": 0.2559282167857152,
+      "boundary_step": 0.007558673853054643,
+      "passed": true
+    },
+    {
+      "from": "victory_3",
+      "to": "exploration_1",
+      "peak": 0.27930239936195894,
+      "boundary_step": 0.007275956450030208,
+      "passed": true
+    },
+    {
+      "from": "victory_3",
+      "to": "exploration_2",
+      "peak": 0.25713111950187956,
+      "boundary_step": 0.007275956450030208,
+      "passed": true
+    },
+    {
+      "from": "victory_3",
+      "to": "exploration_3",
+      "peak": 0.2548147851647349,
+      "boundary_step": 0.007275956450030208,
+      "passed": true
+    },
+    {
+      "from": "victory_3",
+      "to": "settlement_1",
+      "peak": 0.28038828235063457,
+      "boundary_step": 0.007275956450030208,
+      "passed": true
+    },
+    {
+      "from": "victory_3",
+      "to": "settlement_2",
+      "peak": 0.25061807982849327,
+      "boundary_step": 0.007275956450030208,
+      "passed": true
+    },
+    {
+      "from": "victory_3",
+      "to": "settlement_3",
+      "peak": 0.26216419066671454,
+      "boundary_step": 0.007275956450030208,
+      "passed": true
+    },
+    {
+      "from": "victory_3",
+      "to": "interior_1",
+      "peak": 0.24914879732702308,
+      "boundary_step": 0.007275956450030208,
+      "passed": true
+    },
+    {
+      "from": "victory_3",
+      "to": "interior_2",
+      "peak": 0.2460102773997639,
+      "boundary_step": 0.007275956450030208,
+      "passed": true
+    },
+    {
+      "from": "victory_3",
+      "to": "interior_3",
+      "peak": 0.24443662366289137,
+      "boundary_step": 0.007275956450030208,
+      "passed": true
+    },
+    {
+      "from": "victory_3",
+      "to": "dungeon_1",
+      "peak": 0.2792860322698556,
+      "boundary_step": 0.007275956450030208,
+      "passed": true
+    },
+    {
+      "from": "victory_3",
+      "to": "dungeon_2",
+      "peak": 0.26158196918119103,
+      "boundary_step": 0.007275956450030208,
+      "passed": true
+    },
+    {
+      "from": "victory_3",
+      "to": "dungeon_3",
+      "peak": 0.25795254283043617,
+      "boundary_step": 0.007275956450030208,
+      "passed": true
+    },
+    {
+      "from": "victory_3",
+      "to": "atmospheric_1",
+      "peak": 0.2591529898331403,
+      "boundary_step": 0.007275956450030208,
+      "passed": true
+    },
+    {
+      "from": "victory_3",
+      "to": "atmospheric_2",
+      "peak": 0.2563949592792686,
+      "boundary_step": 0.007275956450030208,
+      "passed": true
+    },
+    {
+      "from": "victory_3",
+      "to": "atmospheric_3",
+      "peak": 0.2611034307436054,
+      "boundary_step": 0.007275956450030208,
+      "passed": true
+    },
+    {
+      "from": "victory_3",
+      "to": "combat_1",
+      "peak": 0.25642937563807844,
+      "boundary_step": 0.007275956450030208,
+      "passed": true
+    },
+    {
+      "from": "victory_3",
+      "to": "combat_2",
+      "peak": 0.25485439031843166,
+      "boundary_step": 0.007275956450030208,
+      "passed": true
+    },
+    {
+      "from": "victory_3",
+      "to": "combat_3",
+      "peak": 0.25244486462210136,
+      "boundary_step": 0.007275956450030208,
+      "passed": true
+    },
+    {
+      "from": "victory_3",
+      "to": "boss_1",
+      "peak": 0.26173501702368207,
+      "boundary_step": 0.007275956450030208,
+      "passed": true
+    },
+    {
+      "from": "victory_3",
+      "to": "boss_2",
+      "peak": 0.24607796684582917,
+      "boundary_step": 0.007275956450030208,
+      "passed": true
+    },
+    {
+      "from": "victory_3",
+      "to": "boss_3",
+      "peak": 0.24760981893063358,
+      "boundary_step": 0.007275956450030208,
+      "passed": true
+    },
+    {
+      "from": "victory_3",
+      "to": "victory_1",
+      "peak": 0.2610775695580347,
+      "boundary_step": 0.007275956450030208,
+      "passed": true
+    },
+    {
+      "from": "victory_3",
+      "to": "victory_2",
+      "peak": 0.2541076179717155,
+      "boundary_step": 0.007275956450030208,
+      "passed": true
+    }
+  ],
+  "event_overlay_cases": 144,
+  "max_event_overlay_peak": 0.35246336460113525,
+  "max_crossfade_peak": 0.3070212943864152,
+  "max_boundary_step": 0.009339073672890663,
+  "all_passed": true,
+  "scope": "Decoded Vorbis, three-stem full-intensity sums, linear bar crossfades. Musical judgment requires listening."
+}

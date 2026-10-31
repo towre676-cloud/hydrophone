@@ -1,0 +1,42 @@
+{
+  "schema": "aa.browser-verification/1",
+  "environment": "Chrome managed preview",
+  "game_source_base": "50cf0efe5d9a49808512672a4c9cd2594cce60a2",
+  "observations": [
+    {
+      "context": "temporary chapter-one exploration",
+      "transport": "orchestral-stems",
+      "track": "orchestra:interior_2",
+      "contextState": "running",
+      "stems": 3,
+      "meter_rms": 0.00729
+    },
+    {
+      "context": "game pause",
+      "playing": false,
+      "position": 57.20170068027211
+    },
+    {
+      "context": "resumed game, subsequent actual combat",
+      "transport": "orchestral-stems",
+      "track": "orchestra:combat_2",
+      "intensity": "alert",
+      "stems": 3,
+      "meter_rms": 0.01541
+    },
+    {
+      "context": "listening room boss",
+      "track": "orchestra:boss_1",
+      "intensity": "danger",
+      "stems": 3,
+      "meter_rms": 0.01234
+    }
+  ],
+  "production_deployed": false,
+  "native_browser_decode": {
+    "passed": 90,
+    "total": 90,
+    "duration_tolerance_s": 0.02,
+    "hash_check": "Python checks passed; preview HTTP lacks SubtleCrypto, HTTPS listening room enables SHA256"
+  }
+}
