@@ -1178,44 +1178,6 @@
       "event_count": 103
     }
   ],
-  "intensity_layers": {
-    "calm": {
-      "bed": 1,
-      "theme": 0.65,
-      "motion": 0.15
-    },
-    "alert": {
-      "bed": 1,
-      "theme": 0.85,
-      "motion": 0.55
-    },
-    "danger": {
-      "bed": 1,
-      "theme": 1,
-      "motion": 1
-    }
-  },
-  "transition": {
-    "quantize": "bar",
-    "crossfade_s": 2.4,
-    "curve": "linear_constant_sum",
-    "combat_max_wait_s": 2.4,
-    "variant_after_cycles": 2,
-    "no_immediate_repeat": true
-  },
-  "events": {
-    "victory_sting": "victory_sting",
-    "boss_arrival": "boss_arrival",
-    "rest": "rest",
-    "revelation": "revelation",
-    "chapter_ending": "chapter_ending",
-    "combat_exit": "combat_exit"
-  },
-  "provenance": {
-    "engine": "symphony.render sampled FluidSynth",
-    "soundfont_sha256": "9575028c7a1f589f5770fccc8cff2734566af40cd26ed836944e9a5152688cfe",
-    "original_20261024_compositions_modified": false
-  },
   "gameplay_rules": [
     {
       "event": "battle.start",
@@ -1253,5 +1215,43 @@
       "event": "pause_or_hidden",
       "action": "pause preserving musical offset"
     }
-  ]
+  ],
+  "intensity_layers": {
+    "calm": {
+      "bed": 1,
+      "theme": 0.65,
+      "motion": 0.15
+    },
+    "alert": {
+      "bed": 1,
+      "theme": 0.85,
+      "motion": 0.55
+    },
+    "danger": {
+      "bed": 1,
+      "theme": 1,
+      "motion": 1
+    }
+  },
+  "transition": {
+    "quantize": "bar",
+    "crossfade_s": 2.4,
+    "curve": "linear_constant_sum",
+    "combat_max_wait_s": 2.4,
+    "variant_after_cycles": 2,
+    "no_immediate_repeat": true
+  },
+  "events": {
+    "victory_sting": "victory_sting",
+    "boss_arrival": "boss_arrival",
+    "rest": "rest",
+    "revelation": "revelation",
+    "chapter_ending": "chapter_ending",
+    "combat_exit": "combat_exit"
+  },
+  "provenance": {
+    "engine": "symphony.render sampled FluidSynth",
+    "soundfont_sha256": "9575028c7a1f589f5770fccc8cff2734566af40cd26ed836944e9a5152688cfe",
+    "original_20261024_compositions_modified": false
+  }
 }
